@@ -1,46 +1,44 @@
-% Aprendizagem Computacional, DEI, 2014, Dourado
-% digitalizaï¿½ï¿½o de um carï¿½cter desenhado manualmente .
+% Aprendizagem Computacional, DEI, 2014
+% digitalização de um carácter desenhado manualmente .
 % Usa-se para construir as matrizes de dados P, que se guarda em formato .mat 
-% Serve tambï¿½m para estabelecer os vectores alvo ("target") num problema de
-% classificaï¿½ï¿½o: desenham-se cuidadosamente na grelha produzida pela funï¿½ï¿½o, guardando-se
-% aï¿½ como a matriz T.
+% Serve também para estabelecer os vectores alvo ("target") num problema de
+% classificação: desenham-se cuidadosamente na grelha produzida pela função, guardando-se
+% aí como a matriz T.
 
 function mpaper(varargin)
 
 warning off MATLAB:divideByZero
 
-% Neste trabalho prï¿½tico esta funï¿½ï¿½o ï¿½ usada simplesmente 
+% Neste trabalho prático esta função é usada simplesmente 
 % para gerar entradas a partir de uma grelha onde o utilizador desenha, com
-% o rato, um algarismo (0 a 9). A cï¿½lula do algarismo ï¿½ dividida numa
-% grelha 16x16 e cada quadrï¿½cula ï¿½ transformada num 1 ou num 0, conforme
-% esteja ou nï¿½o preenchida pela linha desenhada nessa cï¿½lula.
+% o rato, um algarismo (0 a 9). A célula do algarismo é dividida numa
+% grelha 16x16 e cada quadrícula é transformada num 1 ou num 0, conforme
+% esteja ou não preenchida pela linha desenhada nessa célula.
 %
-% Pode-se chamar de um script, com um nï¿½mero variï¿½vel de argumentos (varargin, variable arguments input) ou correr  
+% Pode-se chamar de um script, com um número variável de argumentos (varargin, variable arguments input) ou correr  
 % directamente da linha de comando, escrevendo simplesmente mpaper. Aparece
-% uma quadrï¿½cula 5x10. Desenha-se um algarismo em cada cï¿½lula.
-% o resultado da "digitalizaï¿½ï¿½o" da quadrï¿½cula ï¿½ armazenado na estrutura
+% uma quadrícula 5x10. Desenha-se um algarismo em cada célula.
+% o resultado da "digitalização" da quadrícula é armazenado na estrutura
 % data.X. Cada coluna de 256 linhas corresponde a um quadrado.
 %
-% Este ficheiro foi adaptado por J. Henriques para a cadeira de Computaï¿½ï¿½o
+% Este ficheiro foi adaptado por J. Henriques para a cadeira de Computação
 % Adaptativa. Ver abaixo autoria original.
 
 %Resumindo:
-% 1ï¿½ Corre-se mpaper (sem fazer classificaï¿½ï¿½o, comentando a linha feval nï¿½ 190 neste ficheiro)
+% 1º Corre-se mpaper (sem fazer classificação, comentando a linha feval nº 190 neste ficheiro)
 
-% 2ï¿½ Desenham-se caracteres em nï¿½mero suficiente, um em cada quadrï¿½cula
+% 2º Desenham-se caracteres em número suficiente, um em cada quadrícula
 % apresentada, para construir os dados de treino.
 
-% 2ï¿½ Usa-se a matriz das entradas P assim criada para o nosso problema,
+% 2º Usa-se a matriz das entradas P assim criada para o nosso problema,
 % activando as linhas 181 e desactivando a linha 199
 
-% 3ï¿½ Desenham-se, com muito jeito, os caracteres perfeitos na grelha do
-% mpaper, que serï¿½o guardados como a matriz T, desactivando a linha 181 e
+% 3º Desenham-se, com muito jeito, os caracteres perfeitos na grelha do
+% mpaper, que serão guardados como a matriz T, desactivando a linha 181 e
 % activando a linha 199 deste ficheiro. 
 
-% 4ï¿½ Para se graficar cada entrada numa grelha, usa-se a funï¿½ï¿½o grafica
-% (X,Y, Z), que permite visualizar uma, duas, ou trï¿½s entradas.
-
-% teste teste dasfda
+% 4º Para se graficar cada entrada numa grelha, usa-se a função grafica
+% (X,Y, Z), que permite visualizar uma, duas, ou três entradas.
 
 %::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
 %
@@ -138,13 +136,13 @@ function Up(varargin)
 function Dn(varargin)
       switch get(gcf, 'SelectionType')   % clicked mouse button
           
-       case 'normal'  % left     se carregar no botï¿½o esquerdo do rato
+       case 'normal'  % left     se carregar no botão esquerdo do rato
           setappdata(gcf, 'last', [] );
           set( gcf, 'WindowButtonMotionFcn', 'mpaper(''Plot'')' );
           set( gcf, 'WindowButtonUpFcn', 'mpaper(''Up'')' );
           Plot
           
-        case 'extend'  % middle  se carregar no botï¿½o do meio do rato
+        case 'extend'  % middle  se carregar no botão do meio do rato
             disp('----------- Classify -----------')
          
           cells = getappdata( gcf, 'cells' );
@@ -172,34 +170,34 @@ function Dn(varargin)
                 end
              end
              
- % Atï¿½ aqui foi digitalizada a quadrï¿½cula 5x10, estando os resultados
- % em data.X. Seguindo a notaï¿½ï¿½o usada em Computaï¿½ï¿½o Adaptativa, poderemos
+ % Até aqui foi digitalizada a quadrícula 5x10, estando os resultados
+ % em data.X. Seguindo a notação usada em Computação Adaptativa, poderemos
  % construir a partir deles o vector de entradas P, fazendo simplesmente
              P=data.X;
-             ind=find( sum(data.X) ~= 0);% considerar em ind as colunas de soma nï¿½o-nula; se uma coluna tem soma nula,
-               %ï¿½ porque no quadrado respectivo nada se escreveu (nï¿½o hï¿½
+             ind=find( sum(data.X) ~= 0);% considerar em ind as colunas de soma não-nula; se uma coluna tem soma nula,
+               %é porque no quadrado respectivo nada se escreveu (não há
                %nenhum 1).
              save P
              save ind
- % para se analisar o procedimento de leitura do desenho, sua representaï¿½ï¿½o
- % em binï¿½rio e depois a construï¿½ï¿½o de data.X, ver o ficheiro bmp e a
- % funï¿½ï¿½o bmp2plot mais ï¿½ frente
- % neste momento estï¿½o na directoria de trabalho (indicada na janela
+ % para se analisar o procedimento de leitura do desenho, sua representação
+ % em binário e depois a construção de data.X, ver o ficheiro bmp e a
+ % função bmp2plot mais à frente
+ % neste momento estão na directoria de trabalho (indicada na janela
  % superior do desktop) a matriz P.mat e o vector ind.mat.
- % segue-se a classificaï¿½ï¿½o que se faz activando a linha seguinte 
+ % segue-se a classificação que se faz activando a linha seguinte 
  
            %  feval(options.fun,data);
              
- % feval vai calcular a funï¿½ï¿½o options.fun, que por defeito ï¿½ a ocr_fun;
- % ocr_fun chama a funï¿½ï¿½o myclassify que deve ser escrita pelo utilizador. 
+ % feval vai calcular a função options.fun, que por defeito é a ocr_fun;
+ % ocr_fun chama a função myclassify que deve ser escrita pelo utilizador. 
  %
- % Se se pretender usar a funï¿½ï¿½o para definir a matriz T dos alvos, deve
+ % Se se pretender usar a função para definir a matriz T dos alvos, deve
  % activar-se a linha seguinte e desactivar a anterior save P.
  %
             T=data.X;
             save T
  %
- % Pode confirmar usando a grafica para desenhar os alvos na quadrï¿½cula
+ % Pode confirmar usando a grafica para desenhar os alvos na quadrícula
  % 16x16.
  
            else             
@@ -210,7 +208,7 @@ function Dn(varargin)
 %                       imshow(bmp,[]);
            end
             
-        case 'alt'     % right  ( se carregar no botï¿½o direito do rato)
+        case 'alt'     % right  ( se carregar no botão direito do rato)
             disp('----------- Erased -----------')
           %          Cla
           cells = getappdata( gcf, 'cells' );
