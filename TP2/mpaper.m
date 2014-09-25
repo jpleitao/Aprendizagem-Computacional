@@ -1,4 +1,4 @@
-% Aprendizagem Computacional, DEI, 2014
+% Aprendizagem Computacional, DEI, 2014, Dourado
 % digitalização de um carácter desenhado manualmente .
 % Usa-se para construir as matrizes de dados P, que se guarda em formato .mat 
 % Serve também para estabelecer os vectores alvo ("target") num problema de
