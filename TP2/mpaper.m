@@ -40,6 +40,8 @@ warning off MATLAB:divideByZero
 % 4º Para se graficar cada entrada numa grelha, usa-se a função grafica
 % (X,Y, Z), que permite visualizar uma, duas, ou três entradas.
 
+% teste teste dasfda
+
 %::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
 %
 % MPAPER Allows to enter handwritten characters by mouse.
