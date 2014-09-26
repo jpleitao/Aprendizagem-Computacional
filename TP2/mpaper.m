@@ -144,7 +144,11 @@ function Dn(varargin)
           
         case 'extend'  % middle  se carregar no botão do meio do rato
             disp('----------- Classify -----------')
-         
+            
+            % Changed this line for test purposes %
+            close(1);
+            % ----------------------------------- %
+            
           cells = getappdata( gcf, 'cells' );
           for r =  1:5
             for c = 1:10
