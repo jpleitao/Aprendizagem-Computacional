@@ -9,4 +9,7 @@ while cond < 100
     
     % Here we have to copy the values of P to a P2 %
     %
+
+    % Increase cond
+    cond = cond + 1;
 end
