@@ -1,7 +1,12 @@
 cond = 1;
 
 while cond < 100
-   mpaper;
-   pause;
-   close();
+    % Open mpaper %
+    mpaper;
+    
+    % This wait for the Figure 1 - mpaper - to close %
+    waitfor(1);
+    
+    % Here we have to copy the values of P to a P2 %
+    %
 end
