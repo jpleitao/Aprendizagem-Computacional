@@ -59,6 +59,5 @@ while cond < 11%Since cond starts in 1 and we want to make 500 iterations we nee
 	cond = cond + 1;
 end
 
-showim(Pfinal);
-pause
-showim(Tfinal);
+save Pfinal;
+save Tfinal;
