@@ -12,7 +12,7 @@ Pfinal = [];
 Tfinal = [];
 drawing_order = [1:9,0];
 
-while cond < 101%Since cond starts in 1 and we want to make 500 iterations we need to run the cycle while cond<=100, that is while cond<101
+while cond < 11%Since cond starts in 1 and we want to make 500 iterations we need to run the cycle while cond<=10, that is while cond<11
 	% Open mpaper %
 	mpaper;
 	
