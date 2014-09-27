@@ -145,10 +145,6 @@ function Dn(varargin)
         case 'extend'  % middle  se carregar no botão do meio do rato
             disp('----------- Classify -----------')
             
-            % Changed this line for test purposes %
-            close(1);
-            % ----------------------------------- %
-            
           cells = getappdata( gcf, 'cells' );
           for r =  1:5
             for c = 1:10
@@ -208,8 +204,14 @@ function Dn(varargin)
              figure; 
              imshow(bmp,[]);
            end
+
+            % Changed this line for test purposes %
+            fprintf('Closing figure 1\n');
+            close(1);
+            % ----------------------------------- %
 %                        figure(7); 
 %                       imshow(bmp,[]);
+
            end
             
         case 'alt'     % right  ( se carregar no botão direito do rato)
