@@ -91,7 +91,19 @@ end
 %%%%
 %%	Runs the training algorithm for the given data, in the given neural network
 %%%%
-function trainNetwork(my_network, trainingData, targetData)
+function trainNetwork(my_network, trainingData, nCases)
+
+	%Generate the target data (classes) for the training (10,Q)
+	%Don't forget our drawing order!
+	%1 2 3 4 5 6 7 8 9 0
+	%1 2 3 4 5 6 7 8 9 0
+	%....
+
+	targetData = zeros(10, nCases);
+	for i = 1 : nCases
+        targetData( mod(i,10), i ) = 1;
+    end
+
 	%Train the network for the given data
 	net = train(net, trainingData, targetData);
 end

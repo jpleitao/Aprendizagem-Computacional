@@ -41,11 +41,12 @@ function my_return = myclassify(data_, filled_, network_)
 
 		%Create the neural network and train it
 		network_ = createNetwork(network_type, nA, nP);
-		trainNetwork(network_, data_, Tfinal_mine);
+		trainNetwork(network_, data_, nCases);
 	end
 
 %=====================================================Classify Data==========================================================
 
 	%Make the classification
+	
 
 end
