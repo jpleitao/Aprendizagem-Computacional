@@ -85,7 +85,6 @@ warning off MATLAB:divideByZero
 %  9-sep-03, VF, 
 %  8-sep-03, MM, Martin Matousek programmed the GUI enviroment.
 
-
 %::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: 
 if nargin >= 1 && ischar(varargin{1}),
   switch varargin{1},
@@ -186,7 +185,7 @@ function Dn(varargin)
  % superior do desktop) a matriz P.mat e o vector ind.mat.
  % segue-se a classificação que se faz activando a linha seguinte 
  
-           %  feval(options.fun,data);
+            feval(options.fun,data);
              
  % feval vai calcular a função options.fun, que por defeito é a ocr_fun;
  % ocr_fun chama a função myclassify que deve ser escrita pelo utilizador. 
@@ -195,7 +194,7 @@ function Dn(varargin)
  % activar-se a linha seguinte e desactivar a anterior save P.
  %
             T=data.X;
-            save T
+            %save T
  %
  % Pode confirmar usando a grafica para desenhar os alvos na quadrícula
  % 16x16.
