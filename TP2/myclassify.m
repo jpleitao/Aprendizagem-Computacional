@@ -16,12 +16,12 @@ function my_return = myclassify(data_, filled_, network_)
 
 	%Ask the user if using associative memory or not
 	associative = 0;
-	while associative ~= 1 or associative ~= 2
-		associative = input('Select the desired architecture (1 - With associative memory; 2 - Without associative memory):\n');
+	while ( (associative ~= 1) && (associative ~= 2))
+		associative = input('Select the desired architecture\n1 - With associative memory\n2 - Without associative memory:\n');
 	end
 
 	%%Check which architecture to use (with or without associative memory)
-	if (associative_ == 1)
+	if (associative == 1)
 		data_ = associativeMemory(data_, Tfinal_mine);
 	end
 
@@ -32,22 +32,36 @@ function my_return = myclassify(data_, filled_, network_)
 
 		%Get network information
 		network_type = 0;
-		while network_type ~= 1 or network_type ~= 2
-			network_type = input('Select the desired network type (1 - Feedforward Neural Network; 2 - Perceptron):\n');
+		while ((network_type ~= 1) && (network_type ~= 2))
+			network_type = input('Select the desired network type\n1 - Feedforward Neural Network\n2 - Perceptron:\n');
 		end
 
-		nA = 10;
-		[nP, nCases] = size(data_);
-
 		%Create the neural network and train it
-		network_ = createNetwork(network_type, nA, nP);
-		trainNetwork(network_, data_, nCases);
+		network_ = createNetwork(network_type, data_);
 		%After the training the final weights and bias can be accessed by "network_.IW" and "network_.b"
 	end
 
 %=====================================================Classify Data==========================================================
 
 	%Make the classification: Run sim and then set the results in the format excpeted by ocr_func
+	result = sim(network_, data_);
 
+	% Set the result into the format expected by ocr_fun
+	total_cases = length(filled_);
 
+	[nP, nCases] = size(data_);
+
+	%Row vector with the same number of collumns as the number of filled squares, with the correspondent class
+	my_return = ones(1,total_cases) * -1;%Initialize each element of the vector
+
+	current_case = 1;
+	while (current_case <= total_cases)
+		%Get the class in the result of the simulation and then get respecting collumn
+		case_result = find(result(:,filled_(current_case)) == max(result(:,filled_(current_case))));
+		if (length(case_result) == 1)
+	    	my_return(current_case) = case_result;
+		end
+
+		current_case = current_case + 1;
+	end	
 end
