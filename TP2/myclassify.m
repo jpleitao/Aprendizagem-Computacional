@@ -4,6 +4,8 @@
 %%	hand in a given table; An array with the positions in the table where the user didn't draw anything; A previously created and
 %%	trained neural network (this last argument is optional, and if not provided one neural network will be created and trained with a
 %%	previously defined set of training examples).
+%%
+%%	EXPLAIN HOW DOES THIS FUNCTION WORKS. TODO
 %%%%
 function my_return = myclassify(data_, filled_, network_)
 

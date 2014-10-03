@@ -1,8 +1,11 @@
 %%%%
-%% my_data --> Data we want to apply the associative memory to
-%% my_target --> Target data, with the expected output for the given input
-%% Returns the "corrected" input
-%% When using associative memory the user has to fill all the squares, in the following order: 1;2;3;4;5;6;7;8;9;0
+%%	my_data --> Data we want to apply the associative memory to
+%%	my_target --> Target data, with the expected output for the given input
+%%	Returns the "corrected" input, stored in P2
+%%	When using associative memory the user has to fill all the squares, in the following order: 1;2;3;4;5;6;7;8;9;0
+%%
+%%	How does the Associative Memory works? TODO: EXPLAIN
+%%
 %%%%
 function P2 = associativeMemory(my_data, my_target)
 
@@ -32,6 +35,8 @@ function P2 = associativeMemory(my_data, my_target)
 	%Run it to obtain the "corrected" data
 	%P2 = sim(associative_memory_network, my_data);
 
-	P2 = W * my_data;
+	%FIXME: Make sim work!!!
+
+	P2 = W * my_data;%THIS IS WRONG!!!
 
 end

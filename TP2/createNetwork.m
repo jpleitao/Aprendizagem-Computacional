@@ -1,6 +1,8 @@
 %%%%
-%% Creates a new neural network, either a Perceptron or a Feedforward Network, depending on the user's choice. This neural network
-%% is going to be used as the classifier
+%%	Creates a new neural network, either a Perceptron or a Feedforward Network, depending on the user's choice. This neural network
+%%	is going to be used as the classifier
+%%
+%%	EXPLAIN HOW DO THE NEURAL NETWORKS WORK. TODO
 %%%%
 function my_network = createNetwork(network_type, currentData)
 
