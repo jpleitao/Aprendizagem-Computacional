@@ -204,9 +204,6 @@ function Dn(varargin)
              imshow(bmp,[]);
            end
 
-            % Changed this line for test purposes %
-            fprintf('Closing figure 1\n');
-            close(1);
             % ----------------------------------- %
 %                        figure(7); 
 %                       imshow(bmp,[]);
