@@ -42,11 +42,12 @@ function my_return = myclassify(data_, filled_, network_)
 		%Create the neural network and train it
 		network_ = createNetwork(network_type, nA, nP);
 		trainNetwork(network_, data_, nCases);
+		%After the training the final weights and bias can be accessed by "network_.IW" and "network_.b"
 	end
 
 %=====================================================Classify Data==========================================================
 
-	%Make the classification
-	
+	%Make the classification: Run sim and then set the results in the format excpeted by ocr_func
+
 
 end
