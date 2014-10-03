@@ -96,8 +96,10 @@ function trainNetwork(my_network, trainingData, nCases)
 	%....
 
 	targetData = zeros(10, nCases);
-	for i = 1 : nCases
-		targetData( mod(i,10), i ) = 1;
+	temp = 1;
+	while temp <= nCases
+		targetData( mod(temp,10), temp ) = 1;
+		temp = temp + 1;
 	end
 
 	%Train the network for the given data
