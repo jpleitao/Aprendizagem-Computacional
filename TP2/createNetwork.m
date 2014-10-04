@@ -19,7 +19,7 @@ function my_network = createNetwork(network_type, currentData)
 
 		keep_going = 1;
 		while (keep_going == 1)
-			temp = input('Select the desired activation function.\n1 - sigmoidal\n2 - linear\n3 - Hard-limit:\n');
+			temp = input('Select the desired activation function.\n1 - sigmoidal\n2 - linear\n3 - Hard-limit\n');
 			if (temp == 1)
 				activation_function = 'logsig';
 				break;
@@ -44,7 +44,7 @@ function my_network = createNetwork(network_type, currentData)
 		%Activation Function
 		keep_going = 1;
 		while (keep_going == 1)
-			temp = input('\nSelect the desired activation function.\n1 - sigmoidal\n2 - linear\n3 - Hard-limit:\n');
+			temp = input('\nSelect the desired activation function.\n1 - sigmoidal\n2 - linear\n3 - Hard-limit\n');
 			if (temp == 1)
 				activation_function = 'logsig';
 				break;
@@ -60,7 +60,7 @@ function my_network = createNetwork(network_type, currentData)
 		%Learning Method
 		keep_going = 1;
 		while (keep_going == 1)
-			temp = input('\nSelect the desired learning method\n1 - Gradient Rule\n2 - Hebb Rule\n3 - Hebb Rule with decaying weight\n4 - Perceptron weight and bias:\n');
+			temp = input('\nSelect the desired learning method\n1 - Gradient Rule\n2 - Hebb Rule\n3 - Hebb Rule with decaying weight\n4 - Perceptron weight and bias\n');
 			if (temp == 1)
 				learning_method = 'learngd';
 				break;
@@ -81,7 +81,7 @@ function my_network = createNetwork(network_type, currentData)
 
 	keep_going = 1;
 	while (keep_going == 1)
-		temp = input('\nSelect the desired perform function\n1 - Sum Squared Error\n2 - Mean Squared Error:\n');
+		temp = input('\nSelect the desired perform function\n1 - Sum Squared Error\n2 - Mean Squared Error\n');
 		if (temp == 1)
 			performFcn = 'sse';
 			break;

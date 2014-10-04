@@ -12,7 +12,7 @@ function P2 = associativeMemory(my_data, my_target)
 	my_method = 0;
 	while ((my_method ~= 1) && (my_method ~= 2))
 		%Ask for the method to be applied(Pseudo-inverse or Hubb)
-		my_method = input('For the pseudo-inverse method select 1. For the Hubb method select 2\n');
+		my_method = input('Select the desired method to apply in the Associative Memory.\n1 - Pseudo-inverse method\n2 - Hubb method\n');
 	end
 	
 	if (my_method == 1)
@@ -33,10 +33,10 @@ function P2 = associativeMemory(my_data, my_target)
 	associative_memory_network.b{1} = b;	
 
 	%Run it to obtain the "corrected" data
-	%P2 = sim(associative_memory_network, my_data);
+	P2 = sim(associative_memory_network, my_data);
 
 	%FIXME: Make sim work!!!
 
-	P2 = W * my_data;%THIS IS WRONG!!!
+	%P2 = W * my_data;%THIS IS WRONG!!!
 
 end

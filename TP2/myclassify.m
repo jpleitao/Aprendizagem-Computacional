@@ -19,7 +19,7 @@ function my_return = myclassify(data_, filled_, network_)
 	%Ask the user if using associative memory or not
 	associative = 0;
 	while ( (associative ~= 1) && (associative ~= 2))
-		associative = input('Select the desired architecture\n1 - With associative memory\n2 - Without associative memory:\n');
+		associative = input('Select the desired architecture\n1 - With associative memory\n2 - Without associative memory\n');
 	end
 
 	%%Check which architecture to use (with or without associative memory)
@@ -35,7 +35,7 @@ function my_return = myclassify(data_, filled_, network_)
 		%Get network information
 		network_type = 0;
 		while ((network_type ~= 1) && (network_type ~= 2))
-			network_type = input('Select the desired network type\n1 - Feedforward Neural Network\n2 - Perceptron:\n');
+			network_type = input('Select the desired network type\n1 - Feedforward Neural Network\n2 - Perceptron\n');
 		end
 
 		%Create the neural network and train it
