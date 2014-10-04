@@ -59,7 +59,7 @@ function my_return = myclassify(data_, filled_, network_)
 	current_case = 1;
 	while (current_case <= total_cases)
 		%In each collumn, result should have only one value filled, with the class of the corresponding test
-		case_result = find(result(:,filled_(current_case)) == max(result(:,filled_(current_case))))
+		case_result = find(result(:,filled_(current_case)) == max(result(:,filled_(current_case))));
 		if (length(case_result) == 1)
 	    	my_return(current_case) = case_result;
 		end
