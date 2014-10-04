@@ -94,8 +94,6 @@ function my_network = createNetwork(network_type, currentData)
 	%Define the network properties
 	W = 0.1*rand(10,256);
 	b = 0.1*rand(10,1);
-	save W
-	save b
 	my_network.IW{1,1} = W;
 	my_network.b{1,1} = b;
 
