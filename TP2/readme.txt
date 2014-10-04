@@ -1,0 +1,3 @@
+To run the application, run "mpaper.m" in Matlab. A small window will appear, where the user will have to draw some numbers to be classified by the application.
+There are two different architectures implemented: One making use of a single classifier, and another using that same classifier along with an associative memory.
+To use the first implementation all the user has to do is to run "mpaper.m" and draw the desired characters for identification. If the user wants to use the associative memory, then he/she will have to run "mpaper.m" and fill all the boxes, with the numbers in the following order, on the same row: 1 2 3 4 5 6 7 8 9 0
