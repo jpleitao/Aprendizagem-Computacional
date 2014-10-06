@@ -10,6 +10,7 @@
 \usepackage{amsthm}
 \usepackage{hyperref}
 \usepackage{color}
+\usepackage{graphicx}
 
 
 \title{\bf{Aprendizagem Computacional - Trabalho Prático 2}\vspace{80mm}}
@@ -32,17 +33,119 @@
 
 Este trabalho foca-se no reconhecimento de caracteres da numeração árabe, ou seja, os caracteres 0 a 9.
 
-Pretende-se que este reconhecimento seja realizado por uma aplicação desenvolvida em \emph{Matlab}, que faz uso de redes neuronais na sua arquitetura interna, bem como da \emph{Nerual Networks Toolbox} do próprio \emph{Matab}.
+Pretende-se que este reconhecimento seja realizado por uma aplicação desenvolvida em \emph{Matlab}, que faz uso de redes neuronais na sua arquitetura interna, disponíveis na \emph{Nerual Networks Toolbox} do próprio \emph{Matlab}.
+
+A aplicação desenvolvida visa o estudo de duas arquiteturas distintas no reconhecimento dos caracteres:
+
+\begin{itemize}
+\item Na primeira arquitetura a aplicação será constituída por uma \emph{memória associativa} e um \emph{classificador}
+
+\item Na segunda arquitetura a aplicação apenas recorre ao \emph{classificador}
+\end{itemize}
+
+\vspace{.3cm}
+
+As duas arquiteturas apresentadas estão presentes nas figuras que se seguem:
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.4]{AM_Classifier.png}
+  \caption{Arquitetura da aplicação com \emph{memória associativa + classificador}}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.4]{Classifier.png}
+  \caption{Arquitetura da aplicação apenas com o \emph{classificador}}
+\end{figure}
+
+Através da análise destas figuras podemos determinar um comportamento padrão para a aplicação:
+
+\begin{itemize}
+\item Numa fase inicial, os caracteres a identificar poderão, ou não, ser fornecidos à \emph{memória associativa}, que está encarregue da sua "filtragem" ou "correção": Se os caracteres fornecidos não forem perfeitos, a memória associativa aproxima-os dos respetivos caracteres perfeitos.
+
+\item De seguida os dados, corrigidos ou não, serão fornecidos ao \emph{classificador}, que se encarregará de proceder à identificação dos mesmos.
+\end{itemize}
+
+No presente documento iremos proceder à apresentação em maior detalhe destas duas arquiteturas e das suas implementações, bem como da aplicação \emph{Matlab} desenvolvida, e de como poderá ser utilizada. Pretendemos também fazer uma análise crítica da performance da aplicação, nomeadamente da sua capacidade de classificar corretamente novos caracteres fornecidos.
+
+\pagebreak
+
+\section{Aplicação Desenvolvida}
+
+\pagebreak
+
+\subsection{Memória Associativa + Classificador}
+
+\pagebreak
+
+\subsection{Classificador}
+
+\pagebreak
+
+\subsection{Implementação em Matlab}
+
+Indicar ficheiros criados e alterações ao código fonte (só dizer o que é que comentamos no mpaper.m)
+
+\subsubsection{associativeMemory.m}
+
+
+\subsubsection{createNetwork.m}
+
+
+\subsubsection{myclassify.m}
+
+
+\subsubsection{saveNetwork.m}
+
+Este ficheiro não estamos a usar neste momento. Mantê-lo na aplicação e no relatório??
+
+\subsection{Execução}
+
+Explicar como executar a aplicação. Não esquecer que quando usamos a memória associativa assumimos que o utilizador desenha os caracteres 1;2;3;4;5;6;7;8;9;0 por esta ordem, em cada linha, preenchendo todas as linhas.
+
+\pagebreak
+
+\section{Testes e Resultados}
+
+Descrição de como fizémos os casos de teste, dimensões, etc
+
+\pagebreak
+
+\section{Conclusões}
+
+Conclusões, lolol
 
 \pagebreak
 
 \textbf{FIXME: Testar classificação de dígitos perfeitos e de dígitos não perfeitos (alguns não perfeitos são corretamente classificados, e todos os perfeitos são corretamente classificados)}
 
-\textbf{FIXME:Responder às perguntas deles nas conclusões??}
-
 \textbf{FIXME: Dizer que memória associativa só funciona se preenchermos a tabela toda pela ordem: 1,2,3,4,5,6,7,8,9,0 linha-a-linha}
 
+\vspace{.3cm}
+
+\textbf{FIXME: Perguntas relatório:}
+
+\begin{itemize}
+\item How does the data set influence the performance of the classification system?
+
+\item Which architecture provides better results: only the classifier or the associative memory+classifier?
+
+\item Which is the best activation function: hardlim, linear or logsig?
+
+\item Does the Hebb rule perform well?
+
+\item Is the classification system able to achieve the main objectives (classification of digits)?
+
+\item Which is the percentage of well classified digits?
+
+\item How is the generalization capacity?
+
+\item Is the classification system robust enough to give correct outputs when new inputs are not perfect?
+
+\item Which is the percentage of well classified new inputs?
+\end{itemize}
+
 \pagebreak
-\section{}
 
 \end{document}
