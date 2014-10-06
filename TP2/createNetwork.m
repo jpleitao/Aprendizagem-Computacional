@@ -5,8 +5,8 @@
 %%	Uppon creation, the architecture and properties of the network are prompted to the user, and according to the user's selection
 %%	a Feed-Forward Backpropagation Network or a Perceptron are created. Once the network is created its properties are set, some are
 %%	selected by the user (like the activation and performing function) while others have a fixed, previously selected values (like the
-%%	learning rate), and others are randomly generated (like the weights and bias of the network).
-%%
+%%	learning rate), and others are randomly generated (like the weights and bias of the network). Once the properties of the network are
+%%	set, it is trained with the training data, which has already been generated.
 %%%%
 function my_network = createNetwork(network_type, currentData)
 
