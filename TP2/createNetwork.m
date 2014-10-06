@@ -7,6 +7,8 @@
 %%	selected by the user (like the activation and performing function) while others have a fixed, previously selected values (like the
 %%	learning rate), and others are randomly generated (like the weights and bias of the network). Once the properties of the network are
 %%	set, it is trained with the training data, which has already been generated.
+%%	To compute the result of the network for a given set of inputs, one just has to call "result = sim(network, data);" after the network
+%%	has been created and trained.
 %%%%
 function my_network = createNetwork(network_type, currentData)
 
