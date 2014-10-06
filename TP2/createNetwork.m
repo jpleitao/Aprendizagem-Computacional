@@ -63,23 +63,12 @@ function my_network = createNetwork(network_type, currentData)
 			end
 		end
 
-		%Learning Method
-		keep_going = 1;
-		while (keep_going == 1)
-			temp = input('\nSelect the desired learning method\n1 - Gradient Rule\n2 - Hebb Rule\n3 - Hebb Rule with decaying weight\n4 - Perceptron weight and bias\n');
-			if (temp == 1)
-				learning_method = 'learngd';
-				break;
-			elseif (temp == 2)
-				learning_method = 'learnh';
-				break;
-			elseif (temp == 3)
-				learning_method = 'learnhd';
-				break;
-			elseif (temp == 4)
-				learning_method = 'learnp';
-				break;
-			end
+		%Learning Method - "The neural network parameters should be evaluated using the perceptron rule (learnp), if harlim is used,
+		%					or the gradient method (learngd) if purlin or logsig are used"
+		if (temp == 3)
+			learning_method = 'learnp';
+		else
+			learning_method = 'learngd';
 		end
 
 		my_network = newp(ones(nP,1)*[0 1], nA , activation_function, learning_method);
