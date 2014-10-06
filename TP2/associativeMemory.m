@@ -47,7 +47,7 @@ function P2 = associativeMemory(my_data, my_target)
 	%Create perceptron
 	associative_memory_network = newff(ones(rows,1)*[0 1], rows, {'purelin'});%Should use newp!!!!
 	associative_memory_network.IW{1, :} = W;
-	associative_memory_network.b{1} = b;	
+	associative_memory_network.b{1} = b;
 
 	%Run it to obtain the "corrected" data
 	P2 = sim(associative_memory_network, my_data);
