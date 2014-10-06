@@ -21,7 +21,7 @@
 %%
 %%	The classifier is implemented as a neural network. There are two possible implementations of the classifier, and can be selected by
 %%	the user:
-%%		- In one of them the classifier is implemented as a feed-forward backpropagation network
+%%		- In one of them the classifier is implemented as a Feed-Forward Backpropagation Network
 %%		- In the other the classifier is implemented as a perceptron
 %%
 %%	In both implementations of the classifier has a bias in each neuron, and the user is prompted to select the properties of the network,
@@ -62,7 +62,7 @@ function my_return = myclassify(data_, filled_, network_)
 		%Get network information
 		network_type = 0;
 		while ((network_type ~= 1) && (network_type ~= 2))
-			network_type = input('Select the desired network type\n1 - Feedforward Neural Network\n2 - Perceptron\n');
+			network_type = input('Select the desired network type\n1 - Feed-Forward Neural Network\n2 - Perceptron\n');
 		end
 
 		%Create the neural network and train it

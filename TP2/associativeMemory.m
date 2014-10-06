@@ -5,6 +5,7 @@
 %%	When using associative memory the user has to fill all the squares, in the following order: 1;2;3;4;5;6;7;8;9;0
 %%
 %%	How does the Associative Memory works? TODO: EXPLAIN
+%%	FIXME: Is this going to be implemented as a neural network?
 %%
 %%%%
 function P2 = associativeMemory(my_data, my_target)

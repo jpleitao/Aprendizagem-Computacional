@@ -1,8 +1,12 @@
 %%%%
-%%	Creates a new neural network, either a Perceptron or a Feedforward Network, depending on the user's choice. This neural network
-%%	is going to be used as the classifier
+%%	Creates a new neural network, either a Perceptron or a Feed-Forward Backpropagation Network, depending on the user's choice.
+%%	This neural network is going to be used as the classifier.
 %%
-%%	EXPLAIN HOW DO THE NEURAL NETWORKS WORK. TODO
+%%	Uppon creation, the architecture and properties of the network are prompted to the user, and according to the user's selection
+%%	a Feed-Forward Backpropagation Network or a Perceptron are created. Once the network is created its properties are set, some are
+%%	selected by the user (like the activation and performing function) while others have a fixed, previously selected values (like the
+%%	learning rate), and others are randomly generated (like the weights and bias of the network).
+%%
 %%%%
 function my_network = createNetwork(network_type, currentData)
 
