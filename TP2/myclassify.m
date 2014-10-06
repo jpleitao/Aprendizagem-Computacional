@@ -4,8 +4,35 @@
 %%	hand in a given table; An array with the positions in the table where the user didn't draw anything; A previously created and
 %%	trained neural network (this last argument is optional, and if not provided one neural network will be created and trained with a
 %%	previously defined set of training examples).
+%%	We now give a more detailed explanantion of our approach to the classification.
 %%
-%%	EXPLAIN HOW DOES THIS FUNCTION WORKS. TODO
+%%	Our approach to the classification is as follows:
+%%	Before doing any sort of classification of the given inputs, the user is prompted to select the desired neural networks architectures.
+%%	There are two available architectures:
+%%		- One composed of an associative memory and a classifier
+%%		- Another, just composed of a single classifier
+%%
+%%	The main difference between this two architectures is the presence of the associative memory on the first architecture. This associative
+%%	memory can be seen as a sort of "filter" or "corrector" of the given input character: If it is not perfect, then the associative memory
+%%	provides an output character that is "more perfect".
+%%
+%%	TODO: EXPLAIN HOW THE ASSOCIATIVE MEMORY WORKS!!
+%%	SAY IT IS A NEURAL NETWORK THAT CAN BE IMPLEMENTED THROUGH THE 2 PRODUCTS MENTIONED IN THE ASSIGNMENT OR NOT?
+%%
+%%	The classifier is implemented as a neural network. There are two possible implementations of the classifier, and can be selected by
+%%	the user:
+%%		- In one of them the classifier is implemented as a feed-forward backpropagation network
+%%		- In the other the classifier is implemented as a perceptron
+%%
+%%	In both implementations of the classifier has a bias in each neuron, and the user is prompted to select the properties of the network,
+%%	such as activation and perform function, and learning method (in case of the perceptron implementation).
+%%
+%%	The classification of each given input will go as follows:
+%%	- If the user selects to use an associative memory, then the input will be passed to the associative memory, which will "purify" it
+%%	- Next, if no previously trained network is given, the user is prompted to select the desire architecture and properties of the
+%%	  classifier's neural network, which will be created and trained
+%%	- The input, purified or not, will be presented to the classifier, which will perform its classification, which is then returned, in order
+%%	  to be presented to the user, in the mpaper function
 %%%%
 function my_return = myclassify(data_, filled_, network_)
 
