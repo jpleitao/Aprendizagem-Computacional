@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  6 OCT 2014 09:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  6 OCT 2014 10:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -543,38 +543,51 @@ Package babel Info: Redefining portuges shorthand "|
  [2]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 31.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 33.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 38.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 33.
+(babel)             in language  on input line 38.
 
 [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 33.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 44.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 44.
+ [4]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 44.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 46.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 46.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 46.
+ [5]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 46.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 33.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 33.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 46.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 46.
 Package rerunfilecheck Info: File `Report.out' has not changed.
-(rerunfilecheck)             Checksum: A7801BC5B0E70D6048684040BEC4968B;61.
+(rerunfilecheck)             Checksum: EEBEF1CBA936CDD42F6A6F9D37B6C70E;86.
  ) 
 Here is how much of TeX's memory you used:
- 6551 strings out of 495004
- 91113 string characters out of 6180663
+ 6557 strings out of 495004
+ 91167 string characters out of 6180663
  170056 words of memory out of 5000000
- 9688 multiletter control sequences out of 15000+600000
- 14452 words of font info for 40 fonts, out of 8000000 for 9000
+ 9690 multiletter control sequences out of 15000+600000
+ 15138 words of font info for 41 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  30i,6n,32p,809b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home
-/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/joaquim/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/joaquim/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/joaquim/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecbx1728.600pk>
-Output written on Report.pdf (3 pages, 37293 bytes).
+ </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home
+/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/joaquim/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/joaquim/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/joaquim/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecrm1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecbx1728.600pk>
+Output written on Report.pdf (5 pages, 57578 bytes).
 PDF statistics:
- 163 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
- 6 named destinations out of 1000 (max. 500000)
- 9 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 63 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 17 words of extra memory for PDF output out of 10000 (max. 10000000)
 
