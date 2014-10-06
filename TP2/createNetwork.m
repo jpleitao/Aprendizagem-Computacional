@@ -110,7 +110,7 @@ function my_network = createNetwork(network_type, currentData)
 	%%	Generate the target data (classes) for the training (10,Q)
 	%%%%
 
-	%Don't forget our drawing order!
+	%Don't forget our drawing order for the training data!
 	%1 2 3 4 5 6 7 8 9 0
 	%1 2 3 4 5 6 7 8 9 0
 	%....
