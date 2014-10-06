@@ -14,10 +14,8 @@
 %%
 %%	The main difference between this two architectures is the presence of the associative memory on the first architecture. This associative
 %%	memory can be seen as a sort of "filter" or "corrector" of the given input character: If it is not perfect, then the associative memory
-%%	provides an output character that is "more perfect".
-%%
-%%	TODO: EXPLAIN HOW THE ASSOCIATIVE MEMORY WORKS!!
-%%	SAY IT IS A NEURAL NETWORK THAT CAN BE IMPLEMENTED THROUGH THE 2 PRODUCTS MENTIONED IN THE ASSIGNMENT OR NOT?
+%%	provides an output character that is "more perfect". The associative memory consists of a single layer neural network, with linear
+%%	activation function, and with no bias.
 %%
 %%	The classifier is implemented as a neural network. There are two possible implementations of the classifier, and can be selected by
 %%	the user:
