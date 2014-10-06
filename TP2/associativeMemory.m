@@ -21,36 +21,11 @@ function P2 = associativeMemory(my_data, my_target)
 	
 	if (my_method == 1)
 		%Pseudo Inverse
-		i = 1;
-		while (i<=num_cols)
-			W = my_target(:,i) * pinv(my_data(:,i));
-			P2(:,i) = W * my_data(:,i);
-			i = i + 1;
-		end
+		W = my_target * pinv(my_data);
 	else
 		%Hubb rule
-		i = 1;
-		while (i<=num_cols)
-			temp = my_data(:,i);
-			W = my_target(:,i) * temp';
-			P2(:,i) = W * my_data(:,i);
-			i = i + 1;
-		end
+		W = my_target * my_data';
 	end
 
-	%{
-	%Use neural network
-	rows = size(my_data,1);
-	weights = size(W,1);
-	b = zeros(weights,1);
-	
-	%Create perceptron
-	associative_memory_network = newff(ones(rows,1)*[0 1], rows, {'purelin'});%Should use newp!!!!
-	associative_memory_network.IW{1, :} = W;
-	associative_memory_network.b{1} = b;
-
-	%Run it to obtain the "corrected" data
-	P2 = sim(associative_memory_network, my_data);
-	%}
-
+	P2 = W * my_data;
 end
