@@ -1,0 +1,2 @@
+\select@language {portuguese}
+\contentsline {section}{\numberline {1}Unconstrained Optimization}{3}{section.1}
