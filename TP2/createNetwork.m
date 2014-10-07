@@ -12,9 +12,13 @@
 %%%%
 function my_network = createNetwork(currentData)
 
-	%Load training data
-	load('Pfinal.mat');
-	trainingData = Pfinal;
+	%Load training data with 50 elements
+	%load('Pfinal.mat');
+	%trainingData = Pfinal;
+
+	%Load training data with 500 elements
+	load('PTreino500.mat');
+	trainingData = PTreino500;
 
 	nA = 10;
 	[nP, nCases] = size(trainingData);
@@ -81,5 +85,4 @@ function my_network = createNetwork(currentData)
 
 	%Train the network for the given data
 	my_network = train(my_network, trainingData, targetData);
-
 end

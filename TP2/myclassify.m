@@ -27,10 +27,10 @@
 %%	- The input, purified or not, will be presented to the classifier, which will perform its classification, which is then returned, in order
 %%	  to be presented to the user, in the mpaper function
 %%%%
-function my_return = myclassify(data_, filled_, network_)
+function my_return = myclassify(data_, filled_)
 
 %=====================================================Get Target Output=====================================================
-	%Get the target output. Load the 'Tfinal.mat' file, containing the expected results for the input
+	%Get the target output. Load the 'Tfinal.mat' file, containing the expected results for the input with 50 elements
 	load('Tfinal.mat');
 	Tfinal_mine = Tfinal;
 
@@ -45,21 +45,13 @@ function my_return = myclassify(data_, filled_, network_)
 	%%Check which architecture to use (with or without associative memory)
 	if (associative == 1)
 		data_ = associativeMemory(data_, Tfinal_mine);
-		
-		%Joca debugging - FIXME
-		showim(data_);
-		pause;
 	end
 
 %=====================================================Verify Network========================================================
 
-	if nargin < 3
-		%No network given, so let's create one and train it with our training examples
-
-		%Create the neural network and train it
-		network_ = createNetwork(data_);
-		%After the training the final weights and bias can be accessed by "network_.IW" and "network_.b"
-	end
+	%Create the neural network and train it
+	network_ = createNetwork(data_);
+	%After the training the final weights and bias can be accessed by "network_.IW" and "network_.b"
 
 %=====================================================Classify Data==========================================================
 
