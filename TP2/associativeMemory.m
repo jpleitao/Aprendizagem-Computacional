@@ -14,13 +14,11 @@ function associative_W = associativeMemory(my_data, my_target)
 
 	[num_rows, num_cols] = size(my_data);
 	
-	if (num_rows < num_cols)%More prototypes than entries
-		%Hebb rule
+	if (num_rows < num_cols)
+		%More prototypes than entries --  Use the Hebb Rule
 		associative_W = my_target * my_data' * inv(my_data * my_data');
-	else%More entries than prototypes (or the same)
-		%Pseudo Inverse
+	else
+		%More entries than prototypes (or the same) -- Use the Pseudo Inverse
 		associative_W = my_target * pinv(my_data);
 	end
-
-	
 end
