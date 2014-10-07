@@ -1,26 +1,24 @@
 %%%%
-%%	Creates a new neural network, either a Perceptron or a Feed-Forward Backpropagation Network, depending on the user's choice.
-%%	This neural network is going to be used as the classifier.
-%%
-%%	Uppon creation, the architecture and properties of the network are prompted to the user, and a Perceptron are created.
-%%	Once the network is created its properties are set, some are selected by the user (like the activation and performing function)
-%%	while others have a fixed, previously selected values (like the learning rate), and others are randomly generated (like the weights
-%%	and bias of the network). Once the properties of the network are set, it is trained with the training data, which has already been
-%%	generated.
+%%	Creates a new Perceptron Neural Network, which is going to be used as the application's classifier. To create the network we used
+%%	previously requested information to the user (like the network's activation function).
+%%	Once the network is created its properties are set, like the initial weights, bias, perform function, etc. After this step is done the
+%%	network is trained with a previously generated training data.
+%%	The new, trained, network is then returned so it can be used and saved for future executions of the application under the same conditions.
 %%	To compute the result of the network for a given set of inputs, one just has to call "result = sim(network, data);" after the network
-%%	has been created and trained.
+%%	has been created and trained (This is done in "myclassify.m").
 %%%%
 function my_network = createNetwork(currentData, activation_function, learning_method)
 
 	%Load training data with 500 elements
 	load('PTreino500.mat');
 	trainingData = PTreino500;
-
-	nA = 10;
 	[nP, nCases] = size(trainingData);
 
 
-%=====================================================Create the Perceptron========================================================
+%=====================================================Create the Perceptron==================================================================
+
+	%Set network parameter (number of distincted classes)
+	nA = 10;
 
 	my_network = newp(ones(nP,1)*[0 1], nA , activation_function, learning_method);
 
@@ -37,7 +35,7 @@ function my_network = createNetwork(currentData, activation_function, learning_m
 	my_network.trainParam.goal = 1e-6;		% goal=objective
 	my_network.performFcn = 'sse';			% criterion
 
-%=====================================================Train the Network=======================================================
+%=====================================================Train the Network======================================================================
 
 	%%%%
 	%%	Generate the target data (classes) for the training (10,Q)
