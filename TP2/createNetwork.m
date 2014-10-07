@@ -10,11 +10,7 @@
 %%	To compute the result of the network for a given set of inputs, one just has to call "result = sim(network, data);" after the network
 %%	has been created and trained.
 %%%%
-function my_network = createNetwork(currentData)
-
-	%Load training data with 50 elements
-	%load('Pfinal.mat');
-	%trainingData = Pfinal;
+function my_network = createNetwork(currentData, activation_function, learning_method)
 
 	%Load training data with 500 elements
 	load('PTreino500.mat');
@@ -25,30 +21,6 @@ function my_network = createNetwork(currentData)
 
 
 %=====================================================Create the Perceptron========================================================
-
-	%Activation Function
-	keep_going = 1;
-	while (keep_going == 1)
-		temp = input('\nSelect the desired activation function.\n1 - sigmoidal\n2 - linear\n3 - Hard-limit\n');
-		if (temp == 1)
-			activation_function = 'logsig';
-			break;
-		elseif (temp == 2)
-			activation_function = 'purelin';
-			break;
-		elseif (temp == 3)
-			activation_function = 'hardlim';
-			break;
-		end
-	end
-
-	%Learning Method - "The neural network parameters should be evaluated using the perceptron rule (learnp), if harlim is used,
-	%					or the gradient method (learngd) if purlin or logsig are used"
-	if (temp == 3)
-		learning_method = 'learnp';
-	else
-		learning_method = 'learngd';
-	end
 
 	my_network = newp(ones(nP,1)*[0 1], nA , activation_function, learning_method);
 

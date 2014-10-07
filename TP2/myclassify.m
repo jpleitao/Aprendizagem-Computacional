@@ -29,34 +29,76 @@
 %%%%
 function my_return = myclassify(data_, filled_)
 
-%=====================================================Get Target Output=====================================================
-	%Get the target output. Load the 'Tfinal.mat' file, containing the expected results for the input with 50 elements
-	load('Tfinal.mat');
-	Tfinal_mine = Tfinal;
+	data_ = data_(:, filled_);
 
 %================================================Check for Associative Memory===============================================
 
-	%Ask the user if using associative memory or not
-	associative = 0;
-	while ( (associative ~= 1) && (associative ~= 2))
-		associative = input('Select the desired architecture\n1 - With associative memory\n2 - Without associative memory\n');
+	load('user_associative_choice.mat');
+	if (associative == 1)
+		load('associative_weights.mat');
+		data_ = associative_W * data_;
 	end
 
-	%%Check which architecture to use (with or without associative memory)
-	if (associative == 1)
-		data_ = associativeMemory(data_, Tfinal_mine);
+%=====================================================Ask Parameters==========================================================
+
+	%Activation Function
+	keep_going = 1;
+	while (keep_going == 1)
+		temp = input('\nSelect the desired activation function.\n1 - sigmoidal\n2 - linear\n3 - Hard-limit\n');
+		if (temp == 1)
+			activation_function = 'logsig';
+			break;
+		elseif (temp == 2)
+			activation_function = 'purelin';
+			break;
+		elseif (temp == 3)
+			activation_function = 'hardlim';
+			break;
+		end
+	end
+
+	%Learning Method - "The neural network parameters should be evaluated using the perceptron rule (learnp), if harlim is used,
+	%					or the gradient method (learngd) if purlin or logsig are used"
+	if (temp == 3)
+		learning_method = 'learnp';
+	else
+		learning_method = 'learngd';
 	end
 
 %=====================================================Verify Network========================================================
 
-	%Create the neural network and train it
-	network_ = createNetwork(data_);
-	%After the training the final weights and bias can be accessed by "network_.IW" and "network_.b"
+	%Check if network has already been created
+	network_name = strcat('net_', activation_function,'_', learning_method, '.mat');
+	if exist(network_name, 'file') == 2
+		load(network_name);
+	else
+		%Create the neural network and train it
+		network_ = createNetwork(data_, activation_function, learning_method);
+		%After the training the final weights and bias can be accessed by "network_.IW" and "network_.b"
+
+		%Save the function
+		save(network_name, 'network_');
+	end
 
 %=====================================================Classify Data==========================================================
 
-	%Make the classification: Run sim and then set the results in the format excpeted by ocr_func
 	result = sim(network_, data_);
+	[lines, total_cases] = size(data_);
+
+	my_return = ones(1,total_cases) * -1;%Initialize each element of the vector
+
+	current_case = 1;
+	while (current_case <= total_cases)
+
+		case_result = find(result(:, current_case) == max(result(:, current_case)));
+		my_return(current_case) = case_result(1);
+		current_case = current_case + 1;
+	end
+
+
+%{
+	%Make the classification: Run sim and then set the results in the format excpeted by ocr_func
+	result = sim(network_, data_)
 
 	% Set the result into the format expected by ocr_fun
 	total_cases = length(filled_);
@@ -68,9 +110,13 @@ function my_return = myclassify(data_, filled_)
 	while (current_case <= total_cases)
 		%In each collumn, result should have only one value filled, with the class of the corresponding test
 		case_result = find(result(:,filled_(current_case)) == max(result(:,filled_(current_case))));
-		if (length(case_result) == 1)
-			my_return(current_case) = case_result;
+		
+		if (length(case_result) > 0)%FIXME
+			my_return(current_case) = case_result(1);
 		end
+		
 		current_case = current_case + 1;
 	end	
+
+%}
 end
