@@ -1,5 +1,5 @@
 %%%%
-%% Script to run the application using the Hebb rule in the associative memory -- Prompt the user to use big training data (Hebb rule) or small training data (pinv)
+%% Script to run the application
 %%%%
 
 %================================================Check for Associative Memory===============================================

@@ -68,7 +68,11 @@ function my_return = myclassify(data_, filled_)
 %=====================================================Verify Network========================================================
 
 	%Check if network has already been created
-	network_name = strcat('net_', activation_function,'_', learning_method, '.mat');
+	if (associative == 1)
+		network_name = strcat('net_AM', activation_function,'_', learning_method, '.mat');
+	else
+		network_name = strcat('net_noAM_', activation_function,'_', learning_method, '.mat');
+	end
 	if exist(network_name, 'file') == 2
 		load(network_name);
 	else
