@@ -1,11 +1,14 @@
 %%%%
-%%	TODO: DOCUMENT THIS! WE JUST RETURN THE WEIGHTS AND LATER PERFORM THE PRODUCT
+%%	This function "trains" the associative memory for a given input, and corresponding expected output. This associative memory consists
+%%	of a single layer neural network, with linear activation function, and with no bias. The "train" of the network consists in determining
+%%	its weights, which is done in one of two ways:
+%%		- If there are more prototypes than entries to our network, then the weights are computed as follows: 
+%%										W = output x input^T * (input x input^T)^-1
+%%		- Otherwise, the weights are computed as follows:
+%%										W = output x pinv(input)
 %%
-%%	The associative memory consists of a single layer neural network, with linear activation function, and with no bias. To obtain the
-%%	weights of this neural network we simply compute one of the following products:
-%%		- desired target x pinv(data), if there are more prototypes than entries
-%%		- desired target x data^T *(data * data^T)^-1, if there are more entries than prototypes
-%%
+%%	This function returns the computed weights, wich are later "applied" to the input data, computing "W x data", to obtain the
+%%	"more corrected" version of the input.
 %%%%
 function associative_W = associativeMemory(my_data, my_target)
 
