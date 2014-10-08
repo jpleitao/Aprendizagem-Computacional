@@ -32,11 +32,11 @@ if (associative == 1)
 		%Set the weights' file name
 		weights_file_name = 'associative_weights_Hebb.mat';
 	else
-		%Load training data with 50 elements
-		load('PTreino50.mat');
-		load('Tfinal50.mat');
-		trainingDataInput = PTreino50;
-		trainingDataOutput = Tfinal50;
+		%Load training data with 100 elements
+		load('PTreino100.mat');
+		load('Tfinal100.mat');
+		trainingDataInput = PTreino100;
+		trainingDataOutput = Tfinal100;
 		
 		%Set the weights' file name
 		weights_file_name = 'associative_weights_Pinv.mat';

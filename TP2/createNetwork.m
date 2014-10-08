@@ -63,17 +63,20 @@ function my_network = createNetwork(activation_function, learning_method)
 	%%	Generate the target data (classes) for the training (10,Q)
 	%%%%
 
-	%Don't forget our drawing order for the training data!
-	%1 2 3 4 5 6 7 8 9 0
-	%1 2 3 4 5 6 7 8 9 0
-	%....
-
-	targetData = zeros(10, nCases);
-	temp = 0;
-	while (temp < nCases)
-		targetData( mod(temp,10) + 1, temp + 1) = 1;
+	load('PerfectArial.mat');
+	load('Tfinal500.mat');
+    targetData = zeros(10, nCases);
+    temp = 1;
+    
+    while (temp <= nCases)          
+        for i = 1 : 10
+            if ( Perfect(:,i) == Tfinal500(:,temp) )
+                targetData(i, temp) = 1;
+                break
+            end
+        end
 		temp = temp + 1;
-	end
+    end
 
 	%Train the network for the given data
 	my_network = train(my_network, trainingData, targetData);
