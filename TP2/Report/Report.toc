@@ -9,5 +9,5 @@
 \contentsline {subsubsection}{\numberline {2.3.3}myclassify.m}{5}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}run.m}{5}{subsubsection.2.3.4}
 \contentsline {subsection}{\numberline {2.4}Execu\IeC {\c c}\IeC {\~a}o}{5}{subsection.2.4}
-\contentsline {section}{\numberline {3}Testes e Resultados}{6}{section.3}
-\contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{7}{section.4}
+\contentsline {section}{\numberline {3}Testes e Resultados}{7}{section.3}
+\contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{8}{section.4}
