@@ -4,6 +4,8 @@
 %%	its weights, which is done in one of two ways:
 %%		- If there are more prototypes than entries to our network, then the weights are computed as follows: 
 %%										W = output x input^T x (input x input^T)^-1
+%		- Otherwise, if the number of prototypes and entries to our network is the same, then the weights are computed as follows:
+%%										W = output * input^T
 %%		- Otherwise, the weights are computed as follows:
 %%										W = output x pinv(input)
 %%
@@ -17,6 +19,9 @@ function associative_W = associativeMemory(my_data, my_target)
 	if (num_rows < num_cols)
 		%More prototypes than entries --  Use the Hebb Rule
 		associative_W = my_target * my_data' * inv(my_data * my_data');
+	elseif (num_rows == num_cols)
+		%Same number of prototypes as the number of entries -- Use the transposed
+		associative_W = my_target * my_data';
 	else
 		%More entries than prototypes (or the same) -- Use the Pseudo Inverse
 		associative_W = my_target * pinv(my_data);

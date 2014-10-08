@@ -2,7 +2,7 @@
 %% Script to run the application
 %%%%
 
-%================================================Check for Associative Memory===============================================
+%================================================Check for Associative Memory=================================================================
 %Ask the user if using associative memory or not
 associative = 0;
 while ( (associative ~= 1) && (associative ~= 2))
@@ -14,12 +14,12 @@ save('user_associative_choice.mat', 'associative');
 
 if (associative == 1)
 
-%================================================Define Parameters for the Associative Memory================================
+%================================================Define Parameters for the Associative Memory=================================================
 
 	%Check the type of training to perform in the associative memory
 	training_type = 0;
-	while ( (training_type ~= 1) && (training_type ~= 2) )
-		training_type = input('\nSelect the desired type of training for the neural network\n1 - Hebb Rule\n2 - Pinv Method\n');
+	while ( (training_type ~= 1) && (training_type ~= 2) && (training_type ~= 3))
+		training_type = input('\nSelect the desired type of training for the neural network\n1 - Hebb Rule\n2 - Pinv Method\n3 - Tranpose Method');
 	end
 
 	if (training_type == 1)
@@ -31,6 +31,15 @@ if (associative == 1)
 		
 		%Set the weights' file name
 		weights_file_name = 'associative_weights_Hebb.mat';
+	elseif (training_type == 3)
+		%Load training data with 50 elements
+		load('PTreino256.mat');
+		load('Tfinal256.mat');
+		trainingDataInput = PTreino500;
+		trainingDataOutput = Tfinal500;
+
+		%Set the weights' file name
+		weights_file_name = 'associative_weights_Transpose.mat';
 	else
 		%Load training data with 50 elements
 		load('PTreino500.mat');
@@ -58,7 +67,7 @@ if (associative == 1)
 end
 
 
-%=====================================================Call mpaper============================================================
+%=====================================================Call mpaper=============================================================================
 mpaper();
 
 clear;
