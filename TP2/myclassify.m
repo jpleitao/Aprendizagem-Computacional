@@ -49,7 +49,19 @@ function my_return = myclassify(data_, filled_)
 	load('user_associative_choice.mat');
 	if (associative == 1)
 		%If the user has selected to use associative memory then we have already computed and stored its weights, which we now can access
-		load('associative_weights.mat');
+
+		%Load the associative memory training type
+		load('AM_Training_Type.mat');
+
+		if (training_type == 1)
+			%Load the weights of the Hebb training type
+			load('associative_weights_Hebb.mat');
+		else
+			%Load the weights of the pinv training type
+			load('associative_weights_Pinv.mat');
+		end
+
+		%Apply the associative memory to purify the input		
 		data_ = associative_W * data_;
 	end
 
