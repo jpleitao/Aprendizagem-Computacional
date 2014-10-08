@@ -7,12 +7,34 @@
 %%	To compute the result of the network for a given set of inputs, one just has to call "result = sim(network, data);" after the network
 %%	has been created and trained (This is done in "myclassify.m").
 %%%%
-function my_network = createNetwork(currentData, activation_function, learning_method)
+function my_network = createNetwork(activation_function, learning_method)
 
 	%Load training data with 500 elements
 	load('PTreino500.mat');
 	trainingData = PTreino500;
 	[nP, nCases] = size(trainingData);
+
+	load('user_associative_choice.mat');
+	if (associative == 1)
+		%Associtive memory
+
+		%Load the associative memory training type
+		load('AM_Training_Type.mat');
+
+		if (training_type == 1)
+			%Load the weights of the Hebb training type
+			load('associative_weights_Hebb.mat');
+		elseif (training_type == 3)
+			%Load the weights of the tranpose training type
+			load('associative_weights_Transpose.mat');
+		else
+			%Load the weights of the pinv training type
+			load('associative_weights_Pinv.mat');
+		end
+
+		%Apply the associative memory to purify the input		
+		trainingData = associative_W * trainingData;
+	end
 
 
 %=====================================================Create the Perceptron==================================================================

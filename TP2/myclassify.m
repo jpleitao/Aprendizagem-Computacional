@@ -43,7 +43,7 @@ function my_return = myclassify(data_, filled_)
 	%Just consider the collumns correspondent to the squares filled in the grid by the user
 	data_ = data_(:, filled_);
 
-%================================================Check for Associative Memory================================================================
+%===============================================Check for Associative Memory================================================================
 	
 	%Check if the user has selected to use or not an associative memory to "purify" the input data
 	load('user_associative_choice.mat');
@@ -56,15 +56,12 @@ function my_return = myclassify(data_, filled_)
 		if (training_type == 1)
 			%Load the weights of the Hebb training type
 			load('associative_weights_Hebb.mat');
-		elseif (training_type == 3)
-			%Load the weights of the tranpose training type
-			load('associative_weights_Transpose.mat');
 		else
 			%Load the weights of the pinv training type
 			load('associative_weights_Pinv.mat');
 		end
 
-		%Apply the associative memory to purify the input		
+		%Apply the associative memory to purify the input
 		data_ = associative_W * data_;
 	end
 
@@ -98,15 +95,16 @@ function my_return = myclassify(data_, filled_)
 
 	%Check if network has already been created -- If it has load the correspondent network. Otherwise create, train and save one
 	if (associative == 1)
-		network_name = strcat('net_AM_T_', training_type, '_', activation_function,'_', learning_method, '.mat');
+		network_name = strcat('net_AM_T_', num2str(training_type), '_', activation_function,'_', learning_method, '.mat');
 	else
 		network_name = strcat('net_noAM_', activation_function,'_', learning_method, '.mat');
 	end
+
 	if exist(network_name, 'file') == 2
 		load(network_name);
 	else
 		%Create the neural network and train it
-		network_ = createNetwork(data_, activation_function, learning_method);
+		network_ = createNetwork(activation_function, learning_method);
 
 		%Save the function
 		save(network_name, 'network_');
@@ -115,7 +113,7 @@ function my_return = myclassify(data_, filled_)
 %=====================================================Classify Data==========================================================================
 
 	%Send the data to the classifier, to perform the classification
-	result = sim(network_, data_);
+	result = sim(network_, data_)
 
 	%%%%
 	%%	Handle the mapping between the sim's output and the expected output for this function (line vector, with the classification)
