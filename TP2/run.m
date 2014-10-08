@@ -19,7 +19,7 @@ if (associative == 1)
 	%Check the type of training to perform in the associative memory
 	training_type = 0;
 	while ( (training_type ~= 1) && (training_type ~= 2) && (training_type ~= 3))
-		training_type = input('\nSelect the desired type of training for the neural network\n1 - Hebb Rule\n2 - Pinv Method\n3 - Tranpose Method');
+		training_type = input('\nSelect the desired type of training for the neural network\n1 - Hebb Rule\n2 - Pinv Method\n3 - Tranpose Method\n');
 	end
 
 	if (training_type == 1)
@@ -32,16 +32,16 @@ if (associative == 1)
 		%Set the weights' file name
 		weights_file_name = 'associative_weights_Hebb.mat';
 	elseif (training_type == 3)
-		%Load training data with 50 elements
+		%Load training data with 256 elements
 		load('PTreino256.mat');
 		load('Tfinal256.mat');
-		trainingDataInput = PTreino500;
-		trainingDataOutput = Tfinal500;
+		trainingDataInput = PTreino256;
+		trainingDataOutput = Tfinal256;
 
 		%Set the weights' file name
 		weights_file_name = 'associative_weights_Transpose.mat';
 	else
-		%Load training data with 50 elements
+		%Load training data with 500 elements
 		load('PTreino500.mat');
 		load('Tfinal500.mat');
 		trainingDataInput = PTreino500;
