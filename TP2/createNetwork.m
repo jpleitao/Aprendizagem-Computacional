@@ -65,15 +65,18 @@ function my_network = createNetwork(activation_function, learning_method)
 
 	load('PerfectArial.mat');
 	load('Tfinal500.mat');
-    targetData = zeros(10, nCases);
-    temp = 1;
     
-    while (temp <= nCases)          
-        for i = 1 : 10
-            if ( Perfect(:,i) == Tfinal500(:,temp) )
-                targetData(i, temp) = 1;
+    targetData = zeros(10, nCases);
+    
+    temp = 0;
+    while (temp < nCases)
+		current_col = 0              
+        while (current_col < 10)
+            if ( Perfect(:,current_col + 1) == Tfinal500(:,temp + 1) )
+                targetData(current_col + 1, temp + 1) = 1;
                 break
             end
+            current_col = current_col + 1;
         end
 		temp = temp + 1;
     end
