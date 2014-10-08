@@ -1,3 +1,7 @@
-To run the application, run "mpaper.m" in Matlab. A small window will appear, where the user will have to draw some numbers to be classified by the application.
-There are two different architectures implemented: One making use of a single classifier, and another using that same classifier along with an associative memory.
-To use the first implementation all the user has to do is to run "mpaper.m" and draw the desired characters for identification. If the user wants to use the associative memory, then he/she will have to run "mpaper.m" and fill all the boxes, with the numbers in the following order, on the same row: 1 2 3 4 5 6 7 8 9 0
+To run the application run the "run.m" file. Once this file is running, the user will be prompt to select one of two possible architetures: To use an associative memory along side with the classifier, or to just use the classifier.
+
+If the user selects to use the associative memory, then he/she will be prompt to select the desired training type for the associative memory. Two different training types are available: Using the Pseudo-Inverse, that is, making use of the pinv function available in Matlab; Using the Hebb Rule.
+
+After that the associative memory is created a small window will appear, where the user will have to draw some numbers to be classified by the application. Once the user has drawn all the characters to be classified he/she is prompted to select the desired properties for the classifier's neural network. If a neural network with the properties specified by the user has already been created then it is loaded and used. If, on the other hand, no network with the properties specified by the user has been created, one is created, trained and saved, so it can be used in future executions.
+
+After the network is created and trained it performs the classification of the data, which is then presented to the user in a grid similar to the one initially presented.
