@@ -79,9 +79,17 @@ Ambas as arquiteturas e os respetivos modos de funcionamento serão apresentados
 
 \subsection{Memória Associativa + Classificador}
 
-Na arquitetura \emph{Memória Associativa + Classificador}, os dados 
+Na arquitetura \emph{Memória Associativa + Classificador}, os caracteres desenhados pelo utilizador, que constituem o \emph{input} da nossa aplicação, são fornecidos à \emph{memória associativa}, onde são \emph{"purificados"}.
+
+Com esta operação pretende-se aproximar os caracteres desenhados pelo utilizador, que são naturalmente imperfeitos, dos respetivos caracteres perfeitamente desenhados. Ao purificarmos os dados estaríamos a aumentar a sua precisão, o que, teoricamente, resultará numa melhor classificação por parte do \emph{classificador}.
+
+Por seu turno, o \emph{classificador} recebe como entradas os caracteres purificados e, com recurso a uma rede neuronal previamente treinada, processa cada uma das suas entradas, produzindo uma classificação para cada uma delas, que corresponde à identificação do caracter em questão, classificação essa que será apresentada ao utilizador.
 
 \subsection{Classificador}
+
+Ao contrário da arquitetura anterior, na arquitetura \emph{Memória Associativa + Classificador}, os caracteres desenhados pelo utilizador não sofrem qualquer tipo de purificação, sendo fornecidos ao \emph{classificador} tal como foram desenhados pelo utilizador.
+
+Tal como o descrito na arquitetura anterior, o classificador recorre a uma rede neuronal previamente treinada para realizar a classificação das entradas. Uma vez classificadas as entradas, o resultado da sua classificação é apresentado ao utilizador.
 
 \pagebreak
 
