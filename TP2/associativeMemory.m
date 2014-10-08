@@ -3,7 +3,7 @@
 %%	of a single layer neural network, with linear activation function, and with no bias. The "train" of the network consists in determining
 %%	its weights, which is done in one of two ways:
 %%		- If there are more prototypes than entries to our network, then the weights are computed as follows: 
-%%										W = output x input^T * (input x input^T)^-1
+%%										W = output x input^T x (input x input^T)^-1
 %%		- Otherwise, the weights are computed as follows:
 %%										W = output x pinv(input)
 %%
