@@ -110,13 +110,11 @@ Para executar a aplicação o utilizador deverá executar o ficheiro \emph{run.m
 
 Caso o utilizador selecione a utilização da \emph{Memória Associativa}, então terá de escolher o tipo de treino a realizar na mesma.
 
-Existem três tipos de treino distintos.
+Existem dois tipos de treino distintos.
 
 O primeiro recorre à \emph{Pseudo-Inversa}, onde os pesos da rede neuronal que a \emph{Memória Associativa} implementa são calculados pelo produto do \emph{output} esperado pelo valor da aplicação função \emph{pinv} (nativa do \emph{Matlab}) aos dados de \emph{input}.
 
 Já o segundo faz uso da \emph{Regra de Hebb} para calcular os pesos: Aqui os pesos resultam do produto do \emph{output} esperado pela seguinte matriz: $input^{T}\times \left(input\times input^{T}\right)^{-1}$.
-
-Por fim, o terceiro utiliza a inversa da matriz com os \emph{inputs} para calcular os pesos: $pesos = output\times input^{-1}$
 
 Após esta seleção a \emph{Memória Associativa} é criada, aparecendo de seguida uma grelha, onde o utilizador desenhará os caracteres a serem classificados. Assim que os caracteres são desenhados, o utilizador tem de carregar no botão do meio do seu rato, de forma a transitar para a fase de execução seguinte.
 

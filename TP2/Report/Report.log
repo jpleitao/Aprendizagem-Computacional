@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  8 OCT 2014 11:22
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  8 OCT 2014 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -629,35 +629,35 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 107.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 129.
+(babel)             in language append on input line 127.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 129.
+(babel)             in language append on input line 127.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 130.
+(babel)             in language append on input line 128.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 135.
+(babel)             in language append on input line 133.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 135.
+(babel)             in language append on input line 133.
  [7]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 136.
+(babel)             in language append on input line 134.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 139.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 141.
+(babel)             in language append on input line 139.
  [8]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 171.
+(babel)             in language append on input line 169.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 171.
+(babel)             in language append on input line 169.
  [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
 
 (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: E6300ADF76922BFB6A12CF00F08F43E8;796.
  ) 
@@ -678,14 +678,13 @@ jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi1
 0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Report.pdf (9 pages, 175754 bytes).
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Report.pdf (9 pages, 167799 bytes).
 PDF statistics:
- 456 PDF objects out of 1000 (max. 8388607)
- 154 compressed objects within 2 object streams
+ 451 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
  25 named destinations out of 1000 (max. 500000)
  107 words of extra memory for PDF output out of 10000 (max. 10000000)
 
