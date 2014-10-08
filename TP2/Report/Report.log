@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  8 OCT 2014 08:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  8 OCT 2014 11:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -622,42 +622,42 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 101.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 105.
+(babel)             in language append on input line 106.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 124.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 124.
+(babel)             in language append on input line 106.
  [5]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 127.
+(babel)             in language append on input line 107.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 127.
+(babel)             in language append on input line 129.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 129.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 128.
+(babel)             in language append on input line 130.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 133.
+(babel)             in language append on input line 135.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 133.
+(babel)             in language append on input line 135.
  [7]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 134.
+(babel)             in language append on input line 136.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 139.
+(babel)             in language append on input line 141.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 139.
+(babel)             in language append on input line 141.
  [8]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 169.
+(babel)             in language append on input line 171.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 169.
+(babel)             in language append on input line 171.
  [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 170.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 170.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 172.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 172.
 
 (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 170.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 170.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 172.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 172.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: E6300ADF76922BFB6A12CF00F08F43E8;796.
  ) 
@@ -682,7 +682,7 @@ ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Report.pdf (9 pages, 175725 bytes).
+Output written on Report.pdf (9 pages, 175754 bytes).
 PDF statistics:
  456 PDF objects out of 1000 (max. 8388607)
  154 compressed objects within 2 object streams
