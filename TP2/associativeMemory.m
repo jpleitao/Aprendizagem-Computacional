@@ -15,10 +15,6 @@ function associative_W = associativeMemory(my_data, my_target)
 	[num_rows, num_cols] = size(my_data);
 	
 	if (num_rows < num_cols)
-		inv(my_data * my_data')
-		num_rows
-		num_cols
-		pause;
 		%More prototypes than entries --  Use the Hebb Rule
 		associative_W = my_target * my_data' * inv(my_data * my_data');
 	else
