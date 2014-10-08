@@ -42,14 +42,19 @@ if (associative == 1)
 		weights_file_name = 'associative_weights_Pinv.mat';
 	end
 
-	%Train the associatvie memory
-	associative_W = associativeMemory(trainingDataInput, trainingDataOutput);
-
 	%Save the training type
 	save('AM_Training_Type.mat', 'training_type');
 
-	%Save the weights
-	save(weights_file_name, 'associative_W');
+	%Check to see if the correspondent files exists. If not, create them
+	if exist(weights_file_name, 'file') ~= 2
+		%File does not exist, train the associative memory and save it
+
+		%Train the associatvie memory
+		associative_W = associativeMemory(trainingDataInput, trainingDataOutput);
+
+		%Save the weights
+		save(weights_file_name, 'associative_W');
+	end
 end
 
 
