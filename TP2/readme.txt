@@ -2,6 +2,8 @@ To run the application run the "run.m" file. Once this file is running, the user
 
 If the user selects to use the associative memory, then he/she will be prompt to select the desired training type for the associative memory. Two different training types are available: Using the Pseudo-Inverse, that is, making use of the pinv function available in Matlab; Using the Hebb Rule.
 
-After that the associative memory is created a small window will appear, where the user will have to draw some numbers to be classified by the application. Once the user has drawn all the characters to be classified he/she is prompted to select the desired properties for the classifier's neural network. If a neural network with the properties specified by the user has already been created then it is loaded and used. If, on the other hand, no network with the properties specified by the user has been created, one is created, trained and saved, so it can be used in future executions.
+After that the associative memory is created a small window will appear, where the user will have to draw some numbers to be classified by the application. Once the user has drawn all the characters, he/she has to click in the mouse's middle button, in order to move to the next stage of execution.
+
+In this stage the user is prompted to select the desired properties for the classifier's neural network. If a neural network with the properties specified by the user has already been created then it is loaded and used. If, on the other hand, no network with the properties specified by the user has been created, one is created, trained and saved, so it can be used in future executions.
 
 After the network is created and trained it performs the classification of the data, which is then presented to the user in a grid similar to the one initially presented.
