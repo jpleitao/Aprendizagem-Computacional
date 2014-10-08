@@ -6,7 +6,7 @@
 %Ask the user if using associative memory or not
 associative = 0;
 while ( (associative ~= 1) && (associative ~= 2))
-	associative = input('\nSelect the desired architecture\n1 - With associative memory\n2 - Without associative memory\n');
+	associative = input('Select the desired architecture\n1 - With associative memory\n2 - Without associative memory\n');
 end
 
 %Save the user's choice
@@ -28,41 +28,32 @@ if (associative == 1)
 		load('Tfinal.mat');
 		trainingDataInput = Pfinal;
 		trainingDataOutput = Tfinal;
+		
+		%Set the weights' file name
+		weights_file_name = 'associative_weights_Hebb.mat';
 	else
 		%Load training data with 50 elements
 		load('PTreino500.mat');
 		load('Tfinal500.mat');
 		trainingDataInput = PTreino500;
 		trainingDataOutput = Tfinal500;
+
+		%Set the weights' file name
+		weights_file_name = 'associative_weights_Pinv.mat';
 	end
 
 	%Train the associatvie memory
 	associative_W = associativeMemory(trainingDataInput, trainingDataOutput);
 
+	%Save the training type
+	save('AM_Training_Type.mat', 'training_type');
+
 	%Save the weights
-	save('associative_weights.mat', 'associative_W');
+	save(weights_file_name, 'associative_W');
 end
 
 
 %=====================================================Call mpaper============================================================
 mpaper();
 
-%{
-load('PerfectArial.mat');
-current_iteration = 0;
-Tfinal500 = [];
-while current_iteration < 500
-	current_position_T = mod(current_iteration,10);
-	if (current_position_T == 0)
-		current_position_T = 10;
-	end
-
-	Tfinal500 = [Tfinal500, Perfect(:, current_position_T)];
-	current_iteration = current_iteration + 1;
-end
-
-clear Perfect
-clear current_position_T
-clear current_iteration
-save Tfinal500	
-%}
+clear;
