@@ -73,11 +73,13 @@ No presente documento iremos proceder à apresentação em maior detalhe destas 
 
 \section{Aplicação Desenvolvida}
 
-\pagebreak
+A aplicação desenvolvida visa identificar corretamente caracteres desenhados pelo utilizador, implementando para isso as duas arquiteturas apresentadas anteriormente: \emph{Memória Associativa + Classificador} e \emph{Classificador}.
+
+Ambas as arquiteturas e os respetivos modos de funcionamento serão apresentados de seguida.
 
 \subsection{Memória Associativa + Classificador}
 
-\pagebreak
+Na arquitetura \emph{Memória Associativa + Classificador}, os dados 
 
 \subsection{Classificador}
 
@@ -85,7 +87,7 @@ No presente documento iremos proceder à apresentação em maior detalhe destas 
 
 \subsection{Implementação em Matlab}
 
-Indicar ficheiros criados e alterações ao código fonte (só dizer o que é que comentamos no mpaper.m)
+Para o desenvolvimento da aplicação foi-nos fornecido código-fonte, que cria e disponibiliza ao utilizador uma grelha onde este irá desenhar os caracteres a identificar, encarregando-se de toda a lógica interna da aplicação com a exceção da implementação do sistema de classificação dos caracteres e de toda a lógica a ele inerente (implementação das diferentes arquiteturas da aplicação, realização dos treinos das redes neuronais implementadas, etc)
 
 \subsubsection{associativeMemory.m}
 
@@ -96,13 +98,24 @@ Indicar ficheiros criados e alterações ao código fonte (só dizer o que é qu
 \subsubsection{myclassify.m}
 
 
-\subsubsection{saveNetwork.m}
+\subsubsection{run.m}
 
-Este ficheiro não estamos a usar neste momento. Mantê-lo na aplicação e no relatório??
+Este ficheiro é o ficheiro a executar para que a aplicação possa ser testada e utilizada.
 
 \subsection{Execução}
 
-Explicar como executar a aplicação. Não esquecer que quando usamos a memória associativa assumimos que o utilizador desenha os caracteres 1;2;3;4;5;6;7;8;9;0 por esta ordem, em cada linha, preenchendo todas as linhas.
+Para executar a aplicação o utilizador deverá executar o ficheiro \emph{run.m}. Uma vez iniciado, será pedido ao utilizador que selecione uma de duas possíveis arquiteturas para a aplicação: Utilizando \emph{Memória Associativa} em conjunto com o \emph{Classificador}, e utilizando apenas o \emph{Classificador}.
+
+Caso o utilizador selecione a utilização da \emph{Memória Associativa}, então terá de escolher o tipo de treino a realizar na mesma.
+
+Existem dois tipos de treino distintos: O primeiro recorre à \emph{Pseudo-Inversa}, onde os pesos da rede neuronal que a \emph{Memória Associativa} implementa são calculados pelo produto do \emph{output} esperado pelo valor da aplicação função \emph{pinv} (nativa do \emph{Matlab}) aos dados de \emph{input}. Já o segundo faz uso da \emph{Regra de Hebb} para calcular os pesos: Aqui os pesos resultam do produto do \emph{output} esperado pela seguinte matriz: $input^{T}\times \left(input\times input^{T}\right)^{-1}$.
+
+Após esta seleção a \emph{Memória Associativa} é criada, aparecendo de seguida uma grelha, onde o utilizador desenhará os caracteres a serem classificados. Assim que os caracteres são desenhados, o utilizador tem de carregar no botão do meio do seu rato, de forma a transitar para a fase de execução seguinte.
+
+Nesta fase, o utilizador terá que escolher algumas características da rede neural que o classificador da aplicação implementa. Caso já exista alguma rede previamente criada com as características especificadas pelo utilizador, essa rede é carregada para memória e utilizada na execução. Caso ainda não exista, uma rede neuronal com as características desejadas é criada e treinada, sendo também guardada para posteriores execuções. 
+
+Uma vez obtida a rede a utilizar, esta classifica os dados introduzidos pelo utilizador, que lhe serão apresentados numa grelha semelhante à onde inicialmente desenhou os caracteres.
+
 
 \pagebreak
 
