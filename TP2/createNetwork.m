@@ -9,9 +9,10 @@
 %%%%
 function my_network = createNetwork(activation_function, learning_method)
 
-	%Load training data with 500 elements
-	load('PTreino500.mat');
-	trainingData = PTreino500;
+	%Load training data
+	load('dimension.mat');
+	load(strcat('PTreino', num2str(dimension), '.mat'));
+	trainingData = PTreino;
 	[nP, nCases] = size(trainingData);
 
 	load('user_associative_choice.mat');
@@ -61,7 +62,8 @@ function my_network = createNetwork(activation_function, learning_method)
 	%%%%
 
 	load('PerfectArial.mat');
-	load('Tfinal500.mat');
+	load('dimension.mat');
+	load(strcat('Tfinal', num2str(dimension), '.mat'));
     
     targetData = zeros(10, nCases);
     
@@ -69,7 +71,7 @@ function my_network = createNetwork(activation_function, learning_method)
     while (temp < nCases)
 		current_col = 0;
         while (current_col < 10)
-            if ( Perfect(:,current_col + 1) == Tfinal500(:,temp + 1) )
+            if ( Perfect(:,current_col + 1) == Tfinal(:,temp + 1) )
                 targetData(current_col + 1, temp + 1) = 1;
                 break
             end

@@ -20,6 +20,7 @@ function associative_W = associativeMemory(my_data, my_target, transpose)
 		associative_W = my_target * pinv(my_data);
 	end
 	%}
+	
 	if (transpose == 1)
 		associative_W = my_target * my_data';
 	else

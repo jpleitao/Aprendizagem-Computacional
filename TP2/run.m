@@ -12,31 +12,37 @@ end
 %Save the user's choice
 save('user_associative_choice.mat', 'associative');
 
-if (associative == 1)
-
 %================================================Define Parameters for the Associative Memory=================================================
 
-	training_dimension = 0;
-	while ( (training_dimension ~= 1) && (training_dimension ~= 2))
-		training_dimension = input('\nSelect the dimensions of the training data:\n1 - 500 test-cases\n2 - 100 test-cases\n');
-	end
+training_dimension = 0;
+while ( (training_dimension ~= 1) && (training_dimension ~= 2))
+	training_dimension = input('\nSelect the dimensions of the training data:\n1 - 500 test-cases\n2 - 100 test-cases\n');
+end
+
+if (training_dimension == 1)
+	dimension = 500;
+	save('dimension.mat', 'dimension');
+else
+	dimension = 100;
+	save('dimension.mat', 'dimension');
+end
+
+if (associative == 1)
 
 	if (training_dimension == 1)
 		%Load training data with 500 elements
 		load('PTreino500.mat');
 		load('Tfinal500.mat');
-		dimension = 500;
-		trainingDataInput = PTreino500;
-		trainingDataOutput = Tfinal500;
-		save('dimension.mat', 'dimension');
+		
+		trainingDataInput = PTreino;
+		trainingDataOutput = Tfinal;
+		
 	else
 		%Load training data with 100 elements
 		load('PTreino100.mat');
 		load('Tfinal100.mat');
-		trainingDataInput = PTreino100;
-		trainingDataOutput = Tfinal100;
-		dimension = 100;
-		save('dimension.mat', 'dimension');
+		trainingDataInput = PTreino;
+		trainingDataOutput = Tfinal;
 	end
 
 	%Check the type of training to perform in the associative memory
