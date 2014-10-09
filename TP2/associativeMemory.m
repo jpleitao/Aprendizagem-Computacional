@@ -1,8 +1,7 @@
 %%%%
 %%	This function "trains" the associative memory for a given input, and corresponding expected output. This associative memory consists
 %%	of a single layer neural network, with linear activation function, and with no bias. The "train" of the network consists in determining
-%%	its weights, which is done in one of two ways:
-%%		- Using the transpose of the input data: W = output * input^T
+%%	its weights, which is done in this way:
 %%		- Using the pinv of the input data: W = output x pinv(input)
 %%
 %%	This function returns the computed weights, wich are later "applied" to the input data, computing "W x data", to obtain the
