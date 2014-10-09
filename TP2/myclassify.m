@@ -98,10 +98,9 @@ function my_return = myclassify(data_, filled_)
 	if (associative == 1)
 		network_name = strcat('net_AM_T_', num2str(dimension), '_', activation_function,'_', learning_method, '.mat');
 	else
-		network_name = strcat('net_noAM_', activation_function,'_', num2str(dimension), '_', learning_method, '.mat');
+		network_name = strcat('net_noAM_', activation_function,'_', learning_method, '.mat');
 	end
 
-	network_name
 	if exist(network_name, 'file') == 2
 		load(network_name);
 	else
