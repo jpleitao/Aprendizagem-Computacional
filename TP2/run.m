@@ -67,7 +67,7 @@ if (associative == 1)
 		%File does not exist, train the associative memory and save it
 
 		%Train the associatvie memory
-		associative_W = associativeMemory(trainingDataInput, trainingDataOutput);
+		associative_W = associativeMemory(trainingDataInput, trainingDataOutput, training_type);
 
 		%Save the weights
 		save(weights_file_name, 'associative_W');
