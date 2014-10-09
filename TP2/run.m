@@ -16,28 +16,39 @@ if (associative == 1)
 
 %================================================Define Parameters for the Associative Memory=================================================
 
-	%Check the type of training to perform in the associative memory
-	training_type = 0;
-	while ( (training_type ~= 1) && (training_type ~= 2))
-		training_type = input('\nSelect the desired type of training for the neural network\n1 - Hebb Rule\n2 - Pinv Method\n');
+	training_dimension = 0;
+	while ( (training_dimension ~= 1) && (training_dimension ~= 2))
+		training_dimension = input('\nSelect the dimensions of the training data:\n1 - 500 test-cases\n2 - 100 test-cases\n');
 	end
 
-	if (training_type == 1)
+	if (training_dimension == 1)
 		%Load training data with 500 elements
 		load('PTreino500.mat');
 		load('Tfinal500.mat');
+		dimension = 500;
 		trainingDataInput = PTreino500;
 		trainingDataOutput = Tfinal500;
-
-		%Set the weights' file name
-		weights_file_name = 'associative_weights_Hebb.mat';
+		save('dimension.mat', 'dimension');
 	else
 		%Load training data with 100 elements
 		load('PTreino100.mat');
 		load('Tfinal100.mat');
 		trainingDataInput = PTreino100;
 		trainingDataOutput = Tfinal100;
-		
+		dimension = 100;
+		save('dimension.mat', 'dimension');
+	end
+
+	%Check the type of training to perform in the associative memory
+	training_type = 0;
+	while ( (training_type ~= 1) && (training_type ~= 2))
+		training_type = input('\nSelect the desired training method\n1 - Transpose\n2 - Pinv\n');
+	end
+
+	if (training_type == 1)
+		%Set the weights' file name
+		weights_file_name = 'associative_weights_Transpose.mat';
+	else	
 		%Set the weights' file name
 		weights_file_name = 'associative_weights_Pinv.mat';
 	end
@@ -50,7 +61,7 @@ if (associative == 1)
 		%File does not exist, train the associative memory and save it
 
 		%Train the associatvie memory
-		associative_W = associativeMemory(trainingDataInput, trainingDataOutput);
+		associative_W = associativeMemory(trainingDataInput, trainingDataOutput, training_dimension);
 
 		%Save the weights
 		save(weights_file_name, 'associative_W');

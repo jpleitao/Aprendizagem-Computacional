@@ -23,9 +23,6 @@ function my_network = createNetwork(activation_function, learning_method)
 
 		if (training_type == 1)
 			%Load the weights of the Hebb training type
-			load('associative_weights_Hebb.mat');
-		elseif (training_type == 3)
-			%Load the weights of the tranpose training type
 			load('associative_weights_Transpose.mat');
 		else
 			%Load the weights of the pinv training type

@@ -55,7 +55,7 @@ function my_return = myclassify(data_, filled_)
 
 		if (training_type == 1)
 			%Load the weights of the Hebb training type
-			load('associative_weights_Hebb.mat');
+			load('associative_weights_Transpose.mat');
 		else
 			%Load the weights of the pinv training type
 			load('associative_weights_Pinv.mat');
@@ -94,10 +94,11 @@ function my_return = myclassify(data_, filled_)
 %=====================================================Verify Network=========================================================================
 
 	%Check if network has already been created -- If it has load the correspondent network. Otherwise create, train and save one
+	load('dimension.mat');
 	if (associative == 1)
-		network_name = strcat('net_AM_T_', num2str(training_type), '_', activation_function,'_', learning_method, '.mat');
+		network_name = strcat('net_AM_T_', num2str(training_type), '_', num2str(dimension), '_', activation_function,'_', learning_method, '.mat');
 	else
-		network_name = strcat('net_noAM_', activation_function,'_', learning_method, '.mat');
+		network_name = strcat('net_noAM_', activation_function,'_', num2str(dimension), '_', learning_method, '.mat');
 	end
 
 	if exist(network_name, 'file') == 2
