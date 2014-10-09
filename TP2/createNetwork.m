@@ -70,7 +70,7 @@ function my_network = createNetwork(activation_function, learning_method)
     
     temp = 0;
     while (temp < nCases)
-		current_col = 0              
+		current_col = 0;
         while (current_col < 10)
             if ( Perfect(:,current_col + 1) == Tfinal500(:,temp + 1) )
                 targetData(current_col + 1, temp + 1) = 1;
