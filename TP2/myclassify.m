@@ -102,8 +102,6 @@ function my_return = myclassify(data_, filled_)
 		network_name = strcat('net_noAM_', num2str(dimension), '_', activation_function, '_', learning_method, '.mat');
 	end
 
-	network_name
-	pause;
 	if exist(network_name, 'file') == 2
 		load(network_name);
 	else
