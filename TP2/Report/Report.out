@@ -8,7 +8,9 @@
 \BOOKMARK [3][-]{subsubsection.2.3.3}{myclassify.m}{subsection.2.3}% 8
 \BOOKMARK [3][-]{subsubsection.2.3.4}{run.m}{subsection.2.3}% 9
 \BOOKMARK [2][-]{subsection.2.4}{Execu\347\343o}{section.2}% 10
-\BOOKMARK [1][-]{section.3}{Testes Realizados}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{Treino da Aplica\347\343o}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Testes com a Rede Treinada}{section.3}% 13
-\BOOKMARK [1][-]{section.4}{Conclus\365es}{}% 14
+\BOOKMARK [1][-]{section.3}{Treino e Testes da Aplica\347\343o}{}% 11
+\BOOKMARK [2][-]{subsection.3.1}{Treino da Mem\363ria Associativa}{section.3}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Treino do Classificador}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{Testes}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Conclus\365es}{}% 15
+\BOOKMARK [1][-]{section.5}{Anexos}{}% 16

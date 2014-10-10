@@ -148,18 +148,43 @@ Após esta seleção a \emph{Memória Associativa} é criada, aparecendo de segu
 
 Nesta fase, o utilizador terá que escolher algumas características da rede neural que o classificador da aplicação implementa. Caso já exista alguma rede previamente criada com as características especificadas pelo utilizador, essa rede é carregada para memória e utilizada na execução. Caso ainda não exista, uma rede neuronal com as características desejadas é criada e treinada, sendo também guardada para posteriores execuções. 
 
+O processo de criação e treino desta rede neuronal é feito com recurso à \emph{Neural Network Toolbox}, que através do \emph{Matlab} disponibiliza uma interface para a criação e programação de uma rede neuronal, bem como para o seu treino.
+
 Uma vez obtida a rede a utilizar, esta classifica os dados introduzidos pelo utilizador, que lhe serão apresentados numa grelha semelhante à onde inicialmente desenhou os caracteres.
 
 
 \pagebreak
 
-\section{Testes Realizados}
+\section{Treino e Testes da Aplicação}
 
-Descrição de como fizémos os casos de teste, dimensões, etc
+Após o desenvolvimento inicial da aplicação foi necessário proceder ao treino das diferentes estruturas implementadas (\emph{memória associativa} e \emph{classificador}), testando de seguida a aplicação, a fim de aferir do seu correto, ou incorreto, funcionamento.
 
-\subsection{Treino da Aplicação}
+De seguida passamos a descrever o processo de treino adotado para a \emph{memória associativa} e para o \emph{classificador}.
 
-\subsection{Testes com a Rede Treinada}
+\subsection{Treino da Memória Associativa}
+
+Uma vez que a implementação \emph{memória associativa} da nossa aplicação consiste na determinação dos pesos das suas ligações, e posterior aplicação desses pesos aos dados de entrada para obter a saída correspondente, o treino desta estrutura resume-se à determinação destes pesos, de acordo com as expressões indicadas anteriormente.
+
+Assim, treinámos duas \emph{memórias associativas} diferentes, recorrendo a dados de treino com \emph{100} e \emph{500} elementos. Uma vez treinada cada \emph{memória associativa}, recorremos à função \emph{save} do \emph{Matlab}, guardando assim os valores dos pesos, o que nos permite utilizar estas duas variantes da \emph{memória associativa} sem ser necessário fazer previamente o seu treino.
+
+As duas \emph{memórias associativas} treinadas encontram-se nos ficheiros \emph{associative\_weights\_Transpose.mat} e \emph{associative\_weights\_Pinv.mat}.
+
+\subsection{Treino do Classificador}
+
+À semelhança do descrito para a \emph{memória associativa}, também no treino da rede neuronal implementadas para o \emph{classificador} recorremos a dados de treino com \emph{100} e \emph{500} elementos.
+
+Neste caso, dado que a rede neuronal foi implementada com recurso à \emph{Neural Network Tollbox} do \emph{Matlab}, o seu treino foi realizado com recurso à função \emph{train}, sendo apenas necessário fornecer a rede a treinar, e os respetivos dados de entrada e saída do treino.
+
+\subsection{Testes}
+
+Após o desenvolvimento e treino da aplicação realizámos alguns testes, variando as suas configurações: Consideramos as duas arquiteturas apresentadas,  \emph{memória associativa + classificador} e \emph{classificador}.
+
+Para cada uma destas arquiteturas realizámos testes individuais para cada função de ativação do \emph{classificador}, considerando ainda \emph{classificadores} treinados com os dois dados de treino: Dados com \emph{100} e \emph{500} elementos de treino.
+
+Como \emph{dados de entrada} utilizámos um conjunto de \emph{50} dados.
+
+Na tabela que se segue apresentamos os resultados obtidos para os diferentes testes realizados. O
+
 
 \pagebreak
 
@@ -195,5 +220,7 @@ Conclusões
 \end{itemize}
 
 \pagebreak
+
+\section{Anexos}
 
 \end{document}

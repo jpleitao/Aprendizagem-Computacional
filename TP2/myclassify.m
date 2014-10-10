@@ -40,12 +40,6 @@
 %%%%
 function my_return = myclassify(data_, filled_)
 
-	load('myInput.mat');
-	load('myFilled.mat');
-
-	filled_ = filled;
-	data_ = P;
-
 	%Just consider the collumns correspondent to the squares filled in the grid by the user
 	data_ = data_(:, filled_);
 

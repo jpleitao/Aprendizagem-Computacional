@@ -9,7 +9,9 @@
 \contentsline {subsubsection}{\numberline {2.3.3}myclassify.m}{5}{subsubsection.2.3.3}
 \contentsline {subsubsection}{\numberline {2.3.4}run.m}{6}{subsubsection.2.3.4}
 \contentsline {subsection}{\numberline {2.4}Execu\IeC {\c c}\IeC {\~a}o}{7}{subsection.2.4}
-\contentsline {section}{\numberline {3}Testes Realizados}{8}{section.3}
-\contentsline {subsection}{\numberline {3.1}Treino da Aplica\IeC {\c c}\IeC {\~a}o}{8}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Testes com a Rede Treinada}{8}{subsection.3.2}
+\contentsline {section}{\numberline {3}Treino e Testes da Aplica\IeC {\c c}\IeC {\~a}o}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}Treino da Mem\IeC {\'o}ria Associativa}{8}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Treino do Classificador}{8}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Testes}{8}{subsection.3.3}
 \contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{9}{section.4}
+\contentsline {section}{\numberline {5}Anexos}{10}{section.5}
