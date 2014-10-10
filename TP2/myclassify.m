@@ -139,7 +139,9 @@ function my_return = myclassify(data_, filled_)
 		case_result = find(result(:, current_case) == max(result(:, current_case)));
 		
 		%NOTE: If there is more than one classification for the current case then just consider the first one (FIXME?)
-		my_return(current_case) = case_result(1);
+		if (length(case_result) == 1)
+			my_return(current_case) = case_result(1);
+		end
 
 		current_case = current_case + 1;
 	end
