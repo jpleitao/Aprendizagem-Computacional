@@ -105,7 +105,7 @@ Neste ficheiro encontra-se uma pequena implementação da memória associativa, 
 
 O cálculo dos pesos é feito de duas formas diferentes, com dois conjuntos de dado de treino de diferentes dimensões, escolhidos pelo utilizador. Para o efeito, foram utilizados dados de treino com 100 e 500 casos de teste.
 
-Assim, numa situação, os pesos são calculados recorrendo à fórmula: $target\times input^T$. Na segunda situação, os pesos são calculados de acordo com: $target\times pinv(input)$, onde \emph{input} corresponde aos dados de treino fornecidos à \emph{memória associativa}, \emph{target} corresponde aos respetivos valores esperados à saída da \emph{memória associativa} e \emph{pinv} é uma função específica do \emph{Matlab}.
+Assim, numa situação, os pesos são calculados recorrendo à fórmula: $target\times input^T$ (\emph{Regra da Tranposta}). Na segunda situação, os pesos são calculados de acordo com: $target\times pinv(input)$ (\emph{Regra de Pseudo-Inversa}), onde \emph{input} corresponde aos dados de treino fornecidos à \emph{memória associativa}, \emph{target} corresponde aos respetivos valores esperados à saída da \emph{memória associativa} e \emph{pinv} é uma função específica do \emph{Matlab}.
 
 Uma vez calculados os valores desses pesos a função \emph{associativeMemory} retorna, devolvendo os valores calculados. A \emph{"purificação"} dos dados criados pelo utilizador só será realizada na função \emph{myclassify} (presente no ficheiro \emph{myclassify}), após terem sido obtidos os pesos da \emph{memória associativa}.
 
