@@ -1,4 +1,8 @@
 %%%%
+%%
+%%	João Tiago Márcia do Nascimento Fernandes 	2011162899
+%%	Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
+%%
 %%	Creates a new Perceptron Neural Network, which is going to be used as the application's classifier. To create the network we used
 %%	previously requested information to the user (like the network's activation function).
 %%	Once the network is created its properties are set, like the initial weights, bias, perform function, etc. After this step is done the

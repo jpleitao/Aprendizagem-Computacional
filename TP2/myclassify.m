@@ -1,4 +1,8 @@
 %%%%
+%%
+%%	João Tiago Márcia do Nascimento Fernandes 	2011162899
+%%	Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
+%%
 %%	Function that handles all the classification, for a given set of cases.
 %%	This function receives the data to classify, which results from the "mpaper" function, where the user had to draw some numbers by
 %%	hand in a given table; An array with the positions in the table where the user didn't draw anything; A previously created and

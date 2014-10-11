@@ -1,4 +1,8 @@
 %%%%
+%%
+%%	João Tiago Márcia do Nascimento Fernandes 	2011162899
+%%	Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
+%%
 %% Script to run the application
 %%%%
 
