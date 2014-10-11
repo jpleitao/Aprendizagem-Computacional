@@ -198,9 +198,22 @@ Na tabela que se segue apresentamos os resultados obtidos para os diferentes tes
 
 \section{Conclusões}
 
-Conclusões
+Após uma análise crítica dos resultados obtidos existem alguns pontos que consideramos importante salientar.
 
-\textbf{FIXME: Testar classificação de dígitos perfeitos e de dígitos não perfeitos (alguns não perfeitos são corretamente classificados, e todos os perfeitos são corretamente classificados)}
+O primeiro, e talvez o mais surpreendente, ponto refere-se às arquiteturas implementadas e em comparação neste trabalho: \emph{memória associativa + classificador} vs \emph{classificador}. Analisando os resultados obtidos podemos concluir que a arquitetura que apresenta melhores resultados é a que apenas contém o \emph{classificador}.
+
+De facto, considerámos a \emph{memória associativa} como uma espécie de \emph{"corretor"} dos dados de entrada do sistema, aproximando-os dos respetivos valores perfeitos, o que prevíamos que tornasse a sua classificação mais fácil. No entanto tal não se verificou.
+
+Após analisar o resultado da aplicação de ambas as versões da memória associativa a algumas entradas fornecidas ao sistema, verificámos que este se afastava do valor perfeito respetivo. Mais ainda, este desvio era mais significativo quando os pesos da \emph{memória associativa} eram calculados de acordo com a expressão $target\times input^T$ (já referida neste documento).
+
+Uma possível explicação para este resultado prende-se com o facto da \emph{memória associativa} simular um \emph{"conjunto"} de neurónios, onde se um dado neurónio é ativado, então é bastante provável que os neurónios próximos desse também sejam ativados. Assim, existe uma maior possibilidade de uma dada entrada ser classificada em várias \emph{classes} em simultâneo, e por isso inconclusivas. Desta forma podemos justificar as elevadas percentagens de dados não detetados sempre que utilizámos a \emph{memória associativa}.
+
+%2º ponto --> Aproveitar o facto de estar a falar da MA para introduzir a parte da regra de Hebb e dizer que alternativamente poderiamos implementar uma rede neuronal na MA e fazer um treino iterativo para ela (tal como no classificador), em vez de fazermos um treino em batch, como neste caso.
+%3º ponto --> Falar do impacto da dimensão dos dados de trenio na classificação
+%4º ponto --> Falar da melhor função de ativação
+%5º ponto --> Sistema é capaz de identificar dígitos? Sistema é robusto? Tem boa capacidade de generalização? --> Falar do \textbf que está na linha abaixo desta
+
+\textbf{Referir que os dígitos perfeitos são bem classificados, uma vez que foram incluídos, embora em número reduzido, nos dados de teste da \emph{memória associativa} e do \emph{classificador}. Referir também que alguns dígitos não perfeitos são corretamente classificados.}
 
 
 \vspace{.3cm}
@@ -208,20 +221,20 @@ Conclusões
 \textbf{FIXME: Perguntas relatório:}
 
 \begin{itemize}
-\item How does the data set influence the performance of the classification system? -- Obtemos melhores resultados (Mais casos corretamente detetados) quando são utilizados mais casos de teste. Está de acordo com o esperado, uma vez que ao treinarmos o \emph{classificador} com um maior número de exemplos de teste, desde que esse número não seja excessivamente elevado, este vai cobrir um maior número de situações, apresentando uma maior convergência, que resulta numa melhor performance. Quando o número de exemplos de teste é muito elevado, o sistema apresenta uma excelente \emph{performance} para os exemplos de teste, mas uma \emph{performance} inferior para novos exemplos, não contemplados nesses exemplos de teste.
+\item \textbf{How does the data set influence the performance of the classification system?} -- Obtemos melhores resultados (maior número de casos corretamente detetados) quando são utilizados mais casos de teste. Está de acordo com o esperado, uma vez que ao treinarmos o \emph{classificador} com um maior número de exemplos de teste, desde que esse número não seja excessivamente elevado, este vai cobrir um maior número de situações, apresentando uma maior convergência, que resulta numa melhor performance. Quando o número de exemplos de teste é muito elevado, o sistema apresenta uma excelente \emph{performance} para os exemplos de teste, mas uma \emph{performance} inferior para novos exemplos, não contemplados nesses exemplos de teste.
 
 \item Which architecture provides better results: only the classifier or the associative memory+classifier? -- Analisando os resultados obtidos concluímos que a arquitetura que apresenta melhores resultados é, sem dúvida, a arquitetura onde apenas se encontra presente o \emph{classificador}. Uma explicação para este resultado prende-se com o facto da \emph{memória associativa} simular um \emph{"conjunto"} de neurónios, onde se um dado neurónio é ativado, então é bastante provável que os neurónios que o rodeiem também sejam ativados. Com este fenómeno existe uma maior possibilidade de uma dada entrada ser classificada em várias \emph{classes} em simultâneo, justificando as elevadas percentagens de dados não detetados, nos testes realizados com a arquitetura \emph{memória associativa + classificador}.
 
-\item Which is the best activation function: hardlim, linear or logsig? -- Considerando apenas os testes onde obtivemos melhores resultados, isto é, os testes onde não foi utilizada \emph{memória associativa}, a função de ativação que apresentou melhores resultados foi, sem dúvida, a função \emph{sigmoidal, logsig}, uma vez que com essa função obtiveram-se as maiores percentagens de classificações corretas, nomeadamente a maior percentagem de classificações corretas registada em todos os testes realizados: 84\%.
+\item \textbf{Which is the best activation function: hardlim, linear or logsig?} -- Considerando apenas os testes onde obtivemos melhores resultados, isto é, os testes onde não foi utilizada \emph{memória associativa}, a função de ativação que apresentou melhores resultados foi, sem dúvida, a função \emph{sigmoidal, logsig}, uma vez que com essa função obtiveram-se as maiores percentagens de classificações corretas, nomeadamente a maior percentagem de classificações corretas registada em todos os testes realizados: 84\%.
 
-\item Does the Hebb rule perform well? --
+\item \textbf{Does the Hebb rule perform well?} -- Dizer que não aplicámos a regra de Hebb, uma vez que esta só pode ser aplicada para matrizes ortonormadas, o que nem sempre se verifica no nosso caso, dado que o utilizador é livre de desenhar qualquer conjunto de caracteres (que podem não produzir matrizes ortonormadas)
 
-\item Is the classification system able to achieve the main objectives (classification of digits)?
+\item \textbf{Is the classification system able to achieve the main objectives (classification of digits)?}
 
-\item Which is the percentage of well classified digits?
-
-\item How is the generalization capacity? Is the classification system robust enough to give correct outputs when new inputs are not perfect? Which is the percentage of well classified new inputs?
+\item \textbf{How is the generalization capacity? Is the classification system robust enough to give correct outputs when new inputs are not perfect? Which is the percentage of well classified new inputs?}
 \end{itemize}
+
+\textbf{Fazer pequeno resumo!}
 
 \pagebreak
 
