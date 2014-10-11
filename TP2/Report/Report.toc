@@ -14,4 +14,4 @@
 \contentsline {subsection}{\numberline {3.2}Treino do Classificador}{8}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Testes}{8}{subsection.3.3}
 \contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{10}{section.4}
-\contentsline {section}{\numberline {5}Anexos}{12}{section.5}
+\contentsline {section}{\numberline {5}Anexos}{13}{section.5}

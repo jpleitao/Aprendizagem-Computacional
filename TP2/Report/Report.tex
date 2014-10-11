@@ -141,7 +141,7 @@ Caso o utilizador selecione a utilização da \emph{Memória Associativa}, entã
 
 Existem dois tipos de treino distintos, utilizando cada um, dados de treino com diferentes dimensões, que o utilizador poderá escolher. Para o efeito, foram utilizados dados de treino com 100 e 500 casos de teste.
 
-Assim, no primeiro tipo de treino, os pesos são calculados de acordo com a seguinte fórmula: $target\times input^T$, enquanto que no segundo caso os pesos são calculados de acordo com a fórmula: $target\times pinv(input)$, onde \emph{input} corresponde aos dados de treino fornecidos à \emph{memória associativa}, \emph{target} corresponde aos respetivos valores esperados à saída da \emph{memória associativa} e \emph{pinv} é uma função específica do \emph{Matlab}.
+Assim, no primeiro tipo de treino, os pesos são calculados de acordo com a seguinte fórmula: $target\times input^T$ (\emph{Regra da Transposta}), enquanto que no segundo caso os pesos são calculados de acordo com a fórmula: $target\times pinv(input)$ (\emph{Regra de Pseudo-Inversa}), onde \emph{input} corresponde aos dados de treino fornecidos à \emph{memória associativa}, \emph{target} corresponde aos respetivos valores esperados à saída da \emph{memória associativa} e \emph{pinv} é uma função específica do \emph{Matlab}.
 
 Após esta seleção a \emph{Memória Associativa} é criada, aparecendo de seguida uma grelha, onde o utilizador desenhará os caracteres a serem classificados. Assim que os caracteres são desenhados, o utilizador tem de carregar no botão do meio do seu rato, de forma a transitar para a fase de execução seguinte.
 
@@ -187,6 +187,10 @@ Em anexo a este documento encontram-se ainda algumas imagens dos testes realizad
 
 Na tabela que se segue apresentamos os resultados obtidos para os diferentes testes realizados.
 
+Queremos desde já salientar os casos em que o tempo de treino da rede neuronal do \emph{classificador} foi bastante reduzido (inferior a 1 minuto), bem como os casos em que este não detetou (correta ou incorretamente) nenhum dos exemplos de teste. 
+
+Estas situações permitem-nos desde já concluir que existem situações em que a função de ativação escolhida, devido à sua natureza pouco suave, não é a mais adequada para classificar este tipo de dados. Para além disso, podemos também verificar que a utilização da \emph{Regra de Transposta} na \emph{memória associativa} não se revelou eficaz, o que nos leva a concluir que esta regra não é aplicável ao trabalho realizado.
+
 \begin{figure}[h]
   \centering
       \includegraphics[scale=0.7]{Results.png}
@@ -204,37 +208,27 @@ O primeiro, e talvez o mais surpreendente, ponto refere-se às arquiteturas impl
 
 De facto, considerámos a \emph{memória associativa} como uma espécie de \emph{"corretor"} dos dados de entrada do sistema, aproximando-os dos respetivos valores perfeitos, o que prevíamos que tornasse a sua classificação mais fácil. No entanto tal não se verificou.
 
-Após analisar o resultado da aplicação de ambas as versões da memória associativa a algumas entradas fornecidas ao sistema, verificámos que este se afastava do valor perfeito respetivo. Mais ainda, este desvio era mais significativo quando os pesos da \emph{memória associativa} eram calculados de acordo com a expressão $target\times input^T$ (já referida neste documento).
+Após analisar o resultado da aplicação de ambas as versões da memória associativa a algumas entradas fornecidas ao sistema, verificámos que este se afastava do valor perfeito respetivo. Mais ainda, este desvio é mais significativo quando os pesos da \emph{memória associativa} são calculados de acordo com a \emph{Regra da Transposta}, do que quando é utilizada a \emph{Regra de Pseudo-Inversa}.
 
 Uma possível explicação para este resultado prende-se com o facto da \emph{memória associativa} simular um \emph{"conjunto"} de neurónios, onde se um dado neurónio é ativado, então é bastante provável que os neurónios próximos desse também sejam ativados. Assim, existe uma maior possibilidade de uma dada entrada ser classificada em várias \emph{classes} em simultâneo, e por isso inconclusivas. Desta forma podemos justificar as elevadas percentagens de dados não detetados sempre que utilizámos a \emph{memória associativa}.
 
-%2º ponto --> Aproveitar o facto de estar a falar da MA para introduzir a parte da regra de Hebb e dizer que alternativamente poderiamos implementar uma rede neuronal na MA e fazer um treino iterativo para ela (tal como no classificador), em vez de fazermos um treino em batch, como neste caso.
-%3º ponto --> Falar do impacto da dimensão dos dados de trenio na classificação
-%4º ponto --> Falar da melhor função de ativação
-%5º ponto --> Sistema é capaz de identificar dígitos? Sistema é robusto? Tem boa capacidade de generalização? --> Falar do \textbf que está na linha abaixo desta
+Dados os dois métodos de treino para a \emph{memória associativa} discutidos neste documento, verificamos que estes são métodos de \emph{treino em batch}, isto é, o treino é realizado num único passo, envolvendo todos os exemplos de treino.
 
-\textbf{Referir que os dígitos perfeitos são bem classificados, uma vez que foram incluídos, embora em número reduzido, nos dados de teste da \emph{memória associativa} e do \emph{classificador}. Referir também que alguns dígitos não perfeitos são corretamente classificados.}
+Alternativamente, poderíamos considerar a utilização de métodos de \emph{treino iterativo}, onde os pesos da \emph{memória associativa} seriam calculados e ajustados analisando cada caso de treino individualmente, o que poderia resultar numa implementação da \emph{memória associativa} mais bem conseguida, que efetivamente aproximaria os dados de entrada dos respetivos valores perfeitos.
 
+Gostaríamos também de salientar que, embora o enunciado deste trabalho refira a implementação da \emph{Regra de Hebb} para treinar os pesos da \emph{memória associativa}, optámos por não incluir essa regra, uma vez que esta só pode ser aplicada a matrizes \emph{ortonormadas}, o que nem sempre se verifica, dado que o utilizador é livre de desenhar qualquer conjunto de caracteres, que quando mapeados para uma matriz (com recurso à função \emph{mpaper}) nem sempre produzem uma matriz \emph{ortonormada}.
 
-\vspace{.3cm}
+O terceiro ponto que gostaríamos de referir prende-se com a análise da \emph{performance} da rede do \emph{classificador} tendo em conta o número de dados com os quais o seu treino foi realizado. Uma vez que não utilizámos dados de treino excessivamente elevados (apenas recorremos a \emph{100} e a \emph{500} dados de treino) seria de esperar que as redes treinadas com um maior número de casos de treino apresentariam um maior número de deteções corretas.
 
-\textbf{FIXME: Perguntas relatório:}
+Efetivamente, verificámos essa situação, uma vez que os \emph{classificadores} treinados com \emph{500} dados de treino apresentaram percentagens de deteções corretas maiores do que os \emph{classificadores} treinados com \emph{100} dados de treino. Uma vez que o número de casos de treino não foi excessivamente elevado, ao fornecermos mais dados ao \emph{classificador} este vai cobrir um maior número de situações apresentando uma maior convergência, que resulta numa melhor performance. Quando o número de exemplos de teste é muito elevado, o sistema apresenta uma excelente \emph{performance} para os exemplos de teste, mas uma \emph{performance} inferior para novos exemplos, não contemplados nesses exemplos de teste (problema denominado \emph{overfitting}).
 
-\begin{itemize}
-\item \textbf{How does the data set influence the performance of the classification system?} -- Obtemos melhores resultados (maior número de casos corretamente detetados) quando são utilizados mais casos de teste. Está de acordo com o esperado, uma vez que ao treinarmos o \emph{classificador} com um maior número de exemplos de teste, desde que esse número não seja excessivamente elevado, este vai cobrir um maior número de situações, apresentando uma maior convergência, que resulta numa melhor performance. Quando o número de exemplos de teste é muito elevado, o sistema apresenta uma excelente \emph{performance} para os exemplos de teste, mas uma \emph{performance} inferior para novos exemplos, não contemplados nesses exemplos de teste.
+Analisando também os resultados, tendo em conta as diferentes funções de ativação implementadas, podemos concluir que a função \emph{sigmoidal, logsig} apresentou os melhores resultados, uma vez que com essa função obtiveram-se as maiores percentagens de classificações corretas, nomeadamente a maior percentagem de classificações corretas registada em todos os testes realizados: 84\%.
 
-\item Which architecture provides better results: only the classifier or the associative memory+classifier? -- Analisando os resultados obtidos concluímos que a arquitetura que apresenta melhores resultados é, sem dúvida, a arquitetura onde apenas se encontra presente o \emph{classificador}. Uma explicação para este resultado prende-se com o facto da \emph{memória associativa} simular um \emph{"conjunto"} de neurónios, onde se um dado neurónio é ativado, então é bastante provável que os neurónios que o rodeiem também sejam ativados. Com este fenómeno existe uma maior possibilidade de uma dada entrada ser classificada em várias \emph{classes} em simultâneo, justificando as elevadas percentagens de dados não detetados, nos testes realizados com a arquitetura \emph{memória associativa + classificador}.
+Para finalizar, tendo em conta os resultados apresentados, podemos concluir que o sistema, quando não faz uso da memória associativa apresenta percentagens de classificações corretas mais elevadas, sendo capaz de identificar alguns dígitos desenhados de diferentes maneiras. Mais ainda, quando a função de ativação do \emph{classificador} é a função \emph{sigmoidal}, este apresenta melhores resultados. Isto permite-nos concluir que esta função é a que mais se adequa ao tipo de classificação e ao tipo de dados presentes neste trabalho.
 
-\item \textbf{Which is the best activation function: hardlim, linear or logsig?} -- Considerando apenas os testes onde obtivemos melhores resultados, isto é, os testes onde não foi utilizada \emph{memória associativa}, a função de ativação que apresentou melhores resultados foi, sem dúvida, a função \emph{sigmoidal, logsig}, uma vez que com essa função obtiveram-se as maiores percentagens de classificações corretas, nomeadamente a maior percentagem de classificações corretas registada em todos os testes realizados: 84\%.
+Tendo em conta a tarefa realizada, a aplicação desenvolvida consegue atingir alguns dos objetivos propostos: apresenta alguma robustez e capacidade de generalização, sendo capaz de identificar corretamente dígitos perfeitos bem como alguns dígitos não perfeitos. No entanto, esta está longe de fazer uma classificação perfeita dos caracteres, nomeadamente os desenhados de forma diferente dos incluídos nos dados de treino.
 
-\item \textbf{Does the Hebb rule perform well?} -- Dizer que não aplicámos a regra de Hebb, uma vez que esta só pode ser aplicada para matrizes ortonormadas, o que nem sempre se verifica no nosso caso, dado que o utilizador é livre de desenhar qualquer conjunto de caracteres (que podem não produzir matrizes ortonormadas)
-
-\item \textbf{Is the classification system able to achieve the main objectives (classification of digits)?}
-
-\item \textbf{How is the generalization capacity? Is the classification system robust enough to give correct outputs when new inputs are not perfect? Which is the percentage of well classified new inputs?}
-\end{itemize}
-
-\textbf{Fazer pequeno resumo!}
+Não obstante, uma vez que o mesmo caracter pode ser desenhado de várias maneiras diferentes, consideramos que, quando não fazemos uso da \emph{memória associativa}, os resultados obtidos são bastante razoáveis.
 
 \pagebreak
 
