@@ -12,6 +12,7 @@
 \usepackage{color}
 \usepackage{graphicx}
 
+\usepackage{booktabs}
 
 \title{\bf{Aprendizagem Computacional - Trabalho Prático 2}\vspace{80mm}}
 \author{\textbf{João Tiago Márcia do Nascimento Fernandes - 2011162899} \\
@@ -73,7 +74,9 @@ No presente documento iremos proceder à apresentação em maior detalhe destas 
 
 \section{Aplicação Desenvolvida}
 
-A aplicação desenvolvida visa identificar corretamente caracteres desenhados pelo utilizador, implementando para isso as duas arquiteturas apresentadas anteriormente: \emph{Memória Associativa + Classificador} e \emph{Classificador}.
+A aplicação desenvolvida visa identificar e classificar corretamente caracteres desenhados pelo utilizador, implementando para isso as duas arquiteturas apresentadas anteriormente: \emph{Memória Associativa + Classificador} e \emph{Classificador}.
+
+Esta classificação é realizada atribuindo a cada elemento do conjunto de dados de entrada da aplicação uma \emph{classe}, representada por um número inteiro entre \emph{1} e \emph{10}. Quando um dado elemento é classificado com a \emph{classe 1} então a aplicação indica que o elemento em questão corresponde à escrita manual do número {1}, mantendo-se o raciocínio para as restantes \emph{classes}, com a exceção da \emph{classe 10}, que representa o número \emph{0}.
 
 Ambas as arquiteturas e os respetivos modos de funcionamento serão apresentados de seguida.
 
@@ -91,7 +94,6 @@ Ao contrário da arquitetura anterior, na arquitetura \emph{Memória Associativa
 
 Tal como o descrito na arquitetura anterior, o classificador recorre a uma rede neuronal previamente treinada para realizar a classificação das entradas. Uma vez classificadas as entradas, o resultado da sua classificação é apresentado ao utilizador.
 
-\pagebreak
 
 \subsection{Implementação em Matlab}
 
@@ -113,12 +115,11 @@ No ficheiro \emph{createNetwork.m} encontramos a função \emph{createNetwork}, 
 
 Esta rede é criada de acordo com algumas características pré-definidas, e um conjunto de características escolhidas pelo utilizador, como é o caso da função de ativação. Uma vez criada a rede neuronal, esta é treinada com um conjunto de dados previamente obtidos, e que se encontram nos ficheiros \emph{PTreino500.mat} e \emph{Tfinal500.mat}.
 
-
 \subsubsection{myclassify.m}
 
 No ficheiro \emph{myclassify.m} encontramos a função \emph{myclassify}, onde se encontra uma boa parte da lógica principal da aplicação.
 
-Esta função é chamada pela função \emph{ocr\_func}, que por sua vez é chamada pela função \emph{mpaper}, e recebe como argumento os caracteres desenhados pelo utilizador.
+Esta função é chamada pela função \emph{ocr\_func}, que por sua vez é chamada pela função \emph{mpaper}, e recebe como argumento os caracteres desenhados pelo utilizador. Ambas as funções \emph{ocr\_func} e \emph{mpaper} são funções do código-fonte fornecido originalmente.
 
 Caso o utilizador tenha indicado a utilização de uma \emph{memória associativa}, e qual o método para o cálculos dos seus pesos, a função verifica se a \emph{memória associativa} pretendida já foi previamente criada. Caso tenha sido criada, os seus pesos são carregados em memória e os caracteres desenhados pelo utilizador são \emph{"purificados"}. Caso nenhuma tenha sido criada, a \emph{memória associativa} é criada, os seus pesos são determinados com base em valores de treino previamente computados, e de seguida os dados fornecidos pelo utilizador são \emph{"purificados"}.
 
@@ -131,8 +132,6 @@ Após a classificação dos caracteres, esta é retornada pela função, sendo p
 \subsubsection{run.m}
 
 Este ficheiro contém um \emph{script} que permite executar a aplicação. Neste \emph{script} o utilizador poderá definir alguns parâmetros da rede, nomeadamente a sua arquitetura e a função de ativação a utilizar no \emph{classificador}. O funcionamento da aplicação, tal como a estrutura deste ficheiro, serão abordados com maior detalhe na secção que se segue.
-
-\pagebreak
 
 \subsection{Execução}
 
@@ -152,7 +151,6 @@ O processo de criação e treino desta rede neuronal é feito com recurso à \em
 
 Uma vez obtida a rede a utilizar, esta classifica os dados introduzidos pelo utilizador, que lhe serão apresentados numa grelha semelhante à onde inicialmente desenhou os caracteres.
 
-
 \pagebreak
 
 \section{Treino e Testes da Aplicação}
@@ -165,7 +163,9 @@ De seguida passamos a descrever o processo de treino adotado para a \emph{memór
 
 Uma vez que a implementação \emph{memória associativa} da nossa aplicação consiste na determinação dos pesos das suas ligações, e posterior aplicação desses pesos aos dados de entrada para obter a saída correspondente, o treino desta estrutura resume-se à determinação destes pesos, de acordo com as expressões indicadas anteriormente.
 
-Assim, treinámos duas \emph{memórias associativas} diferentes, recorrendo a dados de treino com \emph{100} e \emph{500} elementos. Uma vez treinada cada \emph{memória associativa}, recorremos à função \emph{save} do \emph{Matlab}, guardando assim os valores dos pesos, o que nos permite utilizar estas duas variantes da \emph{memória associativa} sem ser necessário fazer previamente o seu treino.
+Assim, treinámos duas \emph{memórias associativas} diferentes, recorrendo a dados de treino com \emph{100} e \emph{500} elementos. Estes dados encontram-se, respetivamente, nos ficheiros \emph{PTreino100.mat} e \emph{Tfinal100.mat}, e nos ficheiros \emph{PTreino500.mat} e \emph{Tfinal500.mat}, fornecidos com a aplicação e com este relatório.
+
+Uma vez treinada cada \emph{memória associativa}, recorremos à função \emph{save} do \emph{Matlab}, guardando assim os valores dos pesos, o que nos permite utilizar estas duas variantes da \emph{memória associativa} sem ser necessário fazer previamente o seu treino.
 
 As duas \emph{memórias associativas} treinadas encontram-se nos ficheiros \emph{associative\_weights\_Transpose.mat} e \emph{associative\_weights\_Pinv.mat}.
 
@@ -181,9 +181,17 @@ Após o desenvolvimento e treino da aplicação realizámos alguns testes, varia
 
 Para cada uma destas arquiteturas realizámos testes individuais para cada função de ativação do \emph{classificador}, considerando ainda \emph{classificadores} treinados com os dois dados de treino: Dados com \emph{100} e \emph{500} elementos de treino.
 
-Como \emph{dados de entrada} utilizámos um conjunto de \emph{50} dados.
+A fim de podermos realizar uma comparação entre as várias configurações das arquiteturas implementadas na aplicação, em todos os testes apresentados utilizámos o mesmo conjunto de \emph{dados de entrada}, composto por \emph{50} caracteres, desenhados manualmente com recurso à função \emph{mpaper}, contida no código-fonte fornecido originalmente.
 
-Na tabela que se segue apresentamos os resultados obtidos para os diferentes testes realizados. O
+Em anexo a este documento encontram-se ainda algumas imagens dos testes realizados, onde se pode visualizar, para cada teste, o tempo de treino da rede neuronal do \emph{classificador}, os dados de entrada utilizados e a saída obtida.
+
+Na tabela que se segue apresentamos os resultados obtidos para os diferentes testes realizados.
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.7]{Results.png}
+  \caption{Resultados dos testes realizados}
+\end{figure}
 
 
 \pagebreak
@@ -200,27 +208,140 @@ Conclusões
 \textbf{FIXME: Perguntas relatório:}
 
 \begin{itemize}
-\item How does the data set influence the performance of the classification system?
+\item How does the data set influence the performance of the classification system? -- Obtemos melhores resultados (Mais casos corretamente detetados) quando são utilizados mais casos de teste. Está de acordo com o esperado, uma vez que ao treinarmos o \emph{classificador} com um maior número de exemplos de teste, desde que esse número não seja excessivamente elevado, este vai cobrir um maior número de situações, apresentando uma maior convergência, que resulta numa melhor performance. Quando o número de exemplos de teste é muito elevado, o sistema apresenta uma excelente \emph{performance} para os exemplos de teste, mas uma \emph{performance} inferior para novos exemplos, não contemplados nesses exemplos de teste.
 
-\item Which architecture provides better results: only the classifier or the associative memory+classifier?
+\item Which architecture provides better results: only the classifier or the associative memory+classifier? -- Analisando os resultados obtidos concluímos que a arquitetura que apresenta melhores resultados é, sem dúvida, a arquitetura onde apenas se encontra presente o \emph{classificador}. Uma explicação para este resultado prende-se com o facto da \emph{memória associativa} simular um \emph{"conjunto"} de neurónios, onde se um dado neurónio é ativado, então é bastante provável que os neurónios que o rodeiem também sejam ativados. Com este fenómeno existe uma maior possibilidade de uma dada entrada ser classificada em várias \emph{classes} em simultâneo, justificando as elevadas percentagens de dados não detetados, nos testes realizados com a arquitetura \emph{memória associativa + classificador}.
 
-\item Which is the best activation function: hardlim, linear or logsig?
+\item Which is the best activation function: hardlim, linear or logsig? -- Considerando apenas os testes onde obtivemos melhores resultados, isto é, os testes onde não foi utilizada \emph{memória associativa}, a função de ativação que apresentou melhores resultados foi, sem dúvida, a função \emph{sigmoidal, logsig}, uma vez que com essa função obtiveram-se as maiores percentagens de classificações corretas, nomeadamente a maior percentagem de classificações corretas registada em todos os testes realizados: 84\%.
 
-\item Does the Hebb rule perform well?
+\item Does the Hebb rule perform well? --
 
 \item Is the classification system able to achieve the main objectives (classification of digits)?
 
 \item Which is the percentage of well classified digits?
 
-\item How is the generalization capacity?
-
-\item Is the classification system robust enough to give correct outputs when new inputs are not perfect?
-
-\item Which is the percentage of well classified new inputs?
+\item How is the generalization capacity? Is the classification system robust enough to give correct outputs when new inputs are not perfect? Which is the percentage of well classified new inputs?
 \end{itemize}
 
 \pagebreak
 
 \section{Anexos}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Input.png}
+  \caption{Dados de entrada utilizados para os testes realizados à aplicação}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Hardlim.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{hardlim} como função de ativação e sem utilização de \emph{memória associativa}. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Sigmoidal.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{logsig} como função de ativação e sem utilização de \emph{memória associativa}. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Linear.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{purelin} como função de ativação e sem utilização de \emph{memória associativa}. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Hardlim.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{hardlim} como função de ativação e sem utilização de \emph{memória associativa}. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Sigmoidal.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{logsig} como função de ativação e sem utilização de \emph{memória associativa}. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Linear.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{purelin} como função de ativação e sem utilização de \emph{memória associativa}. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Transpose_Hardlim.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{hardlim} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times input^T$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Transpose_Sigmoidal.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{logsig} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times input^T$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Transpose_Linear.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{purelin} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times input^T$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Pinv_Hardlim.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{hardlim} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times pinv(input)$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Pinv_Sigmoidal.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{logsig} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times pinv(input)$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{500_Pinv_Linear.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 500 elementos, utilizando a função \emph{purelin} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times pinv(input)$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Transpose_Hadlim.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{hardlim} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times input^T$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Transpose_Sigmoidal.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{logsig} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times input^T$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Transpose_Linear.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{purelin} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times input^T$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Pinv_Hardlim.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{hardlim} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times pinv(input)$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Pinv_Sigmoidal.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{logsig} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times pinv(input)$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{100_Pinv_Linear.png}
+  \caption{Tempo de treino da rede neuronal do classificador recorrendo a dados de treino com 100 elementos, utilizando a função \emph{purelin} como função de ativação e com utilização de \emph{memória associativa}, fazendo uso da fórmula $target\times pinv(input)$. São também visíveis os resultados da classificação do input da figura 3}
+\end{figure}
 
 \end{document}
