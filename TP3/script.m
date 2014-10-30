@@ -15,29 +15,28 @@ aux = Trg;
 last = 0;
 cont = 1;
 
-tempTwo = 1;
+tempOne = 1;
 
-while(~isempty(tempTwo))
+while(~isempty(tempOne))
     tempOne = find(aux == 1, 1, 'first');
+    
+    if(isempty(tempOne))
+        break;
+    end
+    
     aux = Trg((tempOne+last+1): length(Trg));
 
     tempTwo = find(aux == 0, 1, 'first');
     cr(cont, 1) = tempOne+last;
     
-    if(isempty(tempTwo))
-        cr(cont, 2) = tempOne+last+tempTwo;
-    else
-        disp(tempOne+last+tempTwo+1);
-        disp(length(Trg));
-        cr(cont, 2) = tempOne+last+tempTwo;
-        aux = Trg((tempOne+last+tempTwo+1): length(Trg));
-
-    end
+    cr(cont, 2) = tempOne+last+tempTwo;
+    aux = Trg((tempOne+last+tempTwo+1): length(Trg));
     
     disp(cr);
     last = tempOne+last+tempTwo;
     cont = cont + 1;
 end
 
+disp(cr);
 
 
