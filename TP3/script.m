@@ -18,12 +18,14 @@ cont = 1;
 tempOne = 1;
 
 while(~isempty(tempOne))
-    tempOne = find(aux == 1, 1, 'first');
+    %Find first crysis
+    tempOne = find(aux == 1, 1, 'first');%find(X,K,'first') is the same as find(X,K)
     
     if(isempty(tempOne))
         break;
     end
     
+    %Consider excude all the data before that crysis?
     aux = Trg((tempOne+last+1): length(Trg));
 
     tempTwo = find(aux == 0, 1, 'first');
@@ -31,12 +33,16 @@ while(~isempty(tempOne))
     
     cr(cont, 2) = tempOne+last+tempTwo;
     aux = Trg((tempOne+last+tempTwo+1): length(Trg));
+
+    %So, in cr we are saving all the epileptic crysis, and for each crysis we store the start and end, right?
+
+    %Why do we need the "last" variable?
     
-    disp(cr);
+    %disp(cr);
     last = tempOne+last+tempTwo;
     cont = cont + 1;
 end
 
 disp(cr);
-
-
+size(cr)
+%If size(cr) == [22 2] then our pacient has 22 crysis, which we need to separate into training, test and validation cases, using divideind
