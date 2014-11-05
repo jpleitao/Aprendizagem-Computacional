@@ -15,7 +15,8 @@ function [training_input, training_output, test_input, test_output] = getTrainin
 
 %=======================================================Training Data=========================================================================
 
-
+	%%FIXME: PEDIR AO UTILIZADOR A PERCENTAGEM DE CRISES NOS DADOS DE TESTE E FAZER A CRIAÇAO DESSES DADOS DE TESTE A PARTE, EM VEZ DE SER NO
+	%%MESMO SITIO QUE OS DE TREINO	
 
 %=========================================================Test Data===========================================================================
 	
