@@ -28,7 +28,7 @@ function varargout = run(varargin)
 
 % Edit the above text to modify the response to help run
 
-% Last Modified by GUIDE v2.5 05-Nov-2014 16:35:51
+% Last Modified by GUIDE v2.5 05-Nov-2014 20:11:20
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -73,7 +73,8 @@ handles.performanceFunction = 'mse';
 handles.goal = 1e-6;
 handles.epochs = 100;
 handles.learningRate = 0.5;
-handles.hiddenLayers = 30;
+handles.numberLayers = 3;
+handles.hiddenLayersSizes = 30;
 handles.layerDelays = 3;
 handles.classificationType = 'single';
 
@@ -123,6 +124,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
         %% 2- Get Indexes of the Patient's Crysis
         %% 3- Get Train and Test Data
         %% 4- Train network
+        %% 5- Results handling
         %%%%
 
         %Load training file
@@ -136,8 +138,8 @@ function trainbutton_Callback(hObject, eventdata, handles)
         [handles.test_input, handles.test_output] = getTestDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_test);    
 
         %Create desired network
-        network_data = [handles.networkName, handles.trainFunction, handles.performanceFunction, handles.goal, handles.epochs, handles.learningRate,
-                        handles.hiddenLayers, handles.layerDelays];
+        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);               
+
         handles.network = createNetwork(network_data);
 
         %Train network
@@ -150,6 +152,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
         %% 2- Get Indexes of the Patient's Crysis
         %% 3- Get Train and Test Data (The group ones now!)
         %% 4- Train network
+        %% 5- Results handling
         %%%%
     end
     
@@ -426,22 +429,22 @@ end
 
 
 
-function hiddenLayersEdit_Callback(hObject, eventdata, handles)
-% hObject    handle to hiddenLayersEdit (see GCBO)
+function hiddenLayersSizeEdit_Callback(hObject, eventdata, handles)
+% hObject    handle to hiddenLayersSizeEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of hiddenLayersEdit as text
-%        str2double(get(hObject,'String')) returns contents of hiddenLayersEdit as a double
-    handles.hiddenLayers = str2double(get(hObject,'String'));
+% Hints: get(hObject,'String') returns contents of hiddenLayersSizeEdit as text
+%        str2double(get(hObject,'String')) returns contents of hiddenLayersSizeEdit as a double
+    handles.hiddenLayersSizes = str2double(get(hObject,'String'));
     
     % Update handles structure
     guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
-function hiddenLayersEdit_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to hiddenLayersEdit (see GCBO)
+function hiddenLayersSizeEdit_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to hiddenLayersSizeEdit (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -523,3 +526,30 @@ function classificationType_SelectionChangeFcn(hObject, eventdata, handles)
     
     % Update handles structure
     guidata(hObject, handles);
+
+
+
+function numLayersInput_Callback(hObject, eventdata, handles)
+% hObject    handle to numLayersInput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of numLayersInput as text
+%        str2double(get(hObject,'String')) returns contents of numLayersInput as a double
+    handles.numberLayers = str2double(get(hObject,'String'));
+    
+    % Update handles structure
+    guidata(hObject, handles); 
+
+
+% --- Executes during object creation, after setting all properties.
+function numLayersInput_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to numLayersInput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
