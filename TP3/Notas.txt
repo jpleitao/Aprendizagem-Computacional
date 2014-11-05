@@ -1,5 +1,4 @@
-FIXME: PEDIR AO UTILIZADOR A PERCENTAGEM DE CRISES NOS DADOS DE TESTE E FAZER A CRIAÇAO DESSES DADOS DE TESTE A PARTE, EM VEZ DE SER NO MESMO SITIO QUE OS DE TREINO	
-
+FIXME: Por enquanto estou a assumir que na classificação em grupo o número de elementos iguais para se poder classificar está definido internamente....
 
 Redes neuronais a implementar:
 - Feedforward Net (feedforwardnet) normal, com duas ou três camadas -- Ver se usamos o newff ou o feedforwardnet ou as duas!!!
