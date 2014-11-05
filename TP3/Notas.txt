@@ -1,7 +1,10 @@
+FIXME: PEDIR AO UTILIZADOR A PERCENTAGEM DE CRISES NOS DADOS DE TESTE E FAZER A CRIAÇAO DESSES DADOS DE TESTE A PARTE, EM VEZ DE SER NO MESMO SITIO QUE OS DE TREINO	
+
+
 Redes neuronais a implementar:
 - Feedforward Net (feedforwardnet) normal, com duas ou três camadas -- Ver se usamos o newff ou o feedforwardnet ou as duas!!!
 - Layer Recurrent Network: net=layrecnet(layerDelays,hiddenSizes,trainFcn)
-- Radial Basis Function Network (RBF): net = newrb(P,T,goal,spread,MN,DF) -- Não é preciso treinar!!!
+- Radial Basis Function Network (RBF): net = newrb(P,T,goal,spread,MN,DF)
 - Eventualmente usar também um perceptrão (newp)??
 
 Para as redes neuronais criar campos de:
