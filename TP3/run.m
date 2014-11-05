@@ -130,7 +130,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
     %Get train and test data
     
     [handles.training_input, handles.training_output] = getTrainingData(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
-    [handles.test_input, handles.test_output] = getTestData();    
+    [handles.test_input, handles.test_output] = getTestData(crysis_indexes, Trg, FeatVectSel, handles.percentage_test);    
     
     %Create desired network(Shouldn't be needed, should already have been created)
     %handles.network
