@@ -9,6 +9,13 @@ function [training_input, training_output] = getTrainingData(crysis_indexes, Tar
 	%randperm
 	%divideind
 
+	%%%%
+	%% Our input will be a matrix of dimensions 29xY, where Y is the number of input data
+	%% Our output will be a matrix of dimensions 1xY, where Y is the number of input data -- Is this correct???
+	%%%%
+
+	Target = Target';
+
 	%crysis_indexes -> [Start_crysis, End_crysis]
 	number_crysis = size(crysis_indexes);
 	number_crysis = number_crysis(1);
@@ -42,21 +49,21 @@ function [training_input, training_output] = getTrainingData(crysis_indexes, Tar
 
 			%Select those positions randomly and add them to the training input and output
 			selected_non_ictal_positions = randperm(number_non_ictal_elements, current_number_elements);
-			training_input = [training_input, Input(selected_non_ictal_positions)];
+			training_input = [training_input, Input(selected_non_ictal_positions,:)'];
 			training_output = [training_output, Target(selected_non_ictal_positions)];
 			number_non_ictal_inserted = number_non_ictal_inserted + current_number_elements;
 			missing_non_ictal_inserted = 0;
 
 		else
 			%Just add as much as we can and mark the missing number of elements
-			training_input = [training_input, Input(non_ictal_positions)];
+			training_input = [training_input, Input(non_ictal_positions,:)'];
 			training_output = [training_output, Target(non_ictal_positions)];
 			number_non_ictal_inserted = number_non_ictal_inserted + number_non_ictal_elements;
 			missing_non_ictal_inserted = current_number_elements - number_non_ictal_elements;
 		end
 
 		%Add the current ictal elements
-		training_input = [training_input, Input(crysis_indexes(i,1):crysis_indexes(i,2)-1)];
+		training_input = [training_input, Input(crysis_indexes(i,1):crysis_indexes(i,2)-1, :)'];
 		training_output = [training_output, Target(crysis_indexes(i,1):crysis_indexes(i,2)-1)];
 		number_ictal_inserted = number_ictal_inserted + current_ictal_elements;
 
