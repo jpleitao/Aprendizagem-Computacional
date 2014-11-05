@@ -1,4 +1,41 @@
-Usar função divideind para dividir os exemplos em casos de treino, teste e validação.
+Redes neuronais a implementar:
+- Feedforward Net (feedforwardnet) normal, com duas ou três camadas -- Ver se usamos o newff ou o feedforwardnet ou as duas!!!
+- Layer Recurrent Network: net=layrecnet(layerDelays,hiddenSizes,trainFcn)
+- Radial Basis Function Network (RBF): net = newrb(P,T,goal,spread,MN,DF) -- Não é preciso treinar!!!
+- Eventualmente usar também um perceptrão (newp)??
+
+Para as redes neuronais criar campos de:
+- Epochs
+- Goal
+(Não esquecer Perform Function e Show, mas esses não pedir ao utilizador)
+1)Layer Recurrent Network:
+	- Train Function
+	- Hidden Layer Size
+	- Layer Delays
+2)Radial Basis Function
+	- Goal
+	- Spread
+3)feedforwardnet
+	- Hidden Size
+	- Train Function
+4)newff
+	- Layers Size
+	- Transfer Function
+	- Learning Function 
+
+
+Ver se é possível retirar/bloquear alguns pop-up menus! Alternativamente posso meter todos e só usamos os necessários. Ou então meto todos lá e dinamicamente escolho quais mostrar
+
+Train Functions:
+- Levenberg-Marquardt backpropagation (trainlm)
+- Gradient Method (traingd)
+
+
+=================================================================================================================================================
+
+
+
+Usar função divideind para dividir os exemplos em casos de treino e teste
 
 No entanto, ao fazermos a divisão dos dados, podemos ter nos casos de treino poucos exemplos de crises o que leva à criação de redes especializadas em detectarem classes não ictais (situações normais), possivelmente incapazes de detectarem com sucesso a classe ictal. Uma forma de resolver este problema passa por reduzir a dimensionalidade, sub-amostrando os dados de treino por forma a considerar um número de casos da classe ictal da mesma ordem de grandeza do número de casos da classe não ictal (NOTA: Pode conduzir à perda da interpretabilidade dos dados de entrada! -- Referir isso no relatório).
 
