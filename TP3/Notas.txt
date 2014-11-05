@@ -1,5 +1,9 @@
 FIXME: Por enquanto estou a assumir que na classificação em grupo o número de elementos iguais para se poder classificar está definido internamente....
 
+FIXME: Nos resultados apresentar sensibilidades e calcular erros, ponto a ponto (abordagem inicial, para classificação individual; e segunda abordagem, para classificação em grupo)
+
+FIXME: Na rede "layrecnet" estou a considerar um único neurónio na camada de saída!!!! - À partida diria que é suposto considerar isso, porque a nossa saída só tem dois valores, 0 ou 1, logo só precisamos de um neurónio
+
 Redes neuronais a implementar:
 - Feedforward Net (feedforwardnet) normal, com duas ou três camadas -- Ver se usamos o newff ou o feedforwardnet ou as duas!!!
 - Layer Recurrent Network: net=layrecnet(layerDelays,hiddenSizes,trainFcn)
@@ -21,12 +25,9 @@ Para as redes neuronais criar campos de:
 	- Hidden Size
 	- Train Function
 4)newff
-	- Layers Size
-	- Transfer Function
-	- Learning Function 
-
-
-Ver se é possível retirar/bloquear alguns pop-up menus! Alternativamente posso meter todos e só usamos os necessários. Ou então meto todos lá e dinamicamente escolho quais mostrar
+	- Vector representativo do input
+	- Vector representativo do output
+	- Tamanho das camadas S1...S(N-1)
 
 Train Functions:
 - Levenberg-Marquardt backpropagation (trainlm)
