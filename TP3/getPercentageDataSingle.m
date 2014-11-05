@@ -4,7 +4,7 @@
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
 %%%%
-function [data_input, data_output] = getPercentageData(crysis_indexes, Target, Input, percentage)
+function [data_input, data_output] = getPercentageDataSingle(crysis_indexes, Target, Input, percentage)
 
 	%randperm
 	%divideind
@@ -29,7 +29,7 @@ function [data_input, data_output] = getPercentageData(crysis_indexes, Target, I
 
 %=======================================================Training Data=========================================================================
 
-	number_crysis_training = number_crysis * (percentage_training/100);
+	number_crysis_training = number_crysis * (percentage/100);
 
 	i=1;
 	begin = 1;
