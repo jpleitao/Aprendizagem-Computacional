@@ -28,7 +28,7 @@ function varargout = run(varargin)
 
 % Edit the above text to modify the response to help run
 
-% Last Modified by GUIDE v2.5 05-Nov-2014 12:21:33
+% Last Modified by GUIDE v2.5 05-Nov-2014 16:35:51
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -67,25 +67,26 @@ handles.output = hObject;
 %%%%
 %%  Initialize all the variables we are going to use
 %%%%
-handles.training_file = '44202.mat';
-handles.test_file = '44202.mat';
-handles.percentage_training = 70;
-handles.percentage_test = 100 - handles.percentage_training;
-handles.goal = 1e-6;
-handles.epochs = 100;
+handles.networkName = 'Radial Basis Function';
 handles.trainFunction = 'trainlm';
 handles.performanceFunction = 'mse';
+handles.goal = 1e-6;
+handles.epochs = 100;
 handles.learningRate = 0.5;
 handles.hiddenLayers = 30;
 handles.layerDelays = 3;
+handles.classificationType = 'single';
+
+handles.training_file = '44202.mat';
+handles.percentage_training = 70;
+
+handles.test_file = '63502.mat';
+handles.percentage_test = 30;
 
 handles.training_input = [];
 handles.training_output = [];
 handles.test_input = [];
 handles.test_output = [];
-
-handles.network = [];%FIXME: We have a default network, set it here!!!
-handles.networkName = [];%FIXME: Change this to have the default network name
 
 %%%%
 %% Hide plot!
@@ -112,32 +113,48 @@ function trainbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to trainbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+    if (strcmp(handles.classificationType, 'single'))
+        
+        %%%%
+        %% Single Classification
+        %% TODO:
+        %% 1- Load Training File
+        %% 2- Get Indexes of the Patient's Crysis
+        %% 3- Get Train and Test Data
+        %% 4- Train network
+        %%%%
+
+        %Load training file
+        load(handles.training_file);
+
+        %Get indexes of the patient's crysis
+        crysis_indexes = getCrysisIndexes(Trg);
+
+        %Get train and test data
+        [handles.training_input, handles.training_output] = getTrainingDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
+        [handles.test_input, handles.test_output] = getTestDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_test);    
+
+        %Create desired network
+        network_data = [handles.networkName, handles.trainFunction, handles.performanceFunction, handles.goal, handles.epochs, handles.learningRate,
+                        handles.hiddenLayers, handles.layerDelays];
+        handles.network = createNetwork(network_data);
+
+        %Train network
+        %handles.network
+    else
+        %%%%
+        %% Group Classification
+        %% TODO:
+        %% 1- Load Training File
+        %% 2- Get Indexes of the Patient's Crysis
+        %% 3- Get Train and Test Data (The group ones now!)
+        %% 4- Train network
+        %%%%
+    end
     
-    %%%%
-    %% TODO:
-    %% 1- Load Training File
-    %% 2- Get Indexes of the Patient's Crysis
-    %% 3- Get Train and Test Data
-    %% 4- Train network
-    %%%%
-    
-    %Load training file
-    load(handles.training_file);
-    
-    %Get indexes of the patient's crysis
-    crysis_indexes = getCrysisIndexes(Trg);
-    
-    %Get train and test data
-    
-    [handles.training_input, handles.training_output] = getTrainingData(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
-    [handles.test_input, handles.test_output] = getTestData(crysis_indexes, Trg, FeatVectSel, handles.percentage_test);    
-    
-    %Create desired network(Shouldn't be needed, should already have been created)
-    %handles.network
-    %handles.networkname
-    
-    %Train network
-    %handles.network = 
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes on button press in testbutton.
@@ -155,8 +172,10 @@ function testbutton_Callback(hObject, eventdata, handles)
     %% 4- Get Results and Plot them
     %%%%
     
-    %Check if desired network is trained -> Compare with network name
-
+    %Check if desired network is trained -> Compare with handles.network
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes on selection change in trainingDataListBox.
 function trainingDataListBox_Callback(hObject, eventdata, handles)
@@ -169,6 +188,9 @@ function trainingDataListBox_Callback(hObject, eventdata, handles)
 
     contents = cellstr(get(hObject,'String'));
     handles.training_file = contents{get(hObject,'Value')};
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -194,6 +216,9 @@ function percentageCrysisTrainInput_Callback(hObject, eventdata, handles)
 
     handles.percentage_training = str2double(get(hObject,'String'));
     handles.percentage_test = 100 - handles.percentage_training;
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -217,6 +242,11 @@ function neuralNetworkTypePopUp_Callback(hObject, eventdata, handles)
 
 % Hints: contents = cellstr(get(hObject,'String')) returns neuralNetworkTypePopUp contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from neuralNetworkTypePopUp
+    contents = cellstr(get(hObject,'String'));
+    handles.networkName = contents{get(hObject,'Value')};
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -242,6 +272,9 @@ function testDataListBox_Callback(hObject, eventdata, handles)
 %        contents{get(hObject,'Value')} returns selected item from testDataListBox
     contents = cellstr(get(hObject,'String'));
     handles.test_file = contents{get(hObject,'Value')};
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function testDataListBox_CreateFcn(hObject, eventdata, handles)
@@ -265,7 +298,9 @@ function goalTextField_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of goalTextField as text
 %        str2double(get(hObject,'String')) returns contents of goalTextField as a double
 	handles.goal = str2double(get(hObject,'String'));
-    handles.goal
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -290,6 +325,9 @@ function epochsInput_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of epochsInput as text
 %        str2double(get(hObject,'String')) returns contents of epochsInput as a double
     handles.epochs = str2double(get(hObject,'String'));
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -315,6 +353,9 @@ function trainFunctionsList_Callback(hObject, eventdata, handles)
 %        contents{get(hObject,'Value')} returns selected item from trainFunctionsList
     contents = cellstr(get(hObject,'String'));
     handles.trainFunction = contents{get(hObject,'Value')};
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -340,6 +381,9 @@ function performanceList_Callback(hObject, eventdata, handles)
 %        contents{get(hObject,'Value')} returns selected item from performanceList
     contents = cellstr(get(hObject,'String'));
     handles.performanceFunction = contents{get(hObject,'Value')};
+    
+    % Update handles structure
+    guidata(hObject, handles);    
 
 
 % --- Executes during object creation, after setting all properties.
@@ -364,6 +408,9 @@ function learningRateEdit_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of learningRateEdit as text
 %        str2double(get(hObject,'String')) returns contents of learningRateEdit as a double
     handles.learningRate = str2double(get(hObject,'String'));
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function learningRateEdit_CreateFcn(hObject, eventdata, handles)
@@ -387,6 +434,9 @@ function hiddenLayersEdit_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of hiddenLayersEdit as text
 %        str2double(get(hObject,'String')) returns contents of hiddenLayersEdit as a double
     handles.hiddenLayers = str2double(get(hObject,'String'));
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 
 % --- Executes during object creation, after setting all properties.
@@ -411,6 +461,9 @@ function layerDelaysEdit_Callback(hObject, eventdata, handles)
 % Hints: get(hObject,'String') returns contents of layerDelaysEdit as text
 %        str2double(get(hObject,'String')) returns contents of layerDelaysEdit as a double
     handles.layerDelays = str2double(get(hObject,'String'));
+    
+    % Update handles structure
+    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function layerDelaysEdit_CreateFcn(hObject, eventdata, handles)
@@ -423,3 +476,50 @@ function layerDelaysEdit_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+
+function percentageCrysisTestInput_Callback(hObject, eventdata, handles)
+% hObject    handle to percentageCrysisTestInput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of percentageCrysisTestInput as text
+%        str2double(get(hObject,'String')) returns contents of percentageCrysisTestInput as a double
+    handles.percentage_test = str2double(get(hObject,'String'));
+    
+    % Update handles structure
+    guidata(hObject, handles);
+
+
+% --- Executes during object creation, after setting all properties.
+function percentageCrysisTestInput_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to percentageCrysisTestInput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes when selected object is changed in classificationType.
+function classificationType_SelectionChangeFcn(hObject, eventdata, handles)
+% hObject    handle to the selected object in classificationType 
+% eventdata  structure with the following fields (see UIBUTTONGROUP)
+%	EventName: string 'SelectionChanged' (read only)
+%	OldValue: handle of the previously selected object or empty if none was selected
+%	NewValue: handle of the currently selected object
+% handles    structure with handles and user data (see GUIDATA)
+
+    switch get(eventdata.NewValue,'Tag') % Get Tag of selected object.
+        case 'singleClassificationTypeButton'
+            handles.classificationType = 'single';
+        case 'groupClassificationTypeButton'
+            handles.classificationType = 'group';
+    end
+    
+    % Update handles structure
+    guidata(hObject, handles);
