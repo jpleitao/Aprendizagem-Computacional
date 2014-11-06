@@ -6,16 +6,22 @@
 %%%%
 function [training_input, training_output, test_input, test_output] = prepareSingleDataSets(handles)
 
-    %Load training file
-    load(handles.training_file);
+	%Load training file
+	load(handles.training_file);
 
-    %Get indexes of the patient's crysis
-    crysis_indexes = getCrysisIndexes(Trg);
+	%Get indexes of the patient's crysis
+	crysis_indexes = getCrysisIndexes(Trg);
 
-    %Get train and test data
-    [training_input, training_output] = getTrainingDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
-    
-    %FIXME: THIS IS WRONG THE VALIDATION AND TEST INPUTS SHOULD STAY INTACT! SEE EXACTLY HOW TO CREATE THOSE SETS
-    [test_input, test_output] = getTestDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_test);
+	%Get train and test data
+	[training_input, training_output] = getTrainingDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
 
+	number_crysis = size(crysis_indexes);
+	number_crysis = number_crysis(1);
+
+	start_training = round(number_crysis * (handles.percentage_training/100));
+	test_input = FeatVectSel(start_training:end,:);
+	test_input = test_input';
+
+	test_output = Trg(start_training:end,:);
+	test_output = test_output';
 end

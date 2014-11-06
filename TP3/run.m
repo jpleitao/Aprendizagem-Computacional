@@ -148,13 +148,12 @@ function trainbutton_Callback(hObject, eventdata, handles)
     %Create desired network
     network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
 
-    disp('Going to call createNetwork');
-    pause;
-
     handles.network = createNetwork(network_data);
 
-    %Train network
-    handles.network = train(handles.network, handles.training_input, handles.training_output);
+    if (~strcmp(handles.network, 'Radial Basis Function'))
+        %Train network -- We don't need to train Radial Basis Function because it so badass nobody can teach it!
+        handles.network = train(handles.network, handles.training_input, handles.training_output);
+    end
     
     % Update handles structure
     guidata(hObject, handles);
@@ -190,13 +189,13 @@ function testbutton_Callback(hObject, eventdata, handles)
         %Create desired network
         network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
         
-        disp('Going to call createNetwork');
-        pause;
-        
+
         handles.network = createNetwork(network_data);
 
-        %Train network
-        handles.network = train(handles.network, handles.training_input, handles.training_output);
+        if (~strcmp(handles.network, 'Radial Basis Function'))
+            %Train network -- We don't need to train Radial Basis Function because it so badass nobody can teach it!
+            handles.network = train(handles.network, handles.training_input, handles.training_output);
+        end
     end
     
     %Run sim with the test data set
