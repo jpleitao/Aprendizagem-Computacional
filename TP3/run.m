@@ -117,7 +117,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
         
     %Get the training and testing data sets
-    [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
+    [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
     
     %Create desired network
     network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
@@ -155,7 +155,7 @@ function testbutton_Callback(hObject, eventdata, handles)
         
         %Get the training and testing data sets
 
-        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
+        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
 
         %Create desired network
         network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
@@ -174,16 +174,45 @@ function testbutton_Callback(hObject, eventdata, handles)
     %Run sim with the test data set
     network_results = sim(handles.network, handles.test_input);
 
-    max(network_results)
-    min(network_results)
+    for i=1:size(network_results,2)
+        if (network_results(1,i) >= 1)
+            network_results(1,i) = 1;
+        elseif (network_results(1,i) <= 0)
+            network_results(1,i) = 0;
+        else
+            network_results(1,i) = round(network_results(1,i));
+    end
+
+    true_positives = 0;
+    true_negatives = 0;
+    false_positives = 0;
+    false_negatives = 0;
+
+    for i=1:size(network_results,2)
+        if (network_results(1,i) == handles.test_output(i,2))
+            if (network_results(1,i) == 1)
+                true_positives = true_positives + 1;
+            else
+                true_negatives = true_negatives + 1;
+            end
+        elseif (network_results(1,i) == 0 & handles.test_output(i,2) == 1)
+            false_negatives = false_negatives + 1;
+        elseif (network_results(1,i) == 1 & handles.test_output(i,2) == 0)
+            false_positives = false_positives + 1;
+        end
+    end
     
+    sensitivity = true_positives / (true_positives + false_negatives);
+
+    specificity = true_negatives / (true_negatives + false_positives);
+
+    %Show sensitivity, specificity and then true positives, false positives and so on
+
     %Get results and plot them
     axis(handles.axes1);
-    plot(network_results);
+    plot(network_results, '.');
     xlim([0, size(network_results, 2)]);
     ylim([-0.1, 1.1]);
-    
-    %Analyse the obtained results: Percentage of corrected classifications
     
     % Update handles structure
     guidata(hObject, handles);

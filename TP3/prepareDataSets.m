@@ -4,7 +4,7 @@
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
 %%%%
-function [training_input, training_output, test_input, test_output] = prepareSingleDataSets(handles)
+function [training_input, training_output, test_input, test_output] = prepareDataSets(handles)
 
 	%Load training file
 	load(handles.training_file);
@@ -13,7 +13,7 @@ function [training_input, training_output, test_input, test_output] = prepareSin
 	crysis_indexes = getCrysisIndexes(Trg);
 
 	%Get train and test data
-	[training_input, training_output] = getTrainingDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
+	[training_input, training_output] = getTrainingData(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
 
 	number_crysis = size(crysis_indexes);
 	number_crysis = number_crysis(1);

@@ -50,7 +50,7 @@ function my_network = createNetwork(network_data)
 		my_network = layrecnet(layersDelays, layersSize, network_data.trainFunction);
 
 		%Define specific parameters of the network
-		%my_network.performParam.ratio = network_data.learningRate;
+		my_network.performParam.ratio = network_data.learningRate;
 		my_network.trainParam.epochs = network_data.epochs;
 		my_network.trainParam.show = 35;
 		my_network.trainParam.goal = network_data.goal;
