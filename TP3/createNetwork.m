@@ -44,8 +44,8 @@ function my_network = createNetwork(network_data)
 		%net=layrecnet(layerDelays,hiddenSizes,trainFcn)
 
 		%Considering one neuron in the output layer -- This should be what we are supposed to do!
-		layersDelays = [repmat( network_data.layerDelays, 1, network_data.numberLayers - 1)];
-		layersSize = [repmat( network_data.hiddenLayersSizes, 1, network_data.numberLayers - 1) 1];
+		layersDelays = 1:2;
+		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1) 1];
 
 		my_network = layrecnet(layersDelays, layersSize, network_data.trainFunction);
 
@@ -54,4 +54,12 @@ function my_network = createNetwork(network_data)
 		%FIXME: USAR newff ou feedforwardnet?
 		%my_network = ;
 	end
+
+	%Define specific parameters of the network
+	my_network.performParam.ratio = network_data.learningRate;
+	my_network.trainParam.epochs = network_data.epochs;
+	my_network.trainParam.show = 35;
+	my_network.trainParam.goal = network_data.goal;
+	my_network.performFcn = network_data.performanceFunction;
+
 end

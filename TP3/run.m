@@ -58,9 +58,6 @@ function run_OpeningFcn(hObject, eventdata, handles, varargin)
 % handles    structure with handles and user data (see GUIDATA)
 % varargin   command line arguments to run (see VARARGIN)
 
-% Choose default command line output for run
-handles.output = hObject;
-
 % UIWAIT makes run wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
@@ -68,6 +65,7 @@ handles.output = hObject;
 %%  Initialize all the variables we are going to use
 %%%%
 handles.networkName = 'Radial Basis Function';
+handles.network = [];%Network not trained
 handles.trainFunction = 'trainlm';
 handles.performanceFunction = 'mse';
 handles.goal = 1e-6;
@@ -93,6 +91,9 @@ handles.test_output = [];
 %% Hide plot!
 %%%%
 set(handles.axes1,'Visible','off');
+
+% Choose default command line output for run
+handles.output = hObject;
 
 % Update handles structure
 guidata(hObject, handles);
@@ -126,24 +127,9 @@ function trainbutton_Callback(hObject, eventdata, handles)
         %% 4- Train network
         %% 5- Results handling
         %%%%
-
-        %Load training file
-        load(handles.training_file);
-
-        %Get indexes of the patient's crysis
-        crysis_indexes = getCrysisIndexes(Trg);
-
-        %Get train and test data
-        [handles.training_input, handles.training_output] = getTrainingDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
-        [handles.test_input, handles.test_output] = getTestDataSingle(crysis_indexes, Trg, FeatVectSel, handles.percentage_test);    
-
-        %Create desired network
-        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);               
-
-        handles.network = createNetwork(network_data);
-
-        %Train network
-        %handles.network
+        
+        %Get the training and testing data sets
+        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
     else
         %%%%
         %% Group Classification
@@ -154,7 +140,21 @@ function trainbutton_Callback(hObject, eventdata, handles)
         %% 4- Train network
         %% 5- Results handling
         %%%%
+        
+        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareGroupDataSets(handles);
+        
     end
+    
+    %Create desired network
+    network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
+
+    disp('Going to call createNetwork');
+    pause;
+
+    handles.network = createNetwork(network_data);
+
+    %Train network
+    handles.network = train(handles.network, handles.training_input, handles.training_output);
     
     % Update handles structure
     guidata(hObject, handles);
@@ -172,10 +172,39 @@ function testbutton_Callback(hObject, eventdata, handles)
     %% 2a- If desired network is not trained then train it
     %% 2b- Otherwise get the desired trained network
     %% 3- Give the Test Data as an input to the network
-    %% 4- Get Results and Plot them
+    %% 4- Get results and plot them
+    %% 5- Analyse the obtained results
     %%%%
     
-    %Check if desired network is trained -> Compare with handles.network
+    %Check if we have a trained network stored
+    if (isempty(handles.network))
+        %No trained network -- Need to create one and train
+        
+        %Get the training and testing data sets
+        if (strcmp(handles.classificationType, 'single'))
+            [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
+        else
+            [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareGroupDataSets(handles);
+        end
+
+        %Create desired network
+        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
+        
+        disp('Going to call createNetwork');
+        pause;
+        
+        handles.network = createNetwork(network_data);
+
+        %Train network
+        handles.network = train(handles.network, handles.training_input, handles.training_output);
+    end
+    
+    %Run sim with the test data set
+    network_results = sim(handles.network, handles.test_input);
+    
+    %Get results and plot them
+    
+    %Analyse the obtained results: Percentage of corrected classifications
     
     % Update handles structure
     guidata(hObject, handles);
@@ -517,11 +546,12 @@ function classificationType_SelectionChangeFcn(hObject, eventdata, handles)
 %	NewValue: handle of the currently selected object
 % handles    structure with handles and user data (see GUIDATA)
 
-    switch get(eventdata.NewValue,'Tag') % Get Tag of selected object.
-        case 'singleClassificationTypeButton'
-            handles.classificationType = 'single';
-        case 'groupClassificationTypeButton'
-            handles.classificationType = 'group';
+    selected = get(eventdata.NewValue,'Tag');
+    
+    if (strcmp(selected, 'singleClassificationTypeButton'))
+        handles.classificationType = 'single';
+    else
+        handles.classificationType = 'group';
     end
     
     % Update handles structure
