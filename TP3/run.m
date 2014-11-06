@@ -115,42 +115,16 @@ function trainbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to trainbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
-    if (strcmp(handles.classificationType, 'single'))
         
-        %%%%
-        %% Single Classification
-        %% TODO:
-        %% 1- Load Training File
-        %% 2- Get Indexes of the Patient's Crysis
-        %% 3- Get Train and Test Data
-        %% 4- Train network
-        %% 5- Results handling
-        %%%%
-        
-        %Get the training and testing data sets
-        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
-    else
-        %%%%
-        %% Group Classification
-        %% TODO:
-        %% 1- Load Training File
-        %% 2- Get Indexes of the Patient's Crysis
-        %% 3- Get Train and Test Data (The group ones now!)
-        %% 4- Train network
-        %% 5- Results handling
-        %%%%
-        
-        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareGroupDataSets(handles);
-        
-    end
+    %Get the training and testing data sets
+    [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
     
     %Create desired network
     network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
 
     handles.network = createNetwork(network_data);
 
-    if (~strcmp(handles.network, 'Radial Basis Function'))
+    if (~strcmp(handles.networkName, 'Radial Basis Function'))
         %Train network -- We don't need to train Radial Basis Function because it so badass nobody can teach it!
         handles.network = train(handles.network, handles.training_input, handles.training_output);
     end
@@ -180,28 +154,34 @@ function testbutton_Callback(hObject, eventdata, handles)
         %No trained network -- Need to create one and train
         
         %Get the training and testing data sets
-        if (strcmp(handles.classificationType, 'single'))
-            [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
-        else
-            [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareGroupDataSets(handles);
-        end
+
+        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareSingleDataSets(handles);
 
         %Create desired network
         network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
         
-
+        disp('vou criar rede')
         handles.network = createNetwork(network_data);
+        disp('criada a rede')
 
-        if (~strcmp(handles.network, 'Radial Basis Function'))
+        if (~strcmp(handles.networkName, 'Radial Basis Function'))
             %Train network -- We don't need to train Radial Basis Function because it so badass nobody can teach it!
             handles.network = train(handles.network, handles.training_input, handles.training_output);
         end
     end
     
+    disp('vou executar a simulacao')
     %Run sim with the test data set
     network_results = sim(handles.network, handles.test_input);
+
+    max(network_results)
+    min(network_results)
     
     %Get results and plot them
+    axis(handles.axes1);
+    plot(network_results);
+    xlim([0, size(network_results, 2)]);
+    ylim([-0.1, 1.1]);
     
     %Analyse the obtained results: Percentage of corrected classifications
     
