@@ -28,7 +28,7 @@ function varargout = run(varargin)
 
 % Edit the above text to modify the response to help run
 
-% Last Modified by GUIDE v2.5 05-Nov-2014 20:11:20
+% Last Modified by GUIDE v2.5 07-Nov-2014 15:24:56
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -64,7 +64,7 @@ function run_OpeningFcn(hObject, eventdata, handles, varargin)
 %%%%
 %%  Initialize all the variables we are going to use
 %%%%
-handles.networkName = 'Radial Basis Function';
+handles.networkName = 'Layer Recurrent';
 handles.network = [];%Network not trained
 handles.trainFunction = 'trainlm';
 handles.performanceFunction = 'mse';
@@ -154,7 +154,6 @@ function testbutton_Callback(hObject, eventdata, handles)
         %No trained network -- Need to create one and train
         
         %Get the training and testing data sets
-
         [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
 
         %Create desired network
@@ -174,6 +173,7 @@ function testbutton_Callback(hObject, eventdata, handles)
     %Run sim with the test data set
     network_results = sim(handles.network, handles.test_input);
 
+    %{
     for i=1:size(network_results,2)
         if (network_results(1,i) >= 1)
             network_results(1,i) = 1;
@@ -181,6 +181,16 @@ function testbutton_Callback(hObject, eventdata, handles)
             network_results(1,i) = 0;
         else
             network_results(1,i) = round(network_results(1,i));
+        end
+    end
+    %}
+
+    for i=1:size(network_results,2)
+        if (network_results(1,i) >= 0.5)
+            network_results(1,i) = 1;
+        else
+            network_results(1,i) = 0;
+        end
     end
 
     true_positives = 0;
@@ -189,15 +199,15 @@ function testbutton_Callback(hObject, eventdata, handles)
     false_negatives = 0;
 
     for i=1:size(network_results,2)
-        if (network_results(1,i) == handles.test_output(i,2))
+        if (network_results(1,i) == handles.test_output(1,i))
             if (network_results(1,i) == 1)
                 true_positives = true_positives + 1;
             else
                 true_negatives = true_negatives + 1;
             end
-        elseif (network_results(1,i) == 0 & handles.test_output(i,2) == 1)
+        elseif (network_results(1,i) == 0 & handles.test_output(1,i) == 1)
             false_negatives = false_negatives + 1;
-        elseif (network_results(1,i) == 1 & handles.test_output(i,2) == 0)
+        elseif (network_results(1,i) == 1 & handles.test_output(1,i) == 0)
             false_positives = false_positives + 1;
         end
     end
@@ -207,6 +217,12 @@ function testbutton_Callback(hObject, eventdata, handles)
     specificity = true_negatives / (true_negatives + false_positives);
 
     %Show sensitivity, specificity and then true positives, false positives and so on
+    set(handles.sensitivityTextBox,'String', strcat('Sensitivity:', num2str(sensitivity)));
+    set(handles.specificityTextBox,'String', strcat('Specificity:', num2str(specificity)));
+    set(handles.truePositivesTextBox,'String', strcat('True Positives:', num2str(true_positives)));
+    set(handles.trueNegativesTextBox,'String', strcat('True Negatives:', num2str(true_negatives)));
+    set(handles.falsePositivesTextBox,'String', strcat('False Positives:', num2str(false_positives)));
+    set(handles.falseNegativesTextBox,'String', strcat('False Negatives:', num2str(false_negatives)));
 
     %Get results and plot them
     axis(handles.axes1);
