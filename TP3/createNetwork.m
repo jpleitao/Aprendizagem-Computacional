@@ -11,7 +11,8 @@ function my_network = createNetwork(network_data)
 	%%						  'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs,
 	%%						  'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers,
 	%%						  'hiddenLayersSizes', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays,
-	%%						  'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
+	%%						  'trainingInput', handles.training_input, 'trainingOutput', handles.training_output,
+	%%						  'activationFunction', handles.activationFunction);
 	%%%%
 
 	if (strcmp(network_data.networkName, 'Radial Basis Function'))
@@ -31,13 +32,13 @@ function my_network = createNetwork(network_data)
      	%%%%
 		my_network = newrb(network_data.trainingInput, network_data.trainingOutput, network_data.goal);
 
-	elseif(strcmp(network_data.networkName, 'Layer Recurrent'))
+	elseif (strcmp(network_data.networkName, 'Layer Recurrent'))
 
 		%net=layrecnet(layerDelays,hiddenSizes,trainFcn)
 
-		%Considering one neuron in the output layer -- This should be what we are supposed to do!
+		%Considering two neurons in the output layer
 		layersDelays = 1:2;
-		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1) 1];
+		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1) 2];
 
 		my_network = layrecnet(layersDelays, layersSize, network_data.trainFunction);
 
@@ -48,7 +49,7 @@ function my_network = createNetwork(network_data)
 		my_network.trainParam.goal = network_data.goal;
 		my_network.performFcn = network_data.performanceFunction;
 
-	elseif(strcmp(network_data.networkName, 'FeedForward'))
+	elseif (strcmp(network_data.networkName, 'FeedForward'))
 
 		%hiddenLayers = network_data.numberLayers - 1;
 		layersSize = repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1);
@@ -56,7 +57,53 @@ function my_network = createNetwork(network_data)
 		my_network = feedforwardnet(layersSize, network_data.trainFunction);
 
 		%Define specific parameters of the network
-		%my_network.performParam.ratio = network_data.learningRate;
+        my_network.performParam.ratio = network_data.learningRate;
+		my_network.trainParam.epochs = network_data.epochs;
+		my_network.trainParam.show = 35;
+		my_network.trainParam.goal = network_data.goal;
+		my_network.performFcn = network_data.performanceFunction;
+
+	elseif (strcmp(network_data.networkName, 'FF Input Time Delay'))
+
+		%We have 29 characteristics
+		minimum_input_value = zeros(29, 1);
+		maximum_input_value = ones(29, 1) * max(max(network_data.trainingInput));
+		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1) {'purelin'}];
+
+		my_network = newfftd([minimum_input_value maximum_input_value], 0:network_data.numberLayers - 1, network_data.hiddenLayers, activationFunctions, network_data.trainFunction);
+
+		%Define specific parameters of the network
+		my_network.performParam.ratio = network_data.learningRate;
+		my_network.trainParam.epochs = network_data.epochs;
+		my_network.trainParam.show = 35;
+		my_network.trainParam.goal = network_data.goal;
+		my_network.performFcn = network_data.performanceFunction;
+
+	elseif (strcmp(network_data.networkName, 'Perceptron'))
+
+		%We have 29 characteristics
+        training_input_temp = network_data.trainingInput;
+        training_input_temp = training_input_temp';
+        min_max_values = minmax(training_input_temp);
+
+		my_network = newp(min_max_values, 2, network_data.activationFunction, network_data.trainFunction);
+
+		%Define specific parameters of the network
+		my_network.performParam.ratio = network_data.learningRate;
+		my_network.trainParam.epochs = network_data.epochs;
+		my_network.trainParam.show = 35;
+		my_network.trainParam.goal = network_data.goal;
+		my_network.performFcn = network_data.performanceFunction;
+
+	elseif (strcmp(network_data.networkName, 'Distributed Time Delay'))
+
+		layersSize = repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1);
+		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1) {'purelin'}];
+
+		my_network = newdtdnn(network_data.trainingInput, network_data.trainingOutput, layersSize, activationFunctions, network_data.trainFunction);
+
+		%Define specific parameters of the network
+		my_network.performParam.ratio = network_data.learningRate;
 		my_network.trainParam.epochs = network_data.epochs;
 		my_network.trainParam.show = 35;
 		my_network.trainParam.goal = network_data.goal;

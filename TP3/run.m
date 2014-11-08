@@ -28,7 +28,7 @@ function varargout = run(varargin)
 
 % Edit the above text to modify the response to help run
 
-% Last Modified by GUIDE v2.5 07-Nov-2014 15:24:56
+% Last Modified by GUIDE v2.5 08-Nov-2014 18:11:22
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -68,6 +68,7 @@ handles.networkName = 'Layer Recurrent';
 handles.network = [];%Network not trained
 handles.trainFunction = 'trainlm';
 handles.performanceFunction = 'mse';
+handles.activationFunction = 'hardlim';
 handles.goal = 1e-6;
 handles.epochs = 100;
 handles.learningRate = 0.5;
@@ -120,7 +121,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
     [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
     
     %Create desired network
-    network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
+    network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
 
     handles.network = createNetwork(network_data);
 
@@ -155,9 +156,9 @@ function testbutton_Callback(hObject, eventdata, handles)
         
         %Get the training and testing data sets
         [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
-
+        
         %Create desired network
-        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output);
+        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
         
         disp('vou criar rede')
         handles.network = createNetwork(network_data);
@@ -173,44 +174,8 @@ function testbutton_Callback(hObject, eventdata, handles)
     %Run sim with the test data set
     network_results = sim(handles.network, handles.test_input);
 
-    %{
-    for i=1:size(network_results,2)
-        if (network_results(1,i) >= 1)
-            network_results(1,i) = 1;
-        elseif (network_results(1,i) <= 0)
-            network_results(1,i) = 0;
-        else
-            network_results(1,i) = round(network_results(1,i));
-        end
-    end
-    %}
-
-    for i=1:size(network_results,2)
-        if (network_results(1,i) >= 0.5)
-            network_results(1,i) = 1;
-        else
-            network_results(1,i) = 0;
-        end
-    end
-
-    true_positives = 0;
-    true_negatives = 0;
-    false_positives = 0;
-    false_negatives = 0;
-
-    for i=1:size(network_results,2)
-        if (network_results(1,i) == handles.test_output(1,i))
-            if (network_results(1,i) == 1)
-                true_positives = true_positives + 1;
-            else
-                true_negatives = true_negatives + 1;
-            end
-        elseif (network_results(1,i) == 0 & handles.test_output(1,i) == 1)
-            false_negatives = false_negatives + 1;
-        elseif (network_results(1,i) == 1 & handles.test_output(1,i) == 0)
-            false_positives = false_positives + 1;
-        end
-    end
+    network_results = convertResults(network_results);
+    [true_positives, true_negatives, false_positives, false_negatives, invalid_data] = interpretResults(handles, network_results);
     
     sensitivity = true_positives / (true_positives + false_negatives);
 
@@ -223,12 +188,10 @@ function testbutton_Callback(hObject, eventdata, handles)
     set(handles.trueNegativesTextBox,'String', strcat('True Negatives:', num2str(true_negatives)));
     set(handles.falsePositivesTextBox,'String', strcat('False Positives:', num2str(false_positives)));
     set(handles.falseNegativesTextBox,'String', strcat('False Negatives:', num2str(false_negatives)));
+    set(handles.invalidDataText,'String', strcat('Invalid Data:', num2str(invalid_data)));
 
-    %Get results and plot them
-    axis(handles.axes1);
-    plot(network_results, '.');
-    xlim([0, size(network_results, 2)]);
-    ylim([-0.1, 1.1]);
+    
+    save('ResultadosBonitos.mat', 'handles.training_input', 'handles.training_output', 'handles.test_input', 'handles.test_output', 'true_positives', 'true_negatives', 'false_negatives', 'false_positives');
     
     % Update handles structure
     guidata(hObject, handles);
@@ -603,6 +566,32 @@ function numLayersInput_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 % Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in activationFunctionList.
+function activationFunctionList_Callback(hObject, eventdata, handles)
+% hObject    handle to activationFunctionList (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns activationFunctionList contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from activationFunctionList
+
+    contents = cellstr(get(hObject,'String'));
+    handles.activationFunction = contents{get(hObject,'Value')};
+
+
+% --- Executes during object creation, after setting all properties.
+function activationFunctionList_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to activationFunctionList (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
 %       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
