@@ -1,152 +1,22 @@
 Ver se estas combinações são possíveis
 
-Perceptron; trainlm; mse; hardlim
-Perceptron; trainlm; mse; purelin
-Perceptron; trainlm; mse; logsig
-Perceptron; trainlm; mse; tansig
-Perceptron; trainlm; sse; hardlim
-Perceptron; trainlm; sse; purelin
-Perceptron; trainlm; sse; logsig
-Perceptron; trainlm; sse; tansig
-Perceptron; traingd; mse; hardlim
-Perceptron; traingd; mse; purelin
-Perceptron; traingd; mse; logsig
-Perceptron; traingd; mse; tansig
-Perceptron; traingd; sse; hardlim
-Perceptron; traingd; sse; purelin
-Perceptron; traingd; sse; logsig
-Perceptron; traingd; sse; tansig
-Perceptron; trainbfg; mse; hardlim
-Perceptron; trainbfg; mse; purelin
-Perceptron; trainbfg; mse; logsig
-Perceptron; trainbfg; mse; tansig
-Perceptron; trainbfg; sse; hardlim
-Perceptron; trainbfg; sse; purelin
-Perceptron; trainbfg; sse; logsig
-Perceptron; trainbfg; sse; tansig
-Perceptron; trainrp; mse; hardlim
-Perceptron; trainrp; mse; purelin
-Perceptron; trainrp; mse; logsig
-Perceptron; trainrp; mse; tansig
-Perceptron; trainrp; sse; hardlim
-Perceptron; trainrp; sse; purelin
-Perceptron; trainrp; sse; logsig
-Perceptron; trainrp; sse; tansig
 Perceptron; learnp; mse; hardlim
-Perceptron; learnp; mse; purelin
-Perceptron; learnp; mse; logsig
-Perceptron; learnp; mse; tansig
 Perceptron; learnp; sse; hardlim
-Perceptron; learnp; sse; purelin
-Perceptron; learnp; sse; logsig
-Perceptron; learnp; sse; tansig
-Perceptron; learngd; mse; hardlim
 Perceptron; learngd; mse; purelin
 Perceptron; learngd; mse; logsig
 Perceptron; learngd; mse; tansig
-Perceptron; learngd; sse; hardlim
 Perceptron; learngd; sse; purelin
 Perceptron; learngd; sse; logsig
-Perceptron; learngd; sse; tansig
+Perceptron; learngd; sse; tansi
 
-Layer Recurrent; trainlm; mse; hardlim
-Layer Recurrent; trainlm; mse; purelin
-Layer Recurrent; trainlm; mse; logsig
-Layer Recurrent; trainlm; mse; tansig
-Layer Recurrent; trainlm; sse; hardlim
-Layer Recurrent; trainlm; sse; purelin
-Layer Recurrent; trainlm; sse; logsig
-Layer Recurrent; trainlm; sse; tansig
-Layer Recurrent; traingd; mse; hardlim
-Layer Recurrent; traingd; mse; purelin
-Layer Recurrent; traingd; mse; logsig
-Layer Recurrent; traingd; mse; tansig
-Layer Recurrent; traingd; sse; hardlim
-Layer Recurrent; traingd; sse; purelin
-Layer Recurrent; traingd; sse; logsig
-Layer Recurrent; traingd; sse; tansig
-Layer Recurrent; trainbfg; mse; hardlim
-Layer Recurrent; trainbfg; mse; purelin
-Layer Recurrent; trainbfg; mse; logsig
-Layer Recurrent; trainbfg; mse; tansig
-Layer Recurrent; trainbfg; sse; hardlim
-Layer Recurrent; trainbfg; sse; purelin
-Layer Recurrent; trainbfg; sse; logsig
-Layer Recurrent; trainbfg; sse; tansig
-Layer Recurrent; trainrp; mse; hardlim
-Layer Recurrent; trainrp; mse; purelin
-Layer Recurrent; trainrp; mse; logsig
-Layer Recurrent; trainrp; mse; tansig
-Layer Recurrent; trainrp; sse; hardlim
-Layer Recurrent; trainrp; sse; purelin
-Layer Recurrent; trainrp; sse; logsig
-Layer Recurrent; trainrp; sse; tansig
-Layer Recurrent; learnp; mse; hardlim
-Layer Recurrent; learnp; mse; purelin
-Layer Recurrent; learnp; mse; logsig
-Layer Recurrent; learnp; mse; tansig
-Layer Recurrent; learnp; sse; hardlim
-Layer Recurrent; learnp; sse; purelin
-Layer Recurrent; learnp; sse; logsig
-Layer Recurrent; learnp; sse; tansig
-Layer Recurrent; learngd; mse; hardlim
-Layer Recurrent; learngd; mse; purelin
-Layer Recurrent; learngd; mse; logsig
-Layer Recurrent; learngd; mse; tansig
-Layer Recurrent; learngd; sse; hardlim
-Layer Recurrent; learngd; sse; purelin
-Layer Recurrent; learngd; sse; logsig
-Layer Recurrent; learngd; sse; tansig
+Layer Recurrent; trainlm; Nº Camadas; Nº Neurónios Por Camada
+Layer Recurrent; traingd; Nº Camadas; Nº Neurónios Por Camada
+Layer Recurrent; trainbfg; Nº Camadas; Nº Neurónios Por Camada
+Layer Recurrent; trainrp; Nº Camadas; Nº Neurónios Por Camada
+Layer Recurrent; learnp; Nº Camadas; Nº Neurónios Por Camada
+Layer Recurrent; learngd; Nº Camadas; Nº Neurónios Por Camada
 
-
-Radial Basis Function; trainlm; mse; hardlim
-Radial Basis Function; trainlm; mse; purelin
-Radial Basis Function; trainlm; mse; logsig
-Radial Basis Function; trainlm; mse; tansig
-Radial Basis Function; trainlm; sse; hardlim
-Radial Basis Function; trainlm; sse; purelin
-Radial Basis Function; trainlm; sse; logsig
-Radial Basis Function; trainlm; sse; tansig
-Radial Basis Function; traingd; mse; hardlim
-Radial Basis Function; traingd; mse; purelin
-Radial Basis Function; traingd; mse; logsig
-Radial Basis Function; traingd; mse; tansig
-Radial Basis Function; traingd; sse; hardlim
-Radial Basis Function; traingd; sse; purelin
-Radial Basis Function; traingd; sse; logsig
-Radial Basis Function; traingd; sse; tansig
-Radial Basis Function; trainbfg; mse; hardlim
-Radial Basis Function; trainbfg; mse; purelin
-Radial Basis Function; trainbfg; mse; logsig
-Radial Basis Function; trainbfg; mse; tansig
-Radial Basis Function; trainbfg; sse; hardlim
-Radial Basis Function; trainbfg; sse; purelin
-Radial Basis Function; trainbfg; sse; logsig
-Radial Basis Function; trainbfg; sse; tansig
-Radial Basis Function; trainrp; mse; hardlim
-Radial Basis Function; trainrp; mse; purelin
-Radial Basis Function; trainrp; mse; logsig
-Radial Basis Function; trainrp; mse; tansig
-Radial Basis Function; trainrp; sse; hardlim
-Radial Basis Function; trainrp; sse; purelin
-Radial Basis Function; trainrp; sse; logsig
-Radial Basis Function; trainrp; sse; tansig
-Radial Basis Function; learnp; mse; hardlim
-Radial Basis Function; learnp; mse; purelin
-Radial Basis Function; learnp; mse; logsig
-Radial Basis Function; learnp; mse; tansig
-Radial Basis Function; learnp; sse; hardlim
-Radial Basis Function; learnp; sse; purelin
-Radial Basis Function; learnp; sse; logsig
-Radial Basis Function; learnp; sse; tansig
-Radial Basis Function; learngd; mse; hardlim
-Radial Basis Function; learngd; mse; purelin
-Radial Basis Function; learngd; mse; logsig
-Radial Basis Function; learngd; mse; tansig
-Radial Basis Function; learngd; sse; hardlim
-Radial Basis Function; learngd; sse; purelin
-Radial Basis Function; learngd; sse; logsig
-Radial Basis Function; learngd; sse; tansig
+Radial Basis Function (Variar inputs e goal??)
 
 Feedforward; trainlm; mse; hardlim
 Feedforward; trainlm; mse; purelin

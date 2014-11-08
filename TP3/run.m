@@ -178,11 +178,17 @@ function testbutton_Callback(hObject, eventdata, handles)
     %network_results = sim(handles.network, handles.training_input);
 
     network_results = convertResults(network_results);
-    [true_positives, true_negatives, false_positives, false_negatives, invalid_data] = interpretResults(handles, network_results);
     
-    sensitivity = true_positives / (true_positives + false_negatives);
-
-    specificity = true_negatives / (true_negatives + false_positives);
+    if (strcmp(handles.classificationType,'group'))
+        %Group classification type
+              
+    else
+        %Single classification type
+        [true_positives, true_negatives, false_positives, false_negatives, invalid_data] = interpretResults(handles, network_results);
+        sensitivity = true_positives / (true_positives + false_negatives);
+        specificity = true_negatives / (true_negatives + false_positives);
+    end
+   
 
     %Show sensitivity, specificity and then true positives, false positives and so on
     set(handles.sensitivityTextBox,'String', strcat('Sensitivity:', num2str(sensitivity)));
