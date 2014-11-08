@@ -157,6 +157,8 @@ function testbutton_Callback(hObject, eventdata, handles)
         %Get the training and testing data sets
         [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
         
+        size(handles.training_input)
+        
         %Create desired network
         network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
         
@@ -173,6 +175,7 @@ function testbutton_Callback(hObject, eventdata, handles)
     disp('vou executar a simulacao')
     %Run sim with the test data set
     network_results = sim(handles.network, handles.test_input);
+    %network_results = sim(handles.network, handles.training_input);
 
     network_results = convertResults(network_results);
     [true_positives, true_negatives, false_positives, false_negatives, invalid_data] = interpretResults(handles, network_results);
@@ -189,9 +192,14 @@ function testbutton_Callback(hObject, eventdata, handles)
     set(handles.falsePositivesTextBox,'String', strcat('False Positives:', num2str(false_positives)));
     set(handles.falseNegativesTextBox,'String', strcat('False Negatives:', num2str(false_negatives)));
     set(handles.invalidDataText,'String', strcat('Invalid Data:', num2str(invalid_data)));
+    set(handles.expectedPositivesText, 'String', strcat('Expected Positives:', num2str(expected_positives)));
+    set(handles.expectedNegativesText, 'String', strcat('Expected Negatives:', num2str(expected_negatives)));
 
-    
-    save('ResultadosBonitos.mat', 'handles.training_input', 'handles.training_output', 'handles.test_input', 'handles.test_output', 'true_positives', 'true_negatives', 'false_negatives', 'false_positives');
+    training_input = handles.training_input;
+    training_output = handles.training_output;
+    test_input = handles.test_input;
+    test_output = handles.test_output;
+    save('ResultadosBonitos.mat', 'training_input', 'training_output', 'test_input', 'test_output', 'true_positives', 'true_negatives', 'false_negatives', 'false_positives');
     
     % Update handles structure
     guidata(hObject, handles);

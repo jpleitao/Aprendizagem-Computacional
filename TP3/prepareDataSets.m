@@ -13,7 +13,7 @@ function [training_input, training_output, test_input, test_output] = prepareDat
 	crysis_indexes = getCrysisIndexes(Trg);
 
 	%Get train and test data
-	[training_input, training_output] = getTrainingData(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
+	[training_input, training_output] = getPercentageData(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
 
 	number_crysis = size(crysis_indexes);
 	number_crysis = number_crysis(1);

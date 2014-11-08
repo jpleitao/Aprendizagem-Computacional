@@ -24,6 +24,7 @@ function [true_positives, true_negatives, false_positives, false_negatives, inva
         
         current_case = results(1:2,i);
         current_answer = handles.test_output(1:2,i);
+        %current_answer = handles.training_output(1:2,i);
         
         %Check if the data is invalid or not
         if (sum(current_case) == 0)
