@@ -129,7 +129,9 @@ function trainbutton_Callback(hObject, eventdata, handles)
 
     if (~strcmp(handles.networkName, 'Radial Basis Function'))
         %Train network -- We don't need to train Radial Basis Function because it so badass nobody can teach it!
+        disp('Vou treinar');
         handles.network = train(handles.network, handles.training_input, handles.training_output);
+        disp('Ja treinei');
     end
     
     % Update handles structure
