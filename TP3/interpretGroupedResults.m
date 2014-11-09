@@ -5,11 +5,6 @@
 %%
 %%%%
 function [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretGroupedResults(expected_results, results)
-
-    disp('Vou parar no interpretGroupedResults!!!');
-    size(expected_results)
-    
-    pause;
     
     true_positives = 0;
     true_negatives = 0;

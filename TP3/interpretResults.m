@@ -25,8 +25,8 @@ function [true_positives, true_negatives, false_positives, false_negatives, inva
     for i=1:number_cols_results
         
         current_case = results(1:2,i);
-        %current_answer = handles.test_output(1:2,i);
-        current_answer = handles.training_output(1:2,i);
+        current_answer = handles.test_output(1:2,i);
+        %current_answer = handles.training_output(1:2,i);
         
         %%Fazer aqui os expected positives e negatives
         

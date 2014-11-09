@@ -174,17 +174,18 @@ function testbutton_Callback(hObject, eventdata, handles)
     
     disp('vou executar a simulacao')
     %Run sim with the test data set
-    %network_results = sim(handles.network, handles.test_input);
-    network_results = sim(handles.network, handles.training_input);
+    network_results = sim(handles.network, handles.test_input);
+    %network_results = sim(handles.network, handles.training_input);
 
     network_results = convertResults(network_results);
     
     if (strcmp(handles.classificationType,'group'))
         %Group classification type
+        
         expected_output = translateOutputToGroup(handles.test_output, handles.groupLimitOnes, handles.window_size);%The expected output for our neural network
         got_output = translateOutputToGroup(network_results, handles.groupLimitOnes, handles.window_size);%The output of our neural network
         
-        [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretGroupResults(expected_output, got_output);
+        [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretGroupedResults(expected_output, got_output);
     else
         %Single classification type
         [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(handles, network_results);
