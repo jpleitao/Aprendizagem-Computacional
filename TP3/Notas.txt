@@ -1,5 +1,0 @@
-TODO:
-- Mostrar especificidade e sensibilidade na interface gráfica
-- Fazer classificação em grupo (Ter em conta os dois critérios) e mostrar resultados
-- Criar todas as redes (feedforwardnet e newp)
-- Treinar redes e obter prints, variando os parâmetros pedidos ao utilizador
