@@ -76,6 +76,8 @@ handles.numberLayers = 3;
 handles.hiddenLayersSizes = 30;
 handles.layerDelays = 3;
 handles.classificationType = 'single';
+handles.groupLimitOnes = 5;
+handles.window_size = 10;
 
 handles.training_file = '44202.mat';
 handles.percentage_training = 70;
@@ -157,8 +159,6 @@ function testbutton_Callback(hObject, eventdata, handles)
         %Get the training and testing data sets
         [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
         
-        size(handles.training_input)
-        
         %Create desired network
         network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
         
@@ -174,21 +174,25 @@ function testbutton_Callback(hObject, eventdata, handles)
     
     disp('vou executar a simulacao')
     %Run sim with the test data set
-    network_results = sim(handles.network, handles.test_input);
-    %network_results = sim(handles.network, handles.training_input);
+    %network_results = sim(handles.network, handles.test_input);
+    network_results = sim(handles.network, handles.training_input);
 
     network_results = convertResults(network_results);
     
     if (strcmp(handles.classificationType,'group'))
         %Group classification type
-              
+        expected_output = translateOutputToGroup(handles.test_output, handles.groupLimitOnes, handles.window_size);%The expected output for our neural network
+        got_output = translateOutputToGroup(network_results, handles.groupLimitOnes, handles.window_size);%The output of our neural network
+        
+        [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretGroupResults(expected_output, got_output);
     else
         %Single classification type
-        [true_positives, true_negatives, false_positives, false_negatives, invalid_data] = interpretResults(handles, network_results);
-        sensitivity = true_positives / (true_positives + false_negatives);
-        specificity = true_negatives / (true_negatives + false_positives);
+        [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(handles, network_results);
     end
-   
+    
+    %Compute sensitivity and specificity
+    sensitivity = true_positives / (true_positives + false_negatives);
+    specificity = true_negatives / (true_negatives + false_positives);
 
     %Show sensitivity, specificity and then true positives, false positives and so on
     set(handles.sensitivityTextBox,'String', strcat('Sensitivity:', num2str(sensitivity)));
@@ -201,11 +205,13 @@ function testbutton_Callback(hObject, eventdata, handles)
     set(handles.expectedPositivesText, 'String', strcat('Expected Positives:', num2str(expected_positives)));
     set(handles.expectedNegativesText, 'String', strcat('Expected Negatives:', num2str(expected_negatives)));
 
+    %{
     training_input = handles.training_input;
     training_output = handles.training_output;
     test_input = handles.test_input;
     test_output = handles.test_output;
     save('ResultadosBonitos.mat', 'training_input', 'training_output', 'test_input', 'test_output', 'true_positives', 'true_negatives', 'false_negatives', 'false_positives');
+    %}
     
     % Update handles structure
     guidata(hObject, handles);
