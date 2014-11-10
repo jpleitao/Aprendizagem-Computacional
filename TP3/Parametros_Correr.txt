@@ -1,20 +1,8 @@
-Perceptron; learnp; mse; hardlim
-Perceptron; learnp; sse; hardlim
-Perceptron; learngd; mse; purelin
-Perceptron; learngd; mse; logsig
-Perceptron; learngd; mse; tansig
-Perceptron; learngd; sse; purelin
-Perceptron; learngd; sse; logsig
-Perceptron; learngd; sse; tansig
-
+DONE:
 Layer Recurrent; trainlm; Nº Camadas; Nº Neurónios Por Camada
 Layer Recurrent; traingd; Nº Camadas; Nº Neurónios Por Camada
 Layer Recurrent; trainbfg; Nº Camadas; Nº Neurónios Por Camada
 Layer Recurrent; trainrp; Nº Camadas; Nº Neurónios Por Camada
-Layer Recurrent; learnp; Nº Camadas; Nº Neurónios Por Camada
-Layer Recurrent; learngd; Nº Camadas; Nº Neurónios Por Camada
-
-Radial Basis Function (Variar inputs e goal??)
 
 Feedforward; trainlm; mse
 Feedforward; trainlm; sse
@@ -24,10 +12,6 @@ Feedforward; trainbfg; mse
 Feedforward; trainbfg; sse
 Feedforward; trainrp; mse
 Feedforward; trainrp; sse
-Feedforward; learnp; mse
-Feedforward; learnp; sse
-Feedforward; learngd; mse
-Feedforward; learngd; sse
 
 FF Input Time Delay; trainlm; mse; hardlim
 FF Input Time Delay; trainlm; sse; hardlim
@@ -62,35 +46,21 @@ FF Input Time Delay; trainrp; sse; logsig
 FF Input Time Delay; trainrp; mse; tansig
 FF Input Time Delay; trainrp; sse; tansig
 
+Radial Basis Function
+
 Distributed Time Delay; trainlm; mse; hardlim
 Distributed Time Delay; trainlm; mse; purelin
 Distributed Time Delay; trainlm; mse; logsig
 Distributed Time Delay; trainlm; mse; tansig
-Distributed Time Delay; trainlm; sse; hardlim
-Distributed Time Delay; trainlm; sse; purelin
-Distributed Time Delay; trainlm; sse; logsig
-Distributed Time Delay; trainlm; sse; tansig
 Distributed Time Delay; traingd; mse; hardlim
 Distributed Time Delay; traingd; mse; purelin
 Distributed Time Delay; traingd; mse; logsig
 Distributed Time Delay; traingd; mse; tansig
-Distributed Time Delay; traingd; sse; hardlim
-Distributed Time Delay; traingd; sse; purelin
-Distributed Time Delay; traingd; sse; logsig
-Distributed Time Delay; traingd; sse; tansig
 Distributed Time Delay; trainbfg; mse; hardlim
 Distributed Time Delay; trainbfg; mse; purelin
 Distributed Time Delay; trainbfg; mse; logsig
 Distributed Time Delay; trainbfg; mse; tansig
-Distributed Time Delay; trainbfg; sse; hardlim
-Distributed Time Delay; trainbfg; sse; purelin
-Distributed Time Delay; trainbfg; sse; logsig
-Distributed Time Delay; trainbfg; sse; tansig
 Distributed Time Delay; trainrp; mse; hardlim
 Distributed Time Delay; trainrp; mse; purelin
 Distributed Time Delay; trainrp; mse; logsig
 Distributed Time Delay; trainrp; mse; tansig
-Distributed Time Delay; trainrp; sse; hardlim
-Distributed Time Delay; trainrp; sse; purelin
-Distributed Time Delay; trainrp; sse; logsig
-Distributed Time Delay; trainrp; sse; tansig
