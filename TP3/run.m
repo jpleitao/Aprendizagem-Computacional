@@ -74,7 +74,6 @@ handles.epochs = 100;
 handles.learningRate = 0.5;
 handles.numberLayers = 3;
 handles.hiddenLayersSizes = 30;
-handles.layerDelays = 3;
 handles.classificationType = 'single';
 handles.groupLimitOnes = 5;
 handles.window_size = 10;
@@ -90,10 +89,6 @@ handles.training_output = [];
 handles.test_input = [];
 handles.test_output = [];
 
-%%%%
-%% Hide plot!
-%%%%
-set(handles.axes1,'Visible','off');
 
 % Choose default command line output for run
 handles.output = hObject;
@@ -123,7 +118,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
     [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
     
     %Create desired network
-    network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
+    network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
 
     handles.network = createNetwork(network_data);
 
@@ -162,7 +157,7 @@ function testbutton_Callback(hObject, eventdata, handles)
         [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
         
         %Create desired network
-        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
+        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
         
         disp('vou criar rede')
         handles.network = createNetwork(network_data);
@@ -492,20 +487,6 @@ function hiddenLayersSizeEdit_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-
-
-
-function layerDelaysEdit_Callback(hObject, eventdata, handles)
-% hObject    handle to layerDelaysEdit (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of layerDelaysEdit as text
-%        str2double(get(hObject,'String')) returns contents of layerDelaysEdit as a double
-    handles.layerDelays = str2double(get(hObject,'String'));
-    
-    % Update handles structure
-    guidata(hObject, handles);
 
 % --- Executes during object creation, after setting all properties.
 function layerDelaysEdit_CreateFcn(hObject, eventdata, handles)

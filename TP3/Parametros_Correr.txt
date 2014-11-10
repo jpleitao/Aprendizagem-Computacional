@@ -1,5 +1,3 @@
-Fazer para single e group com todos os ficheiros
-
 Perceptron; learnp; mse; hardlim
 Perceptron; learnp; sse; hardlim
 Perceptron; learngd; mse; purelin
@@ -63,7 +61,6 @@ FF Input Time Delay; trainrp; mse; logsig
 FF Input Time Delay; trainrp; sse; logsig
 FF Input Time Delay; trainrp; mse; tansig
 FF Input Time Delay; trainrp; sse; tansig
-
 
 Distributed Time Delay; trainlm; mse; hardlim
 Distributed Time Delay; trainlm; mse; purelin

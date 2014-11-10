@@ -10,8 +10,8 @@ function my_network = createNetwork(network_data)
 	%%	network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction,
 	%%						  'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs,
 	%%						  'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers,
-	%%						  'hiddenLayersSizes', handles.hiddenLayersSizes, 'layerDelays', handles.layerDelays,
-	%%						  'trainingInput', handles.training_input, 'trainingOutput', handles.training_output,
+	%%						  'hiddenLayersSizes', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 
+	%%						  'trainingOutput', handles.training_output,
 	%%						  'activationFunction', handles.activationFunction);
 	%%%%
 
