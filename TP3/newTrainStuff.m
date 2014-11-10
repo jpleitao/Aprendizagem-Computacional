@@ -68,7 +68,6 @@ for i=1:length(trainFunctions1)
 		save(network_name, 'network');
 	end
 end
-%}
 
 %%%%
 %%	FF Input Time Delay
@@ -99,7 +98,6 @@ for i=1:length(trainFunctions1)
 	end
 end
 
-%{
 %%%%
 %%	Perceptron
 %%%%
@@ -136,11 +134,9 @@ end
 %%%%
 networkName = 'Distributed Time Delay';
 
-trainFunctions2 = {'trainbfg', 'trainrp'};
+for i=1:length(trainFunctions1)
 
-for i=1:length(trainFunctions2)
-
-	trainFunction = char(trainFunctions2(i));
+	trainFunction = char(trainFunctions1(i));
 
 	for j=1:length(activationsFunctions1)
 
