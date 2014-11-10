@@ -39,7 +39,7 @@ function my_network = createNetwork(network_data)
 		%Considering two neurons in the output layer
 		layersDelays = 1:2;
 		number_neurons_outputLayer = 2;
-		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1) number_neurons_outputLayer];
+		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1)];
 
 		my_network = layrecnet(layersDelays, layersSize, network_data.trainFunction);
 
@@ -72,9 +72,9 @@ function my_network = createNetwork(network_data)
         training_input_temp = network_data.trainingInput;
         training_input_temp = training_input_temp';
         min_max_values = minmax(training_input_temp);
-		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1) {'purelin'}];
+		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1)];
 		number_neurons_outputLayer = 2;
-		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1) number_neurons_outputLayer];
+		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1)];
 
 		%my_network = newfftd(min_max_values,  0:network_data.numberLayers - 1, layersSize, activationFunctions, network_data.trainFunction);
 		my_network = newfftd(network_data.trainingInput, network_data.trainingOutput,  0:network_data.numberLayers - 1, layersSize, activationFunctions, network_data.trainFunction);
@@ -96,7 +96,7 @@ function my_network = createNetwork(network_data)
 
 		layersSize = repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1);
 		layersDelays = {0:network_data.numberLayers - 1};
-		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1) {'purelin'}];
+		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1)];
 
 		my_network = newdtdnn(network_data.trainingInput, network_data.trainingOutput, layersSize, layersDelays, activationFunctions, network_data.trainFunction);
 

@@ -17,7 +17,7 @@ handles = struct('percentage_training', percentage_training, 'training_file', tr
 
 [training_input, training_output, test_input, test_output] = prepareDataSets(handles);
 
-%{
+
 %%%%
 %%	Layrecnet
 %%%%
@@ -42,6 +42,7 @@ for i=1:length(trainFunctions1)
 	end
 end
 
+%{
 %%%%
 %%	Feedforward
 %%%%
@@ -65,6 +66,7 @@ for i=1:length(trainFunctions1)
 		save(network_name, 'network');
 	end
 end
+%}
 
 %%%%
 %%	FF Input Time Delay
@@ -95,6 +97,7 @@ for i=1:length(trainFunctions1)
 	end
 end
 
+%{
 %%%%
 %%	Perceptron
 %%%%
