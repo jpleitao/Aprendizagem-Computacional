@@ -3,10 +3,10 @@ training_file = '92202.mat';
 
 networkNames1 = {'Layer Recurrent', 'FeedForward', 'FF Input Time Delay', 'Perceptron', 'Distributed Time Delay'};
 trainFunctions1 = {'trainlm', 'traingd', 'trainbfg', 'trainrp' , 'learnp', 'learngd'};
-performanceFunctions1 = {'mse', 'sse'};
+performanceFunctions1 = {'mse'};
 activationsFunctions1 = {'hardlim', 'purelin', 'logsig', 'tansig'};
 goal = 1e-6;
-goalNEWRB = 1e-2;
+goalNEWRB = 0.01;
 epochs = 1000;
 validationChecks = epochs/2;
 learningRate = 0.2;
@@ -155,10 +155,12 @@ for i=1:length(trainFunctions1)
 	end
 end
 
-
+%{
 %%%%
 %%	Newrb
 %%%%
 networkName = 'Radial Basis Function';
-network = newrb(trainingInput, trainingOutput, goalNEWRB);
+network = newrb(training_input, training_output, goalNEWRB);
 network_name = strcat('net_', networkName, '.mat');
+save(network_name, 'network');
+%}
