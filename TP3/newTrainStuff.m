@@ -131,9 +131,11 @@ end
 %%%%
 networkName = 'Distributed Time Delay';
 
-for i=1:length(trainFunctions1)
+trainFunctions2 = {'trainbfg', 'trainrp'};
 
-	trainFunction = char(trainFunctions1(i));
+for i=1:length(trainFunctions2)
+
+	trainFunction = char(trainFunctions2(i));
 
 	for j=1:length(activationsFunctions1)
 
@@ -154,6 +156,7 @@ for i=1:length(trainFunctions1)
 		end
 	end
 end
+
 
 %{
 %%%%
