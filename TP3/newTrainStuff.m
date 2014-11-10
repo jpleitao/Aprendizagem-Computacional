@@ -41,7 +41,6 @@ for i=1:length(trainFunctions1)
 		save(network_name, 'network');
 	end
 end
-%}
 
 %%%%
 %%	Feedforward
@@ -96,7 +95,6 @@ for i=1:length(trainFunctions1)
 	end
 end
 
-%{
 %%%%
 %%	Perceptron
 %%%%
