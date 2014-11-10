@@ -2,7 +2,8 @@ percentage_training = 70;
 training_file = '92202.mat';
 
 networkNames1 = {'Layer Recurrent', 'FeedForward', 'FF Input Time Delay', 'Perceptron', 'Distributed Time Delay'};
-trainFunctions1 = {'trainlm', 'traingd', 'trainbfg', 'trainrp' , 'learnp', 'learngd'};
+%trainFunctions1 = {'trainlm', 'traingd', 'trainbfg', 'trainrp' , 'learnp', 'learngd'};
+trainFunctions1 = {'trainlm', 'traingd', 'trainrp' , 'learnp', 'learngd'};
 performanceFunctions1 = {'mse'};
 activationsFunctions1 = {'hardlim', 'purelin', 'logsig', 'tansig'};
 goal = 1e-6;
