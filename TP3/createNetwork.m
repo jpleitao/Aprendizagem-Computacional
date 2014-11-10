@@ -92,30 +92,6 @@ function my_network = createNetwork(network_data)
         my_network.trainParam.max_fail = network_data.validationChecks;
 		my_network.performFcn = network_data.performanceFunction;
 
-	elseif (strcmp(network_data.networkName, 'Perceptron'))
-
-		%We have 29 characteristics
-        training_input_temp = network_data.trainingInput;
-        training_input_temp = training_input_temp';
-        min_max_values = minmax(training_input_temp);
-        number_neurons_outputLayer = 2;
-
-		%my_network = newp(min_max_values, number_neurons_outputLayer, network_data.activationFunction, network_data.trainFunction);
-		my_network = newp(network_data.trainingInput, network_data.trainingOutput, network_data.activationFunction, network_data.trainFunction);
-
-		%Define specific parameters of the network
-		W = 0.1*rand(size(my_network.IW{1,1}));%This seems to be working...
-		b = 0.1*rand(size(my_network.b{1,1}));
-
-		my_network.IW{1,1} = W;
-		my_network.b{1,1} = b;	
-		my_network.performParam.lr = network_data.learningRate;
-		my_network.trainParam.epochs = network_data.epochs;
-		my_network.trainParam.show = 35;
-		my_network.trainParam.goal = network_data.goal;
-        my_network.trainParam.max_fail = network_data.validationChecks;
-		my_network.performFcn = network_data.performanceFunction;
-
 	elseif (strcmp(network_data.networkName, 'Distributed Time Delay'))
 
 		layersSize = repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1);
