@@ -66,7 +66,7 @@ function run_OpeningFcn(hObject, eventdata, handles, varargin)
 %%%%
 handles.networkName = 'Layer Recurrent';
 handles.network = [];%Network not trained
-handles.trainFunction = 'trainlm';
+handles.trainFunction = 'trainscg';
 handles.performanceFunction = 'mse';
 handles.activationFunction = 'hardlim';
 handles.goal = 1e-6;

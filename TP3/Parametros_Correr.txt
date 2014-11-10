@@ -1,26 +1,22 @@
-DONE:
-Layer Recurrent; trainlm; Nº Camadas; Nº Neurónios Por Camada
-Layer Recurrent; traingd; Nº Camadas; Nº Neurónios Por Camada
-Layer Recurrent; trainbfg; Nº Camadas; Nº Neurónios Por Camada
-Layer Recurrent; trainrp; Nº Camadas; Nº Neurónios Por Camada
+Layer Recurrent; trainscg
+Layer Recurrent; traingd
+Layer Recurrent; trainrp
 
-Feedforward; trainlm; mse
-Feedforward; trainlm; sse
+Feedforward; trainscg; mse
+Feedforward; trainscg; sse
 Feedforward; traingd; mse
 Feedforward; traingd; sse
-Feedforward; trainbfg; mse
-Feedforward; trainbfg; sse
 Feedforward; trainrp; mse
 Feedforward; trainrp; sse
 
-FF Input Time Delay; trainlm; mse; hardlim
-FF Input Time Delay; trainlm; sse; hardlim
-FF Input Time Delay; trainlm; mse; purelin
-FF Input Time Delay; trainlm; sse; purelin
-FF Input Time Delay; trainlm; mse; logsig
-FF Input Time Delay; trainlm; sse; logsig
-FF Input Time Delay; trainlm; mse; tansig
-FF Input Time Delay; trainlm; sse; tansig
+FF Input Time Delay; trainscg; mse; hardlim
+FF Input Time Delay; trainscg; sse; hardlim
+FF Input Time Delay; trainscg; mse; purelin
+FF Input Time Delay; trainscg; sse; purelin
+FF Input Time Delay; trainscg; mse; logsig
+FF Input Time Delay; trainscg; sse; logsig
+FF Input Time Delay; trainscg; mse; tansig
+FF Input Time Delay; trainscg; sse; tansig
 FF Input Time Delay; traingd; mse; hardlim
 FF Input Time Delay; traingd; sse; hardlim
 FF Input Time Delay; traingd; mse; purelin
@@ -29,14 +25,6 @@ FF Input Time Delay; traingd; mse; logsig
 FF Input Time Delay; traingd; sse; logsig
 FF Input Time Delay; traingd; mse; tansig
 FF Input Time Delay; traingd; sse; tansig
-FF Input Time Delay; trainbfg; mse; hardlim
-FF Input Time Delay; trainbfg; sse; hardlim
-FF Input Time Delay; trainbfg; mse; purelin
-FF Input Time Delay; trainbfg; sse; purelin
-FF Input Time Delay; trainbfg; mse; logsig
-FF Input Time Delay; trainbfg; sse; logsig
-FF Input Time Delay; trainbfg; mse; tansig
-FF Input Time Delay; trainbfg; sse; tansig
 FF Input Time Delay; trainrp; mse; hardlim
 FF Input Time Delay; trainrp; sse; hardlim
 FF Input Time Delay; trainrp; mse; purelin
@@ -48,18 +36,14 @@ FF Input Time Delay; trainrp; sse; tansig
 
 Radial Basis Function
 
-Distributed Time Delay; trainlm; mse; hardlim
-Distributed Time Delay; trainlm; mse; purelin
-Distributed Time Delay; trainlm; mse; logsig
-Distributed Time Delay; trainlm; mse; tansig
+Distributed Time Delay; trainscg; mse; hardlim
+Distributed Time Delay; trainscg; mse; purelin
+Distributed Time Delay; trainscg; mse; logsig
+Distributed Time Delay; trainscg; mse; tansig
 Distributed Time Delay; traingd; mse; hardlim
 Distributed Time Delay; traingd; mse; purelin
 Distributed Time Delay; traingd; mse; logsig
 Distributed Time Delay; traingd; mse; tansig
-Distributed Time Delay; trainbfg; mse; hardlim
-Distributed Time Delay; trainbfg; mse; purelin
-Distributed Time Delay; trainbfg; mse; logsig
-Distributed Time Delay; trainbfg; mse; tansig
 Distributed Time Delay; trainrp; mse; hardlim
 Distributed Time Delay; trainrp; mse; purelin
 Distributed Time Delay; trainrp; mse; logsig
