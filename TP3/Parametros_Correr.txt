@@ -64,7 +64,6 @@ FF Input Time Delay; trainrp; sse; logsig
 FF Input Time Delay; trainrp; mse; tansig
 FF Input Time Delay; trainrp; sse; tansig
 
-Ver quais destas combinações são possíveis:
 
 Distributed Time Delay; trainlm; mse; hardlim
 Distributed Time Delay; trainlm; mse; purelin
@@ -98,19 +97,3 @@ Distributed Time Delay; trainrp; sse; hardlim
 Distributed Time Delay; trainrp; sse; purelin
 Distributed Time Delay; trainrp; sse; logsig
 Distributed Time Delay; trainrp; sse; tansig
-Distributed Time Delay; learnp; mse; hardlim
-Distributed Time Delay; learnp; mse; purelin
-Distributed Time Delay; learnp; mse; logsig
-Distributed Time Delay; learnp; mse; tansig
-Distributed Time Delay; learnp; sse; hardlim
-Distributed Time Delay; learnp; sse; purelin
-Distributed Time Delay; learnp; sse; logsig
-Distributed Time Delay; learnp; sse; tansig
-Distributed Time Delay; learngd; mse; hardlim
-Distributed Time Delay; learngd; mse; purelin
-Distributed Time Delay; learngd; mse; logsig
-Distributed Time Delay; learngd; mse; tansig
-Distributed Time Delay; learngd; sse; hardlim
-Distributed Time Delay; learngd; sse; purelin
-Distributed Time Delay; learngd; sse; logsig
-Distributed Time Delay; learngd; sse; tansig
