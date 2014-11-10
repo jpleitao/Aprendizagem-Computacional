@@ -12,7 +12,7 @@ function my_network = createNetwork(network_data)
 	%%						  'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers,
 	%%						  'hiddenLayersSizes', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 
 	%%						  'trainingOutput', handles.training_output,
-	%%						  'activationFunction', handles.activationFunction);
+	%%						  'activationFunction', handles.activationFunction, 'validationChecks', validationChecks);
 	%%%%
 
 	if (strcmp(network_data.networkName, 'Radial Basis Function'))
@@ -48,6 +48,7 @@ function my_network = createNetwork(network_data)
 		my_network.trainParam.epochs = network_data.epochs;
 		my_network.trainParam.show = 35;
 		my_network.trainParam.goal = network_data.goal;
+        my_network.trainParam.max_fail = network_data.validationChecks;
 		my_network.performFcn = network_data.performanceFunction;
 
 	elseif (strcmp(network_data.networkName, 'FeedForward'))
@@ -62,6 +63,7 @@ function my_network = createNetwork(network_data)
 		my_network.trainParam.epochs = network_data.epochs;
 		my_network.trainParam.show = 35;
 		my_network.trainParam.goal = network_data.goal;
+        my_network.trainParam.max_fail = network_data.validationChecks;
 		my_network.performFcn = network_data.performanceFunction;
 
 	elseif (strcmp(network_data.networkName, 'FF Input Time Delay'))
@@ -87,6 +89,7 @@ function my_network = createNetwork(network_data)
 		my_network.trainParam.epochs = network_data.epochs;
 		my_network.trainParam.show = 35;
 		my_network.trainParam.goal = network_data.goal;
+        my_network.trainParam.max_fail = network_data.validationChecks;
 		my_network.performFcn = network_data.performanceFunction;
 
 	elseif (strcmp(network_data.networkName, 'Perceptron'))
@@ -110,6 +113,7 @@ function my_network = createNetwork(network_data)
 		my_network.trainParam.epochs = network_data.epochs;
 		my_network.trainParam.show = 35;
 		my_network.trainParam.goal = network_data.goal;
+        my_network.trainParam.max_fail = network_data.validationChecks;
 		my_network.performFcn = network_data.performanceFunction;
 
 	elseif (strcmp(network_data.networkName, 'Distributed Time Delay'))
@@ -125,6 +129,7 @@ function my_network = createNetwork(network_data)
 		my_network.trainParam.epochs = network_data.epochs;
 		my_network.trainParam.show = 35;
 		my_network.trainParam.goal = network_data.goal;
+        my_network.trainParam.max_fail = network_data.validationChecks;
 		my_network.performFcn = network_data.performanceFunction;
 	end
 end

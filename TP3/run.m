@@ -118,7 +118,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
     [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
     
     %Create desired network
-    network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
+    network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction, 'validationChecks', round(handles.epochs/2));
 
     handles.network = createNetwork(network_data);
 
@@ -157,7 +157,7 @@ function testbutton_Callback(hObject, eventdata, handles)
         [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
         
         %Create desired network
-        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction);
+        network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction, 'validationChecks', round(handles.epochs/2));
         
         disp('vou criar rede')
         handles.network = createNetwork(network_data);
