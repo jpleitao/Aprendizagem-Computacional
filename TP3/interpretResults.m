@@ -4,11 +4,11 @@
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
 %%%%
-function [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(handles, results)
+function [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, results)
 
     %%%%
     %% results is a 2-by-N array with combinations of 0's and 1's
-    %% Access the expected outputs in handles.test_output
+    %% Access the expected outputs in test_output
     %%%%
     size_results = size(results);
     number_cols_results = size_results(2);
@@ -25,10 +25,8 @@ function [true_positives, true_negatives, false_positives, false_negatives, inva
     for i=1:number_cols_results
         
         current_case = results(1:2,i);
-        current_answer = handles.test_output(1:2,i);
-        %current_answer = handles.training_output(1:2,i);
-        
-        %%Fazer aqui os expected positives e negatives
+        current_answer = test_output(1:2,i);
+        %current_answer = training_output(1:2,i);
         
         %Check if the data is invalid or not
         if (sum(current_case) == 0)
@@ -66,19 +64,4 @@ function [true_positives, true_negatives, false_positives, false_negatives, inva
             end
         end
     end
-    
-
-    %%%%
-    %%  FIXME: ONCE WE HAVE THE RESULTS IN THE FORMAT (-1;0;1) PLOT THIS DATA!!! USE THE INFORMATION GIVEN
-    %%%%
-
-    %{
-    %Get results and plot them
-    axis(handles.axes1);
-    plot(network_results, '.');
-    xlim([0, size(network_results, 2)]);
-    ylim([-0.1, 1.1]);
-    
-    %}
-
 end
