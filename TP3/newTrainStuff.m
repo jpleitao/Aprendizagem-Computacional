@@ -3,7 +3,7 @@ training_file = '92202.mat';
 
 networkNames1 = {'Layer Recurrent', 'FeedForward', 'FF Input Time Delay', 'Perceptron', 'Distributed Time Delay'};
 %trainFunctions1 = {'trainlm', 'traingd', 'trainbfg', 'trainrp' , 'learnp', 'learngd'};
-trainFunctions1 = {'trainlm', 'traingd', 'trainrp' , 'learnp', 'learngd'};
+trainFunctions1 = {'trainlm', 'traingd', 'trainrp'};
 performanceFunctions1 = {'mse'};
 activationsFunctions1 = {'hardlim', 'purelin', 'logsig', 'tansig'};
 goal = 1e-6;
@@ -18,7 +18,7 @@ handles = struct('percentage_training', percentage_training, 'training_file', tr
 
 [training_input, training_output, test_input, test_output] = prepareDataSets(handles);
 
-
+%{
 %%%%
 %%	Layrecnet
 %%%%
@@ -42,6 +42,7 @@ for i=1:length(trainFunctions1)
 		save(network_name, 'network');
 	end
 end
+%}
 
 %{
 %%%%
