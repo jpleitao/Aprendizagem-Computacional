@@ -185,7 +185,7 @@ function testbutton_Callback(hObject, eventdata, handles)
         [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretGroupedResults(expected_output, got_output);
     else
         %Single classification type
-        [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(handles, network_results);
+        [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(handles.test_output, network_results);
     end
     
     %Compute sensitivity and specificity
