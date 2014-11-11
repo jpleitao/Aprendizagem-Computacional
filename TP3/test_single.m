@@ -1,8 +1,25 @@
 %%%%
 %%	Single Classification
 %%%%
-load('44202_train.mat');
-%load('63502_train.mat');
+load('44202_train30.mat');
+%load('63502_train30.mat');
+
+%========================================================Radial Basis Function=================================================================
+
+load('trainedNetworks/Radial Basis Function/net_Radial Basis Function.mat');
+
+network_results = sim(network, test_input);
+network_results = convertResults(network_results);
+
+[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+
+sensitivity = true_positives / (true_positives + false_negatives);
+specificity = true_negatives / (true_negatives + false_positives);
+
+M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+
+%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
+dlmwrite('test_results.csv',M,'delimiter',',');
 
 %============================================================FeedForward=====================================================================
 
@@ -19,7 +36,7 @@ specificity = true_negatives / (true_negatives + false_positives);
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 
 %fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',');
+dlmwrite('test_results.csv',M,'delimiter',',', '-append');
 
 load('trainedNetworks/FeedForward/net_FeedForward_trainrp_mse.mat');
 
