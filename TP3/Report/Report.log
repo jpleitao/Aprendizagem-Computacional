@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  10 NOV 2014 08:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  11 NOV 2014 09:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -596,69 +596,70 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 33.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 37.
+(babel)             in language append on input line 45.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 37.
+(babel)             in language append on input line 45.
 
 [3]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 38.
+(babel)             in language append on input line 46.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 44.
+(babel)             in language append on input line 52.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 48.
+(babel)             in language append on input line 56.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 61.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 53.
+(babel)             in language append on input line 61.
  [4]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 54.
+(babel)             in language append on input line 62.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 59.
+(babel)             in language append on input line 67.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 59.
+(babel)             in language append on input line 67.
  [5]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 60.
+(babel)             in language append on input line 68.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 64.
+(babel)             in language append on input line 72.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 64.
+(babel)             in language append on input line 72.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 65.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 69.
+(babel)             in language append on input line 73.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 69.
+(babel)             in language append on input line 77.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 69.
+(babel)             in language append on input line 77.
  [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 69.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 69.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 69.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 77.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: FBACACC3DB905C36C5835D0ECBBCBB9E;413.
  ) 
 Here is how much of TeX's memory you used:
- 6903 strings out of 495004
- 96408 string characters out of 6180663
+ 6905 strings out of 495004
+ 96430 string characters out of 6180663
  177338 words of memory out of 5000000
- 10003 multiletter control sequences out of 15000+600000
- 16151 words of font info for 48 fonts, out of 8000000 for 9000
+ 10004 multiletter control sequences out of 15000+600000
+ 16837 words of font info for 49 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  30i,6n,32p,809b,340s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home
-/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/joaquim/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/joaquim/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/joaquim/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecbx1728.600pk>
-Output written on Report.pdf (7 pages, 58166 bytes).
+ </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home
+/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/joaquim/
+.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/joaquim/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/joaquim/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecrm1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/
+jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/
+ec/ecbx1728.600pk>
+Output written on Report.pdf (7 pages, 66931 bytes).
 PDF statistics:
- 279 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 309 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
  16 named destinations out of 1000 (max. 500000)
  57 words of extra memory for PDF output out of 10000 (max. 10000000)
 
