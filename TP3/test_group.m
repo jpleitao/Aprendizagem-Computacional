@@ -1,8 +1,8 @@
 %%%%
 %%	Group Classification
 %%%%
-load('44202_train30.mat');
-%load('63502_train30.mat');
+%load('44202_train30.mat');
+load('63502_train30.mat');
 
 groupLimitOnes = 5;
 window_size = 10;
