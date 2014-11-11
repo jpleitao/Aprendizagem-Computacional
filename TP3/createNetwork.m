@@ -80,7 +80,7 @@ function my_network = createNetwork(network_data)
 		my_network = newfftd(network_data.trainingInput, network_data.trainingOutput,  0:network_data.numberLayers - 1, layersSize, activationFunctions, network_data.trainFunction);
 
 		%Define specific parameters of the network
-		W = 0.1*rand(size(my_network.IW{1,1}));%This seems to be working...
+		W = 0.1*rand(size(my_network.IW{1,1}));
 		b = 0.1*rand(size(my_network.b{1,1}));
 
 		my_network.IW{1,1} = W;
