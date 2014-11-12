@@ -142,22 +142,29 @@ Assim, para evitar que as redes por nós treinadas se especializem em situaçõe
 
 Em seguida, selecionamos um número igual de situações \emph{não-ictais}, preservando a ordem dos diferentes casos nos dados originais: Consideremos os elementos \emph{A} e \emph{B}, pertencentes ao \emph{data set} original e de treino, em que \emph{A} surge antes de \emph{B} no \emph{data set} original. Consideremos também que \emph{A} corresponde a uma situação \emph{ictal}, enquanto \emph{B} corresponde a uma situação \emph{não-ictal}. Então, no \emph{data set} de treino, \emph{A} surgirá também antes de \emph{B}.
 
-Para realizar o treino das diversas redes recorremos ainda a várias 
+Para realizar o treino das diversas redes recorremos ainda a diferentes funções de treino, disponíveis e implementadas pela \emph{Neural Network Toolbox} do \emph{Matlab}. As funções de treino disponíveis são a função \emph{traingd}, \emph{trainscg} e \emph{trainrp}.
 
-%Explicar que em todas as redes utilizámos a função train do matlab excepto na newrb, em que o treino é realizado automaticamente pelo matlab aquando da criação da rede.
+Com exceção da rede \emph{RBF} (\emph{Radial Basis Function}) implementada, o treino das restantes redes neuronais é realizado com recurso à função \emph{train} da \emph{Neural Network Toolbox} do \emph{Matlab}. Uma vez que o treino das redes é uma operação complexa e exigente em termos computacionais, tendo em conta o tipo de redes criadas e a dimensão dos dados para proceder ao treino das redes, estas foram treinadas com aceleração gráfica, disponível nas versões mais recentes do \emph{Matlab}. Para tal, basta adicionar os parâmetros \emph{'useGPU', 'yes'} aquando da chamada da função \emph{train}: \emph{train(network, P, T, 'useGPU', 'yes')}.
 
-%Por fim, dizer que o treino foi realizado com recurso à função train da Neural Network Toolbox do Matlab
+Para a rede \emph{RBF}, o \emph{Matlab} realiza o seu treino aquando da criação da rede, não sendo necessária a invocação da função \emph{train}.
 
 \subsection{Teste das Redes}
 
-Falar da divisão das crises nos casos de teste: Como ja temos a rede treinada, não temos de ter a preocupação de ter proporções de situações ictais e não-ictais identicas.
+Uma vez completo o treino de uma rede neuronal, esta pode ser testada, de forma a verificar o seu bom, ou mau, funcionamento. Para isso, criámos um conjunto de dados de teste, baseados nos três \emph{data sets} inicialmente fornecidos.
 
+O processo de criação dos dados de teste é semelhante ao utilizado na constituição dos dados de treino das redes neuronais:
+
+É solicitado ao utilizador que indique o ficheiro (de entre os três ficheiros fornecidos) de onde serão extraídos os dados de teste, e qual a percentagem de situações \emph{ictais} a incluir. Em seguida, o ficheiro escolhido é analisado, e são considerados todos os dados nele presentes, a partir do final do ficheiro, até que o número de situações \emph{ictais} incluídas seja igual à percentagem especificada.
+
+Por outras palavras, se o utilizador especifica que pretende incluir 25\% das situações \emph{ictais} nos dados de treino, e se todas as situações \emph{ictais} identificadas nesse \emph{data set} se encontram nas posições $10-20$, $40-50$, $60-70$ e $80-100$, então o nosso \emph{data set} de treino será constituído por todos os elementos do ficheiro, desde a posição $60$ até ao final do ficheiro.
+
+Uma vez que aquando da realização dos testes na rede esta já se encontra treinada, é irrelevante considerarmos nos \emph{data sets} de teste situações \emph{ictais} na mesma ordem de grandeza do que situações \emph{não-ictais}, pois apenas estamos a executar a rede para um conjunto de dados, sem que este afete de forma alguma o funcionamento da rede em situações futuras.
 
 \subsection{Implementação em Matlab}
 
-Falar na estrutura dos ficheiros e no ficheiro que é para correr
+%Falar na estrutura dos ficheiros e no ficheiro que é para correr
 
-Falar sobre os ficheiros mais importantes
+%Falar sobre os ficheiros mais importantes
 
 %createNetwork
 
