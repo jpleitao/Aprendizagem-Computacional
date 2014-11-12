@@ -3,15 +3,22 @@
 %%  João Tiago Márcia do Nascimento Fernandes   2011162899
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
+%%	This function gets the indexes of the crysis in the given Input matrix, and selects the first X crysis of that matrix, where X is a
+%%	percentage of the total number of crysis, defined in the "percentage" variable.
+%%	The selected crysis will be added to the "data_input" variable, and their correspondent values in the "Target" matrix will also be
+%%	added in the same positions in the "data_output" variable.
+%%	This function also adds the same number of non-ictal situations as the number of ictal situations added, preserving their relative
+%%	position in the original data set. Because the number of ictal situations is far smaller than the number of non-ictal situations
+%%	the non-ictal situations are randomly selected, but always preserving the relative position of both selected ictal and non-ictal
+%%	situations. To illustrate our point, let's consider the following example:
+%%	If we have the situations A and B, where A corresponds to a non-ictal situation and occurs before B, which corresponds to a non-ictal
+%%	situation, in the original data set. If both A and B are included in the final data set, then A will be placed in this data set before B. 
 %%%%
 function [data_input, data_output] = getPercentageData(crysis_indexes, Target, Input, percentage)
 
-	%randperm
-	%divideind
-
 	%%%%
 	%% Our input will be a matrix of dimensions 29xY, where Y is the number of input data
-	%% Our output will be a matrix of dimensions 1xY, where Y is the number of input data -- Is this correct???
+	%% Our output will be a matrix of dimensions 2xY, where Y is the number of input data
 	%%%%
 
 	Target = Target';
