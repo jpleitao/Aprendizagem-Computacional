@@ -3,6 +3,10 @@
 %%  João Tiago Márcia do Nascimento Fernandes   2011162899
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
+%%	Analysis a given target matrix, composed of sequences of 0's and 1's, and returns the starting and ending indexes of the sequences of 1's
+%%	in that matrix. In our application, this matrix is one of the original data set's target matrix, containing the classifications of the
+%%	correspondent patient's state. It takes the value 0 in moments where the patient's collected characteristics correspond to an epileptic
+%%	crysis, and 1 where the patient's collected characteristics correspond to an epileptic crysis.
 %%%%
 function cr = getCrysisIndexes(Trg)
 
@@ -29,10 +33,6 @@ function cr = getCrysisIndexes(Trg)
 		
 		cr(cont, 2) = tempOne+last+tempTwo;
 		aux = Trg((tempOne+last+tempTwo+1): length(Trg));
-
-		%So, in "cr" we are saving all the indexes of each epileptic crysis in Trg, and for each crysis we store the start and end, right?
-
-		%Why do we need the "last" variable?
 		
 		last = tempOne+last+tempTwo;
 		cont = cont + 1;
