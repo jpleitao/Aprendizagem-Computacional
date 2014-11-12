@@ -3,6 +3,14 @@
 %%  João Tiago Márcia do Nascimento Fernandes   2011162899
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
+%%  This function is responsible for processing the group classification type available in our application. The approach followed here is
+%%  very simillar to the one followed in the single classification type (available in the interpretResults.m file):
+%%  We still go over the results obtained from our neural network (remember that these results have been somewhat filtered after the
+%%  classification was finish, in order to only have the values -1;0 or 1), and register the number of classifications equal to the expected
+%%  classification output in the corresponding positions, and the number of classifications different from what was expected, and also
+%%  counting the expected number of classifications of each type.
+%%  Because we can still have situations where the network did not converge, we also have to count the number of cases where that happened,
+%%  which corresponds to invalid classifications.
 %%%%
 function [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretGroupedResults(expected_results, results)
     
