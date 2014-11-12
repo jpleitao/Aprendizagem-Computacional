@@ -3,6 +3,13 @@
 %%  João Tiago Márcia do Nascimento Fernandes   2011162899
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
+%%	Creates one neural network, according to the user selection. To create the network the user must also specify some of its properties,
+%%	depending on the type of network to create. These properties may be the train function, used in the network's training, or its neurons'
+%%	activation function. It can also be the desired number of layer, or even the goal and number of epochs to use in the train.
+%%	Once the network is created some of its parameters are specified, like the learning rate, performance function (used in the training to
+%%	evaluate the network's performance) and number of validation checks needed to stop the train.
+%%	Finally, the created network is returned, to be used in later stages of the execution, either for training, or to classify a given
+%%	data set.
 %%%%
 function my_network = createNetwork(network_data)
 
@@ -17,30 +24,16 @@ function my_network = createNetwork(network_data)
 
 	if (strcmp(network_data.networkName, 'Radial Basis Function'))
 
-		%newrb(X,T,GOAL,SPREAD,MN,DF) takes these arguments,
-     	%X      - RxQ matrix of Q input vectors.
-    	%T      - SxQ matrix of Q target class vectors.
-     	%GOAL   - Mean squared error goal, default = 0.0.
-     	%SPREAD - Spread of radial basis functions, default = 1.0.
-     	%MN     - Maximum number of neurons, default is Q.
-     	%DF     - Number of neurons to add between displays, default = 25
-
-     	%%%%
-     	%%	Use the default values of Spread, MN and DF!
-     	%%	Remember that, here the input matrix is NumberCharacteristics x NumberCases
-     	%%	and the output matrix is NumberOutputLayerNeurons x NumberCharacteristics 
-     	%%%%
+		%Create the network, giving it the training input and output data, and the desired goal for our training
 		my_network = newrb(network_data.trainingInput, network_data.trainingOutput, network_data.goal);
 
 	elseif (strcmp(network_data.networkName, 'Layer Recurrent'))
 
-		%net=layrecnet(layerDelays,hiddenSizes,trainFcn)
-
-		%Considering two neurons in the output layer
+		%Define some of the network's specifications
 		layersDelays = 1:2;
-		number_neurons_outputLayer = 2;
 		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1)];
 
+		%Create the network
 		my_network = layrecnet(layersDelays, layersSize, network_data.trainFunction);
 
 		%Define specific parameters of the network
@@ -53,9 +46,10 @@ function my_network = createNetwork(network_data)
 
 	elseif (strcmp(network_data.networkName, 'FeedForward'))
 
-		%hiddenLayers = network_data.numberLayers - 1;
+		%Define some of the network's specifications
 		layersSize = repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1);
 		
+		%Create the network
 		my_network = feedforwardnet(layersSize, network_data.trainFunction);
 
 		%Define specific parameters of the network
@@ -68,15 +62,11 @@ function my_network = createNetwork(network_data)
 
 	elseif (strcmp(network_data.networkName, 'FF Input Time Delay'))
 
-		%We have 29 characteristics
-        training_input_temp = network_data.trainingInput;
-        training_input_temp = training_input_temp';
-        min_max_values = minmax(training_input_temp);
+		%Define some of the network's specifications
 		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1)];
-		number_neurons_outputLayer = 2;
 		layersSize = [repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1)];
 
-		%my_network = newfftd(min_max_values,  0:network_data.numberLayers - 1, layersSize, activationFunctions, network_data.trainFunction);
+		%Create the network
 		my_network = newfftd(network_data.trainingInput, network_data.trainingOutput,  0:network_data.numberLayers - 1, layersSize, activationFunctions, network_data.trainFunction);
 
 		%Define specific parameters of the network
@@ -94,10 +84,12 @@ function my_network = createNetwork(network_data)
 
 	elseif (strcmp(network_data.networkName, 'Distributed Time Delay'))
 
+		%Define some of the network's specifications
 		layersSize = repmat( network_data.hiddenLayers, 1, network_data.numberLayers - 1);
 		layersDelays = {0:network_data.numberLayers - 1};
 		activationFunctions = [repmat( {network_data.activationFunction}, 1, network_data.numberLayers - 1)];
 
+		%Create the network
 		my_network = newdtdnn(network_data.trainingInput, network_data.trainingOutput, layersSize, layersDelays, activationFunctions, network_data.trainFunction);
 
 		%Define specific parameters of the network
