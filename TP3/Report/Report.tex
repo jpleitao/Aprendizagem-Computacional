@@ -212,6 +212,10 @@ Uma vez que a classificação realizada pela rede nem sempre é clara, podem exi
 
 \subsubsection{interpretGroupResults.m}
 
+O ficheiro \emph{interpretGroupResults.m} é responsável por uma importante parte da lógica subjacente à \emph{Classificação em Grupo} realizada pela aplicação.
+
+Neste ficheiro, a abordagem seguida é em tudo semelhante ao realizado no caso da \emph{Classificação Individual}: Possuindo os resultados esperados para o teste realizado, basta percorrer os dados obtidos como resultado da classificação da rede neuronal, registando as situações em que os dois conjuntos de dados (dados obtidos e esperados) são idênticos (verdadeiros positivos e verdadeiros negativos), bem como situações onde as classificações diferem (falsos positivos e falsos negativos), ou então não são possíveis (classificações inválidas).
+
 \subsection{Execução}
 
 %Explicar como executar o código
