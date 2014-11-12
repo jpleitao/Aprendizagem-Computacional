@@ -40,7 +40,11 @@ O trabalho proposto visa a criação de uma aplicação em \emph{Matlab}, que an
 
 Para proceder à identificação das situações \emph{ictais} e \emph{não-ictais}, a aplicação desenvolvida faz uso, na sua arquitetura interna, de redes neuronais, disponíveis na \emph{Neural Networks Toolbox} do próprio \emph{Matlab}.
 
-Para avaliar o desempenho e performance da aplicação desenvolvida, procederemos à análise da sensibilidade e especificidade de cada rede neuronal implementada. Estas duas métricas constituem requisitos necessários para a sua utilização em ambiente clínico, e podem ser definidas da seguinte forma:
+Para avaliar o desempenho e performance da aplicação desenvolvida, procederemos à análise da sensibilidade e especificidade de cada rede neuronal implementada.
+
+Estas métricas correspondem à percentagem de situações \emph{ictais} verdadeiras detetadas (\emph{sensibilidade}) e à percentagem de situações \emph{não-ictais} falsas detetadas (\emph{especificidade}), refletindo a performance da rede na classificação de um dado \emph{data set}: Uma elevada \emph{sensibilidade} implica uma boa deteção de situações \emph{ictais}, enquanto que uma elevada \emph{especificidade} implica uma boa deteção de casos \emph{não-ictais}.
+
+Ambas as métricas constituem requisitos necessários para a sua utilização em ambiente clínico, e podem ser definidas da seguinte forma:
 
 $$Sensibilidade \: = \frac{PositivosVerdadeiros}{PositivosVerdadeiros + FalsosNegativos}$$
 
@@ -48,7 +52,7 @@ $$Especificidade \: = \frac{NegativosVerdadeiros}{NegativosVerdadeiros + FalsosP
 
 \vspace{.1cm}
 
-Assim, no presente documento pretendemos apresentar de forma mais detalhada a aplicação desenvolvida, discutindo alguns detalhes da sua implementação e apresentando uma reflexão crítica sobre o seu desempenho e performance, nomeadamente da sua sensibilidade e especificidade.
+No presente documento pretendemos apresentar de forma mais detalhada a aplicação desenvolvida, discutindo alguns detalhes da sua implementação e apresentando uma reflexão crítica sobre o seu desempenho e performance, nomeadamente da sua sensibilidade e especificidade.
 
 \pagebreak
 
@@ -198,7 +202,13 @@ Assim, os dados de treino são construídos partindo do final de um ficheiro de 
 
 \subsubsection{interpretResults.m}
 
+É neste ficheiro que se encontra a função \emph{interpretResults}, onde é realizado o processamento da classificação executada pela rede neuronal treinada, nas situações em que o tipo de classificação escolhido é a \emph{Classificação Individual}.
 
+Este processamento consiste simplesmente em percorrer os resultados obtidos na execução da rede neuronal para o caso de teste fornecido, comparando-os elemento a elemento com os resultados esperados para esse caso de teste. Assim, é registado o número de situações em que a classificação da rede se apresenta correta (distinguindo-se entre classificações de situações \emph{ictais} e \emph{não-ictais}), bem como situações em que a classificação da rede está incorreta (também distinguindo-se entre ituações \emph{ictais} e \emph{não-ictais}).
+
+Para além disso, são também registados o número de classificações positivas e negativas, isto é, de situações \emph{ictais} e \emph{não-ictais}, presentes nos dados fornecidos à rede, e que num cenário de classificação perfeita corresponderiam ao número de situações \emph{ictais} e \emph{não-ictais} registadas.
+
+Uma vez que a classificação realizada pela rede nem sempre é clara, podem existir situações para as quais a rede não convergiu, não sendo possível distinguir de forma clara para uma dada situação (ou conjunto de situações) qual a classe atribuída pela rede. Essas situações são também registadas nesta função, sendo posteriormente reportadas como classificações inválidas.
 
 \subsubsection{interpretGroupResults.m}
 
