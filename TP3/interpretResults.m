@@ -3,6 +3,15 @@
 %%  João Tiago Márcia do Nascimento Fernandes   2011162899
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
+%%  This function is responsible for processing the single classification type available in our application. To perform this the function
+%%  takes the network's output and the expected output and simply compares them, registering all the situations where the network performed
+%%  a correct classification and also where the classification was not correct. This values are stored in the "true_positives" and
+%%  "true_negatives" variables (in the cases of a correct classification) and in the "false_positives" and "false_negatives" variables (in the
+%%  cases of an incorrect classification). Along side with this, the expected number of true_positives and true_negatives is also registered,
+%%  based on the data available in the expected output variable ("test_results"), which would be equal to the sum of true positives and
+%%  negatives, if we had a perfect classification.
+%%  Because our network's classification may not be clear, due to situations where the network did not converge, the number of unclear
+%%  classifications is also stored, in the "invalid_data" variable.
 %%%%
 function [true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, results)
 
@@ -26,7 +35,6 @@ function [true_positives, true_negatives, false_positives, false_negatives, inva
         
         current_case = results(1:2,i);
         current_answer = test_output(1:2,i);
-        %current_answer = training_output(1:2,i);
         
         %Check if the data is invalid or not
         if (sum(current_case) == 0)
