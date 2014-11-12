@@ -176,11 +176,27 @@ No ficheiro \emph{createNetwork.m} encontramos a função \emph{createNetwork}, 
 
 Esta rede é criada de acordo com algumas características pré-definidas, e outras escolhidas pelo utilizador, como é o caso das funções de ativação e de treino.
 
-Após a sua criação, a rede será posteriormente treinada com um conjunto de dados previamente criado de acordo com as especificações fornecidas pelo utilizador.
+Após a sua criação, a rede será treinada com um conjunto de dados previamente criado de acordo com as especificações fornecidas pelo utilizador. Este treino não é realizado neste ficheiro, mas sim no principal ficheiro desenvolvido para a aplicação, \emph{run.m}.
 
 \subsubsection{prepareDataSets.m}
 
+Neste ficheiro encontramos a função \emph{prepareDataSets}, responsável pela criação dos \emph{data sets} de treino e e de teste, bem como dos respetivos resultados esperados (quer para os dados de treino, quer para os dados de teste).
+
+Tal como referimos brevemente numa secção anterior do presente documento, as abordagens seguidas para a criação dos conjuntos de dados de treino e de teste têm pontos em comum, não sendo, no entanto, completamente iguais.
+
+Uma vez que, nos ficheiros fornecidos, o número de situações \emph{não-ictais} é bastante superior à quantidade de classificações \emph{ictais}, se simplesmente considerarmos para o nosso \emph{data set} de treino uma percentagem dos dados fornecidos, sem nos preocuparmos com a distribuição de situações \emph{não-ictais} e \emph{ictais}, então será altamente provável que as nossas redes sejam treinadas com mais casos \emph{não-ictais} do que com \emph{ictais}, resultando numa especialização da mesma na deteção de situações \emph{não-ictais}.
+
+Efetivamente, tal situação corresponde ao oposto do desejável, tendo em conta que o nosso objetivo principal passa pela identificação de casos \emph{ictais}, com um grau de confiança mínimo.
+
+Assim, para os dados de treino das redes neuronais criadas são consideradas situações \emph{ictais} e \emph{não-ictias} em igual número e de acordo com uma percentagem das situações \emph{ictais} totais do ficheiro a considerar, definida pelo utilizador. Nesta seleção, tal como referido anteriormente, é preservada a posição relativa das situações \emph{ictais} e \emph{não-ictais} consideradas.
+
+No que respeita aos dados de teste, também criados neste ficheiro, não é necessária qualquer preocupação em relação ao número de situações \emph{ictais} e \emph{não-ictais}, uma vez que pretendemos utilizar estes dados em redes já treinadas, pelo que a sua execução em nada alterará o comportamento futuro da rede.
+
+Assim, os dados de treino são construídos partindo do final de um ficheiro de dados previamente selecionado, incluindo todos os dados (correspondentes a casos \emph{ictais} e \emph{não-ictais}) até que o número de situações \emph{ictais} seja igual a um valor definido pelo utilizador.
+
 \subsubsection{interpretResults.m}
+
+
 
 \subsubsection{interpretGroupResults.m}
 

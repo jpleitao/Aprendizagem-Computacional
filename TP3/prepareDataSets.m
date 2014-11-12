@@ -3,6 +3,16 @@
 %%  João Tiago Márcia do Nascimento Fernandes   2011162899
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
+%%	Creates the training and testing data sets, with the desired number of crysis in each data set.
+%%	Because the testing data set has no influence over the network's performance in future classifications, while creating this data set
+%%	we have no concerns when it comes to the number of ictal and non-ictal situations: We just include all the last elements of the given
+%%	data set, until we reach the desired number of ictal situations to include in the testing data set.
+%%	However, when creating the training data set, we have to be concerned with the number of ictal and non-ictal situations. If we use the
+%%	approach we used to create the testing data set, we will end up with a very small number of ictal situations, when compared to the number
+%%	of non-ictal situations (due to the nature of the data sets considered). If we train the different networks with this data set we will
+%%	get a network specialized in detecting non-ictal situations, but which can still missclassify ictal instances. This is not a desired
+%%	situation, given the fact that we are much more interested in detecting ictal situations with a minimum degree of confidence, than
+%%	detecting non-ictal situations.
 %%%%
 function [training_input, training_output, test_input, test_output] = prepareDataSets(handles)
 
@@ -26,9 +36,7 @@ function [training_input, training_output, test_input, test_output] = prepareDat
 	test_output = Trg(start_test:end,:);
 	test_output = test_output';
 
-	%%%%
-	%% Prepare the outputs to take in account the fact that we have two neurons in the output layer
-	%%%%
+	%Prepare the outputs to take in account the fact that we have two neurons in the output layer
 	temp_train = [];
 	temp_test = [];
 	
