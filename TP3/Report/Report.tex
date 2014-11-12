@@ -162,17 +162,27 @@ Uma vez que aquando da realização dos testes na rede esta já se encontra trei
 
 \subsection{Implementação em Matlab}
 
-%Falar na estrutura dos ficheiros e no ficheiro que é para correr
+A aplicação foi por nós desenvolvida e programa quase na sua totalidade, com a exceção do código relativo à interface gráfica. Esta foi desenhada por nós através da interface \emph{guide} do \emph{Matlab}, tendo o seu código sido gerado pelo \emph{Matlab}.
 
-%Falar sobre os ficheiros mais importantes
+De qualquer forma, toda a lógica interna da aplicação, comunicação da informação recolhida pela interface gráfica para outras estruturas, etc, foi por nós completamente desenvolvida.
 
-%createNetwork
+\subsubsection{run.m}
 
-%prepareDataSets
+Este ficheiro é o principal ficheiro da aplicação e que permite a sua execução. É nele que se encontra todo o código gerado, relativo à interface gráfica, mas também onde todas as principais funcionalidades da aplicação (criação das redes neuronais e respetivo treino e classificação dos dados de teste) são invocadas.
 
-%interpretResults e interpretGroupResults
+\subsubsection{createNetwork.m}
 
-%run
+No ficheiro \emph{createNetwork.m} encontramos a função \emph{createNetwork}, responsável pela criação da rede neuronal que irá realizar a identificação das  situações \emph{ictais} nos dados considerados e fornecidos à aplicação. 
+
+Esta rede é criada de acordo com algumas características pré-definidas, e outras escolhidas pelo utilizador, como é o caso das funções de ativação e de treino.
+
+Após a sua criação, a rede será posteriormente treinada com um conjunto de dados previamente criado de acordo com as especificações fornecidas pelo utilizador.
+
+\subsubsection{prepareDataSets.m}
+
+\subsubsection{interpretResults.m}
+
+\subsubsection{interpretGroupResults.m}
 
 \subsection{Execução}
 
