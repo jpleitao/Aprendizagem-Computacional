@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  12 NOV 2014 20:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  12 NOV 2014 21:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -669,36 +669,36 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 219.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 224.
+(babel)             in language append on input line 232.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 224.
+(babel)             in language append on input line 232.
  [10]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 225.
+(babel)             in language append on input line 233.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 230.
+(babel)             in language append on input line 238.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 230.
+(babel)             in language append on input line 238.
  [11]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 231.
+(babel)             in language append on input line 239.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 235.
+(babel)             in language append on input line 243.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 235.
+(babel)             in language append on input line 243.
  [12]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 236.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 240.
+(babel)             in language append on input line 244.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 240.
+(babel)             in language append on input line 248.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 240.
+(babel)             in language append on input line 248.
  [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 240.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 240.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 240.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 2A10A2E3A32C212D480221414716B961;1073.
  ) 
@@ -719,9 +719,9 @@ jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (13 pages, 157175 bytes).
+Output written on Report.pdf (13 pages, 158886 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
+ 468 PDF objects out of 1000 (max. 8388607)
  175 compressed objects within 2 object streams
  32 named destinations out of 1000 (max. 500000)
  134 words of extra memory for PDF output out of 10000 (max. 10000000)

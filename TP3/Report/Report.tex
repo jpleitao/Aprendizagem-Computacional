@@ -218,7 +218,15 @@ Neste ficheiro, a abordagem seguida é em tudo semelhante ao realizado no caso d
 
 \subsection{Execução}
 
-%Explicar como executar o código
+Para executar a aplicação o utilizador simplesmente necessita de executar o ficheiro \emph{run.m}, sendo imediatamente exibida a interface gráfica desenvolvida.
+
+A partir desse momento, o utilizador poderá escolher a rede a criar e a treinar, definindo algumas das suas propriedades e do seu treino, nomeadamente a escolha do ficheiro de dados a utilizar como fonte para a criação dos dados de treino e para posterior teste da rede treinada. É também possível selecionar o tipo de classificação a realizar, tal como referido anteriormente: \emph{Classificação Individual} ou \emph{Classificação em Grupo}.
+
+Uma vez definidos todos os parâmetros pretendidos pelo utilizador, basta clicar na opção \emph{Train Network}, para proceder ao treino da rede, ou na opção \emph{Test}, para proceder à execução da rede para os dados de teste especificados.
+
+Queremos também salientar a possibilidade de seleção a opção \emph{Test} sem, previamente, ter sido treinada nenhuma rede. Nesse caso, será criada e treinada uma rede de acordo com as especificações para esta definidas na interface. Caso o utilizador não tenha definido nenhuma configuração, será utilizada uma por defeito.
+
+Uma vez finda a execução da rede para os dados de treino selecionados, os resultados dessa execução poderão ser visualizados no painel \emph{Results}, estando disponível a \emph{sensibilidade} e \emph{especificidade} registadas, bem como os dados que permitiram calcular esses valores (verdadeiros positivos e negativos, e falsos positivos e negativos). É ainda apresentado o número de classificações inválidas registadas. 
 
 \pagebreak
 
