@@ -1,3 +1,4 @@
+%{
 load('44202_train30.mat');
 
 load('trainedNetworks/net_Radial Basis Function_3.mat');
@@ -40,7 +41,7 @@ specificity = true_negatives / (true_negatives + false_positives);
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 dlmwrite('test_results.csv',M,'delimiter',',', '-append');
 
-%{
+%}
 
 load('44202_train50.mat');
 
@@ -84,6 +85,7 @@ specificity = true_negatives / (true_negatives + false_positives);
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 dlmwrite('test_results.csv',M,'delimiter',',', '-append');
 
+%{
 load('44202_train70.mat');
 
 load('trainedNetworks/net_Radial Basis Function_3.mat');
