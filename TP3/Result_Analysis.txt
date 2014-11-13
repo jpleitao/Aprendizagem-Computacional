@@ -22,4 +22,4 @@ Novos treinos para as seguintes redes:
 
 - FF Input Time Delay com função de activação tansig ou logsig e com função de treino trainscg
 
-- newrb com número máximo de neurónios de 15 e com goal de 10^{-2} e com um número de neuronios a adicionar entre displays de 1 (Ver o que acontece)
+- newrb com número máximo de neurónios de 15 e com goal de 10^{-2} e com um número de neuronios a adicionar entre displays de 1 (Ver o que acontece) -- DONE
