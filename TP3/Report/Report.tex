@@ -233,6 +233,7 @@ Uma vez finda a execução da rede para os dados de treino selecionados, os resu
 \pagebreak
 
 \section{Treino e Testes da Aplicação}
+\label{sec:train_tests}
 
 Após o desenvolvimento inicial da aplicação procedemos ao treino e teste das diferentes redes implementadas, a fim de aferir o seu correto, ou incorreto, funcionamento e da sua adequação às nossas previsões iniciais para a performance de cada rede.
 
@@ -260,6 +261,14 @@ Assim, inicialmente procedemos ao treino de cada rede neuronal com as propriedad
 
 O leitor atento certamente notará que nesta listagem não apresentamos dados relativos à função de treino, ativação ou de performance das redes treinadas. Efetivamente, decidimos variar cada uma dessas funções, de acordo com os seus possíveis valores, suportados na aplicação, apresentado assim uma rede neuronal diferente para cada combinação diferente destes elementos.
 
+Gostaríamos também de chamar a atenção do leitor para o número de camadas consideradas nos testes realizados.
+
+Um dos pontos defendidos pela bibliografia deste tema refere-se ao facto de que, numa rede neuronal com uma única camada escondida (excluindo a camada de entrada e a de saída), é possível obter os mesmos resultados que numa rede neuronal equivalente, mas que faça uso de mais camadas. Simplesmente para obter resultados equivalentes é necessário adicionar um número suficiente de neurónios à camada escondida.
+
+Assim, seria interessante tentar confirmar este facto, comparando os resultados obtidos com as redes neuronais treinadas com as propriedades apresentadas, com outras redes que possuíssem uma só camada escondida, fazendo o seu número de neurónios variar, procurando encontrar a configuração que permitisse igualar estes resultados.
+
+Infelizmente não nos foi possível realizar essa experiência, por não termos tempo disponível para tal. De qualquer das formas, é algo que gostaríamos de realizar caso tivéssemos possibilidade de aprofundar mais este trabalho.
+
 Em anexo a este documento encontra-se uma lista detalhada das redes testadas, e dos resultados obtidos, que poderá ser consultada pelo leitor.
 
 Gostaríamos também de salientar o facto de, nos testes realizados, as redes neuronais que recorreram à função \emph{sum squared error, sse} como medida para avaliar a sua performance durante o treino apresentaram valores de performance francamente piores que as restantes redes, o que se refletiu nos resultados obtidos. Por essa razão optámos por não incluir esses casos nos treinos apresentados.
@@ -268,11 +277,36 @@ Também gostaríamos de justificar a escolha do valor $10^{-2}$ para objetivo do
 
 No entanto, ao realizarmos o treino desta rede, verificámos que esta não convergia para esse valor em tempo útil, nem mesmo quando recorremos a aceleração de \emph{hardware} utilizando processamento gráfico. Assim, uma vez que gostaríamos de apresentar algum tipo de resultados para esta rede, optámos por reduzir o objetivo do seu treino, diminuindo assim o seu tempo de treino, e possivelmente a sua performance final.
 
-Analisando os resultados obtidos, torna-se evidente
+Analisando os resultados obtidos, existem alguns pontos que, na nossa opinião, se tornam evidentes e que gostaríamos de salientar, desde já.
 
-%Dividir isto em: Testes primeira abordagem --> Os que já temos, adicionar mais testes para as redes que tiveram melhores resultados, um teste com menos neurónios por camada e outro com mais neurónnios por camada. Dizer que poderíamos ter só ua camada escondida, pois de acordo com a bibliografia desde que tenhamos neuronios suficientes uma so camada escondida consegue produzir os mesmos resultados que várias camadas escondidas. Identificar das redes que inicialmente tiveram melhores resultados, a sua tendencia nos novos testes
+Em primeiro lugar, verificámos que os resultados obtidos para a \emph{Classificação Individual} e \emph{Classificação em Grupo} são bastante semelhantes. De facto, este é, de certa forma, um resultado pouco surpreendente, dado que a nossa abordagem para a \emph{Classificação em Grupo} é bastante semelhante à abordagem para a \emph{Classificação Individual}. Todos os passos desde a criação dos dados de teste até à sua execução na rede são comuns aos dois tipos de classificação. A única diferença reside na forma como estes são processados após a sua execução na rede neuronal.
 
-%Nos testes que ja temos falar que sse tinha uma performance miseravel e que por isso nao adicionamos aqui os resultados
+Como os nossos dados possuem as situações \emph{ictais} bastante concentradas em locais muito específicos dos \emph{data sets}, e uma vez que optámos pela abordagem em janela para a \emph{Classificação em Grupo}, esta semelhança entre os resultados obtidos nas duas abordagens não completamente inesperada.
+
+Não obstante, gostaríamos de salientar que, embora os resultados obtidos para os dois tipos de classificações sejam bastante semelhantes, registámos melhores resultados nos testes que relativos à \emph{Classificação Individual}.
+
+De entre todas as redes testadas, aquela que apresentou melhores e mais consistentes resultados em ambos os tipos de classificação foi, sem dúvida, a rede \emph{Radial Basis Function}, apresentando em praticamente todos os testes elevados valores (iguais ou superiores a $0.7$) de especificidade e sensibilidade.
+
+De facto, dado o seu método de treino\footnote{Já abordado neste documento, consistindo na adição de neurónios como forma de melhorar a performance da rede}, uma possível explicação para estes resultados estará relacionada com a adição de um elevado número de neurónios na rede, levando esta a realizar uma espécie de memorização dos dados de treino, que é depois refletida nos testes realizados. Estes poderão, e deverão certamente, possuir semelhanças com os dados de treino, justificando estes resultados.
+
+Para além desta rede, na \emph{Classificação Individual} registámos bons resultados para a rede \emph{Distributed Time Delay}, treinada com a função \emph{trainscg}, tal como a rede \emph{FeedForward Input Time Delay}, em algumas situações pontuais (nomeadamente utilizando como função de treino a função \emph{trainscg} e funções de ativação as funções \emph{logsig} e \emph{tansig}).
+
+As restantes redes e respetivas configurações não mencionadas, não obtiveram resultados tão positivos, destacando-se sobretudo uma clara irregularidade nos resultados registados: Foi bastante frequente a ocorrência de situações em que uma dada rede registava um valor bastante elevado para a especificidade ou para a sensibilidade, mas o correspondente valor de sensibilidade ou de especificidade registado tomava valores muito reduzidos.
+
+Surpreendentemente, nas redes que apresentam piores resultados, onde se incluem as redes que apresentam as oscilações de resultados que referimos, é bastante comum registarem-se percentagens de dados inválidos mais reduzidas do que em algumas redes com melhores resultados.
+
+No que diz respeito à \emph{Classificação em Grupo}, os resultados obtidos não são demasiado diferentes dos mencionados. Queremos destacar, à semelhança do que verificámos para a \emph{Classificação Individual}, a boa performance da rede \emph{Radial Basis Function}, e da rede \emph{Layer Recurrent Network}, que desta feita relegou a rede \emph{Distributed Time Delay}, treinada com a função \emph{trainscg} para o posto de terceira melhor rede.
+
+À semelhança do verificado na \emph{Classificação Individual}, a rede \emph{FeedForward Input Time Delay} registou bons resultados em alguns testes onde foi treinada com a função \emph{trainscg}, tendo sido utilizadas as funções de ativação \emph{logsig} e \emph{tansig}.
+
+Também se verificou uma grande oscilação nos resultados obtidos para algumas redes, registando-se situações em que, uma dada rede, foi registado um valor bastante elevado para a especificidade ou para a sensibilidade, mas o correspondente valor de sensibilidade ou de especificidade era muito mais reduzido.
+
+Quanto ao número de classificações inválidas, registámos valores, em média, inferiores aos da \emph{Classificação Individual}, existindo muitas redes que não apresentam qualquer classificação inválida.
+
+Curiosamente, são as redes com maiores oscilações de valores de sensibilidade e especificidade que apresentam os maiores valores de classificações inválidas.
+
+%Dividir isto em: Testes primeira abordagem --> Os que já temos, adicionar mais testes para as redes que tiveram melhores resultados, um teste com menos neurónios por camada e outro com mais neurónnios por camada. Dizer que poderíamos ter só uma camada escondida, pois de acordo com a bibliografia desde que tenhamos neuronios suficientes uma so camada escondida consegue produzir os mesmos resultados que várias camadas escondidas. Identificar das redes que inicialmente tiveram melhores resultados, a sua tendencia nos novos testes
+
 
 %Testes segunda abordagem --> Fazer? Reduzir dimensionalidade. Para esses testes já temos scripts para treinar as redes e para executar os testes, é só mesmo actualizar os datasets de treino e de teste... Depois meter a parte da redução da dimensionalidade num script, e outro para treinar as redes, etc. Para já não incluímos isso na aplicação, apresentamos isso como uma coisa independente da aplicação mas se tivermos tempo podemos fazer isso na interface, e depoisé adicionar campos no relatório onde explicamos isso
 
@@ -285,8 +319,10 @@ Analisando os resultados obtidos, torna-se evidente
 
 \section{Anexos}
 
-\textbf{Testes realizados}
+Nas páginas seguintes apresentamos os testes iniciais realizados para \emph{Classificação Individual e em Grupo}, 
 
 \includepdf[pages={1-8}]{Images/Results.pdf}
+
+Nas páginas seguintes apresentamos os testes posteriores realizados às redes que apresentaram melhores resultados nos testes iniciais, conforme o descrito na \emph{Secção}~\ref{sec:train_tests} deste documento.
 
 \end{document}
