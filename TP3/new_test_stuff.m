@@ -119,7 +119,7 @@ sensitivity = true_positives / (true_positives + false_negatives);
 specificity = true_negatives / (true_negatives + false_positives);
 
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results_30.csv',M,'delimiter',',');
+dlmwrite('test_results_30.csv',M,'delimiter',',', '-append');
 
 load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_logsig_3.mat');
 
@@ -224,7 +224,7 @@ sensitivity = true_positives / (true_positives + false_negatives);
 specificity = true_negatives / (true_negatives + false_positives);
 
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results_30.csv',M,'delimiter',',');
+dlmwrite('test_results_30.csv',M,'delimiter',',', '-append');
 
 load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_logsig_3.mat');
 
@@ -332,7 +332,7 @@ sensitivity = true_positives / (true_positives + false_negatives);
 specificity = true_negatives / (true_negatives + false_positives);
 
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results_30.csv',M,'delimiter',',');
+dlmwrite('test_results_30.csv',M,'delimiter',',', '-append');
 
 load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_logsig_3.mat');
 
@@ -437,7 +437,7 @@ sensitivity = true_positives / (true_positives + false_negatives);
 specificity = true_negatives / (true_negatives + false_positives);
 
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results_30.csv',M,'delimiter',',');
+dlmwrite('test_results_30.csv',M,'delimiter',',', '-append');
 
 load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_logsig_3.mat');
 
@@ -542,7 +542,7 @@ sensitivity = true_positives / (true_positives + false_negatives);
 specificity = true_negatives / (true_negatives + false_positives);
 
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results_30.csv',M,'delimiter',',');
+dlmwrite('test_results_30.csv',M,'delimiter',',', '-append');
 
 load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_logsig_3.mat');
 
