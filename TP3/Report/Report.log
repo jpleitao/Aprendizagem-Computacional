@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  12 NOV 2014 21:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  13 NOV 2014 00:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -475,6 +475,23 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 \Gin@req@height=\dimen110
 \Gin@req@width=\dimen111
 )
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2013/08/25 v0.4v Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2013/10/06 v2.0d eso-pic (RN)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2013/08/25 v0.4v Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box30
+\AM@toc@title=\toks24
+\c@AM@survey=\count106
+\AM@templatesizebox=\box31
+)
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \heavyrulewidth=\dimen112
@@ -487,12 +504,12 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen119
 \cmidrulekern=\dimen120
 \defaultaddspace=\dimen121
-\@cmidla=\count106
-\@cmidlb=\count107
+\@cmidla=\count107
+\@cmidlb=\count108
 \@aboverulesep=\dimen122
 \@belowrulesep=\dimen123
-\@thisruleclass=\count108
-\@lastruleclass=\count109
+\@thisruleclass=\count109
+\@lastruleclass=\count110
 \@thisrulewidth=\dimen124
 )
 \@indexfile=\write3
@@ -503,33 +520,33 @@ Writing index file Report.idx
 (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 22.
-LaTeX Font Info:    ... okay on input line 22.
-\AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring OFF on input line 22.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+\AtBeginShipoutBox=\box32
+Package hyperref Info: Link coloring OFF on input line 24.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count110
+\c@section@level=\count111
 )
-LaTeX Info: Redefining \ref on input line 22.
-LaTeX Info: Redefining \pageref on input line 22.
-LaTeX Info: Redefining \nameref on input line 22.
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
+LaTeX Info: Redefining \nameref on input line 24.
 
 (./Report.out) (./Report.out)
 \@outlinefile=\write4
@@ -538,17 +555,17 @@ LaTeX Info: Redefining \nameref on input line 22.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
+\scratchcounter=\count112
 \scratchdimen=\dimen125
-\scratchbox=\box31
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count114
+\scratchbox=\box33
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count115
 \MPscratchDim=\dimen126
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
-\everyMPtoPDFconversion=\toks25
+\MPnumerator=\count116
+\makeMPintoPDFobject=\count117
+\everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -564,24 +581,24 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 25.
+LaTeX Font Info:    Try loading font information for U+msa on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 25.
+LaTeX Font Info:    Try loading font information for U+msb on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (24.40285pt too wide) in paragraph at lines 25--25
+Overfull \hbox (24.40285pt too wide) in paragraph at lines 27--27
  [][] 
  []
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 27.
+(babel)             in language append on input line 29.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 27.
+(babel)             in language append on input line 29.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./Report.toc)
@@ -589,127 +606,312 @@ Package babel Info: Redefining portuges shorthand "|
 \openout5 = `Report.toc'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 32.
+(babel)             in language append on input line 34.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 32.
+(babel)             in language append on input line 34.
  [2]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 33.
+(babel)             in language append on input line 35.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 58.
+(babel)             in language append on input line 60.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 58.
+(babel)             in language append on input line 60.
 
 [3]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 59.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 68.
+(babel)             in language append on input line 61.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 70.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 68.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 70.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 85.
+(babel)             in language append on input line 87.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 94.
+(babel)             in language append on input line 96.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 94.
+(babel)             in language append on input line 96.
  [4]
 <Images/Aplication_GUI.png, id=112, 913.4125pt x 445.665pt>
 File: Images/Aplication_GUI.png Graphic file (type png)
 
 <use Images/Aplication_GUI.png>
-Package pdftex.def Info: Images/Aplication_GUI.png used on input line 113.
+Package pdftex.def Info: Images/Aplication_GUI.png used on input line 115.
 (pdftex.def)             Requested size: 274.02586pt x 133.70053pt.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 117.
+(babel)             in language append on input line 119.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 123.
+(babel)             in language append on input line 125.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 123.
+(babel)             in language append on input line 125.
  [5 <./Images/Aplication_GUI.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 133.
+(babel)             in language append on input line 135.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 145.
+(babel)             in language append on input line 147.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 145.
+(babel)             in language append on input line 147.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 157.
+(babel)             in language append on input line 159.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 166.
+(babel)             in language append on input line 168.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 166.
+(babel)             in language append on input line 168.
  [7]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 169.
+(babel)             in language append on input line 171.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 175.
+(babel)             in language append on input line 177.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 179.
+(babel)             in language append on input line 181.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 187.
+(babel)             in language append on input line 189.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 192.
+(babel)             in language append on input line 194.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 192.
+(babel)             in language append on input line 194.
 
 [8]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 203.
+(babel)             in language append on input line 205.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 212.
+(babel)             in language append on input line 214.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 212.
+(babel)             in language append on input line 214.
  [9]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 213.
+(babel)             in language append on input line 215.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 219.
+(babel)             in language append on input line 221.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 232.
+(babel)             in language append on input line 234.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 232.
+(babel)             in language append on input line 234.
  [10]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 233.
+(babel)             in language append on input line 235.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 238.
+(babel)             in language append on input line 270.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 238.
+(babel)             in language append on input line 270.
  [11]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 239.
+(babel)             in language append on input line 280.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 243.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 243.
+(babel)             in language append on input line 280.
  [12]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 244.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 248.
+(babel)             in language append on input line 281.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 248.
+(babel)             in language append on input line 285.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 248.
+(babel)             in language append on input line 285.
  [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 248.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 286.
+
+<Images/Results.pdf, id=157, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf>
+Package pdftex.def Info: Images/Results.pdf used on input line 290.
+(pdftex.def)             Requested size: 1592.94737pt x 845.15544pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf>
+Package pdftex.def Info: Images/Results.pdf used on input line 290.
+(pdftex.def)             Requested size: 1592.94737pt x 845.15544pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+ [14]
+<Images/Results.pdf, id=164, page=1, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 1>
+Package pdftex.def Info: Images/Results.pdf, page1 used on input line 290.
+(pdftex.def)             Requested size: 1592.94737pt x 845.15544pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 1>
+Package pdftex.def Info: Images/Results.pdf, page1 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 1>
+Package pdftex.def Info: Images/Results.pdf, page1 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 1>
+Package pdftex.def Info: Images/Results.pdf, page1 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 1>
+Package pdftex.def Info: Images/Results.pdf, page1 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [15 <./Images/Results.pdf>]
+<Images/Results.pdf, id=197, page=2, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 2>
+Package pdftex.def Info: Images/Results.pdf, page2 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 2>
+Package pdftex.def Info: Images/Results.pdf, page2 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 2>
+Package pdftex.def Info: Images/Results.pdf, page2 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [16 <./Images/Results.pdf>]
+<Images/Results.pdf, id=203, page=3, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 3>
+Package pdftex.def Info: Images/Results.pdf, page3 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 3>
+Package pdftex.def Info: Images/Results.pdf, page3 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 3>
+Package pdftex.def Info: Images/Results.pdf, page3 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [17 <./Images/Results.pdf>]
+<Images/Results.pdf, id=209, page=4, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 4>
+Package pdftex.def Info: Images/Results.pdf, page4 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 4>
+Package pdftex.def Info: Images/Results.pdf, page4 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 4>
+Package pdftex.def Info: Images/Results.pdf, page4 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [18 <./Images/Results.pdf>]
+<Images/Results.pdf, id=215, page=5, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 5>
+Package pdftex.def Info: Images/Results.pdf, page5 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 5>
+Package pdftex.def Info: Images/Results.pdf, page5 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 5>
+Package pdftex.def Info: Images/Results.pdf, page5 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [19 <./Images/Results.pdf>]
+<Images/Results.pdf, id=222, page=6, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 6>
+Package pdftex.def Info: Images/Results.pdf, page6 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 6>
+Package pdftex.def Info: Images/Results.pdf, page6 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 6>
+Package pdftex.def Info: Images/Results.pdf, page6 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [20 <./Images/Results.pdf>]
+<Images/Results.pdf, id=228, page=7, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 7>
+Package pdftex.def Info: Images/Results.pdf, page7 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 7>
+Package pdftex.def Info: Images/Results.pdf, page7 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 7>
+Package pdftex.def Info: Images/Results.pdf, page7 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [21 <./Images/Results.pdf>]
+<Images/Results.pdf, id=234, page=8, 1592.95125pt x 845.1575pt>
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 8>
+Package pdftex.def Info: Images/Results.pdf, page8 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+File: Images/Results.pdf Graphic file (type pdf)
+ <use Images/Results.pdf, page 8>
+Package pdftex.def Info: Images/Results.pdf, page8 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 290.
+File: Images/Results.pdf Graphic file (type pdf)
+
+<use Images/Results.pdf, page 8>
+Package pdftex.def Info: Images/Results.pdf, page8 used on input line 290.
+(pdftex.def)             Requested size: 614.63715pt x 326.10237pt.
+ [22 <./Images/Results.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 248.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 248.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 292.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 292.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 2A10A2E3A32C212D480221414716B961;1073.
  ) 
 Here is how much of TeX's memory you used:
- 6955 strings out of 495004
- 97248 string characters out of 6180663
- 181342 words of memory out of 5000000
- 10032 multiletter control sequences out of 15000+600000
+ 7597 strings out of 495004
+ 107627 string characters out of 6180663
+ 195061 words of memory out of 5000000
+ 10648 multiletter control sequences out of 15000+600000
  16837 words of font info for 49 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 30i,7n,32p,809b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,18n,46p,809b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home
 /joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/joaquim/
 .texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/joaquim/.texmf-va
@@ -718,11 +920,13 @@ k/ljfour/jknappen/ec/ecrm1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/
 jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecbx1728.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (13 pages, 158886 bytes).
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Report.pdf (22 pages, 254579 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 570 PDF objects out of 1000 (max. 8388607)
+ 235 compressed objects within 3 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

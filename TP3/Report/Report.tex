@@ -12,6 +12,8 @@
 \usepackage{color}
 \usepackage{graphicx}
 
+\usepackage{pdfpages}
+
 \usepackage{booktabs}
 
 \title{\bf{Aprendizagem Computacional - Trabalho Prático 3}\vspace{80mm}}
@@ -232,7 +234,47 @@ Uma vez finda a execução da rede para os dados de treino selecionados, os resu
 
 \section{Treino e Testes da Aplicação}
 
+Após o desenvolvimento inicial da aplicação procedemos ao treino e teste das diferentes redes implementadas, a fim de aferir o seu correto, ou incorreto, funcionamento e da sua adequação às nossas previsões iniciais para a performance de cada rede.
 
+Assim, inicialmente procedemos ao treino de cada rede neuronal com as propriedades que listamos de seguida. Queremos chamar a atenção do leitor para o facto de que, das propriedades que iremos apresentar, nem todas são necessárias para a criação e treino de cada rede neuronal No entanto, apresentamos a totalidade das propriedades consideradas:
+
+\begin{itemize}
+\item Dados de treino retirados do ficheiro \emph{92202.mat}
+
+\item Percentagem de crises consideradas nos casos de treino de $70\%$
+
+\item Objetivo do treino com o valor de $10^{-6}$, com exceção da rede \emph{Radial Basis Function}, onde o valor considerado foi de $10^{-2}$
+
+\item Número de épocas de treino máximo de $1000$
+
+\item Número de \emph{validation checks} necessários para terminar o treino igual a $15$
+
+\item Ritmo de aprendizagem de $0.2$
+
+\item Número de Camadas Totais igual a $4$ (incluindo a camada de saída)
+
+\item Número de neurónios por cada camada escondida (excluindo a camada de saída) igual a $30$
+\end{itemize}
+
+\textbf{Sempre vamos fazer redução de dimensionalidade?}
+
+O leitor atento certamente notará que nesta listagem não apresentamos dados relativos à função de treino, ativação ou de performance das redes treinadas. Efetivamente, decidimos variar cada uma dessas funções, de acordo com os seus possíveis valores, suportados na aplicação, apresentado assim uma rede neuronal diferente para cada combinação diferente destes elementos.
+
+Em anexo a este documento encontra-se uma lista detalhada das redes testadas, e dos resultados obtidos, que poderá ser consultada pelo leitor.
+
+Gostaríamos também de salientar o facto de, nos testes realizados, as redes neuronais que recorreram à função \emph{sum squared error, sse} como medida para avaliar a sua performance durante o treino apresentaram valores de performance francamente piores que as restantes redes, o que se refletiu nos resultados obtidos. Por essa razão optámos por não incluir esses casos nos treinos apresentados.
+
+Também gostaríamos de justificar a escolha do valor $10^{-2}$ para objetivo do treino da rede \emph{Radial Basis Function}. Inicialmente considerámos o valor de $10^{-6}$, tal como o considerado para as restantes redes.
+
+No entanto, ao realizarmos o treino desta rede, verificámos que esta não convergia para esse valor em tempo útil, nem mesmo quando recorremos a aceleração de \emph{hardware} utilizando processamento gráfico. Assim, uma vez que gostaríamos de apresentar algum tipo de resultados para esta rede, optámos por reduzir o objetivo do seu treino, diminuindo assim o seu tempo de treino, e possivelmente a sua performance final.
+
+Analisando os resultados obtidos, torna-se evidente
+
+%Dividir isto em: Testes primeira abordagem --> Os que já temos, adicionar mais testes para as redes que tiveram melhores resultados, um teste com menos neurónios por camada e outro com mais neurónnios por camada. Dizer que poderíamos ter só ua camada escondida, pois de acordo com a bibliografia desde que tenhamos neuronios suficientes uma so camada escondida consegue produzir os mesmos resultados que várias camadas escondidas. Identificar das redes que inicialmente tiveram melhores resultados, a sua tendencia nos novos testes
+
+%Nos testes que ja temos falar que sse tinha uma performance miseravel e que por isso nao adicionamos aqui os resultados
+
+%Testes segunda abordagem --> Fazer? Reduzir dimensionalidade. Para esses testes já temos scripts para treinar as redes e para executar os testes, é só mesmo actualizar os datasets de treino e de teste... Depois meter a parte da redução da dimensionalidade num script, e outro para treinar as redes, etc. Para já não incluímos isso na aplicação, apresentamos isso como uma coisa independente da aplicação mas se tivermos tempo podemos fazer isso na interface, e depoisé adicionar campos no relatório onde explicamos isso
 
 \pagebreak
 
@@ -243,6 +285,8 @@ Uma vez finda a execução da rede para os dados de treino selecionados, os resu
 
 \section{Anexos}
 
+\textbf{Testes realizados}
 
+\includepdf[pages={1-8}]{Images/Results.pdf}
 
 \end{document}
