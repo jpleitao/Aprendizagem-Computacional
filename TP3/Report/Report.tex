@@ -257,7 +257,9 @@ Assim, inicialmente procedemos ao treino de cada rede neuronal com as propriedad
 \item Número de neurónios por cada camada escondida (excluindo a camada de saída) igual a $30$
 \end{itemize}
 
-\textbf{Sempre vamos fazer redução de dimensionalidade?}
+\textbf{Testar as redes com 30\% dos dados usados para treino!!!!!}
+
+\textbf{FIXME: VER O QUE DIZER EM RELAÇÃO AO FACTO DE NÃO ESTAR A TESTAR COM O MESMO DATA SET COM QUE TREINO -- ESTOU A VER A CAPACIDADE DE GENERALIZAÇÃO}
 
 O leitor atento certamente notará que nesta listagem não apresentamos dados relativos à função de treino, ativação ou de performance das redes treinadas. Efetivamente, decidimos variar cada uma dessas funções, de acordo com os seus possíveis valores, suportados na aplicação, apresentado assim uma rede neuronal diferente para cada combinação diferente destes elementos.
 
@@ -307,8 +309,9 @@ Curiosamente, são as redes com maiores oscilações de valores de sensibilidade
 
 %Dividir isto em: Testes primeira abordagem --> Os que já temos, adicionar mais testes para as redes que tiveram melhores resultados, um teste com menos neurónios por camada e outro com mais neurónnios por camada. Dizer que poderíamos ter só uma camada escondida, pois de acordo com a bibliografia desde que tenhamos neuronios suficientes uma so camada escondida consegue produzir os mesmos resultados que várias camadas escondidas. Identificar das redes que inicialmente tiveram melhores resultados, a sua tendencia nos novos testes
 
+\textbf{FIXME: MUDAR INTERFACE GRAFICA PARA PERMITIR UTILIZAR REDIMENSIONALIZACAO DOS DADOS}
 
-%Testes segunda abordagem --> Fazer? Reduzir dimensionalidade. Para esses testes já temos scripts para treinar as redes e para executar os testes, é só mesmo actualizar os datasets de treino e de teste... Depois meter a parte da redução da dimensionalidade num script, e outro para treinar as redes, etc. Para já não incluímos isso na aplicação, apresentamos isso como uma coisa independente da aplicação mas se tivermos tempo podemos fazer isso na interface, e depoisé adicionar campos no relatório onde explicamos isso
+%Testes segunda abordagem --> Reduzir dimensionalidade. Para esses testes já temos scripts para treinar as redes e para executar os testes, é só mesmo actualizar os datasets de treino e de teste... Depois meter a parte da redução da dimensionalidade num script, e outro para treinar as redes, etc. Para já não incluímos isso na aplicação, apresentamos isso como uma coisa independente da aplicação mas se tivermos tempo podemos fazer isso na interface, e depoisé adicionar campos no relatório onde explicamos isso
 
 \pagebreak
 
