@@ -14,5 +14,7 @@ Redes com bons resultados (especificidade e sensibilidade iguais ou superiores a
 		De uma forma geral verifica-se uma grande oscilação nas redes entre os valores de sensibilidade e especificidade observados, sendo bastante comum a ocorrência em simultâneo de um valor muito elevado para um dos parâmetros e depois um valor muito baixo para o outro parâmetro, o que também não é desejado. Isto é mais evidente na Layer Recurrent Network e no Dsitributed Time Delay (com funções de treino que nao o trainscg). Pontualmente no FF Input Time Delay para função de treino traingd
 
 Novos treinos para as seguintes redes:
+	Treinar com uma camada escondida (mais uma de entrada e uma de saida) e treinar com 3; 7 e 15 neurónios por camada. (15 - Metade do número de características)
+	Usar ficheiros 44202_train30.mat; 44202_train50.mat e 44202_train70.mat
 - Distributed Time Delay com trainscg
 - FF Input Time Delay com função de activação tansig ou logsig e com função de treino trainscg
