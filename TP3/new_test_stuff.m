@@ -1,6 +1,6 @@
 load('44202_train30.mat');
 
-load('trainedNetworks/net_Radial Basis Function_3.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_3.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -16,7 +16,7 @@ specificity = true_negatives / (true_negatives + false_positives);
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 dlmwrite('test_results_30.csv',M,'delimiter',',');
 
-load('trainedNetworks/net_Radial Basis Function_7.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_7.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -33,7 +33,7 @@ M = [specificity, sensitivity, true_positives, true_negatives, false_positives, 
 dlmwrite('test_results_30.csv',M,'delimiter',',', '-append');
 
 
-load('trainedNetworks/net_Radial Basis Function_15.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_15.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -52,7 +52,7 @@ dlmwrite('test_results_30.csv',M,'delimiter',',', '-append');
 
 load('44202_train50.mat');
 
-load('trainedNetworks/net_Radial Basis Function_3.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_3.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -68,7 +68,7 @@ specificity = true_negatives / (true_negatives + false_positives);
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 dlmwrite('test_results_50.csv',M,'delimiter',',');
 
-load('trainedNetworks/net_Radial Basis Function_7.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_7.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -85,7 +85,7 @@ M = [specificity, sensitivity, true_positives, true_negatives, false_positives, 
 dlmwrite('test_results_50.csv',M,'delimiter',',', '-append');
 
 
-load('trainedNetworks/net_Radial Basis Function_15.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_15.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -104,7 +104,7 @@ dlmwrite('test_results_50.csv',M,'delimiter',',', '-append');
 
 load('44202_train70.mat');
 
-load('trainedNetworks/net_Radial Basis Function_3.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_3.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -120,7 +120,7 @@ specificity = true_negatives / (true_negatives + false_positives);
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 dlmwrite('test_results_70.csv',M,'delimiter',',');
 
-load('trainedNetworks/net_Radial Basis Function_7.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_7.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
@@ -137,7 +137,7 @@ M = [specificity, sensitivity, true_positives, true_negatives, false_positives, 
 dlmwrite('test_results_70.csv',M,'delimiter',',', '-append');
 
 
-load('trainedNetworks/net_Radial Basis Function_15.mat');
+load('trainedNetworks/net_Distributed Time Delay_trainlm_mse_15.mat');
 
 network_results = sim(network, test_input);
 network_results = convertResults(network_results);
