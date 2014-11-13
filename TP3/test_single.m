@@ -1,8 +1,7 @@
 %%%%
 %%	Single Classification
 %%%%
-%load('44202_train50.mat');
-load('63502_train50.mat');
+load('92202_train70.mat');
 
 %========================================================Radial Basis Function=================================================================
 
@@ -20,6 +19,8 @@ M = [specificity, sensitivity, true_positives, true_negatives, false_positives, 
 
 %fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
 dlmwrite('test_results.csv',M,'delimiter',',');
+
+%{
 
 %============================================================FeedForward=====================================================================
 
@@ -457,3 +458,5 @@ specificity = true_negatives / (true_negatives + false_positives);
 
 M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+
+%}
