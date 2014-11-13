@@ -17,6 +17,9 @@ Novos treinos para as seguintes redes:
 	Treinar com uma camada escondida (mais uma de entrada e uma de saida) e treinar com 3; 7 e 15 neurónios por camada. (15 - Metade do número de características)
 	Usar ficheiros 44202_train30.mat; 44202_train50.mat e 44202_train70.mat
 	Usar learning rate de 0.5; 1000 epochs; mse como performance function; 10^{-6} como goal e 500 validation checks
+
 - Distributed Time Delay com trainscg
+
 - FF Input Time Delay com função de activação tansig ou logsig e com função de treino trainscg
+
 - newrb com número máximo de neurónios de 15 e com goal de 10^{-2} e com um número de neuronios a adicionar entre displays de 1 (Ver o que acontece)

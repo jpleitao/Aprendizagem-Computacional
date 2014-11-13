@@ -10,9 +10,9 @@ goal = 1e-6;
 goalNEWRB = 0.01;
 epochs = 1000;
 validationChecks = epochs/2;
-learningRate = 0.2;
-numberLayers = 4;
-hiddenLayersSizes = 30;
+learningRate = 0.5;
+numberLayers = 2;
+hiddenLayersSizes = [3, 7, 15];
 
 handles = struct('percentage_training', percentage_training, 'training_file', training_file);
 
@@ -32,19 +32,22 @@ for i=1:length(trainFunctions1)
             
 		performanceFunction = char(performanceFunctions1(k));
 
-		network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', hiddenLayersSizes, 'trainingInput', training_input, 'trainingOutput', training_output, 'validationChecks', validationChecks);
+		for m=1:length(hiddenLayersSizes)
 
-		network = createNetwork(network_data);
-		network = train(network, training_input, training_output, 'useGPU', 'yes');
+			currentSize = hiddenLayersSizes(m);
 
-		%Save trained network
-		network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '.mat');
-		save(network_name, 'network');
+			network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', currentSize, 'trainingInput', training_input, 'trainingOutput', training_output, 'validationChecks', validationChecks);
+
+			network = createNetwork(network_data);
+			network = train(network, training_input, training_output, 'useGPU', 'yes');
+
+			%Save trained network
+			network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '_',num2str(currentSize), '.mat');
+			save(network_name, 'network');
+		end
 	end
 end
-%}
 
-%{
 %%%%
 %%	Feedforward
 %%%%
@@ -56,18 +59,24 @@ for i=1:length(trainFunctions1)
 	
 	for k=1:length(performanceFunctions1)
             
-		performanceFunction = char(performanceFunctions1(k));	
+		performanceFunction = char(performanceFunctions1(k));
 
-		network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', hiddenLayersSizes, 'trainingInput', training_input, 'trainingOutput', training_output, 'validationChecks', validationChecks);
+		for m=1:length(hiddenLayersSizes)
 
-		network = createNetwork(network_data);
-		network = train(network, training_input, training_output, 'useGPU', 'yes');
+			currentSize = hiddenLayersSizes(m);
 
-		%Save trained network
-		network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '.mat');
-		save(network_name, 'network');
+			network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', currentSize, 'trainingInput', training_input, 'trainingOutput', training_output, 'validationChecks', validationChecks);
+
+			network = createNetwork(network_data);
+			network = train(network, training_input, training_output, 'useGPU', 'yes');
+
+			%Save trained network
+			network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '_',num2str(currentSize), '.mat');
+			save(network_name, 'network');
+		end
 	end
 end
+%}
 
 %%%%
 %%	FF Input Time Delay
@@ -86,49 +95,24 @@ for i=1:length(trainFunctions1)
 
 			performanceFunction = char(performanceFunctions1(k));
 
-			network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', hiddenLayersSizes, 'trainingInput', training_input, 'trainingOutput', training_output, 'activationFunction', activationFunction, 'validationChecks', validationChecks);
+			for m=1:length(hiddenLayersSizes)
 
-			network = createNetwork(network_data);
-			network = train(network, training_input, training_output, 'useGPU', 'yes');
+				currentSize = hiddenLayersSizes(m);
 
-			%Save trained network
-			network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', activationFunction, '_', performanceFunction, '.mat');
-			save(network_name, 'network');
+				network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', currentSize, 'trainingInput', training_input, 'trainingOutput', training_output, 'activationFunction', activationFunction, 'validationChecks', validationChecks);
+
+				network = createNetwork(network_data);
+				network = train(network, training_input, training_output, 'useGPU', 'yes');
+
+				%Save trained network
+				network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '_', activationFunction, '_',num2str(currentSize), '.mat');
+                save(network_name, 'network');
+			end
 		end
 	end
 end
 
-%%%%
-%%	Perceptron
-%%%%
-networkName = 'Perceptron';
-trainFunctions2 = ['learnp', 'learngd'];
-
-for i=1:length(trainFunctions2)
-
-	trainFunction = char(trainFunctions2(i));
-
-	for j=1:length(activationsFunctions1)
-
-		activationFunction = char(activationsFunctions1(j));
-	
-		for k=1:length(performanceFunctions1)
-
-			performanceFunction = char(performanceFunctions1(k));
-
-			network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', hiddenLayersSizes, 'trainingInput', training_input, 'trainingOutput', training_output, 'activationFunction', activationFunction, 'validationChecks', validationChecks);
-
-			network = createNetwork(network_data);
-			network = train(network, training_input, training_output, 'useGPU', 'yes');
-
-			%Save trained network
-			network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', activationFunction, '_', performanceFunction, '.mat');
-			save(network_name, 'network');
-		end
-	end
-end
-%}
-
+%{
 %%%%
 %%	Distributed Time Delay
 %%%%
@@ -146,25 +130,35 @@ for i=1:length(trainFunctions1)
 
 			performanceFunction = char(performanceFunctions1(k));
 
-			network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', hiddenLayersSizes, 'trainingInput', training_input, 'trainingOutput', training_output, 'activationFunction', activationFunction, 'validationChecks', validationChecks);
+			for m=1:length(hiddenLayersSizes)
 
-			network = createNetwork(network_data);
-			network = train(network, training_input, training_output, 'useGPU', 'yes');
+				currentSize = hiddenLayersSizes(m);
 
-			%Save trained network
-			network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', activationFunction, '_', performanceFunction, '.mat');
-			save(network_name, 'network');
+				network_data = struct('networkName', networkName, 'trainFunction', trainFunction, 'performanceFunction', performanceFunction, 'goal', goal, 'epochs', epochs, 'learningRate', learningRate, 'numberLayers', numberLayers, 'hiddenLayers', currentSize, 'trainingInput', training_input, 'trainingOutput', training_output, 'activationFunction', activationFunction, 'validationChecks', validationChecks);
+
+				network = createNetwork(network_data);
+				network = train(network, training_input, training_output, 'useGPU', 'yes');
+
+				%Save trained network
+				network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '_',num2str(currentSize), '.mat');
+                save(network_name, 'network');
+			end
 		end
 	end
 end
+%}
 
 
-%{
 %%%%
 %%	Newrb
 %%%%
 networkName = 'Radial Basis Function';
-network = newrb(training_input, training_output, goalNEWRB);
-network_name = strcat('net_', networkName, '.mat');
-save(network_name, 'network');
-%}
+for m=1:length(hiddenLayersSizes)
+
+	currentSize = hiddenLayersSizes(m);
+
+	network = newrb(training_input, training_output, goalNEWRB, 1.0, currentSize, 1);
+	network_name = strcat('net_', networkName, '_',num2str(currentSize), '.mat');
+	save(network_name, 'network');
+
+end
