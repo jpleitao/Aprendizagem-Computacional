@@ -18,9 +18,9 @@ Novos treinos para as seguintes redes:
 	Usar ficheiros 44202_train30.mat; 44202_train50.mat e 44202_train70.mat
 	Usar learning rate de 0.5; 1000 epochs; mse como performance function; 10^{-6} como goal e 500 validation checks
 
-REDES TREINADAS COM O FICHEIRO 92202.mat e 70% das crises
+REDES TREINADAS COM O FICHEIRO 92202.mat e 70% das crises (Só variamos constituição da rede)
 
-- Distributed Time Delay com trainscg
+- Distributed Time Delay com trainscg e função de activação tansig ou logsig
 
 - FF Input Time Delay com função de activação tansig ou logsig e com função de treino trainscg
 
