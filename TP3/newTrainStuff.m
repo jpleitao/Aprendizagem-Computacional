@@ -76,7 +76,6 @@ for i=1:length(trainFunctions1)
 		end
 	end
 end
-%}
 
 %%%%
 %%	FF Input Time Delay
@@ -111,8 +110,8 @@ for i=1:length(trainFunctions1)
 		end
 	end
 end
+%}
 
-%{
 %%%%
 %%	Distributed Time Delay
 %%%%
@@ -140,15 +139,14 @@ for i=1:length(trainFunctions1)
 				network = train(network, training_input, training_output, 'useGPU', 'yes');
 
 				%Save trained network
-				network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '_',num2str(currentSize), '.mat');
+				network_name = strcat('trainedNetworks/net_', networkName, '_', trainFunction, '_', performanceFunction, '_', activationFunction, '_',num2str(currentSize), '.mat');
                 save(network_name, 'network');
 			end
 		end
 	end
 end
-%}
 
-
+%{
 %%%%
 %%	Newrb
 %%%%
@@ -162,3 +160,4 @@ for m=1:length(hiddenLayersSizes)
 	save(network_name, 'network');
 
 end
+%}
