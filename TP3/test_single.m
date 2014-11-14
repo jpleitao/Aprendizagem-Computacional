@@ -1,462 +1,162 @@
 %%%%
 %%	Single Classification
 %%%%
-load('92202_train70.mat');
+load('44202_train50.mat');
+
+activationsFunctions1 = {'hardlim', 'purelin', 'logsig', 'tansig'};
+trainFunctions1 = {'trainlm', 'traingd', 'trainrp'};
+hiddenLayersSizes = [3, ceil(log2(29)), 29];
+
+firstTime = 1;
+
 
 %========================================================Radial Basis Function=================================================================
 
-load('trainedNetworks/Radial Basis Function/net_Radial Basis Function.mat');
+networkName = 'trainedNetworks/Radial Basis Function/net_Radial Basis Function_';
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+for i=1:length(hiddenLayersSizes)
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+	networkName_temp = strcat(networkName, num2str(hiddenLayersSizes(i)), '.mat');
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+	load(networkName_temp);
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+	network_results = sim(network, test_input);
+	network_results = convertResults(network_results);
 
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',');
+	[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
 
-%{
+	sensitivity = true_positives / (true_positives + false_negatives);
+	specificity = true_negatives / (true_negatives + false_positives);
+
+	M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+	
+	if (firstTime == 1)
+		dlmwrite('test_single_results.csv',M,'delimiter',',');
+		firstTime = 0;
+	else
+		dlmwrite('test_single_results.csv',M,'delimiter',',', '-append');
+	end
+end
+
 
 %============================================================FeedForward=====================================================================
 
-load('trainedNetworks/FeedForward/net_FeedForward_traingd_mse.mat');
+networkName = 'trainedNetworks/FeedForward/net_FeedForward_';
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+for j=1:length(trainFunctions1)
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+	current_Train = char(trainFunctions1(j));
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+	for i=1:length(hiddenLayersSizes)
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+		networkName_temp = strcat(networkName, current_Train, '_mse_', num2str(hiddenLayersSizes(i)), '.mat');
 
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+		load(networkName_temp);
 
-load('trainedNetworks/FeedForward/net_FeedForward_trainrp_mse.mat');
+		network_results = sim(network, test_input);
+		network_results = convertResults(network_results);
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+		[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+		sensitivity = true_positives / (true_positives + false_negatives);
+		specificity = true_negatives / (true_negatives + false_positives);
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FeedForward/net_FeedForward_trainscg_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+		M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+		
+		dlmwrite('test_single_results.csv',M,'delimiter',',', '-append');
+	end
+end
 
 %=======================================================Layer Recurrent=======================================================================
 
-load('trainedNetworks/Layer Recurrent Network/net_Layer Recurrent_traingd_mse.mat');
+networkName = 'trainedNetworks/Layer Recurrent Network/net_Layer Recurrent_';
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+for j=1:length(trainFunctions1)
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+	current_Train = char(trainFunctions1(j));
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+	for i=1:length(hiddenLayersSizes)
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+		networkName_temp = strcat(networkName, current_Train, '_mse_', num2str(hiddenLayersSizes(i)), '.mat');
 
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+		load(networkName_temp);
 
-load('trainedNetworks/Layer Recurrent Network/net_Layer Recurrent_trainrp_mse.mat');
+		network_results = sim(network, test_input);
+		network_results = convertResults(network_results);
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+		[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+		sensitivity = true_positives / (true_positives + false_negatives);
+		specificity = true_negatives / (true_negatives + false_positives);
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+		M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Layer Recurrent Network/net_Layer Recurrent_trainscg_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+		dlmwrite('test_single_results.csv',M,'delimiter',',', '-append');
+	end
+end
 
 %======================================================Distributed Time Delay==================================================================
 
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_traingd_hardlim_mse.mat');
+networkName = 'trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_';
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+for j=1:length(trainFunctions1)
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+	current_Train = char(trainFunctions1(j));
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+	for k=1:length(activationsFunctions1)
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+		activationFunction = char(activationsFunctions1(k));
 
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+		for i=1:length(hiddenLayersSizes)
 
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_traingd_purelin_mse.mat');
+			networkName_temp = strcat(networkName, current_Train, '_mse_', activationFunction, '_' ,num2str(hiddenLayersSizes(i)), '.mat');
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+			load(networkName_temp);
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+			network_results = sim(network, test_input);
+			network_results = convertResults(network_results);
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+			[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+			sensitivity = true_positives / (true_positives + false_negatives);
+			specificity = true_negatives / (true_negatives + false_positives);
 
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+			M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_traingd_logsig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_traingd_tansig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainrp_hardlim_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainrp_purelin_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainrp_logsig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainrp_tansig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainscg_hardlim_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainscg_purelin_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainscg_logsig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/Distributed Time Delay/net_Distributed Time Delay_trainscg_tansig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
+			dlmwrite('test_single_results.csv',M,'delimiter',',', '-append');
+		end
+	end
+end
 
 %=======================================================FF Input Time Delay====================================================================
 
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_traingd_hardlim_mse.mat');
+networkName = 'trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_';
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+for j=1:length(trainFunctions1)
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+	current_Train = char(trainFunctions1(j));
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+	for k=1:length(activationsFunctions1)
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
+		activationFunction = char(activationsFunctions1(k));
 
-%fprintf('%f|%f|%f|%f|%f|%f|%f\n', specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data);
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+		for i=1:length(hiddenLayersSizes)
 
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_traingd_purelin_mse.mat');
+			networkName_temp = strcat(networkName, current_Train, '_mse_', activationFunction, '_' ,num2str(hiddenLayersSizes(i)), '.mat');
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
+			load(networkName_temp);
 
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
+			network_results = sim(network, test_input);
+			network_results = convertResults(network_results);
 
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
+			[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
 
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
+			sensitivity = true_positives / (true_positives + false_negatives);
+			specificity = true_negatives / (true_negatives + false_positives);
 
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_traingd_logsig_mse.mat');
+			M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
 
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_traingd_tansig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainrp_hardlim_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainrp_purelin_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainrp_logsig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainrp_tansig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainscg_hardlim_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainscg_purelin_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainscg_logsig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-load('trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_trainscg_tansig_mse.mat');
-
-network_results = sim(network, test_input);
-network_results = convertResults(network_results);
-
-[true_positives, true_negatives, false_positives, false_negatives, invalid_data, expected_positives, expected_negatives] = interpretResults(test_output, network_results);
-
-sensitivity = true_positives / (true_positives + false_negatives);
-specificity = true_negatives / (true_negatives + false_positives);
-
-M = [specificity, sensitivity, true_positives, true_negatives, false_positives, false_negatives, invalid_data];
-dlmwrite('test_results.csv',M,'delimiter',',', '-append');
-
-%}
+			dlmwrite('test_single_results.csv',M,'delimiter',',', '-append');
+		end
+	end
+end

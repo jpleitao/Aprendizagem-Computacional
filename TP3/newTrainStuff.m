@@ -1,8 +1,6 @@
 percentage_training = 70;
-training_file = '92202.mat';
+training_file = '44202.mat';
 
-networkNames1 = {'Layer Recurrent', 'FeedForward', 'FF Input Time Delay', 'Perceptron', 'Distributed Time Delay'};
-%trainFunctions1 = {'trainlm', 'traingd', 'trainbfg', 'trainrp' , 'learnp', 'learngd'};
 trainFunctions1 = {'trainlm', 'traingd', 'trainrp'};
 performanceFunctions1 = {'mse'};
 activationsFunctions1 = {'hardlim', 'purelin', 'logsig', 'tansig'};
@@ -12,13 +10,13 @@ epochs = 1000;
 validationChecks = epochs/2;
 learningRate = 0.5;
 numberLayers = 2;
-hiddenLayersSizes = [3, 7, 15];
+hiddenLayersSizes = [3, ceil(log2(29)), 29];
 
 handles = struct('percentage_training', percentage_training, 'training_file', training_file);
 
 [training_input, training_output, test_input, test_output] = prepareDataSets(handles);
 
-%{
+
 %%%%
 %%	Layrecnet
 %%%%
@@ -146,7 +144,6 @@ for i=1:length(trainFunctions1)
 	end
 end
 
-%{
 %%%%
 %%	Newrb
 %%%%
@@ -160,4 +157,3 @@ for m=1:length(hiddenLayersSizes)
 	save(network_name, 'network');
 
 end
-%}
