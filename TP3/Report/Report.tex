@@ -34,7 +34,7 @@
 
 \section{Introdução}
 
-O presente trabalho foca-se na previsão e identificação de crises epiléticas, com base em informação de sinais cerebrais, recolhidos através da realização de um \emph{EEG} (ElectroEncefaloGrama).
+O presente trabalho foca-se na previsão e identificação de  epiléticas, com base em informação de sinais cerebrais, recolhidos através da realização de um \emph{EEG} (ElectroEncefaloGrama).
 
 Este exame recolhe dados relativos à atividade cerebral do paciente que o realiza, sendo possível extrair um conjunto de características que permite a identificação de momentos de ocorrência de crises epiléticas (situações \emph{ictais}) e de momentos nos quais o paciente não apresenta qualquer problema (situações \emph{não-ictais}).
 
@@ -59,6 +59,8 @@ No presente documento pretendemos apresentar de forma mais detalhada a aplicaç�
 \pagebreak
 
 \section{Aplicação Desenvolvida}
+
+\textbf{FIXME: MUDAR INTERFACE GRÁFICA PARA PERMITIR ALTERAR DIMENSIONALIDADE DOS DADOS E FAZER REFERÊNCIA A ISSO NESTA SECÇÃO!!!}
 
 Tal como referido anteriormente, a aplicação desenvolvida visa analisar os dados referentes a um \emph{EEG} de um paciente, identificando situações correspondentes a uma crise epilética.
 
@@ -235,16 +237,18 @@ Uma vez finda a execução da rede para os dados de treino selecionados, os resu
 \section{Treino e Testes da Aplicação}
 \label{sec:train_tests}
 
-\textbf{COMEÇAR POR TESTAR AS REDES COM 30\% DOS DADOS USADOS PARA TREINO!!!!!}
-
 Após o desenvolvimento inicial da aplicação procedemos ao treino e teste das diferentes redes implementadas, a fim de aferir o seu correto, ou incorreto, funcionamento e da sua adequação às nossas previsões iniciais para a performance de cada rede.
 
-Assim, inicialmente procedemos ao treino de cada rede neuronal com as propriedades que listamos de seguida. Queremos chamar a atenção do leitor para o facto de que, das propriedades que iremos apresentar, nem todas são necessárias para a criação e treino de cada rede neuronal No entanto, apresentamos a totalidade das propriedades consideradas:
+\subsection{Testes Iniciais}
+
+\subsubsection{Descrição}
+
+Numa fase inicial dos testes realizados procedemos ao treino de todas as redes neuronais implementadas, para uma vasta gama de combinações possíveis das propriedades das redes consideradas, e para os dois tipos de classificação disponíveis. Assim, inicialmente treinámos as redes com as seguintes propriedades: 
 
 \begin{itemize}
 \item Dados de treino retirados do ficheiro \emph{92202.mat}
 
-\item Percentagem de crises consideradas nos casos de treino de $70\%$
+\item Percentagem de situações \emph{ictais} consideradas nos casos de treino de $70\%$
 
 \item Objetivo do treino com o valor de $10^{-6}$, com exceção da rede \emph{Radial Basis Function}, onde o valor considerado foi de $10^{-2}$
 
@@ -257,39 +261,59 @@ Assim, inicialmente procedemos ao treino de cada rede neuronal com as propriedad
 \item Número de Camadas Totais igual a $4$ (incluindo a camada de saída)
 
 \item Número de neurónios por cada camada escondida (excluindo a camada de saída) igual a $30$
+
+\item Funções de ativação consideradas: \emph{hardlim}, \emph{purelin}, \emph{logsig} e \emph{tansig}
+
+\item Funções de treino consideradas: \emph{trainscg}, \emph{traingd} e \emph{trainrp}
+
+\item Funções de performance consideradas: \emph{sse} e \emph{mse}
 \end{itemize}
 
-O leitor atento certamente notará que nesta listagem não apresentamos dados relativos à função de treino, ativação ou de performance das redes treinadas. Efetivamente, decidimos variar cada uma dessas funções, de acordo com os seus possíveis valores, suportados na aplicação, apresentado assim uma rede neuronal diferente para cada combinação diferente destes elementos.
+Antes de entrarmos em maior detalhe sobre os testes realizados gostaríamos de referir alguns pontos que consideramos importantes para uma posterior análise.
 
-Gostaríamos também de chamar a atenção do leitor para o número de camadas consideradas nos testes realizados.
+Em primeiro lugar, gostaríamos de chamar a atenção do leitor para o número de camadas consideradas nos testes realizados: Um dos pontos defendidos pela bibliografia deste tema refere-se ao facto de, numa rede neuronal com uma única camada escondida (excluindo a camada de entrada e a de saída), ser possível obter os mesmos resultados que numa rede neuronal equivalente, mas que faça uso de mais camadas.
 
-Um dos pontos defendidos pela bibliografia deste tema refere-se ao facto de que, numa rede neuronal com uma única camada escondida (excluindo a camada de entrada e a de saída), é possível obter os mesmos resultados que numa rede neuronal equivalente, mas que faça uso de mais camadas. Simplesmente para obter resultados equivalentes é necessário adicionar um número suficiente de neurónios à camada escondida.
+Simplesmente para obter resultados equivalentes é necessário adicionar um número suficiente de neurónios à camada escondida. Naturalmente que, ao se adicionar um elevado número de camadas e de neurónios por camada, o tempo de treino da rede aumenta consideravelmente.
 
-Assim, seria interessante tentar confirmar este facto, comparando os resultados obtidos com as redes neuronais treinadas com as propriedades apresentadas, com outras redes que possuíssem uma só camada escondida, fazendo o seu número de neurónios variar, procurando encontrar a configuração que permitisse igualar estes resultados.
+Para além disso, analisando o número de camadas e de neurónios por camada considerados, este pode parecer demasiado excessivo. Efetivamente, numa fase posterior da nossa análise, iremos considerar algumas destas redes treinadas com um número de camadas e de neurónios por camada bastante mais reduzido, com intenção de compararmos os resultados obtidos em cada situação.
 
-Infelizmente não nos foi possível realizar essa experiência, por não termos tempo disponível para tal. De qualquer das formas, é algo que gostaríamos de realizar caso tivéssemos possibilidade de aprofundar mais este trabalho.
+Com o objetivo de aferir a validade das redes implementadas, iniciamos os testes executando as diferentes redes para os dados do ficheiro \emph{92202.mat} não utilizados para o treino da rede. Dado que estes dados são relativos ao mesmo paciente com o qual as redes foram treinadas será de prever que estes dados se aproximem mais dos dados de treino das redes, resultando numa melhor performance.
 
-Em anexo a este documento encontra-se uma lista detalhada das redes testadas, e dos resultados obtidos, que poderá ser consultada pelo leitor.
+Posteriormente a este teste, foram também executados testes com os dados relativos a outros dois pacientes, considerando para efeitos de teste porções de $30\%$, $50\%$ e $70\%$ do número total de situações \emph{ictais} presentes em cada um dos ficheiros.
 
-Gostaríamos também de salientar o facto de, nos testes realizados, as redes neuronais que recorreram à função \emph{sum squared error, sse} como medida para avaliar a sua performance durante o treino apresentaram valores de performance francamente piores que as restantes redes, o que se refletiu nos resultados obtidos. Por essa razão optámos por não incluir esses casos nos treinos apresentados.
+Em anexo a este documento encontra-se uma lista detalhada dos resultados obtidos em cada teste realizado, que poderá ser consultada pelo leitor.
 
-Também gostaríamos de justificar a escolha do valor $10^{-2}$ para objetivo do treino da rede \emph{Radial Basis Function}. Inicialmente considerámos o valor de $10^{-6}$, tal como o considerado para as restantes redes.
+Na lista apresentada optámos por não incluir os resultados relativos aos testes para as redes treinadas com a função \emph{sum squared error} como função de performance, uma vez que as redes treinadas com esta função obtiveram valores de performance registados pela \emph{Neural Network Toolbox} muito superiores aos registados para as redes treinadas com a função de performance \emph{mean squared error}\footnote{Neste caso, quanto maior for o valor registado para a performance de uma rede pior será o seu desempenho}
 
-No entanto, ao realizarmos o treino desta rede, verificámos que esta não convergia para esse valor em tempo útil, nem mesmo quando recorremos a aceleração de \emph{hardware} utilizando processamento gráfico. Assim, uma vez que gostaríamos de apresentar algum tipo de resultados para esta rede, optámos por reduzir o objetivo do seu treino, diminuindo assim o seu tempo de treino, e possivelmente a sua performance final.
+\subsubsection{Análise dos Resultados Obtidos}
 
-Analisando os resultados obtidos, existem alguns pontos que, na nossa opinião, se tornam evidentes e que gostaríamos de salientar, desde já.
+Analisando os resultados obtidos neste teste, existem alguns pontos que, na nossa opinião, se tornam evidentes e que gostaríamos de salientar, desde já.
 
-Em primeiro lugar, verificámos que os resultados obtidos para a \emph{Classificação Individual} e \emph{Classificação em Grupo} são bastante semelhantes. De facto, este é, de certa forma, um resultado pouco surpreendente, dado que a nossa abordagem para a \emph{Classificação em Grupo} é bastante semelhante à abordagem para a \emph{Classificação Individual}. Todos os passos desde a criação dos dados de teste até à sua execução na rede são comuns aos dois tipos de classificação. A única diferença reside na forma como estes são processados após a sua execução na rede neuronal.
+Nos testes realizados com os dados provenientes do ficheiro \emph{92202.mat} não utilizados no treino das redes, ficámos algo surpreendidos com os resultados obtidos.
+
+De uma forma geral, todas as redes apresentam, nesta situação, valores de \emph{especificidade} bastante elevados (excluindo algumas situações pontuais). No entanto, os valores de \emph{sensibilidade} registados são bastante reduzidos e irregulares. Queremos também chamar a atenção para o facto de, nos testes realizados, a rede \emph{Radial Basis Function} não ter realizado uma única classificação inválida, o que é algo que consideramos bastante positivo.
+
+De facto, tal como referimos, seria de esperar que as redes realizassem boas classificações para casos próximos dos com que foram treinadas, como é o caso quando consideramos dados do mesmo paciente. Embora essa situação se verifique, em algumas situações, para os valores de \emph{especificidade}, os valores de \emph{sensibilidade} e também o número de classificações inválidas revelam outra realidade.
+
+Tais resultados sugerem, assim, a possível existência de um erro na implementação destas redes ou, numa situação mais improvável, a possibilidade de, acidentalmente, termos corrompido os dados no ficheiro que utilizámos para o treino da rede, antes ou depois desse mesmo treino.
+
+No entanto, e tal como iremos constatar de seguida, os resultados obtidos quando sujeitamos as redes a outros dados de teste não foram tão negativos.
+
+Numa primeira e superficial análise, seria plausível considerar que, à luz dos resultados obtidos para os restantes pacientes analisados, a maioria das redes implementadas apresenta uma boa capacidade de generalização. No entanto, os resultados que acabámos de apresentar não nos deixam tão confiantes.
+
+Não obstante, passemos à análise da prestação das diferentes redes, quando executadas com dados diferentes dos com que foram treinadas.
+
+Em primeiro lugar, queremos desde já destacar o facto de, também neste conjunto de testes, não ter sido registada nenhuma classificação inválida por parte da rede \emph{Radial Basis Function}.
+
+Para além disso, verificámos que os resultados obtidos para a \emph{Classificação Individual} e \emph{Classificação em Grupo} são bastante semelhantes. De facto, este é, de certa forma, um resultado pouco surpreendente, dado que a nossa abordagem para a \emph{Classificação em Grupo} é bastante semelhante à abordagem para a \emph{Classificação Individual}. Todos os passos desde a criação dos dados de teste até à sua execução na rede são comuns aos dois tipos de classificação. A única diferença reside na forma como estes são processados após a sua execução na rede neuronal.
 
 Como os nossos dados possuem as situações \emph{ictais} bastante concentradas em locais muito específicos dos \emph{data sets}, e uma vez que optámos pela abordagem em janela para a \emph{Classificação em Grupo}, esta semelhança entre os resultados obtidos nas duas abordagens não completamente inesperada.
 
-Não obstante, gostaríamos de salientar que, embora os resultados obtidos para os dois tipos de classificações sejam bastante semelhantes, registámos melhores resultados nos testes que relativos à \emph{Classificação Individual}.
+Não obstante, gostaríamos também de salientar que, embora os resultados obtidos para os dois tipos de classificações sejam bastante semelhantes, registámos melhores resultados nos testes que relativos à \emph{Classificação Individual}.
 
 De entre todas as redes testadas, aquela que apresentou melhores e mais consistentes resultados em ambos os tipos de classificação foi, sem dúvida, a rede \emph{Radial Basis Function}, apresentando em praticamente todos os testes elevados valores (iguais ou superiores a $0.7$) de especificidade e sensibilidade.
 
-De facto, dado o seu método de treino\footnote{Consistindo na adição de neurónios como forma de melhorar a performance da rede}, uma possível explicação para estes resultados estará relacionada com a adição de um elevado número de neurónios na rede, levando esta a realizar uma espécie de memorização dos dados de treino, que é depois refletida nos testes realizados. Estes poderão, e deverão certamente, possuir semelhanças com os dados de treino, justificando estes resultados.
-
-Para além desta rede, na \emph{Classificação Individual} registámos bons resultados para a rede \emph{Distributed Time Delay}, treinada com a função \emph{trainscg}, tal como a rede \emph{FeedForward Input Time Delay}, em algumas situações pontuais (nomeadamente utilizando como função de treino a função \emph{trainscg} e funções de ativação as funções \emph{logsig} e \emph{tansig}).
+Para além desta rede, na \emph{Classificação Individual} registámos ainda bons resultados para a rede \emph{Distributed Time Delay}, treinada com a função \emph{trainscg}, tal como a rede \emph{FeedForward Input Time Delay}, em algumas situações pontuais (nomeadamente utilizando como função de treino a função \emph{trainscg} e funções de ativação as funções \emph{logsig} e \emph{tansig}).
 
 As restantes redes e respetivas configurações não mencionadas, não obtiveram resultados tão positivos, destacando-se sobretudo uma clara irregularidade nos resultados registados: Foi bastante frequente a ocorrência de situações em que uma dada rede registava um valor bastante elevado para a especificidade ou para a sensibilidade, mas o correspondente valor de sensibilidade ou de especificidade registado tomava valores muito reduzidos.
 
@@ -305,7 +329,39 @@ Quanto ao número de classificações inválidas, registámos valores, em média
 
 Curiosamente, são as redes com maiores oscilações de valores de sensibilidade e especificidade que apresentam os maiores valores de classificações inválidas.
 
-%Dividir isto em: Testes primeira abordagem --> Os que já temos, adicionar mais testes para as redes que tiveram melhores resultados, um teste com menos neurónios por camada e outro com mais neurónnios por camada. Dizer que poderíamos ter só uma camada escondida, pois de acordo com a bibliografia desde que tenhamos neuronios suficientes uma so camada escondida consegue produzir os mesmos resultados que várias camadas escondidas. Identificar das redes que inicialmente tiveram melhores resultados, a sua tendencia nos novos testes
+\subsection{Testes Complementares}
+
+Tendo em conta os testes realizados para dados diferentes dos dados de treino, decidimos avaliar um pouco mais as redes que mostraram um melhor desempenho, realizando pequenas alterações às suas configurações, repetindo os treinos realizados e analisando os resultados.
+
+\subsubsection{Redes Selecionadas}
+
+Assim, nesta segunda fase de testes, consideramos as seguintes redes neuronais:
+
+\begin{itemize}
+\item Rede \emph{Radial Basis Function}, com um \emph{goal} de $0.01$, um neurónio a adicionar entre \emph{displays}
+
+\item Rede \emph{Distributed Time Delay}, treinada com a função \emph{trainscg}, e com as funções de ativação \emph{logsig} e \emph{tansig}
+
+\item Rede \emph{FeedForward Input Time Delay}, treinada com a função \emph{trainscg}, e com as funções de ativação \emph{logsig} e \emph{tansig}
+\end{itemize}
+
+Todas estas redes foram treinadas com apenas uma camada escondida e com $3$, $7$ e $15$ neurónios por camada. Para além disso, com exceção da rede \emph{Radial Basis Function}, foi utilizado um \emph{goal} de $10^{-6}$, $1000$ \emph{epochs} e um limite máximo de \emph{validation checks} de $500$ para o treino das redes.
+
+Para os testes realizados, as redes foram executadas considerando os ficheiros \emph{44202.mat} e \emph{63502.mat}, selecionando $30$, $50$ e $70\%$ das situações \emph{ictais} registadas em cada um desses ficheiros.
+
+De uma forma geral, os resultados da \emph{Classificação Individual e em Grupo} não sofreram muitas alterações, face ao verificado para as respetivas redes nos testes anteriormente realizados:
+
+A rede \emph{Radial Basis Function} continuou a não registar dados inválidos, mesmo quando o seu número de neurónios foi reduzido a $3$, o que, na nossa opinião, é um ponto positivo.
+
+Verificaram-se também algumas variações nos valores de \emph{sensibilidade} e \emph{especificidade} registados, no entanto não existiu nenhum teste em particular onde os valores registados para estas métricas se afastassem por completo do observado nos testes anteriores.
+
+Tendo em conta estes resultados, podemos constatar que as redes escolhidas para este segundo conjunto de testes realizam classificações com o mínimo de confiança, uma vez que mesmo quando constituídas por um reduzido número de neurónios, mantiveram valores de \emph{sensibilidade} e \emph{especificidade} elevados.
+
+Isto leva-nos a acreditar que a sua estrutura, bem como as funções de treino e ativação consideradas conferem a estas redes uma boa capacidade para identificar situações \emph{ictais} na atividade cerebral humana, adequando-se e permitindo simulando com alguma proximidade a atividade do cérebro humano, pelo menos no que respeita aos seus estados \emph{ictais} e \emph{não-ictais}.
+
+\subsection{Redução da Dimensionalidade}
+
+Explicar a ideia por trás disto (Muitas características com informação redundante --> Filtrando as que dão mais ganhos informativos ao sistema podemos ter uma aprendizagem ligeiramente pior, ou até igualmente melhor, necessitando de menos tempo para o treino da rede)
 
 \textbf{FIXME: MUDAR INTERFACE GRAFICA PARA PERMITIR UTILIZAR REDIMENSIONALIZAÇÃO DOS DADOS}
 
@@ -315,6 +371,10 @@ Curiosamente, são as redes com maiores oscilações de valores de sensibilidade
 
 \section{Conclusões}
 
+Falar na generalização, uma vez que tivemos bons resultados (lol) em dados de pacientes que não o paciente de treino.
+
+Referir os resultados menos positivos obtidos nos testes com os dados do paciente de treino.
+
 
 \pagebreak
 
@@ -322,8 +382,10 @@ Curiosamente, são as redes com maiores oscilações de valores de sensibilidade
 
 Nas páginas seguintes apresentamos os testes iniciais realizados para \emph{Classificação Individual e em Grupo}, 
 
-\includepdf[pages={1-8}]{Images/Results.pdf}
+\includepdf[pages={1-10}]{Images/Results.pdf}
 
 Nas páginas seguintes apresentamos os testes posteriores realizados às redes que apresentaram melhores resultados nos testes iniciais, conforme o descrito na \emph{Secção}~\ref{sec:train_tests} deste documento.
+
+\includepdf[pages={11-14}]{Images/Results.pdf}
 
 \end{document}
