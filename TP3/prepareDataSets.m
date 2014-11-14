@@ -3,7 +3,7 @@
 %%  João Tiago Márcia do Nascimento Fernandes   2011162899
 %%  Joaquim Pedro Bento Gonçalves Pratas Leitão 2011150072
 %%
-%%	Creates the training and testing data sets, with the desired number of crysis in each data set.
+%%	Creates the training and testing data sets, with the desired number of characteristics and crysis in each data set.
 %%	Because the testing data set has no influence over the network's performance in future classifications, while creating this data set
 %%	we have no concerns when it comes to the number of ictal and non-ictal situations: We just include all the last elements of the given
 %%	data set, until we reach the desired number of ictal situations to include in the testing data set.
@@ -18,6 +18,9 @@ function [training_input, training_output, test_input, test_output] = prepareDat
 
 	%Load training file
 	load(handles.training_file);
+    
+    %Filter characteristics
+    FeatVectSel = processCharacteristics(FeatVectSel, Trg, handles.characteristics);
 
 	%Get indexes of the patient's crysis
 	crysis_indexes = getCrysisIndexes(Trg);
