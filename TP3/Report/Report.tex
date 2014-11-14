@@ -194,7 +194,7 @@ Após a sua criação, a rede será treinada com um conjunto de dados previament
 
 \subsubsection{prepareDataSets.m}
 
-Neste ficheiro encontramos a função \emph{prepareDataSets}, responsável pela criação dos \emph{data sets} de treino e e de teste, bem como dos respetivos resultados esperados (quer para os dados de treino, quer para os dados de teste).
+Neste ficheiro encontramos a função \emph{prepareDataSets}, responsável pela criação dos \emph{data sets} de treino e e de teste, bem como dos respetivos resultados esperados (quer para os dados de treino, quer para os dados de teste). Para além disso, neste ficheiro é ainda invocado o procedimento responsável pela seleção das principais características registadas, para o paciente em questão, que abordaremos em maior detalhe mais à frente nesta secção.
 
 Tal como referimos brevemente numa secção anterior do presente documento, as abordagens seguidas para a criação dos conjuntos de dados de treino e de teste têm pontos em comum, não sendo, no entanto, completamente iguais.
 
@@ -202,11 +202,19 @@ Uma vez que, nos ficheiros fornecidos, o número de situações \emph{não-ictai
 
 Efetivamente, tal situação corresponde ao oposto do desejável, tendo em conta que o nosso objetivo principal passa pela identificação de casos \emph{ictais}, com um grau de confiança mínimo.
 
-Assim, para os dados de treino das redes neuronais criadas são consideradas situações \emph{ictais} e \emph{não-ictias} em igual número e de acordo com uma percentagem das situações \emph{ictais} totais do ficheiro a considerar, definida pelo utilizador. Nesta seleção, tal como referido anteriormente, é preservada a posição relativa das situações \emph{ictais} e \emph{não-ictais} consideradas.
+Assim, para os dados de treino das redes neuronais criadas são consideradas situações \emph{ictais} e \emph{não-ictias} em igual número e de acordo com uma percentagem das situações \emph{ictais} totais do ficheiro a considerar, definida pelo utilizador. Nesta seleção, tal como referido anteriormente, é preservada a posição relativa das situações \emph{ictais} e \emph{não-ictais} consideradas, e assegurando a inclusão de exemplos referentes Às duas situações \emph{não-ictais} apresentadas.
 
 No que respeita aos dados de teste, também criados neste ficheiro, não é necessária qualquer preocupação em relação ao número de situações \emph{ictais} e \emph{não-ictais}, uma vez que pretendemos utilizar estes dados em redes já treinadas, pelo que a sua execução em nada alterará o comportamento futuro da rede.
 
 Assim, os dados de treino são construídos partindo do final de um ficheiro de dados previamente selecionado, incluindo todos os dados (correspondentes a casos \emph{ictais} e \emph{não-ictais}) até que o número de situações \emph{ictais} seja igual a um valor definido pelo utilizador.
+
+\subsubsection{processCharacteristics.m}
+
+Neste ficheiro podemos encontrar o procedimento responsável pela seleção das principais características registadas, para o paciente em questão.
+
+Esta seleção é feita com base numa análise da correlação entre as diferentes características registadas e a classificação esperada para cada conjunto, selecionando as características que apresentam valores de correlação mais elevados, e em número igual ao especificado pelo utilizador na interface gráfica.
+
+Com este procedimento pretendemos eliminar características redundantes dos nossos ficheiros de dados. Embora seja de prever que esta eliminação em nada altere a aprendizagem da rede (ou, em caso de alteração, que esta seja bastante ténue), é expectável uma melhoria no seu tempo de treino proporcional ao número de características redundantes removidas.
 
 \subsubsection{interpretResults.m}
 
@@ -228,7 +236,7 @@ Neste ficheiro, a abordagem seguida é em tudo semelhante ao realizado no caso d
 
 Para executar a aplicação o utilizador simplesmente necessita de executar o ficheiro \emph{run.m}, sendo imediatamente exibida a interface gráfica desenvolvida.
 
-A partir desse momento, o utilizador poderá escolher a rede a criar e a treinar, definindo algumas das suas propriedades e do seu treino, nomeadamente a escolha do ficheiro de dados a utilizar como fonte para a criação dos dados de treino e para posterior teste da rede treinada. É também possível selecionar o tipo de classificação a realizar, tal como referido anteriormente: \emph{Classificação Individual} ou \emph{Classificação em Grupo}.
+A partir desse momento, o utilizador poderá escolher a rede a criar e a treinar, definindo algumas das suas propriedades e do seu treino, nomeadamente a escolha do ficheiro de dados a utilizar como fonte para a criação dos dados de treino e para posterior teste da rede treinada. É também possível selecionar o tipo de classificação a realizar, e o número de características a considerar.
 
 Uma vez definidos todos os parâmetros pretendidos pelo utilizador, basta clicar na opção \emph{Train Network}, para proceder ao treino da rede, ou na opção \emph{Test}, para proceder à execução da rede para os dados de teste especificados.
 
@@ -246,6 +254,8 @@ Após o desenvolvimento inicial da aplicação procedemos ao treino e teste das 
 \subsection{Testes Iniciais}
 
 \subsubsection{Descrição}
+
+\textbf{Reformular a partir daqui}
 
 Numa fase inicial dos testes realizados procedemos ao treino de todas as redes neuronais implementadas, para uma vasta gama de combinações possíveis das propriedades das redes consideradas, e para os dois tipos de classificação disponíveis. Assim, inicialmente treinámos as redes com as seguintes propriedades: 
 
