@@ -2,9 +2,9 @@
 \contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{3}{section.1}
 \contentsline {section}{\numberline {2}Aplica\IeC {\c c}\IeC {\~a}o Desenvolvida}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Graphical User Interface}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Redes Neuronais Implementadas}{6}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.2}Redes Neuronais Implementadas}{5}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Treino das Redes}{6}{subsection.2.3}
-\contentsline {subsection}{\numberline {2.4}Teste das Redes}{7}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.4}Teste das Redes}{8}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Implementa\IeC {\c c}\IeC {\~a}o em Matlab}{8}{subsection.2.5}
 \contentsline {subsubsection}{\numberline {2.5.1}run.m}{8}{subsubsection.2.5.1}
 \contentsline {subsubsection}{\numberline {2.5.2}createNetwork.m}{8}{subsubsection.2.5.2}
@@ -12,12 +12,12 @@
 \contentsline {subsubsection}{\numberline {2.5.4}interpretResults.m}{9}{subsubsection.2.5.4}
 \contentsline {subsubsection}{\numberline {2.5.5}interpretGroupResults.m}{10}{subsubsection.2.5.5}
 \contentsline {subsection}{\numberline {2.6}Execu\IeC {\c c}\IeC {\~a}o}{10}{subsection.2.6}
-\contentsline {section}{\numberline {3}Treino e Testes da Aplica\IeC {\c c}\IeC {\~a}o}{11}{section.3}
-\contentsline {subsection}{\numberline {3.1}Testes Iniciais}{11}{subsection.3.1}
-\contentsline {subsubsection}{\numberline {3.1.1}Descri\IeC {\c c}\IeC {\~a}o}{11}{subsubsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.2}An\IeC {\'a}lise dos Resultados Obtidos}{12}{subsubsection.3.1.2}
-\contentsline {subsection}{\numberline {3.2}Testes Complementares}{14}{subsection.3.2}
-\contentsline {subsubsection}{\numberline {3.2.1}Redes Selecionadas}{14}{subsubsection.3.2.1}
-\contentsline {subsection}{\numberline {3.3}Redu\IeC {\c c}\IeC {\~a}o da Dimensionalidade}{15}{subsection.3.3}
-\contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{16}{section.4}
-\contentsline {section}{\numberline {5}Anexos}{17}{section.5}
+\contentsline {section}{\numberline {3}Treino e Testes da Aplica\IeC {\c c}\IeC {\~a}o}{12}{section.3}
+\contentsline {subsection}{\numberline {3.1}Testes Iniciais}{12}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Descri\IeC {\c c}\IeC {\~a}o}{12}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}An\IeC {\'a}lise dos Resultados Obtidos}{13}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}Testes Complementares}{15}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Redes Selecionadas}{15}{subsubsection.3.2.1}
+\contentsline {subsection}{\numberline {3.3}Redu\IeC {\c c}\IeC {\~a}o da Dimensionalidade}{16}{subsection.3.3}
+\contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{17}{section.4}
+\contentsline {section}{\numberline {5}Anexos}{18}{section.5}

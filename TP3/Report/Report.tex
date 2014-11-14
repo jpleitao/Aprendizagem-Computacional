@@ -34,9 +34,9 @@
 
 \section{Introdução}
 
-O presente trabalho foca-se na previsão e identificação de  epiléticas, com base em informação de sinais cerebrais, recolhidos através da realização de um \emph{EEG} (ElectroEncefaloGrama).
+O presente trabalho foca-se na previsão e identificação de crises epiléticas, com base em informação de sinais cerebrais, recolhidos através da realização de um \emph{EEG} (ElectroEncefaloGrama).
 
-Este exame recolhe dados relativos à atividade cerebral do paciente que o realiza, sendo possível extrair um conjunto de características que permite a identificação de momentos de ocorrência de crises epiléticas (situações \emph{ictais}) e de momentos nos quais o paciente não apresenta qualquer problema (situações \emph{não-ictais}).
+Este exame recolhe dados relativos à atividade cerebral do paciente que o realiza, sendo possível extrair um conjunto de características que permite a identificação de momentos de ocorrência de crises epiléticas (denominadas situações \emph{ictais}) e de momentos nos quais o paciente não apresenta qualquer problema (denominadas situações \emph{não-ictais}).
 
 O trabalho proposto visa a criação de uma aplicação em \emph{Matlab}, que analise os dados recolhidos após a realização de um \emph{EEG} a um paciente, e que identifique eventuais situações em que a atividade cerebral registada corresponde a uma situação de crise epilética.
 
@@ -60,11 +60,9 @@ No presente documento pretendemos apresentar de forma mais detalhada a aplicaç�
 
 \section{Aplicação Desenvolvida}
 
-\textbf{FIXME: MUDAR INTERFACE GRÁFICA PARA PERMITIR ALTERAR DIMENSIONALIDADE DOS DADOS E FAZER REFERÊNCIA A ISSO NESTA SECÇÃO!!!}
-
 Tal como referido anteriormente, a aplicação desenvolvida visa analisar os dados referentes a um \emph{EEG} de um paciente, identificando situações correspondentes a uma crise epilética.
 
-Esta classificação pode ser realizada de duas formas distintas.
+Esta classificação pode ser realizada de duas formas distintas, que passamos a descrever.
 
 Numa primeira abordagem, a que chamamos \emph{Classificação Individual}, é atribuído a cada elemento do conjunto de dados de entrada da aplicação uma de duas \emph{classes}, representadas por dois valores binários:
 
@@ -74,7 +72,7 @@ Numa primeira abordagem, a que chamamos \emph{Classificação Individual}, é at
 \item Classe \emph{ictal}, correspondente a uma situação de crise, e representada pelos valores \emph{0 1}
 \end{itemize}
 
-Na segunda abordagem, a que chamamos \emph{Classificação em Grupo}, a classificação é realizada de forma semelhante, no entanto são considerados conjuntos de dados de entrada da aplicação, ao invés de cada elemento. Para este tipo de classificação podemos adotar duas métricas diferentes:
+Na segunda abordagem, a que chamamos \emph{Classificação em Grupo}, o processo de classificação das entradas é realizado de forma semelhante, no entanto são considerados conjuntos de dados de entrada da aplicação, ao invés de cada elemento. Para este tipo de classificação podemos adotar duas métricas diferentes:
 
 \begin{itemize}
 \item Analisar o número de elementos consecutivos classificados individualmente como \emph{ictais}, comparando-o com um dado limiar. Neste caso, se, por exemplo, existirem pelo menos 10 elementos consecutivos classificados como \emph{ictais} então é detetada uma crise. Caso contrário nenhuma crise é detetada.
@@ -82,7 +80,7 @@ Na segunda abordagem, a que chamamos \emph{Classificação em Grupo}, a classifi
 \item Adotar um sistema de classificação em janela deslizante, analisando o número de elementos classificados individualmente como \emph{ictias}, num dado universo restrito. Isto é, se pelo menos cinco dos últimos dez elementos foram classificados como \emph{ictais} então todos os elementos nesse conjunto são classificados como \emph{ictais}.
 \end{itemize}
 
-Relativamente a este último aspeto, optámos por adotar o segundo método de \emph{Classificação em Grupo}, considerando uma abordagem por janelas.
+Optámos por adotar o segundo método de \emph{Classificação em Grupo}, considerando uma abordagem por janelas, uma vez que o primeiro método, na nossa opinião, não torna o classificador resistente a variações no tempo. Isto é, caso a saída obtida seja igual à esperada, mas com todos os elementos deslocados, por exemplo, em uma unidade este método irá considerar um número de classificações erradas muito maior do que numa abordagem por janelas.
 
 De seguida apresentamos em maior detalhe a aplicação desenvolvida, salientando alguns dos seus aspetos mais importantes e relevantes.
 
@@ -106,6 +104,8 @@ Assim, na interface gráfica desenvolvida são solicitadas ao utilizador várias
 \item Ficheiro de dados a utilizar para treinar a rede criada
 
 \item Ficheiro de dados a utilizar para testar a rede criada
+
+\item Número de características dos pacientes a considerar
 
 \item Outros aspetos, como objetivo do treino (\emph{Goal}), taxa de aprendizagem, etc
 \end{itemize}
@@ -148,11 +148,15 @@ De facto, tal situação não é desejável, uma vez que o nosso principal objet
 
 Assim, para evitar que as redes por nós treinadas se especializem em situações \emph{não-ictais}, na constituição dos casos de treino das diferentes redes neuronais, consideramos um dos ficheiros fornecidos, e para esse ficheiro selecionamos uma percentagem dos casos \emph{ictais} (essa percentagem é solicitada ao utilizador através da interface gráfica) que vamos incluir no nosso \emph{data set} de treino.
 
-Em seguida, selecionamos um número igual de situações \emph{não-ictais}, preservando a ordem dos diferentes casos nos dados originais. Como o número de situações \emph{não-ictais} é bastante superior ao número de situações \emph{ictais}, ao selecionarmos um número de situações \emph{não-ictais} igual ao de situações \emph{ictais} temos, necessariamente de não incluir a maior parte das situações \emph{não-ictais}. Assim, para fazermos esta seleção, selecionamos aleatoriamente um conjunto de situações \emph{não-ictais} do conjunto de dados originais, preservando sempre a ordem de ambas as situações \emph{ictais} e \emph{não-ictais}, como referido. Para ilustrar este ponto consideremos a seguinte situação:
+Em seguida, selecionamos um número igual de situações \emph{não-ictais}, preservando a ordem dos diferentes casos nos dados originais. Como o número de situações \emph{não-ictais} é bastante superior ao número de situações \emph{ictais}, ao selecionarmos um número de situações \emph{não-ictais} igual ao de situações \emph{ictais} temos, necessariamente de não incluir a maior parte das situações \emph{não-ictais}.
 
-Consideremos os elementos \emph{A} e \emph{B}, pertencentes ao \emph{data set} original e de treino, em que \emph{A} surge antes de \emph{B} no \emph{data set} original. Consideremos também que \emph{A} corresponde a uma situação \emph{ictal}, enquanto \emph{B} corresponde a uma situação \emph{não-ictal}. Então, no \emph{data set} de treino, \emph{A} surgirá também antes de \emph{B}.
+Para além disso, consideremos duas características observadas em dois momentos distintos do exame: Uma, observada num momento em que o paciente se encontra clinicamente estável (portanto numa situação \emph{não-ictal}); E outra, observada instantes antes da ocorrência de uma crise.
 
-Para realizar o treino das diversas redes recorremos ainda a diferentes funções de treino, disponíveis e implementadas pela \emph{Neural Network Toolbox} do \emph{Matlab}. As funções de treino disponíveis são a função \emph{traingd}, \emph{trainscg} e \emph{trainrp}.
+Embora ambas as situações sejam classificadas como \emph{não-ictais}, facilmente compreendemos que a segunda se encontra mais próxima de um estado \emph{ictal}, do que a primeira. Efetivamente, para evitar que as redes por nós treinadas classifiquem estas duas situações apresentadas com diferentes valores (atribuindo à primeira a classificação de \emph{não-ictal} e à segunda de \emph{ictal}), é necessário incluir, nos dados de treino das redes, uma porção de características que reflitam ambas as situações apresentadas, a par das situações \emph{ictais}.
+
+Assim, para fazermos a seleção dos dados de treino das nossas redes, selecionamos aleatoriamente um conjunto de situações \emph{não-ictais} do conjunto de dados originais, preservando sempre a ordem de ambas as situações \emph{ictais} e \emph{não-ictais}, e assegurando a inclusão de exemplos referentes às duas situações apresentadas.
+
+No processo de treino das redes recorremos ainda a diferentes funções de treino, disponíveis e implementadas pela \emph{Neural Network Toolbox} do \emph{Matlab}. As funções de treino disponíveis são a função \emph{traingd}, \emph{trainscg} e \emph{trainrp}.
 
 Com exceção da rede \emph{RBF} (\emph{Radial Basis Function}) implementada, o treino das restantes redes neuronais é realizado com recurso à função \emph{train} da \emph{Neural Network Toolbox} do \emph{Matlab}. Uma vez que o treino das redes é uma operação complexa e exigente em termos computacionais, tendo em conta o tipo de redes criadas e a dimensão dos dados para proceder ao treino das redes, estas foram treinadas com aceleração gráfica, disponível nas versões mais recentes do \emph{Matlab}. Para tal, basta adicionar os parâmetros \emph{'useGPU', 'yes'} aquando da chamada da função \emph{train}: \emph{train(network, P, T, 'useGPU', 'yes')}.
 
@@ -166,7 +170,7 @@ O processo de criação dos dados de teste é semelhante ao utilizado na constit
 
 É solicitado ao utilizador que indique o ficheiro (de entre os três ficheiros fornecidos) de onde serão extraídos os dados de teste, e qual a percentagem de situações \emph{ictais} a incluir. Em seguida, o ficheiro escolhido é analisado, e são considerados todos os dados nele presentes, a partir do final do ficheiro, até que o número de situações \emph{ictais} incluídas seja igual à percentagem especificada.
 
-Por outras palavras, se o utilizador especifica que pretende incluir 25\% das situações \emph{ictais} nos dados de treino, e se todas as situações \emph{ictais} identificadas nesse \emph{data set} se encontram nas posições $10-20$, $40-50$, $60-70$ e $80-100$, então o nosso \emph{data set} de treino será constituído por todos os elementos do ficheiro, desde a posição $60$ até ao final do ficheiro.
+Por outras palavras, se o utilizador especifica que pretende incluir $25\%$ das situações \emph{ictais} nos dados de treino, e se todas as situações \emph{ictais} identificadas nesse \emph{data set} se encontram nas posições $10-20$, $40-50$, $60-70$ e $80-100$, então o nosso \emph{data set} de treino será constituído por todos os elementos do ficheiro, desde a posição $60$ até ao final do ficheiro.
 
 Uma vez que aquando da realização dos testes na rede esta já se encontra treinada, é irrelevante considerarmos nos \emph{data sets} de teste situações \emph{ictais} na mesma ordem de grandeza do que situações \emph{não-ictais}, pois apenas estamos a executar a rede para um conjunto de dados, sem que este afete de forma alguma o funcionamento da rede em situações futuras.
 
@@ -178,7 +182,7 @@ De qualquer forma, toda a lógica interna da aplicação, comunicação da infor
 
 \subsubsection{run.m}
 
-Este ficheiro é o principal ficheiro da aplicação e que permite a sua execução. É nele que se encontra todo o código gerado, relativo à interface gráfica, mas também onde todas as principais funcionalidades da aplicação (criação das redes neuronais e respetivo treino e classificação dos dados de teste) são invocadas.
+Este é o principal ficheiro da aplicação e que permite a sua execução. É nele que se encontra todo o código gerado, relativo à interface gráfica, mas também onde todas as principais funcionalidades da aplicação (criação das redes neuronais e respetivo treino e classificação dos dados de teste) são invocadas.
 
 \subsubsection{createNetwork.m}
 

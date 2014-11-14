@@ -30,7 +30,7 @@ function varargout = run(varargin)
 
 % Edit the above text to modify the response to help run
 
-% Last Modified by GUIDE v2.5 08-Nov-2014 18:11:22
+% Last Modified by GUIDE v2.5 14-Nov-2014 21:17:28
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -91,6 +91,8 @@ handles.training_output = [];
 handles.test_input = [];
 handles.test_output = [];
 
+handles.characteristics = 29;
+
 
 % Choose default command line output for run
 handles.output = hObject;
@@ -126,7 +128,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
 
     if (~strcmp(handles.networkName, 'Radial Basis Function'))
         %Train network -- We don't need to train Radial Basis Function because it is already trained uppon creation
-        handles.network = train(handles.network, handles.training_input, handles.training_output, 'useGPU', 'yes');
+        handles.network = train(handles.network, handles.training_input, handles.training_output, 'userGPU', 'yes');
     end
     
     % Update handles structure
@@ -153,7 +155,7 @@ function testbutton_Callback(hObject, eventdata, handles)
 
         if (~strcmp(handles.networkName, 'Radial Basis Function'))
             %Train network -- We don't need to train Radial Basis Function because it so badass nobody can teach it!
-            handles.network = train(handles.network, handles.training_input, handles.training_output);
+            handles.network = train(handles.network, handles.training_input, handles.training_output, 'useGPU', 'yes');
         end
     end
     
@@ -582,6 +584,33 @@ function activationFunctionList_CreateFcn(hObject, eventdata, handles)
 % handles    empty - handles not created until after all CreateFcns called
 
 % Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function characteristicsInput_Callback(hObject, eventdata, handles)
+% hObject    handle to characteristicsInput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of characteristicsInput as text
+%        str2double(get(hObject,'String')) returns contents of characteristicsInput as a double
+    
+    handles.characteristics = str2double(get(hObject,'String'));
+    
+    % Update handles structure
+    guidata(hObject, handles);
+
+% --- Executes during object creation, after setting all properties.
+function characteristicsInput_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to characteristicsInput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
 %       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
