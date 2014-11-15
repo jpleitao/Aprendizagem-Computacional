@@ -33,5 +33,5 @@ function reduced_input = processCharacteristics(inputData, targetData, number_ch
 
     %Sort them and select the required number
     [~, indexes] = sort(correlations, 'descend');
-    reduced_input = inputData(:, indexes(1:number_characteristis));
+    reduced_input = inputData(:, indexes(1:number_characteristics));
 end

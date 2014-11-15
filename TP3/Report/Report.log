@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  15 NOV 2014 02:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  15 NOV 2014 13:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -633,7 +633,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 92.
  [4]
-<Images/Aplication_GUI.png, id=143, 911.405pt x 446.66875pt>
+<Images/Aplication_GUI.png, id=153, 911.405pt x 446.66875pt>
 File: Images/Aplication_GUI.png Graphic file (type png)
 
 <use Images/Aplication_GUI.png>
@@ -746,7 +746,7 @@ Package babel Info: Redefining portuges shorthand "|
  [16]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 366.
- <Images/Results.pdf, id=207, 1394.20876pt x 845.1575pt>
+ <Images/Results.pdf, id=215, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf>
@@ -761,7 +761,7 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 370.
  [17]
-<Images/Results.pdf, id=214, page=1, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=222, page=1, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 1>
@@ -790,7 +790,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page1 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [18 <./Images/Results.pdf>]
-<Images/Results.pdf, id=275, page=2, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=283, page=2, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 2>
@@ -810,7 +810,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page2 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [19 <./Images/Results.pdf>]
-<Images/Results.pdf, id=282, page=3, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=290, page=3, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 3>
@@ -830,7 +830,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page3 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [20 <./Images/Results.pdf>]
-<Images/Results.pdf, id=288, page=4, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=296, page=4, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 4>
@@ -850,7 +850,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page4 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [21 <./Images/Results.pdf>]
-<Images/Results.pdf, id=294, page=5, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=302, page=5, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 5>
@@ -870,7 +870,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page5 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [22 <./Images/Results.pdf>]
-<Images/Results.pdf, id=300, page=6, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=309, page=6, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 6>
@@ -890,7 +890,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page6 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [23 <./Images/Results.pdf>]
-<Images/Results.pdf, id=307, page=7, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=315, page=7, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 7>
@@ -910,7 +910,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page7 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [24 <./Images/Results.pdf>]
-<Images/Results.pdf, id=313, page=8, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=321, page=8, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 8>
@@ -930,7 +930,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page8 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [25 <./Images/Results.pdf>]
-<Images/Results.pdf, id=320, page=9, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=328, page=9, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 9>
@@ -950,7 +950,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page9 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [26 <./Images/Results.pdf>]
-<Images/Results.pdf, id=326, page=10, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=334, page=10, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 10>
@@ -970,7 +970,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page10 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [27 <./Images/Results.pdf>]
-<Images/Results.pdf, id=332, page=11, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=340, page=11, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 11>
@@ -990,7 +990,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page11 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [28 <./Images/Results.pdf>]
-<Images/Results.pdf, id=338, page=12, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=346, page=12, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 12>
@@ -1010,7 +1010,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page12 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [29 <./Images/Results.pdf>]
-<Images/Results.pdf, id=344, page=13, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=352, page=13, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 13>
@@ -1030,7 +1030,7 @@ File: Images/Results.pdf Graphic file (type pdf)
 Package pdftex.def Info: Images/Results.pdf, page13 used on input line 370.
 (pdftex.def)             Requested size: 614.36853pt x 372.42497pt.
  [30 <./Images/Results.pdf>]
-<Images/Results.pdf, id=350, page=14, 1394.20876pt x 845.1575pt>
+<Images/Results.pdf, id=358, page=14, 1394.20876pt x 845.1575pt>
 File: Images/Results.pdf Graphic file (type pdf)
 
 <use Images/Results.pdf, page 14>
@@ -1055,21 +1055,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 372.
  (./Report.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 372.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 372.
-
-
-Package rerunfilecheck Warning: File `Report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Report.out':
-(rerunfilecheck)             Before: 1E6CD07973D06C044FDE0F6A05F5EFE0;1636
-(rerunfilecheck)             After:  A5489A40DF24AFE2FBD39C8954D9199F;1777.
+Package rerunfilecheck Info: File `Report.out' has not changed.
+(rerunfilecheck)             Checksum: A5489A40DF24AFE2FBD39C8954D9199F;1777.
  ) 
 Here is how much of TeX's memory you used:
- 7646 strings out of 495004
- 108543 string characters out of 6180663
- 195121 words of memory out of 5000000
- 10676 multiletter control sequences out of 15000+600000
+ 7648 strings out of 495004
+ 108585 string characters out of 6180663
+ 195124 words of memory out of 5000000
+ 10678 multiletter control sequences out of 15000+600000
  19135 words of font info for 52 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  40i,18n,46p,809b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1087,10 +1080,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Report.pdf (31 pages, 325289 bytes).
+Output written on Report.pdf (31 pages, 325424 bytes).
 PDF statistics:
- 733 PDF objects out of 1000 (max. 8388607)
- 334 compressed objects within 4 object streams
+ 741 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
  59 named destinations out of 1000 (max. 500000)
- 267 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 283 words of extra memory for PDF output out of 10000 (max. 10000000)
 

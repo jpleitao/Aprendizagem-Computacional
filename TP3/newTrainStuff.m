@@ -11,8 +11,9 @@ validationChecks = epochs/2;
 learningRate = 0.5;
 numberLayers = 2;
 hiddenLayersSizes = [3, ceil(log2(29)), 29];
+number_characteristics = 29;
 
-handles = struct('percentage_training', percentage_training, 'training_file', training_file);
+handles = struct('percentage_training', percentage_training, 'training_file', training_file, 'characteristics', number_characteristics);
 
 [training_input, training_output, test_input, test_output] = prepareDataSets(handles);
 
@@ -108,7 +109,6 @@ for i=1:length(trainFunctions1)
 		end
 	end
 end
-%}
 
 %%%%
 %%	Distributed Time Delay
@@ -153,7 +153,6 @@ for m=1:length(hiddenLayersSizes)
 	currentSize = hiddenLayersSizes(m);
 
 	network = newrb(training_input, training_output, goalNEWRB, 1.0, currentSize, 1);
-	network_name = strcat('net_', networkName, '_',num2str(currentSize), '.mat');
+	network_name = strcat('trainedNetworks/net_', networkName, '_',num2str(currentSize), '.mat');
 	save(network_name, 'network');
-
 end

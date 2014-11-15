@@ -1,7 +1,7 @@
 %%%%
 %%	Group Classification
 %%%%
-load('44202_train50.mat');
+load('44202_reduced_5_train50.mat');
 
 groupLimitOnes = 5;
 window_size = 10;
@@ -142,6 +142,7 @@ for j=1:length(trainFunctions1)
 	end
 end
 
+%{
 %=======================================================FF Input Time Delay====================================================================
 
 networkName = 'trainedNetworks/FF Input Time Delay/net_FF Input Time Delay_';
@@ -177,4 +178,4 @@ for j=1:length(trainFunctions1)
 		end
 	end
 end
-
+%}
