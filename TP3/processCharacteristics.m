@@ -16,7 +16,7 @@ function reduced_input = processCharacteristics(inputData, targetData, number_ch
     input_size = size(inputData);
     input_chars = input_size(2);
     %Invalid number of characteristics selected --> We consider all the characteristics
-    if (number_characteristics > input_chars)
+    if (number_characteristics > input_chars || number_characteristics < 1)
         number_characteristics = input_chars;
     end
 

@@ -13,15 +13,25 @@
 %%%%
 function reduced_input = processCharacteristics(inputData, targetData, number_characteristics)
 
-    result = horzcat(FeatVectSel, Trg);
+    input_size = size(inputData);
+    input_chars = input_size(2);
+    %Invalid number of characteristics selected --> We consider all the characteristics
+    if (number_characteristics > input_chars || number_characteristics < 1)
+        number_characteristics = input_chars;
+    end
+
+    result = horzcat(inputData, targetData);
+    size_result = size(result);
+    
+    %Get correlations
     [r, p] = corrcoef(result);
 
     %Here we want to analyse the correlation values from the 30-th collumn of the matrix, which relates the output with all the input characteristics    
-    correlations = r(30, 1:29);
+    correlations = r(size_result(2), 1:input_chars);
     %Because we can have negative values, apply the absolute value
     correlations = abs(correlations);
 
     %Sort them and select the required number
-    [correlations_sorted, indexes] = sort(correlations, 'descend');
-    reduced_input = FeatVectSel(:, indexes(1:3));
+    [~, indexes] = sort(correlations, 'descend');
+    reduced_input = inputData(:, indexes(1:number_characteristics));
 end
