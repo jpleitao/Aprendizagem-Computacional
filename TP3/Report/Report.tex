@@ -343,8 +343,23 @@ Embora não sejam de esperar melhoras muito significativas na \emph{especificida
 
 \subsubsection{Testes}
 
-\textbf{Explicar como definimos os testes e analisar resultados obtidos}
+Nos testes realizados, procedemos a reduções de dimensionalidade dos dados de treino e de teste, considerando apenas as $5$ e $15$ características com maior correlação com a classificação final.
 
+Para determinarmos quais as características a considerar, recorremos à função \emph{corrcoef} do \emph{Matlab}, obtendo, para cada ficheiro utilizado, as correlações de cada característica com a classificação final esperada.
+
+Uma vez obtidos estes valores, restou-nos proceder à sua ordenação, escolhendo por fim as características com maior valor de correlação, nas quantidades referidas.
+
+Uma vez determinadas as características a considerar, determinámos os dados de treino e teste das redes (considerando apenas estas características), procedendo de seguida ao treino e teste das redes referidas anteriormente.
+
+Os resultados dos testes realizados podem ser consultados no final do presente documento, na secção destinada aos anexos, após a apresentação dos resultados dos testes iniciais.
+
+De uma forma geral, para a \emph{Classificação Individual e em Grupo} não verificamos diferenças significativas, quando treinamos as redes com um menor número de características:
+
+Na \emph{Classificação Individual} continuamos a presenciar algumas variações nos valores de \emph{sensibilidade} e \emph{especificidade} para o mesmo teste, mantendo-se também a rede \emph{Radial Basis Function} como a única rede a não realizar \emph{classificações inválidas}.
+
+Já na \emph{Classificação em Grupo}, o número de testes onde se detetam \emph{classificações inválidas} é bastante reduzido, sendo que quando estas são detetadas o seu número é bastante elevado. Para além disso, também se verificam algumas variações nos valores de \emph{sensibilidade} e \emph{especificidade} para o mesmo teste.
+
+Não obstante, à luz do que esperávamos (e que também referimos anteriormente), constatámos que, ao considerarmos um número de características inferior, o tempo necessário para treinar as diferentes redes neuronais diminuiu consideravelmente, nomeadamente quando apenas considerámos as $5$ características mais importantes.
 
 \pagebreak
 
@@ -358,8 +373,7 @@ Ficheiro \emph{63502.mat} registou piores dados do que o outro
 
 Função \emph{trainscg} provou ser a melhor, pelo menos praticamente todas as redes tiveram melhores resultados quando a usaram
 
-Voltar a referir as redes que identificámos como tendo melhores resultados
-
+Voltar a referir as redes que identificámos como tendo melhores resultados e que para essas redes, ao diminuir as características mantivemos a mesma performance em termos de resultados, melhorando o tempo de treino, o que é esperado, pois tendo menos características temos também menos iterações em cada passo do treino, logo este demora menos tempo.
 
 \pagebreak
 
