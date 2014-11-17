@@ -365,15 +365,35 @@ Não obstante, à luz do que esperávamos (e que também referimos anteriormente
 
 \section{Conclusões}
 
-Falar nos resultados em geral
+Após uma análise crítica dos testes e respetivos resultados obtidos, existem alguns pontos aos quais pretendemos dar destaque.
 
-Comparação redução dimensionalidade vs Sem redução de dimensionalidade
+Em primeiro lugar, em ambos os conjuntos de testes realizados, redes (e respetivas configurações) que apresentaram melhores resultados foram as seguintes:
 
-Ficheiro \emph{63502.mat} registou piores dados do que o outro
+\begin{itemize}
+\item Rede \emph{Radial Basis Function} com $3$ e $5$ neurónios
 
-Função \emph{trainscg} provou ser a melhor, pelo menos praticamente todas as redes tiveram melhores resultados quando a usaram
+\item Rede \emph{FeedForward} com $3$, $5$ e $29$ neurónios, utilizando as funções de treino \emph{trainrp} e \emph{trainscg}
 
-Voltar a referir as redes que identificámos como tendo melhores resultados e que para essas redes, ao diminuir as características mantivemos a mesma performance em termos de resultados, melhorando o tempo de treino, o que é esperado, pois tendo menos características temos também menos iterações em cada passo do treino, logo este demora menos tempo.
+\item Rede \emph{Layer Recurrent} com $3$, $5$ e $29$ neurónios, utilizando as funções de treino \emph{trainrp} e \emph{trainscg}
+
+\item Rede \emph{Distributed Time Delay}, com $3$, $5$ e $29$ neurónios, utilizando a função de treino \emph{trainscg}
+\end{itemize}
+
+Da mesma forma, dos dois ficheiros com os quais realizámos os testes, foi com os dados do ficheiro \emph{44020.mat} que foram registados os melhores resultados, superando assim o ficheiro \emph{63502.mat}.
+
+Isto poderá ser devido ao facto de, o paciente cujos dados se encontram no ficheiro \emph{44020.mat} possuir uma atividade cerebral mais favorável ao diagnóstico de situações \emph{ictais}, recorrendo à abordagem por nós adotada, com os tipos de rede escolhidos. Embora consideremos que não dispomos dos conhecimentos médicos necessários para produzir esta afirmação com um grau de confiança bastante elevado, esta parece-nos ser uma justificação válida.
+
+Relativamente às funções de treino estudadas, a função \emph{trainscg} provou ser a melhor, uma vez que praticamente todas as redes nas quais esta foi utilizada obtiveram melhores resultados, quando comparados com as restantes, do mesmo tipo.
+
+Ao diminuirmos as características com que procedíamos aos treinos e teste da rede os resultados que obtivemos confirmaram as nossas expetativas, uma vez que não verificámos variações significativas na \emph{sensibilidade} e \emph{especificidade} das redes testadas.
+
+De facto, ao considerarmos apenas as características que têm uma maior contribuição para a saída desejada é expetável que a aprendizagem realizada pela rede não saia demasiado prejudicada. Tal situação só será contemplada se o número de características consideradas for demasiado reduzido, excluindo características com bastante influência na determinação no valor obtido à saída da rede neuronal.
+
+Efetivamente, para o número de características consideradas verificámos que a aprendizagem não sofria penalizações significativas, mesmo considerando apenas as $5$ características mais influentes para o resultado final.
+
+Mais ainda, ao realizarmos o treino das redes com um menor número de características, tal como esperado, observamos que o tempo de treino das redes baixou consideravelmente. Com efeito, uma vez que o número de características a considerar é menor, o número de passos a realizar em cada iteração do treino é menor, o que reduz o tempo de treino.
+
+Mais ainda, procedendo à eliminação das características mais ambíguas, é de esperar que a rede apresente uma maior e mais rápida convergência, melhorando também a sua performance e o seu tempo de treino, o que foi por nós verificado.
 
 \pagebreak
 

@@ -21,5 +21,5 @@
 \contentsline {subsection}{\numberline {3.2}Redu\IeC {\c c}\IeC {\~a}o da Dimensionalidade}{14}{subsection.3.2}
 \contentsline {subsubsection}{\numberline {3.2.1}Descri\IeC {\c c}\IeC {\~a}o}{14}{subsubsection.3.2.1}
 \contentsline {subsubsection}{\numberline {3.2.2}Testes}{15}{subsubsection.3.2.2}
-\contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{16}{section.4}
-\contentsline {section}{\numberline {5}Anexos}{17}{section.5}
+\contentsline {section}{\numberline {4}Conclus\IeC {\~o}es}{17}{section.4}
+\contentsline {section}{\numberline {5}Anexos}{19}{section.5}
