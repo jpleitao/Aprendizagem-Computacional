@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{3}{section.1}
 \contentsline {section}{\numberline {2}Aplica\IeC {\c c}\IeC {\~a}o Desenvolvida}{4}{section.2}
 \contentsline {subsection}{\numberline {2.1}Graphical User Interface}{4}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Redes Neuronais Implementadas}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.2}Redes Neuronais Implementadas}{6}{subsection.2.2}
 \contentsline {subsection}{\numberline {2.3}Treino das Redes}{6}{subsection.2.3}
 \contentsline {subsection}{\numberline {2.4}Teste das Redes}{8}{subsection.2.4}
 \contentsline {subsection}{\numberline {2.5}Implementa\IeC {\c c}\IeC {\~a}o em Matlab}{8}{subsection.2.5}
