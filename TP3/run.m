@@ -128,7 +128,7 @@ function trainbutton_Callback(hObject, eventdata, handles)
 
     if (~strcmp(handles.networkName, 'Radial Basis Function'))
         %Train network -- We don't need to train Radial Basis Function because it is already trained uppon creation
-        handles.network = train(handles.network, handles.training_input, handles.training_output, 'userGPU', 'yes');
+        handles.network = train(handles.network, handles.training_input, handles.training_output, 'useGPU', 'yes');
     end
     
     % Update handles structure
