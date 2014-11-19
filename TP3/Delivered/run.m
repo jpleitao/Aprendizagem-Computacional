@@ -140,13 +140,13 @@ function testbutton_Callback(hObject, eventdata, handles)
 % hObject    handle to testbutton (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+    %Get the training and testing data sets
+    [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
     
     %Check if we have a trained network stored
     if (isempty(handles.network))
         %No trained network -- Need to create one and train
-        
-        %Get the training and testing data sets
-        [handles.training_input, handles.training_output, handles.test_input, handles.test_output] = prepareDataSets(handles);
         
         %Create desired network
         network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction, 'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs, 'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers, 'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 'trainingOutput', handles.training_output, 'activationFunction', handles.activationFunction, 'validationChecks', round(handles.epochs/2));

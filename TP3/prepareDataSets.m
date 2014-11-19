@@ -25,13 +25,24 @@ function [training_input, training_output, test_input, test_output] = prepareDat
 	%Get indexes of the patient's crysis
 	crysis_indexes = getCrysisIndexes(Trg);
 
-	%Get train and test data
+	%Get train data
 	[training_input, training_output] = getPercentageData(crysis_indexes, Trg, FeatVectSel, handles.percentage_training);
+    
+    %Load testing file
+	load(handles.test_file);
+    
+    %Filter characteristics
+    FeatVectSel = processCharacteristics(FeatVectSel, Trg, handles.characteristics);
+    
+	%Get indexes of the patient's crysis
+	crysis_indexes = getCrysisIndexes(Trg);
 
 	number_crysis = size(crysis_indexes);
 	number_crysis = number_crysis(1);
+    
+    temp = 100 - handles.percentage_test;
 
-	start_test = round(number_crysis * (handles.percentage_training/100));
+	start_test = round(number_crysis * (temp/100));
     start_test = crysis_indexes(start_test) + 1;
 	test_input = FeatVectSel(start_test:end,:);
 	test_input = test_input';
