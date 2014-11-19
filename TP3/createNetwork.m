@@ -17,7 +17,7 @@ function my_network = createNetwork(network_data)
 	%%	network_data = struct('networkName', handles.networkName, 'trainFunction', handles.trainFunction,
 	%%						  'performanceFunction', handles.performanceFunction, 'goal', handles.goal, 'epochs', handles.epochs,
 	%%						  'learningRate', handles.learningRate, 'numberLayers', handles.numberLayers,
-	%%						  'hiddenLayersSizes', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 
+	%%						  'hiddenLayers', handles.hiddenLayersSizes, 'trainingInput', handles.training_input, 
 	%%						  'trainingOutput', handles.training_output,
 	%%						  'activationFunction', handles.activationFunction, 'validationChecks', validationChecks);
 	%%%%
@@ -25,7 +25,7 @@ function my_network = createNetwork(network_data)
 	if (strcmp(network_data.networkName, 'Radial Basis Function'))
 
 		%Create the network, giving it the training input and output data, and the desired goal for our training
-		my_network = newrb(network_data.trainingInput, network_data.trainingOutput, network_data.goal, 1.0, network_data.hiddenLayersSizes, 1);
+		my_network = newrb(network_data.trainingInput, network_data.trainingOutput, network_data.goal, 1.0, network_data.hiddenLayers, 1);
 
 	elseif (strcmp(network_data.networkName, 'Layer Recurrent'))
 
