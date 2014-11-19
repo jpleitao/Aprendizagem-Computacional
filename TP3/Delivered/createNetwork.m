@@ -25,7 +25,7 @@ function my_network = createNetwork(network_data)
 	if (strcmp(network_data.networkName, 'Radial Basis Function'))
 
 		%Create the network, giving it the training input and output data, and the desired goal for our training
-		my_network = newrb(network_data.trainingInput, network_data.trainingOutput, network_data.goal);
+		my_network = newrb(network_data.trainingInput, network_data.trainingOutput, network_data.goal, 1.0, network_data.hiddenLayersSizes, 1);
 
 	elseif (strcmp(network_data.networkName, 'Layer Recurrent'))
 
