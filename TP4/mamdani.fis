@@ -12,28 +12,28 @@ AggMethod='max'
 DefuzzMethod='centroid'
 
 [Input1]
-Name='input1'
+Name='entrada'
 Range=[-1 1]
 NumMFs=3
-MF1='negative':'trimf',[-1.8 -1 0.007937]
-MF2='0':'trimf',[-0.8 0 0.8]
-MF3='positive':'trimf',[-0.002646 1 1.8]
+MF1='negative':'trimf',[-2 -1 0]
+MF2='0':'trimf',[-1 0 1]
+MF3='positive':'trimf',[0 1 2]
 
 [Input2]
-Name='input2'
+Name='erro'
 Range=[-1 1]
 NumMFs=3
-MF1='negative':'trimf',[-1.8 -1 0.002646]
-MF2='0':'trimf',[-0.8 0 0.8]
-MF3='positive':'trimf',[0.002646 1 1.8]
+MF1='negative':'trimf',[-2 -1 0]
+MF2='0':'trimf',[-1 0 1]
+MF3='positive':'trimf',[0 1 2]
 
 [Output1]
-Name='output1'
+Name='saida'
 Range=[-1 1]
 NumMFs=3
-MF1='negative':'trimf',[-1.8 -1 -0.01323]
-MF2='0':'trimf',[-0.8 0 0.8]
-MF3='positive':'trimf',[-0.002646 1 1.8]
+MF1='negative':'trimf',[-2 -1 0]
+MF2='0':'trimf',[-1 0 1]
+MF3='positive':'trimf',[0 1 2]
 
 [Rules]
 1 1, 1 (1) : 1
