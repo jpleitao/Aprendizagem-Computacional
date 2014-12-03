@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  3 DEC 2014 20:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  3 DEC 2014 20:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -629,36 +629,36 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 49.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 63.
+(babel)             in language append on input line 65.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 63.
+(babel)             in language append on input line 65.
  [4]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 64.
+(babel)             in language append on input line 66.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 74.
+(babel)             in language append on input line 78.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 74.
+(babel)             in language append on input line 78.
  [5]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 75.
+(babel)             in language append on input line 79.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 80.
+(babel)             in language append on input line 84.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 80.
+(babel)             in language append on input line 84.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 81.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 83.
+(babel)             in language append on input line 85.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 83.
+(babel)             in language append on input line 87.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 83.
+(babel)             in language append on input line 87.
  [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 83.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 83.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 83.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 87.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: AA0E07C968CAD6D1DB3302D9B0BF23CD;263.
  ) 
