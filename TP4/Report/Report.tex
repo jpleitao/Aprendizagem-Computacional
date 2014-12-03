@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+
+\usepackage{indentfirst}
+\usepackage{makeidx}
+\usepackage{stackengine}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{graphicx}
+
+\usepackage{pdfpages}
+\usepackage{float}
+
+\usepackage{booktabs}
+
+\title{\bf{Aprendizagem Computacional - Trabalho Prático 4}\vspace{80mm}}
+\author{\textbf{João Tiago Márcia do Nascimento Fernandes - 2011162899} \\
+\textbf{Joaquim Pedro Bento Gonçalves Pratas Leitão - 2011150072}}
+\makeindex
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\renewcommand*\contentsname{Índice}
+\tableofcontents
+
+\pagebreak
+
+\section{Introdução}
+
+O presente trabalho visa a implementação de controladores difusos de um dado sistema, dos tipos \emph{Mamdani} e \emph{Sugeno}, e que representam um hipotético processo real, tendo como base do seu funcionamento regras da \emph{lógica difusa}.
+
+A \emph{lógica difusa} extende o conceito de \emph{lógica booleana}, admitindo valores lógicos intermediários entre os valores de \emph{FALSO} e \emph{VERDADEIRO}. Assim, a lógica difusa permite-nos extender o conceito de conjunto, permitindo que um elemento passe a possuir um \emph{grau de pertença} num dado conjunto, cujo valor varia entre \emph{0} e \emph{1}.
+
+Relativamente aos controladores referidos, estes foram desenvolvidos no ambiente \emph{Simulink}, em conjunto com a \emph{Fuzzy Logic Toolbox}, ambos pertencentes à plataforma \emph{Matlab}. Numa fase inicial do trabalho apenas foram desenvolvidos controladores de \emph{9} regras, tendo posteriormente aumentado o seu número de regras para um total de \emph{25}.
+
+No presente documento pretendemos apresentar de forma mais detalhada os controladores implementados, discutindo alguns detalhes relativos à sua implementação e apresentando uma reflexão crítica sobre o desempenho e performance dos diferentes controladores implementados (\emph{Mamdani} e \emph{Sugeno}, de \emph{9} e \emph{25} regras).
+
+
+\pagebreak
+
+\section{Aplicação Desenvolvida}
+
+%Falar do desenvolvimento da aplicação -- À partida será semelhante à do primeiro trabalho: CLI, a solicitar qual o controlador a utilizar, e depois permitir ao utilizador proceder à execução do controlador
+
+%Falar nas principais etapas de desenvolvimento da aplicação, nomeadamente:
+%	1- falar na referência variável
+%	2- falar no ajuste dos factores de escala
+%	3- falar nas perturbações nos actuadores
+
+%Falar nos principais ficheiros que constituem a aplicação -- Meter isso numa secção chamada "Implementação no Simulink"
+
+%Incluir secção que explique como executar o código desenvolvido
+
+\pagebreak
+
+\section{Testes da Aplicação}
+
+%Falar nos testes que realizámos e nos resultados que obtivémos (Fazer testes com e sem perturbador nos actuadores)
+
+%Façam o estudo de desempenho do controlador em relação aos 3 objetivos:
+%	1- seguir a referência
+%	2- compensar a perturbação na carga
+%	3- compensar a perturbação no atuador.
+
+\pagebreak
+
+\section{Conclusões}
+
+%Reflexão sobre o trabalho e sobre os resultados obtidos - À partida será de esperar que os controladores com 25 regras apresentem melhores resultados que os controladores com apenas 9 regras --> Confirmar se isso se verificou e identificar qual o controlador (Mamdani ou Sugeno) que apresentou melhores resultados
+
+\pagebreak
+
+\section{Anexos}
+
+\end{document}
