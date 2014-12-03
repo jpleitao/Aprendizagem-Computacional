@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  3 DEC 2014 20:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.8)  3 DEC 2014 21:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -621,44 +621,44 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 36.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 48.
+(babel)             in language append on input line 54.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 48.
+(babel)             in language append on input line 54.
 
 [3]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 49.
+(babel)             in language append on input line 55.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 65.
+(babel)             in language append on input line 71.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 65.
+(babel)             in language append on input line 71.
  [4]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 66.
+(babel)             in language append on input line 72.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 78.
+(babel)             in language append on input line 84.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 78.
+(babel)             in language append on input line 84.
  [5]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 79.
+(babel)             in language append on input line 85.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 84.
+(babel)             in language append on input line 90.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 84.
+(babel)             in language append on input line 90.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 85.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
+(babel)             in language append on input line 91.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 87.
+(babel)             in language append on input line 93.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 87.
+(babel)             in language append on input line 93.
  [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 93.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 87.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 87.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: AA0E07C968CAD6D1DB3302D9B0BF23CD;263.
  ) 
@@ -677,7 +677,7 @@ r/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/joaquim/.texmf-var/fonts/p
 k/ljfour/jknappen/ec/ecrm1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/
 jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecbx1728.600pk>
-Output written on Report.pdf (7 pages, 73007 bytes).
+Output written on Report.pdf (7 pages, 73015 bytes).
 PDF statistics:
  317 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
