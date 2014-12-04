@@ -1,5 +1,5 @@
 [System]
-Name='mamdani'
+Name='mamdani_9'
 Type='mamdani'
 Version=2.0
 NumInputs=2
@@ -15,25 +15,25 @@ DefuzzMethod='centroid'
 Name='entrada'
 Range=[-1 1]
 NumMFs=3
-MF1='negative':'trimf',[-2 -1 0]
-MF2='0':'trimf',[-1 0 1]
-MF3='positive':'trimf',[0 1 2]
+MF1='negative':'trimf',[-1 -1 0]
+MF2='0':'trimf',[-0.8 0 0.8]
+MF3='positive':'trimf',[0 1 1]
 
 [Input2]
 Name='erro'
 Range=[-1 1]
 NumMFs=3
-MF1='negative':'trimf',[-2 -1 0]
-MF2='0':'trimf',[-1 0 1]
-MF3='positive':'trimf',[0 1 2]
+MF1='negative':'trimf',[-1 -1 0]
+MF2='0':'trimf',[-0.8 0 0.8]
+MF3='positive':'trimf',[0 1 1]
 
 [Output1]
 Name='saida'
 Range=[-1 1]
 NumMFs=3
-MF1='negative':'trimf',[-2 -1 0]
-MF2='0':'trimf',[-1 0 1]
-MF3='positive':'trimf',[0 1 2]
+MF1='negative':'trimf',[-1 -1 0]
+MF2='0':'trimf',[-0.8 0 0.8]
+MF3='positive':'trimf',[0 1 1]
 
 [Rules]
 1 1, 1 (1) : 1
