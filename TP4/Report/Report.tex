@@ -54,18 +54,47 @@ No presente documento pretendemos apresentar de forma mais detalhada os controla
 
 \section{Aplicação Desenvolvida}
 
-%Falar do desenvolvimento da aplicação -- À partida será semelhante à do primeiro trabalho: CLI, a solicitar qual o controlador a utilizar, e depois permitir ao utilizador proceder à execução do controlador
+A aplicação desenvolvida visa implementar os controladores difusos referidos anteriormente, representando um hipotético processo real, cujo funcionamento pode ser simulado, através da aplicação.
 
-%Falar nas principais etapas de desenvolvimento da aplicação, nomeadamente:
-%	1- falar na referência variável
-%	2- falar no ajuste dos factores de escala
-%	3- falar nas perturbações nos actuadores
+Para isso, a aplicação foi implementada em \emph{Matlab}, recorrendo à \emph{Fuzzy Logic Toolbox} do \emph{Simulink}, de forma a permitir a simulação do processo.
 
-%Testes quando a referência é um seno -- Ajustar escala!!!!!!!
+A aplicação faz ainda uso de uma interface por linha de comandos (\emph{CLI - Command Line Interface}), que permite ao utilizador escolher as características do processo que pretende simular: tipo de controlador, número de regras e tipos de perturbações, referência, entre outros.
 
-%Falar nos principais ficheiros que constituem a aplicação -- Meter isso numa secção chamada "Implementação no Simulink"
+\subsection{Referências}
 
-%Incluir secção que explique como executar o código desenvolvido
+Falar das duas referências disponibilizadas: Onda quadrada e Seno (Ambas com amplitude 1)
+
+\subsection{Controladores}
+
+Falar nos controladores implementados: Mamdani e Sugeno de 9 e 25 regras. Meter imagens com as regras, e explicar para que é que servem (ajustar/corrigir a saida de acordo com o erro actual e com a sua variaçao).
+
+Falar também do ajuste das escalas que tivémos de fazer
+
+\subsection{Perturbações}
+
+Falar nas diferentes perturbações implementadas: Ausência de perturbação; Perturbação no actuador; Perturbação na carga; Perturbação no actuador e na carga
+
+Tentar explicar alguma coisa sobre isto, eventualmente do que seria de esperar como resultado em cada uma das situações??
+
+\subsection{Implementação}
+
+Falar nos principais ficheiros que constituem a aplicação -- Meter isso numa secção chamada "Implementação no Simulink" - Meter imagem de uma das implementações
+
+\subsubsection{Models}
+
+Explicar que nesta pasta estão os modelos do sistema, dizer que foram implementados no simulink, e que são executados a partir dele
+
+\subsection{Controllers}
+
+Explicar que nesta pasta estão os controladores implementados, e que foram implementados no simulink, recorrendo ao fiseditor
+
+\subsubsection{run.m}
+
+
+\subsection{Execução}
+
+Indicar como se deve executar a aplicação
+
 
 \pagebreak
 
@@ -78,13 +107,15 @@ No presente documento pretendemos apresentar de forma mais detalhada os controla
 %	2- compensar a perturbação na carga
 %	3- compensar a perturbação no atuador.
 
-%Testes quando a referência é um seno -- Ajustar escala!!!!!!!
+%Meter tabela com performance de cada teste
 
 \pagebreak
 
 \section{Conclusões}
 
-%Reflexão sobre o trabalho e sobre os resultados obtidos - À partida será de esperar que os controladores com 25 regras apresentem melhores resultados que os controladores com apenas 9 regras --> Confirmar se isso se verificou e identificar qual o controlador (Mamdani ou Sugeno) que apresentou melhores resultados
+Reflexão sobre o trabalho e sobre os resultados obtidos - À partida será de esperar que os controladores com 25 regras apresentem melhores resultados que os controladores com apenas 9 regras --> Confirmar se isso se verificou e identificar qual o controlador (Mamdani ou Sugeno) que apresentou melhores resultados
+
+Meter algumas imagens dos resultados dos testes: Salientar aqueles aspectos de quando o valor obtido é inferior ao esperado ele corrige aumentado, logo o vlor obtido vai subir, depois sobe demais e tem que descer, etc
 
 \pagebreak
 
