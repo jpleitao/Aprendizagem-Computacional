@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.5)  7 DEC 2014 14:39
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.5)  7 DEC 2014 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -643,43 +643,43 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 91.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 94.
+(babel)             in language append on input line 96.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 100.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 100.
+(babel)             in language append on input line 96.
  [4]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 100.
+(babel)             in language append on input line 96.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 100.
+(babel)             in language append on input line 102.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 102.
  [5]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 101.
+(babel)             in language append on input line 103.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 113.
+(babel)             in language append on input line 115.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 113.
+(babel)             in language append on input line 115.
  [6]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 114.
+(babel)             in language append on input line 116.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 121.
+(babel)             in language append on input line 123.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 121.
+(babel)             in language append on input line 123.
  [7]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 122.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
-Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 124.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 126.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 124.
+(babel)             in language append on input line 126.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language append on input line 126.
  [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 126.
  (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 126.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 126.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 2E75D8A87E1DF019F51D96DAD35064ED;779.
  ) 
@@ -698,9 +698,9 @@ r/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/joaquim/.texmf-var/fonts/p
 k/ljfour/jknappen/ec/ecrm1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/
 jknappen/ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/
 ec/ecbx1728.600pk>
-Output written on Report.pdf (8 pages, 89079 bytes).
+Output written on Report.pdf (8 pages, 89446 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
+ 406 PDF objects out of 1000 (max. 8388607)
  131 compressed objects within 2 object streams
  23 named destinations out of 1000 (max. 500000)
  105 words of extra memory for PDF output out of 10000 (max. 10000000)
