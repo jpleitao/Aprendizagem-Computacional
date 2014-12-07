@@ -27,8 +27,7 @@ end
 %=================================================Get the Perturbation Type===================================================================
 perturbation = 0;
 while ( (perturbation ~= 1) && (perturbation ~= 2) && (perturbation ~= 3) && (perturbation ~= 4))
-	perturbation = input('Select the desired perturbation type:\n1 - No perturbation\n2 - Perturbation in the actuator\n3 - Perturbation in
-		the charge\n4 - Perturbation in the actuator and in the charge\n');
+	perturbation = input('Select the desired perturbation type:\n1 - No perturbation\n2 - Perturbation in the actuator\n3 - Perturbation in the charge\n4 - Perturbation in the actuator and in the charge\n');
 end
 
 %==================================================Load Everything============================================================================
@@ -73,7 +72,7 @@ end
 if (perturbation == 2)
 	%Perturbation in the actuator
 	model_name = strcat(model_name, 'actuator');
-elseif ( == 3)
+elseif (perturbation == 3)
 	%Perturbation in the charge
 	model_name = strcat(model_name, 'charge');
 else
