@@ -75,7 +75,7 @@ if (perturbation == 2)
 elseif (perturbation == 3)
 	%Perturbation in the charge
 	model_name = strcat(model_name, 'charge');
-else
+elseif (perturbation == 4)
 	%Perturbation in the actuator and in the charge
 	model_name = strcat(model_name, 'actuator_charge');
 end
