@@ -17,6 +17,10 @@
 
 \usepackage{booktabs}
 
+\usepackage[showframe=false]{geometry}
+\usepackage{changepage}
+
+
 \title{\bf{Aprendizagem Computacional - Trabalho Prático 4}\vspace{80mm}}
 \author{\textbf{João Tiago Márcia do Nascimento Fernandes - 2011162899} \\
 \textbf{Joaquim Pedro Bento Gonçalves Pratas Leitão - 2011150072}}
@@ -62,8 +66,6 @@ A aplicação faz ainda uso de uma interface por linha de comandos (\emph{CLI - 
 
 \subsection{Referências}
 
-
-
 Falar das duas referências disponibilizadas: Onda quadrada e Seno (Ambas com amplitude 1)
 
 \subsection{Controladores}
@@ -106,12 +108,56 @@ Indicar como se deve executar a aplicação
 
 %Falar nos testes que realizámos e nos resultados que obtivémos (Fazer testes com e sem perturbador nos actuadores)
 
+%Falar nos factores de escala utilizados: 1/10 antes do controlador e 10 depois do controlador
+
 %Façam o estudo de desempenho do controlador em relação aos 3 objetivos:
 %	1- seguir a referência
 %	2- compensar a perturbação na carga
 %	3- compensar a perturbação no atuador.
 
 %Meter tabela com performance de cada teste
+\begin{table}[h]
+\begin{adjustwidth}{-1cm}{}
+\begin{tabular}{|p{1.7cm}|p{2.55cm}|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.2cm}|}
+\hline
+\textbf{Controller} & \textbf{Number Rules} & \textbf{Signal Generator} & \textbf{Perturbation Actuator} & \textbf{Perturbation Charge} & \textbf{Performance} \\ \hline
+Mamdani             & 9                     & Square                    & No                             & No                           & 86.23                \\
+Mamdani             & 9                     & Square                    & Yes                            & No                           & 98.55                \\
+Mamdani             & 9                     & Square                    & No                             & Yes                          & 104.3                \\
+Mamdani             & 9                     & Square                    & Yes                            & Yes                          & 116                  \\
+Mamdani             & 9                     & Sin                       & No                             & No                           & 0.008748             \\
+Mamdani             & 9                     & Sin                       & Yes                            & No                           & 10.4                 \\
+Mamdani             & 9                     & Sin                       & No                             & Yes                          & 6.464                \\
+Mamdani             & 9                     & Sin                       & Yes                            & Yes                          & 19.38                \\
+Mamdani             & 25                    & Square                    & No                             & No                           & 25.67                \\
+Mamdani             & 25                    & Square                    & Yes                            & No                           & 26.23                \\
+Mamdani             & 25                    & Square                    & No                             & Yes                          & 27.14                \\
+Mamdani             & 25                    & Square                    & Yes                            & Yes                          & 30.99                \\
+Mamdani             & 25                    & Sin                       & No                             & No                           & 0.0002281            \\
+Mamdani             & 25                    & Sin                       & Yes                            & No                           & 0.3861               \\
+Mamdani             & 25                    & Sin                       & No                             & Yes                          & 1.425                \\
+Mamdani             & 25                    & Sin                       & Yes                            & Yes                          & 2.865                \\
+Sugeno              & 9                     & Square                    & No                             & No                           & 22                   \\
+Sugeno              & 9                     & Square                    & Yes                            & No                           & 22.45                \\
+Sugeno              & 9                     & Square                    & No                             & Yes                          & 26.11                \\
+Sugeno              & 9                     & Square                    & Yes                            & Yes                          & 27.62                \\
+Sugeno              & 9                     & Sin                       & No                             & No                           & 0.0002019            \\
+Sugeno              & 9                     & Sin                       & Yes                            & No                           & 0.2998               \\
+Sugeno              & 9                     & Sin                       & No                             & Yes                          & 1.495                \\
+Sugeno              & 9                     & Sin                       & Yes                            & Yes                          & 2.689                \\
+Sugeno              & 25                    & Square                    & No                             & No                           & 21.98                \\
+Sugeno              & 25                    & Square                    & Yes                            & No                           & 22.77                \\
+Sugeno              & 25                    & Square                    & No                             & Yes                          & 25.77                \\
+Sugeno              & 25                    & Square                    & Yes                            & Yes                          & 27.49                \\
+Sugeno              & 25                    & Sin                       & No                             & No                           & 0.0001569            \\
+Sugeno              & 25                    & Sin                       & Yes                            & No                           & 0.2356               \\
+Sugeno              & 25                    & Sin                       & No                             & Yes                          & 1.489                \\
+Sugeno              & 25                    & Sin                       & Yes                            & Yes                          & 2.594\\ \hline               
+\end{tabular}
+
+\caption{Resultados dos Testes Realizados}
+\end{adjustwidth}
+\end{table}
 
 \pagebreak
 
@@ -124,5 +170,220 @@ Meter algumas imagens dos resultados dos testes: Salientar aqueles aspectos de q
 \pagebreak
 
 \section{Anexos}
+
+Nesta secção apresentamos os resultados obtidos em cada teste realizado ao processo: Para além da performance registada (e que pode ser consultada na 3ª secção deste documento) registámos também a saída obtida e esperada para cada processo, a partir das quais foi calculada a sua performance.
+
+\vspace{.2cm}
+
+%======================Mamdani_9_square=====================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras, e com perturbações no atuador}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras, e com perturbações na carga}
+\end{figure}
+
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras, e com perturbações no atuador e na carga}
+\end{figure}
+
+%======================Mamdani_9_sin========================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_sin.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $9$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_sin_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $9$ regras, e com perturbações no atuador}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_sin_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $9$ regras, e com perturbações na carga}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_sin_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $9$ regras, e com perturbações no atuador e na carga}
+\end{figure}
+
+%======================Mamdani_25_square====================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_square.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $25$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_square_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $25$ regras, e com perturbações no atuador}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_square_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $25$ regras, e com perturbações na carga}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_square_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $25$ regras, e com perturbações no atuador e na carga}
+\end{figure}
+
+%======================Mamdani_25_sin=======================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_sin.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $25$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_sin_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $25$ regras, e com perturbações no atuador}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_sin_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $25$ regras, e com perturbações na carga}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_25_sin_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $25$ regras, e com perturbações no atuador e na carga}
+\end{figure}
+
+%======================Sugeno_9_square======================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_square.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $9$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_square_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações no atuador}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_square_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações na carga}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_square_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações no atuador e na carga}
+\end{figure}
+
+%======================Sugeno_9_sin=========================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_sin.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $9$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_sin_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações no atuador}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_sin_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações na carga}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_9_sin_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações no atuador e na carga}
+\end{figure}
+
+%======================Sugeno_25_square=====================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_square.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $25$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_square_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $25$ regras, e com perturbações no atuador}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_square_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações na carga}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_square_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $25$ regras, e com perturbações no atuador e na carga}
+\end{figure}
+
+%======================Sugeno_25_sin========================================
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_sin.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $25$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_sin_actuator.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $25$ regras, e com perturbações no atuador}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_sin_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $25$ regras, e com perturbações na carga}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Sugeno_25_sin_actuator_charge.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Sugeno} de $25$ regras, e com perturbações no atuador e na carga}
+\end{figure}
 
 \end{document}
