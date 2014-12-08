@@ -1,3 +1,6 @@
+VERY IMPORTANT NOTE:
+The following application has been developed under MATLAB R2014b and tested under both MATLAB R2014b and MATLAB R2014a. There is no guarantee that the application will be able to execute without any problems in previous versions of MATLAB. We believe this may be due to some changes in the latest versions of SIMULINK.
+
 To run the application run the "run.m" file. Once the this file is running, the user will be prompt to select all the properties of the system:
 	
 	* Reference Function (Both square and sin functions are available)
