@@ -64,21 +64,21 @@ end
 
 if (reference == 1)
 	%Square as the reference function
-	model_name = strcat(model_name, 'square_');
+	model_name = strcat(model_name, 'square');
 else
 	%Sin as the reference function
-	model_name = strcat(model_name, 'sin_');
+	model_name = strcat(model_name, 'sin');
 end
 
 if (perturbation == 2)
 	%Perturbation in the actuator
-	model_name = strcat(model_name, 'actuator');
+	model_name = strcat(model_name, '_actuator');
 elseif (perturbation == 3)
 	%Perturbation in the charge
-	model_name = strcat(model_name, 'charge');
+	model_name = strcat(model_name, '_charge');
 elseif (perturbation == 4)
 	%Perturbation in the actuator and in the charge
-	model_name = strcat(model_name, 'actuator_charge');
+	model_name = strcat(model_name, '_actuator_charge');
 end
 
 model_name = strcat(model_name, '.slx');
