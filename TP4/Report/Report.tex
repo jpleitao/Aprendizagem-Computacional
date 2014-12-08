@@ -155,7 +155,7 @@ Numa primeira fase do trabalho, pretendemos estudar o desempenho dos diferentes 
 
 Assim, introduzimos perturbações nos sinais de referência gerados, que podem atuar ao nível dos \emph{atuadores} e/ou da \emph{carga} do controlador, com o objetivo de verificarmos como é que cada controlador compensa essas perturbações.
 
-Uma vez que estamos a adulterar os sinais de entrada do controlador, facilmente prevemos que o seu desempenho diminuirá quando sujeito a entradas desta forma adulteradas. Mais ainda, quando estas ocorrem ao nível do atuador e da carga, em simultâneo, será de esperar que o controlador apresente desempenho inferior, do que quando as perturbações se dão apenas na carga ou no atuador.
+Uma vez que estamos a adulterar os sinais de entrada do controlador, facilmente prevemos que o seu desempenho diminuirá quando sujeito a entradas desta forma adulteradas. Mais ainda, quando estas ocorrem ao nível do atuador e da carga, em simultâneo, será de esperar que o controlador apresente desempenho inferior, do que quando as perturbações se dão apenas na carga ou no atuador. Isto deve-se ao facto de estas perturbações introduzirem variações na referência, que são, naturalmente, mais difíceis de seguir para o controlador.
 
 Desta forma, no presente trabalho, incluímos os seguintes cenários relativos a existência de perturbações na referência do controlador:
 
@@ -200,9 +200,7 @@ Este ficheiro contém um \emph{script} que permite executar a aplicação. Neste
 
 \subsection{Execução}
 
-Para executar a aplicação o utilizador deverá executar o ficheiro \emph{run.m}
-
-, tais como:
+Para executar a aplicação o utilizador deverá executar o ficheiro \emph{run.m}. Uma vez iniciada a execução, o utilizador deverá especificar as propriedades do sistema a simular, tais como:
 
 \begin{itemize}
 \item Referência do sistema (Onda senoide ou quadrada)
@@ -211,45 +209,86 @@ Para executar a aplicação o utilizador deverá executar o ficheiro \emph{run.m
 \item Perturbações a considerar (Ausência de perturbações, perturbações no atuador e/ou na carga)
 \end{itemize}
 
-Uma vez definidas estas propriedades, 
+Uma vez definidas estas propriedades, será aberta uma janela contendo um modelo que representa o sistema escolhido (de acordo com as propriedades especificadas). O utilizador poderá executar este sistema clicando no botão de execução, presente na barra de opções no topo da janela.
 
-After this specifications, a window with the specified system will be opened, and the user can execute it by clicking on the run button, in the top options bar.
-
-To check the performance of the system the user only needs to look, after executing the system, at the value next to the "IntegralErroQuadrático" field, which is computed as the integral of the quadratic error.
-
-To check the given ouput of the system, after executing it, the user must click on the "Saída & Ref" icon.
+Uma vez finda a execução do sistema, podemos consultar o seu desempenho consultando o campo \emph{IntegralErroQuadrático}, que, tal como o nome sugere, corresponde ao integral do erro quadrático (quadrado da diferença entre a saída do controlador e a referência considerada). Para visualizar a saída, basta clicar sobre o ícone com o nome \emph{Saída \& Ref}.
 
 \pagebreak
 
 \section{Testes da Aplicação}
 
+Para podermos comparar o desempenho dos diferentes controladores implementados, nas situações consideradas, realizámos alguns testes à aplicação, que apresentamos de seguida.
+
 \begin{figure}[H]
-	\includepdf[scale=0.8,pages=1]{Images/Results.pdf}
+  \centering
+      \includegraphics[scale=0.6]{Images/Results.png}
+  \caption{Testes realizados}
 \end{figure}
 
-\pagebreak
+Para cada um dos controladores implementados testámos o seu desempenho para diferentes números de regras, referências e perturbações, mantendo todos os outros fatores iguais (nomeadamente os fatores de escala). Assim, testámos as seguintes configurações, para cada controlador:
 
-Na tabela anterior podemos encontrar os resultados obtidos para os testes realizados à aplicação.
-
-Tendo em conta todos os aspetos configuráveis na aplicação (tipo do controlador e número de regas, sinais de referência e perturbações), decidimos comparar cada uma das configurações disponibilizadas, como pode ser verificado na tabela que se segue.
-
-A fim de podermos realizar uma comparação válida entre as diferentes configurações, todos os testes foram realizados utilizando os mesmo valores para os fatores de escala: $0.1$ antes da entrada no controlador, e $10$ à saída do controlador.
-
-Estes valores para os fatores de escala foram escolhidos após terem sido experimentados outros valores, prevalecendo aqueles que apresentaram melhores resultados.
-
-Embora a sua escolha não seja fundamentada em nenhuma propriedade dos controladores ou do sistema em questão, apenas se resume a uma escolha \emph{"a olho"}, acreditamos que estes valores nos permitem obter bons resultados, dando-nos condições para realizar uma comparação válida entre as diferentes implementações.
-
-\vspace{1cm}
-
-\textbf{FIXME: Meter algumas imagens dos resultados dos testes: Salientar aqueles aspectos de quando o valor obtido é inferior ao esperado ele corrige aumentado, logo o valor obtido vai subir, depois sobe demais e tem que descer, etc}
-
-\textbf{FIXME: DIZER COMO SE COMPORTOU O SISTEMA QUANDO VARIAMOS A REFERENCIA E AS PERTURBAÇÕES}
+\begin{itemize}
+\item Considerar um total de $9$ e $25$ regras
+\item Utilizar como referência a onda quadrada e a senoide (seno)
+\item Considerar a ausência de perturbações
+\item Considerar a existência de perturbações a nível do atuador
+\item Considerar a existência de perturbações a nível da carga
+\item Considerar a existência de perturbações a nível do atuador e da carga
+\item Utilizar como fator de escala à entrada do controlador o valor $0.1$, e o valor $10$ à saída do controlador
+\end{itemize}
 
 \pagebreak
 
 \section{Conclusões}
 
-Reflexão sobre o trabalho e sobre os resultados obtidos - À partida será de esperar que os controladores com 25 regras apresentem melhores resultados que os controladores com apenas 9 regras --> Confirmar se isso se verificou e identificar qual o controlador (Mamdani ou Sugeno) que apresentou melhores resultados
+Após uma análise crítica dos resultados obtidos existem alguns pontos que consideramos importantes salientar.
+
+Em primeiro lugar, tal como previmos no início deste documento, verificamos que quando utilizamos a função senoide (seno) como referência para o controlador, obtemos melhores valores de desempenho.
+
+Tal como podemos constatar nas duas figuras que se seguem, os desajustes entre a saída obtida no controlador e a referência em questão são mais notórios em momentos de ocorrência de variações bruscas na referência (como é o caso da onda quadrada).
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_sin.png}
+  \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras}
+\end{figure}
+
+Quando a referência mantém uma tendência mais ou menos constante, apresentando variações mais suaves, é mais fácil para o controlador corrigir eventuais erros.
+
+De qualquer das formas, mesmo para referências quadradas, verificámos uma correta aplicação das regras dos controladores. Considerando, por exemplo, a situação seguinte:
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square_zoom.png}
+  \caption{Exemplo de aplicação das regras do controlador \emph{Mamdani} de $9$ regras}
+\end{figure}
+
+Nesta situação a saída do controlador começa por ser inferior ao valor da sua referência, constituindo, portanto, um erro positivo. Analisando a variação do erro em momentos anteriores ao assinalado, podemos verificar que a derivada do erro é positiva.
+
+Assim, pela aplicação das regras apresentadas, o controlador necessita de \emph{"acelerar"} a saída, aumentando o seu valor de forma a ir ao encontro da referência. 
+
+De facto, tal situação é verificada, uma vez que o valor da saída do controlador aumenta, chegando até a igualar a referência. Nesse momento, estamos perante uma situação de erro nulo, e uma vez que a derivada do erro é positiva, o controlador mantém-se a \emph{"acelerar"} a sua saída, fazendo com que esta ultrapasse o valor da referência.
+
+Nesta situação, a saída começa a afastar-se da referência, sendo necessário \emph{"travá-la"}, o que é verificado momentos mais tarde, tal como seria de esperar.
+
+Para além destes factos, constatámos ainda, à semelhança do que previmos anteriormente neste documento, que ao aumentarmos o número de regras do controlador, este iria ter um melhor desempenho. De facto, verificámos uma melhoria significativa desse desempenho, quer utilizando como referência a onda quadrada, quer utilizando a senoide, sendo esta percentualmente mais elevada nas situações em que a referência utilizada é a onda senoide, ou seja, o seno.
+
+Tal como referimos anteriormente, este resultado é esperado, uma que com um maior número de regras os ajustes realizados pelo controlador podem ser mais suaves e adaptados a cada situação em particular, resultando num melhor desempenho do mesmo.
+
+Da mesma forma, ao introduzirmos perturbações nas referências fornecidas aos controladores podemos verificar uma baixa no seu desempenho, sendo por vezes bastante significativa.
+
+De facto, este resultado também era por nós previsto, uma vez que ao considerarmos uma perturbação na referência estamos a adulterar os sinais de entrada do controlador, o que se vai repercutir na ação por ele tomada, nem sempre tomando a melhor ação para a situação em questão. Mais ainda, quando considerámos perturbações em simultâneo no atuador e na carga o desempenho dos controladores baixou ainda mais, tal como previsto.
+
+Gostaríamos também de referir que, de uma forma geral, os controladores do tipo \emph{Sugeno} apresentaram melhores resultados do que os \emph{Mamdani}, no entanto, estes últimos apresentam maior tolerância à presença de perturbações no atuador e na carga, uma vez que nessas situações obtiveram reduções relativas do desempenho inferiores às presenciadas pelos controladores do tipo \emph{Sugeno}.
+
+
+Para finalizar, tendo em conta os resultados apresentamos, concluímos que, ao utilizarmos a onda senoide como referência, aliada a um controlador do tipo \emph{Sugeno} com $25$ regras, e sem considerar nenhuma perturbação da referência, conseguimos seguir da melhor forma a referência fornecida ao controlador. Esta é, portanto, a configuração que apresentou melhores resultados nos testes realizados.
 
 \pagebreak
 
