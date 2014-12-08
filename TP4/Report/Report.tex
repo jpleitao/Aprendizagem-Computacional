@@ -41,15 +41,19 @@
 
 O presente trabalho visa a implementação de controladores difusos de um dado sistema, dos tipos \emph{Mamdani} e \emph{Sugeno}, e que representam um hipotético processo real, tendo como base do seu funcionamento regras da \emph{lógica difusa}.
 
-\vspace{.3cm}
-
 A \emph{lógica difusa} extende o conceito de \emph{lógica booleana}, admitindo valores lógicos intermediários entre os valores de \emph{FALSO} e \emph{VERDADEIRO}. Assim, a lógica difusa permite-nos extender o conceito de conjunto, permitindo que um elemento passe a possuir um \emph{grau de pertença} num dado conjunto, cujo valor varia entre \emph{0} e \emph{1}.
 
-\vspace{.3cm}
+Um controlador que se rege por essa lógica, ou seja, um \emph{controlador difuso}, possuí um conjunto de regras lógicas, e é constituído por três fases:
 
-Relativamente aos controladores referidos, estes foram desenvolvidos no ambiente \emph{Simulink}, em conjunto com a \emph{Fuzzy Logic Toolbox}, ambos pertencentes à plataforma \emph{Matlab}. Numa fase inicial do trabalho apenas foram desenvolvidos controladores de \emph{9} regras, tendo posteriormente aumentado o seu número de regras para um total de \emph{25}.
+\begin{itemize}
+\item \emph{Fase entrada}
+\item \emph{Fase de processamento}
+\item \emph{Fase de saída}
+\end{itemize}
 
-\vspace{.3cm}
+A fase de entrada mapeia a entrada recebida pelo controlador nas funções de pertença e valores de verdade apropriados. Já na fase de processamento, as regras lógicas apropriadas à entrada recebida são invocadas, combinando o seu resultado, que é devolvido na fase de saída, sendo codificado num valor específico.
+
+Relativamente aos controladores disponíveis na aplicação, estes foram desenvolvidos no ambiente \emph{Simulink}, em conjunto com a \emph{Fuzzy Logic Toolbox}, ambos pertencentes à plataforma \emph{Matlab}. Numa fase inicial do trabalho apenas foram desenvolvidos controladores de $9$ regras, tendo esse valor aumentado para $25$ numa fase posterior do trabalho.
 
 No presente documento pretendemos apresentar de forma mais detalhada os controladores implementados, discutindo alguns detalhes relativos à sua implementação e apresentando uma reflexão crítica sobre o desempenho e performance dos diferentes controladores implementados (\emph{Mamdani} e \emph{Sugeno}, de \emph{9} e \emph{25} regras).
 
@@ -64,108 +68,188 @@ Para isso, a aplicação foi implementada em \emph{Matlab}, recorrendo à \emph{
 
 A aplicação faz ainda uso de uma interface por linha de comandos (\emph{CLI - Command Line Interface}), que permite ao utilizador escolher as características do processo que pretende simular: tipo de controlador, número de regras e tipos de perturbações, referência, entre outros.
 
+\subsection{Processo}
+
+Para a aplicação em questão, foram atribuídos a cada grupo diferentes processos a simular, sendo que cada processo é caracterizado por uma função de transferência diferente.
+
+O processo que nos foi atribuído é caracterizado pela seguinte função de transferência:
+
+$$\frac{3\times (s + 1)}{s\times (s + 2)\times (s + 4)}$$
+
+
 \subsection{Referências}
 
-Falar das duas referências disponibilizadas: Onda quadrada e Seno (Ambas com amplitude 1)
+Nesta aplicação encontram-se disponíveis dois tipos diferentes de referências: Uma correspondente à \emph{onda quadrada}, e outra a uma \emph{onda senoide (seno)}, ambas de amplitude $1$.
+
+Como podemos observar nas figuras seguintes, a onda senoide apresenta-se como a mais suave das duas ondas, contendo variações menos pronunciadas, quando comparada com a onda quadrada.
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.3]{Images/Squared_Wave.png}
+  \caption{Exemplo de uma onda quadrada}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.2]{Images/Sin_Wave.png}
+  \caption{Exemplo de uma onda senoide}
+\end{figure}
+
+Esta última é caracterizada por períodos em que o seu valor se mantém constante, que alternam com pontuais momentos onde esta muda bruscamente o seu valor.
+
+Estas constantes e abruptas variações têm um efeito negativo no controlador, resultando em erros mais pronunciados, e numa performance superior (o que na presente situação, em que a performance é medida em função o integral do erro quadrático, não é uma situação de todo desejada).
+
+Assim, será de prever melhores desempenhos quando a referência fornecida ao controlador é a onda senoide, do que quando este tem como referência uma onda quadrada.
+
 
 \subsection{Controladores}
 
-Falar nos controladores implementados: Mamdani e Sugeno de 9 e 25 regras. Meter imagens com as regras, e explicar para que é que servem (ajustar/corrigir a saida de acordo com o erro actual e com a sua variaçao).
+Relativamente aos \emph{controladores} implementados, encontram-se disponíveis dois tipos distintos: Controladores \emph{Mamdani} e \emph{Sugeno}, ambos com implementações de $9$ e $25$ regras.
 
-Falar também do ajuste das escalas que tivémos de fazer
+Efetivamente, ao variarmos o número de regras em cada controlador estamos a alterar a ação por ele tomada, uma vez que o valor à saída do controlador está dependente da aplicação dessas regras lógicas à sua entrada.
+
+Mais ainda, se aumentarmos o número de regras do controlador, mantendo todas as outras características constantes, seria de esperar uma melhoria na sua performance, uma vez que com um maior número de regras os ajustes realizados pelo controlador podem ser mais suaves e adaptados a cada situação em particular.
+
+Assim, quanto menor for o número de regas, maior terá que ser a generalização de cada regra, culminando num maior erro do controlador, e numa performance inferior.
+
+Nas figuras que se seguem apresentamos as tabelas com as regras implementadas nos controladores, onde:
+
+\begin{itemize}
+\item N - Negativo
+\item ZE - Zero
+\item P - Positivo
+\item NB - Negativo Grande
+\item NS - Negativo Pequeno
+\item PS - Positivo Pequeno
+\item PB - Positivo Grande
+\end{itemize}
+
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.5]{Images/9_Rules.png}
+  \caption{Tabela com as 9 regras implementadas por um controlador de 9 regras}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.5]{Images/25_Rules.png}
+  \caption{Tabela com as 25 regras implementadas por um controlador de 25 regras}
+\end{figure}
+
+Desta forma, implementámos controladores com as seguintes características:
+
+\begin{itemize}
+\item Tipo \emph{Mamdani} ou \emph{Sugeno}
+\item Função de pertença do tipo \emph{trimf}
+\item Operadores \emph{min-max}
+\item Desfuzificação do tipo \emph{Centróide}
+\end{itemize}
+
+Efetivamente, gostaríamos de apresentar neste trabalho mais variações nas características dos controladores, no entanto não dispusemos do tempo necessário para o fazer.
+
 
 \subsection{Perturbações}
 
-Falar nas diferentes perturbações implementadas: Ausência de perturbação; Perturbação no actuador; Perturbação na carga; Perturbação no actuador e na carga
+Numa primeira fase do trabalho, pretendemos estudar o desempenho dos diferentes controladores ao seguirem uma dada entrada, ignorando qualquer perturbação do sinal gerado. Posteriormente, surge com naturalidade o estudo do comportamento e desempenho dos mesmos controladores quando sujeitos a entradas de alguma forma adulteradas ou \emph{perturbadas}.
 
-Tentar explicar alguma coisa sobre isto, eventualmente do que seria de esperar como resultado em cada uma das situações??
+Assim, introduzimos perturbações nos sinais de referência gerados, que podem atuar ao nível dos \emph{atuadores} e/ou da \emph{carga} do controlador, com o objetivo de verificarmos como é que cada controlador compensa essas perturbações.
+
+Uma vez que estamos a adulterar os sinais de entrada do controlador, facilmente prevemos que o seu desempenho diminuirá quando sujeito a entradas desta forma adulteradas. Mais ainda, quando estas ocorrem ao nível do atuador e da carga, em simultâneo, será de esperar que o controlador apresente desempenho inferior, do que quando as perturbações se dão apenas na carga ou no atuador.
+
+Desta forma, no presente trabalho, incluímos os seguintes cenários relativos a existência de perturbações na referência do controlador:
+
+\begin{itemize}
+\item Ausência de perturbações na referência do controlador
+\item Perturbações ao nível do atuador
+\item Perturbações ao nível da carga
+\item Perturbações ao nível do atuador e da carga
+\end{itemize}
+
 
 \subsection{Implementação}
 
-Falar nos principais ficheiros que constituem a aplicação -- Meter isso numa secção chamada "Implementação no Simulink" - Meter imagem de uma das implementações
+Tal como referimos no início do documento, a aplicação foi desenvolvida em \emph{Matlab}, recorrendo ao seu ambiente de simulação, o \emph{Simulink} e à sua biblioteca de lógica difusa: \emph{Fuzzy Logic Toolbox}.
 
-\subsubsection{Models}
+Assim, a nossa implementação consiste num pequeno ficheiro \emph{Matlab} (a partir do qual a aplicação é iniciada, e onde são selecionados os seus parâmetros), e num conjunto dos controladores implementados e dos modelos de simulação do processo.
 
-Explicar que nesta pasta estão os modelos do sistema, dizer que foram implementados no simulink, e que são executados a partir dele
+Estes últimos, permitem-nos implementar o sistema a simular, possibilitando-nos a sua execução de acordo com os parâmetros especificados. Na figura seguinte apresentamos um exemplo de um modelo implementado:
 
-\subsection{Controllers}
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.5]{Images/Controller_example.png}
+  \caption{Exemplo de um modelo implementado em \emph{Simulink}}
+\end{figure}
 
-Explicar que nesta pasta estão os controladores implementados, e que foram implementados no simulink, recorrendo ao fiseditor
+O modelo em questão pretende simular a existência de um controlador do tipo \emph{Mamdani} com $9$ regras (embora fosse possível considerar outro controlador, sem necessitar de proceder a alterações significativas no modelo), possuindo uma referência quadrada (à semelhança do controlador, poderíamos considerar outra referência sem necessitarmos de proceder a alterações significativas no modelo) e com ausência de perturbações.
+
+Assim, implementámos um modelo diferente para cada situação a simular, tendo em conta o controlador a adotar, referência e perturbações a considerar.
+
+\subsubsection{Modelos}
+
+No que respeita à implementação dos modelos existe um aspeto relevante que, desde já, gostaríamos de salientar. Este aspeto prende-se com os fatores de escala e com a sua determinação.
+
+Uma vez que não possuímos nenhum método analítico para determinar os fatores de escala que nos permitem obter os melhores resultados, a determinação dos fatores de escala a considerar foi realizada por \emph{tentativa-erro}, até encontrarmos um par de valores que nos permitissem obter resultados aceitáveis (ou o mais próximo disso possível) nos diferentes cenários considerados.
+
+Após alguns testes, optámos por utilizar um fator de escala de $0.1$ à entrada do controlador, e um fator de escala de $10$ à saída do controlador. No entanto, acreditamos ser possível a utilização de outros fatores de escala que nos permitam obter melhores resultados.
 
 \subsubsection{run.m}
 
-Explicar como executar este ficheiro -- Ver readme.txt
+Este ficheiro contém um \emph{script} que permite executar a aplicação. Neste \emph{script} o utilizador poderá definir todas as propriedades do sistema a simular. O funcionamento da aplicação, tal como a estrutura deste ficheiro, serão abordados em maior detalhe na secção que se segue.
 
 
 \subsection{Execução}
 
-Indicar como se deve executar a aplicação
+Para executar a aplicação o utilizador deverá executar o ficheiro \emph{run.m}
 
+, tais como:
+
+\begin{itemize}
+\item Referência do sistema (Onda senoide ou quadrada)
+\item Tipo de controlador a implementar (Mamdani ou Sugeno)
+\item Número de regras a implementar no controlador ($9$ ou $25$ regras)
+\item Perturbações a considerar (Ausência de perturbações, perturbações no atuador e/ou na carga)
+\end{itemize}
+
+Uma vez definidas estas propriedades, 
+
+After this specifications, a window with the specified system will be opened, and the user can execute it by clicking on the run button, in the top options bar.
+
+To check the performance of the system the user only needs to look, after executing the system, at the value next to the "IntegralErroQuadrático" field, which is computed as the integral of the quadratic error.
+
+To check the given ouput of the system, after executing it, the user must click on the "Saída & Ref" icon.
 
 \pagebreak
 
 \section{Testes da Aplicação}
 
-%Falar nos testes que realizámos e nos resultados que obtivémos (Fazer testes com e sem perturbador nos actuadores)
+\begin{figure}[H]
+	\includepdf[scale=0.8,pages=1]{Images/Results.pdf}
+\end{figure}
 
-%Falar nos factores de escala utilizados: 1/10 antes do controlador e 10 depois do controlador
+\pagebreak
 
-%Façam o estudo de desempenho do controlador em relação aos 3 objetivos:
-%	1- seguir a referência
-%	2- compensar a perturbação na carga
-%	3- compensar a perturbação no atuador.
+Na tabela anterior podemos encontrar os resultados obtidos para os testes realizados à aplicação.
 
-%Meter tabela com performance de cada teste
-\begin{table}[h]
-\begin{adjustwidth}{-1cm}{}
-\begin{tabular}{|p{1.7cm}|p{2.55cm}|p{3cm}|p{2.5cm}|p{2.5cm}|p{2.2cm}|}
-\hline
-\textbf{Controller} & \textbf{Number Rules} & \textbf{Signal Generator} & \textbf{Perturbation Actuator} & \textbf{Perturbation Charge} & \textbf{Performance} \\ \hline
-Mamdani             & 9                     & Square                    & No                             & No                           & 86.23                \\
-Mamdani             & 9                     & Square                    & Yes                            & No                           & 98.55                \\
-Mamdani             & 9                     & Square                    & No                             & Yes                          & 104.3                \\
-Mamdani             & 9                     & Square                    & Yes                            & Yes                          & 116                  \\
-Mamdani             & 9                     & Sin                       & No                             & No                           & 0.008748             \\
-Mamdani             & 9                     & Sin                       & Yes                            & No                           & 10.4                 \\
-Mamdani             & 9                     & Sin                       & No                             & Yes                          & 6.464                \\
-Mamdani             & 9                     & Sin                       & Yes                            & Yes                          & 19.38                \\
-Mamdani             & 25                    & Square                    & No                             & No                           & 25.67                \\
-Mamdani             & 25                    & Square                    & Yes                            & No                           & 26.23                \\
-Mamdani             & 25                    & Square                    & No                             & Yes                          & 27.14                \\
-Mamdani             & 25                    & Square                    & Yes                            & Yes                          & 30.99                \\
-Mamdani             & 25                    & Sin                       & No                             & No                           & 0.0002281            \\
-Mamdani             & 25                    & Sin                       & Yes                            & No                           & 0.3861               \\
-Mamdani             & 25                    & Sin                       & No                             & Yes                          & 1.425                \\
-Mamdani             & 25                    & Sin                       & Yes                            & Yes                          & 2.865                \\
-Sugeno              & 9                     & Square                    & No                             & No                           & 22                   \\
-Sugeno              & 9                     & Square                    & Yes                            & No                           & 22.45                \\
-Sugeno              & 9                     & Square                    & No                             & Yes                          & 26.11                \\
-Sugeno              & 9                     & Square                    & Yes                            & Yes                          & 27.62                \\
-Sugeno              & 9                     & Sin                       & No                             & No                           & 0.0002019            \\
-Sugeno              & 9                     & Sin                       & Yes                            & No                           & 0.2998               \\
-Sugeno              & 9                     & Sin                       & No                             & Yes                          & 1.495                \\
-Sugeno              & 9                     & Sin                       & Yes                            & Yes                          & 2.689                \\
-Sugeno              & 25                    & Square                    & No                             & No                           & 21.98                \\
-Sugeno              & 25                    & Square                    & Yes                            & No                           & 22.77                \\
-Sugeno              & 25                    & Square                    & No                             & Yes                          & 25.77                \\
-Sugeno              & 25                    & Square                    & Yes                            & Yes                          & 27.49                \\
-Sugeno              & 25                    & Sin                       & No                             & No                           & 0.0001569            \\
-Sugeno              & 25                    & Sin                       & Yes                            & No                           & 0.2356               \\
-Sugeno              & 25                    & Sin                       & No                             & Yes                          & 1.489                \\
-Sugeno              & 25                    & Sin                       & Yes                            & Yes                          & 2.594\\ \hline               
-\end{tabular}
+Tendo em conta todos os aspetos configuráveis na aplicação (tipo do controlador e número de regas, sinais de referência e perturbações), decidimos comparar cada uma das configurações disponibilizadas, como pode ser verificado na tabela que se segue.
 
-\caption{Resultados dos Testes Realizados}
-\end{adjustwidth}
-\end{table}
+A fim de podermos realizar uma comparação válida entre as diferentes configurações, todos os testes foram realizados utilizando os mesmo valores para os fatores de escala: $0.1$ antes da entrada no controlador, e $10$ à saída do controlador.
+
+Estes valores para os fatores de escala foram escolhidos após terem sido experimentados outros valores, prevalecendo aqueles que apresentaram melhores resultados.
+
+Embora a sua escolha não seja fundamentada em nenhuma propriedade dos controladores ou do sistema em questão, apenas se resume a uma escolha \emph{"a olho"}, acreditamos que estes valores nos permitem obter bons resultados, dando-nos condições para realizar uma comparação válida entre as diferentes implementações.
+
+\vspace{1cm}
+
+\textbf{FIXME: Meter algumas imagens dos resultados dos testes: Salientar aqueles aspectos de quando o valor obtido é inferior ao esperado ele corrige aumentado, logo o valor obtido vai subir, depois sobe demais e tem que descer, etc}
+
+\textbf{FIXME: DIZER COMO SE COMPORTOU O SISTEMA QUANDO VARIAMOS A REFERENCIA E AS PERTURBAÇÕES}
 
 \pagebreak
 
 \section{Conclusões}
 
 Reflexão sobre o trabalho e sobre os resultados obtidos - À partida será de esperar que os controladores com 25 regras apresentem melhores resultados que os controladores com apenas 9 regras --> Confirmar se isso se verificou e identificar qual o controlador (Mamdani ou Sugeno) que apresentou melhores resultados
-
-Meter algumas imagens dos resultados dos testes: Salientar aqueles aspectos de quando o valor obtido é inferior ao esperado ele corrige aumentado, logo o vlor obtido vai subir, depois sobe demais e tem que descer, etc
 
 \pagebreak
 
@@ -280,6 +364,8 @@ Nesta secção apresentamos os resultados obtidos em cada teste realizado ao pro
   \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda senoide (seno) como referência e um controlador \emph{Mamdani} de $25$ regras, e com perturbações no atuador e na carga}
 \end{figure}
 
+\clearpage
+
 %======================Sugeno_9_square======================================
 
 \begin{figure}[h]
@@ -294,8 +380,6 @@ Nesta secção apresentamos os resultados obtidos em cada teste realizado ao pro
   \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações no atuador}
 \end{figure}
 
-\clearpage
-
 \begin{figure}[h]
   \centering
       \includegraphics[scale=0.3]{Images/Sugeno_9_square_charge.png}
@@ -307,6 +391,8 @@ Nesta secção apresentamos os resultados obtidos em cada teste realizado ao pro
       \includegraphics[scale=0.3]{Images/Sugeno_9_square_actuator_charge.png}
   \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Sugeno} de $9$ regras, e com perturbações no atuador e na carga}
 \end{figure}
+
+\clearpage
 
 %======================Sugeno_9_sin=========================================
 
