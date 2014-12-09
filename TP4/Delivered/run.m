@@ -51,7 +51,7 @@ end
 %==================================================Load Everything============================================================================
 
 model_name = 'Models/model_';
-controller_name = 'Controllers/'
+controller_name = 'Controllers/';
 
 if (controller_type == 1)
 	%Mamdani
