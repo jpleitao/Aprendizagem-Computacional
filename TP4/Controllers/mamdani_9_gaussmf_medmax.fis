@@ -1,0 +1,47 @@
+[System]
+Name='mamdani9_gaussmf_minmax_medmax'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='mom'
+
+[Input1]
+Name='error'
+Range=[-1 1]
+NumMFs=3
+MF1='NG':'gaussmf',[0.4247 -1]
+MF2='zero':'gaussmf',[0.4245 0.0001323]
+MF3='PG':'gaussmf',[0.4247 1]
+
+[Input2]
+Name='derivate'
+Range=[-1 1]
+NumMFs=3
+MF1='NG':'gaussmf',[0.4247 -1]
+MF2='zero':'gaussmf',[0.4247 0]
+MF3='PG':'gaussmf',[0.4247 0.9947]
+
+[Output1]
+Name='action'
+Range=[-1 1]
+NumMFs=3
+MF1='NG':'gaussmf',[0.4247 -1]
+MF2='zero':'gaussmf',[0.4247 0]
+MF3='PG':'gaussmf',[0.4247 1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 2 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 2 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1

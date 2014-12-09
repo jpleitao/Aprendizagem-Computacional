@@ -24,6 +24,23 @@ while ( (number_rules ~= 1) && (number_rules ~= 2))
 	number_rules = input('Select the desired number of rules for the controller:\n1 - 9 rules\n2 - 25 rules\n');
 end
 
+%=============================================Get the membership function of the controller===================================================
+membership_function = 0;
+while ( (membership_function ~= 1) && (membership_function ~= 2) )
+	membership_function = input('Select the desired membership function for the controller:\n1 - Gaussmf\n2 - Trimf\n');
+end
+
+%===========================================Get the defuzzification method of the controller==================================================
+defuzzification_method = 0;
+while ( (defuzzification_method ~= 1) && (defuzzification_method ~= 2) )
+if (controller_type == 1)
+	%Mamdani
+	defuzzification_method = input('Select the desired defuzzification method:\n1 - Centroid\n2 - Medmax\n');
+else
+	%Sugeno
+	defuzzification_method = input('Select the desired defuzzification method:\n1 - Med\n2 - Sum\n');
+end
+
 %=================================================Get the Perturbation Type===================================================================
 perturbation = 0;
 while ( (perturbation ~= 1) && (perturbation ~= 2) && (perturbation ~= 3) && (perturbation ~= 4))
@@ -33,20 +50,39 @@ end
 %==================================================Load Everything============================================================================
 
 model_name = 'Models/model_';
+controller_name = 'Controllers/'
 
 if (controller_type == 1)
 	%Mamdani
 	model_name = strcat(model_name, 'mamdani_');
+	controller_name = strcat(controller_name, 'mamdani_');
 
 	if (number_rules == 1)
 		%9 Rules
 		model_name = strcat(model_name, '9_');
-		mamdani_9 = readfis('Controllers/mamdani_9.fis');
+		controller_name = strcat(controller_name, '9_');
 	else
 		%25 Rules
 		model_name = strcat(model_name, '25_');
-		mamdani_25 = readfis('Controllers/mamdani_25.fis');
+		controller_name = strcat(controller_name, '25_');
 	end
+
+	if (membership_function == 1)
+		%Gaussmf
+		controller_name = strcat(controller_name, 'gaussmf_');
+	else
+		%Trimf
+		controller_name = strcat(controller_name, 'trimf_');
+	end
+
+	if (defuzzification_method == 1)
+		%Centroid
+		controller_name = strcat(controller_name, 'centroid.fis');
+	else
+		%Medmax
+		controller_name = strcat(controller_name, 'medmax.fis');
+	end
+
 else
 	%Sugeno
 	model_name = strcat(model_name, 'sugeno_');
@@ -54,11 +90,27 @@ else
 	if (number_rules == 1)
 		%9 Rules
 		model_name = strcat(model_name, '9_');
-		mamdani_9 = readfis('Controllers/mamdani_9.fis');
+		controller_name = strcat(controller_name, '9_');
 	else
 		%25 Rules
 		model_name = strcat(model_name, '25_');
-		mamdani_25 = readfis('Controllers/mamdani_25.fis');
+		controller_name = strcat(controller_name, '25_');
+	end
+
+	if (membership_function == 1)
+		%Gaussmf
+		controller_name = strcat(controller_name, 'gaussmf_');
+	else
+		%Trimf
+		controller_name = strcat(controller_name, 'trimf_');
+	end
+
+	if (defuzzification_method == 1)
+		%Centroid
+		controller_name = strcat(controller_name, 'med.fis');
+	else
+		%Medmax
+		controller_name = strcat(controller_name, 'sum.fis');
 	end
 end
 
@@ -82,6 +134,13 @@ elseif (perturbation == 4)
 end
 
 model_name = strcat(model_name, '.slx');
+
+%Load Controller
+if (number_rules == 1)
+	mamdani_9 = readfis(controller_name);
+else
+	mamdani_25 = readfis(controller_name);
+end
 
 %Open Model
 uiopen(model_name, 1);
