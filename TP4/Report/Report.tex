@@ -269,13 +269,13 @@ De qualquer das formas, mesmo para referências quadradas, verificámos uma corr
   \caption{Exemplo de aplicação das regras do controlador \emph{Mamdani} de $9$ regras}
 \end{figure}
 
-Nesta situação a saída do controlador começa por ser inferior ao valor da sua referência, constituindo, portanto, um erro positivo. Analisando a variação do erro em momentos anteriores ao assinalado, podemos verificar que a derivada do erro é positiva.
+Nesta situação a saída do controlador começa por ser inferior ao valor da sua referência, constituindo, portanto, um erro positivo. Uma vez que o valor da saída se está a aproximar da referência, concluímos que a sua variação é negativa (pois o erro está a diminuir, fruto da aproximação da saída à referência).
 
-Assim, pela aplicação das regras apresentadas, o controlador necessita de \emph{"acelerar"} a saída, aumentando o seu valor de forma a ir ao encontro da referência. 
+Assim, pela aplicação das regras apresentadas, o controlador não necessita de \emph{"travar"} nem \emph{"acelerar"} a saída, mantendo esta com a mesma tendência, caminhando no sentido de diminuição do erro, ou seja, no sentido da referência que pretendemos seguir.
 
-De facto, tal situação é verificada, uma vez que o valor da saída do controlador aumenta, chegando até a igualar a referência. Nesse momento, estamos perante uma situação de erro nulo, e uma vez que a derivada do erro é positiva, o controlador mantém-se a \emph{"acelerar"} a sua saída, fazendo com que esta ultrapasse o valor da referência.
+De facto, tal situação é verificada, uma vez que o valor da saída do controlador aumenta, chegando até a igualar a referência. Nesse momento, estamos perante uma situação de erro nulo, e a sua variação é negativa (analisando os instantes imediatamente anteriores a esta situação verificamos que o erro se encontra a diminuir, o que corresponde a uma variação negativa). Assim, por aplicação das regras estudadas, o controlador deveria, nesta situação, \emph{"travar"} a saída.
 
-Nesta situação, a saída começa a afastar-se da referência, sendo necessário \emph{"travá-la"}, o que é verificado momentos mais tarde, tal como seria de esperar.
+Efetivamente, tal ação é realizada, mas os seus efeitos não são sentidos no imediato, uma vez que a saída do controlador continua a aumentar, afastando-se do valor da referência, até que começa a diminuir, voltando a ir ao encontro da referência que se pretende seguir.
 
 Para além destes factos, constatámos ainda, à semelhança do que previmos anteriormente neste documento, que ao aumentarmos o número de regras do controlador, este iria ter um melhor desempenho. De facto, verificámos uma melhoria significativa desse desempenho, quer utilizando como referência a onda quadrada, quer utilizando a senoide, sendo esta percentualmente mais elevada nas situações em que a referência utilizada é a onda senoide, ou seja, o seno.
 

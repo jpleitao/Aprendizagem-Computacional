@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.5)  9 DEC 2014 09:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.5)  9 DEC 2014 10:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -866,15 +866,15 @@ l.271
 l.271 
        <./Images/Mamdani_9_square.png> <./Images/Mamdani_9_sin.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 291.
+(babel)             in language append on input line 289.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 291.
+(babel)             in language append on input line 289.
  [13pdfTeX warning (ext4): destination with the same identifier (name{figure.9}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.291 
+l.289 
        <./Images/Mamdani_9_square_zoom.png>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language append on input line 299.
@@ -1509,7 +1509,7 @@ ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx17
 28.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (27 pages, 2546439 bytes).
+Output written on Report.pdf (27 pages, 2546766 bytes).
 PDF statistics:
  612 PDF objects out of 1000 (max. 8388607)
  259 compressed objects within 3 object streams
