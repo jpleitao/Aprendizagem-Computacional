@@ -87,6 +87,7 @@ if (controller_type == 1)
 else
 	%Sugeno
 	model_name = strcat(model_name, 'sugeno_');
+	controller_name = strcat(controller_name, 'sugeno_');
 
 	if (number_rules == 1)
 		%9 Rules
