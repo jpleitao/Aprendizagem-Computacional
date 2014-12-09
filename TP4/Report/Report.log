@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.5)  8 DEC 2014 18:42
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.5)  9 DEC 2014 09:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -866,27 +866,27 @@ l.271
 l.271 
        <./Images/Mamdani_9_square.png> <./Images/Mamdani_9_sin.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 292.
+(babel)             in language append on input line 291.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 292.
+(babel)             in language append on input line 291.
  [13pdfTeX warning (ext4): destination with the same identifier (name{figure.9}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.292 
+l.291 
        <./Images/Mamdani_9_square_zoom.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 294.
+(babel)             in language append on input line 299.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 294.
+(babel)             in language append on input line 299.
  [14]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 295.
+(babel)             in language append on input line 300.
 File: Images/Mamdani_9_square.png Graphic file (type png)
 
 <use Images/Mamdani_9_square.png>
-Package pdftex.def Info: Images/Mamdani_9_square.png used on input line 305.
+Package pdftex.def Info: Images/Mamdani_9_square.png used on input line 310.
 (pdftex.def)             Requested size: 208.45538pt x 128.73192pt.
 
 <Images/Mamdani_9_square_actuator.png, id=164, 693.34032pt x 430.60875pt>
@@ -894,7 +894,7 @@ File: Images/Mamdani_9_square_actuator.png Graphic file (type png)
 
 <use Images/Mamdani_9_square_actuator.png>
 Package pdftex.def Info: Images/Mamdani_9_square_actuator.png used on input lin
-e 311.
+e 316.
 (pdftex.def)             Requested size: 208.0037pt x 129.18361pt.
 
 <Images/Mamdani_9_square_charge.png, id=165, 694.09312pt x 430.60875pt>
@@ -902,7 +902,7 @@ File: Images/Mamdani_9_square_charge.png Graphic file (type png)
 
 <use Images/Mamdani_9_square_charge.png>
 Package pdftex.def Info: Images/Mamdani_9_square_charge.png used on input line 
-317.
+322.
 (pdftex.def)             Requested size: 208.22954pt x 129.18361pt.
 
 
@@ -914,7 +914,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Mamdani_9_square_actuator_charge.png Graphic file (type png)
  <use Images/Mamdani_9_square_actuator_charge.png>
 Package pdftex.def Info: Images/Mamdani_9_square_actuator_charge.png used on in
-put line 324.
+put line 329.
 (pdftex.def)             Requested size: 208.22954pt x 128.95776pt.
 
 
@@ -922,7 +922,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 File: Images/Mamdani_9_sin.png Graphic file (type png)
 <use Images/Mamdani_9_sin.png>
-Package pdftex.def Info: Images/Mamdani_9_sin.png used on input line 332.
+Package pdftex.def Info: Images/Mamdani_9_sin.png used on input line 337.
 (pdftex.def)             Requested size: 208.45538pt x 129.18361pt.
 
 
@@ -933,7 +933,7 @@ File: Images/Mamdani_9_sin_actuator.png Graphic file (type png)
 
 <use Images/Mamdani_9_sin_actuator.png>
 Package pdftex.def Info: Images/Mamdani_9_sin_actuator.png used on input line 3
-38.
+43.
 (pdftex.def)             Requested size: 208.0037pt x 128.05438pt.
 
 
@@ -943,7 +943,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Mamdani_9_sin_charge.png Graphic file (type png)
 
 <use Images/Mamdani_9_sin_charge.png>
-Package pdftex.def Info: Images/Mamdani_9_sin_charge.png used on input line 344
+Package pdftex.def Info: Images/Mamdani_9_sin_charge.png used on input line 349
 .
 (pdftex.def)             Requested size: 208.0037pt x 128.73192pt.
 
@@ -955,7 +955,7 @@ File: Images/Mamdani_9_sin_actuator_charge.png Graphic file (type png)
 
 <use Images/Mamdani_9_sin_actuator_charge.png>
 Package pdftex.def Info: Images/Mamdani_9_sin_actuator_charge.png used on input
- line 350.
+ line 355.
 (pdftex.def)             Requested size: 207.552pt x 128.28023pt.
 
 
@@ -965,7 +965,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Mamdani_25_square.png Graphic file (type png)
 
 <use Images/Mamdani_25_square.png>
-Package pdftex.def Info: Images/Mamdani_25_square.png used on input line 358.
+Package pdftex.def Info: Images/Mamdani_25_square.png used on input line 363.
 (pdftex.def)             Requested size: 174.35272pt x 128.28023pt.
 
 
@@ -976,7 +976,7 @@ File: Images/Mamdani_25_square_actuator.png Graphic file (type png)
 
 <use Images/Mamdani_25_square_actuator.png>
 Package pdftex.def Info: Images/Mamdani_25_square_actuator.png used on input li
-ne 364.
+ne 369.
 (pdftex.def)             Requested size: 186.32253pt x 129.6353pt.
 
 
@@ -987,7 +987,7 @@ File: Images/Mamdani_25_square_charge.png Graphic file (type png)
 
 <use Images/Mamdani_25_square_charge.png>
 Package pdftex.def Info: Images/Mamdani_25_square_charge.png used on input line
- 370.
+ 375.
 (pdftex.def)             Requested size: 201.68002pt x 143.18604pt.
 
 
@@ -999,7 +999,7 @@ t>
 File: Images/Mamdani_25_square_actuator_charge.png Graphic file (type png)
  <use Images/Mamdani_25_square_actuator_charge.png>
 Package pdftex.def Info: Images/Mamdani_25_square_actuator_charge.png used on i
-nput line 376.
+nput line 381.
 (pdftex.def)             Requested size: 193.77544pt x 141.15343pt.
 
 
@@ -1009,7 +1009,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Mamdani_25_sin.png Graphic file (type png)
 
 <use Images/Mamdani_25_sin.png>
-Package pdftex.def Info: Images/Mamdani_25_sin.png used on input line 384.
+Package pdftex.def Info: Images/Mamdani_25_sin.png used on input line 389.
 (pdftex.def)             Requested size: 201.00249pt x 150.86478pt.
 
 
@@ -1020,7 +1020,7 @@ File: Images/Mamdani_25_sin_actuator.png Graphic file (type png)
 
 <use Images/Mamdani_25_sin_actuator.png>
 Package pdftex.def Info: Images/Mamdani_25_sin_actuator.png used on input line 
-390.
+395.
 (pdftex.def)             Requested size: 214.32738pt x 137.31406pt.
 
 
@@ -1030,8 +1030,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Mamdani_25_sin_charge.png Graphic file (type png)
 
 <use Images/Mamdani_25_sin_charge.png>
-Package pdftex.def Info: Images/Mamdani_25_sin_charge.png used on input line 39
-6.
+Package pdftex.def Info: Images/Mamdani_25_sin_charge.png used on input line 40
+1.
 (pdftex.def)             Requested size: 199.64742pt x 148.38048pt.
 
 
@@ -1043,148 +1043,148 @@ File: Images/Mamdani_25_sin_actuator_charge.png Graphic file (type png)
 
 <use Images/Mamdani_25_sin_actuator_charge.png>
 Package pdftex.def Info: Images/Mamdani_25_sin_actuator_charge.png used on inpu
-t line 402.
+t line 407.
 (pdftex.def)             Requested size: 180.2247pt x 140.47589pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
 [15pdfTeX warning (ext4): destination with the same identifier (name{figure.10}
 ) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.11}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                  <./Images/Mamdani_9_square_actuator.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
  [16pdfTeX warning (ext4): destination with the same identifier (name{figure.12
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.14}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                  <./Images/Mamdani_9_square_charge.png> <./Images/Mamdani_9_squ
 are_actuator_charge.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
  [17pdfTeX warning (ext4): destination with the same identifier (name{figure.15
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.16}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.17}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                  <./Images/Mamdani_9_sin_actuator.png> <./Images/Mamdani_9_sin_
 charge.png> <./Images/Mamdani_9_sin_actuator_charge.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
  [18pdfTeX warning (ext4): destination with the same identifier (name{figure.18
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.19}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.20}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                  <./Images/Mamdani_25_square.png> <./Images/Mamdani_25_square_a
 ctuator.png> <./Images/Mamdani_25_square_charge.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
  [19pdfTeX warning (ext4): destination with the same identifier (name{figure.21
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.22}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.23}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                  <./Images/Mamdani_25_square_actuator_charge.png> <./Images/Mam
 dani_25_sin.png> <./Images/Mamdani_25_sin_actuator.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 406.
+(babel)             in language append on input line 411.
  [20pdfTeX warning (ext4): destination with the same identifier (name{figure.24
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.25}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.406 \clearpage
+l.411 \clearpage
                  <./Images/Mamdani_25_sin_charge.png> <./Images/Mamdani_25_sin_
 actuator_charge.png>]
 <Images/Sugeno_9_square.png, id=220, 693.34032pt x 429.10312pt>
 File: Images/Sugeno_9_square.png Graphic file (type png)
 
 <use Images/Sugeno_9_square.png>
-Package pdftex.def Info: Images/Sugeno_9_square.png used on input line 412.
+Package pdftex.def Info: Images/Sugeno_9_square.png used on input line 417.
 (pdftex.def)             Requested size: 208.0037pt x 128.73192pt.
 
 <Images/Sugeno_9_square_actuator.png, id=221, 694.09312pt x 429.10312pt>
@@ -1192,7 +1192,7 @@ File: Images/Sugeno_9_square_actuator.png Graphic file (type png)
 
 <use Images/Sugeno_9_square_actuator.png>
 Package pdftex.def Info: Images/Sugeno_9_square_actuator.png used on input line
- 418.
+ 423.
 (pdftex.def)             Requested size: 208.22954pt x 128.73192pt.
 
 <Images/Sugeno_9_square_charge.png, id=222, 691.08188pt x 426.84468pt>
@@ -1200,7 +1200,7 @@ File: Images/Sugeno_9_square_charge.png Graphic file (type png)
 
 <use Images/Sugeno_9_square_charge.png>
 Package pdftex.def Info: Images/Sugeno_9_square_charge.png used on input line 4
-24.
+29.
 (pdftex.def)             Requested size: 207.32616pt x 128.05438pt.
 
 
@@ -1211,16 +1211,16 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Sugeno_9_square_actuator_charge.png Graphic file (type png)
 <use Images/Sugeno_9_square_actuator_charge.png>
 Package pdftex.def Info: Images/Sugeno_9_square_actuator_charge.png used on inp
-ut line 430.
+ut line 435.
 (pdftex.def)             Requested size: 208.22954pt x 128.50607pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 434.
+(babel)             in language append on input line 439.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 434.
+(babel)             in language append on input line 439.
 [21
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.26}) h
@@ -1228,53 +1228,53 @@ as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.434 \clearpage
+l.439 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.27}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.434 \clearpage
+l.439 \clearpage
                  <./Images/Sugeno_9_square.png> <./Images/Sugeno_9_square_actua
 tor.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 434.
+(babel)             in language append on input line 439.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 434.
+(babel)             in language append on input line 439.
  [22pdfTeX warning (ext4): destination with the same identifier (name{figure.28
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.434 \clearpage
+l.439 \clearpage
                 pdfTeX warning (ext4): destination with the same identifier (na
 me{figure.29}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.434 \clearpage
+l.439 \clearpage
                  <./Images/Sugeno_9_square_charge.png> <./Images/Sugeno_9_squar
 e_actuator_charge.png>]
 <Images/Sugeno_9_sin.png, id=237, 691.83469pt x 427.5975pt>
 File: Images/Sugeno_9_sin.png Graphic file (type png)
 
 <use Images/Sugeno_9_sin.png>
-Package pdftex.def Info: Images/Sugeno_9_sin.png used on input line 440.
+Package pdftex.def Info: Images/Sugeno_9_sin.png used on input line 445.
 (pdftex.def)             Requested size: 207.552pt x 128.28023pt.
 
 <Images/Sugeno_9_sin_actuator.png, id=238, 691.83469pt x 429.10312pt>
 File: Images/Sugeno_9_sin_actuator.png Graphic file (type png)
 
 <use Images/Sugeno_9_sin_actuator.png>
-Package pdftex.def Info: Images/Sugeno_9_sin_actuator.png used on input line 44
-6.
+Package pdftex.def Info: Images/Sugeno_9_sin_actuator.png used on input line 45
+1.
 (pdftex.def)             Requested size: 207.552pt x 128.73192pt.
 
 <Images/Sugeno_9_sin_charge.png, id=239, 692.5875pt x 427.5975pt>
 File: Images/Sugeno_9_sin_charge.png Graphic file (type png)
 
 <use Images/Sugeno_9_sin_charge.png>
-Package pdftex.def Info: Images/Sugeno_9_sin_charge.png used on input line 452.
+Package pdftex.def Info: Images/Sugeno_9_sin_charge.png used on input line 457.
 
 (pdftex.def)             Requested size: 207.77785pt x 128.28023pt.
 
@@ -1286,7 +1286,7 @@ File: Images/Sugeno_9_sin_actuator_charge.png Graphic file (type png)
 
 <use Images/Sugeno_9_sin_actuator_charge.png>
 Package pdftex.def Info: Images/Sugeno_9_sin_actuator_charge.png used on input 
-line 458.
+line 463.
 (pdftex.def)             Requested size: 208.22954pt x 128.95776pt.
 
 
@@ -1296,7 +1296,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Sugeno_25_square.png Graphic file (type png)
 
 <use Images/Sugeno_25_square.png>
-Package pdftex.def Info: Images/Sugeno_25_square.png used on input line 466.
+Package pdftex.def Info: Images/Sugeno_25_square.png used on input line 471.
 (pdftex.def)             Requested size: 207.552pt x 128.95776pt.
 
 
@@ -1307,7 +1307,7 @@ File: Images/Sugeno_25_square_actuator.png Graphic file (type png)
 
 <use Images/Sugeno_25_square_actuator.png>
 Package pdftex.def Info: Images/Sugeno_25_square_actuator.png used on input lin
-e 472.
+e 477.
 (pdftex.def)             Requested size: 208.22954pt x 128.05438pt.
 
 
@@ -1318,7 +1318,7 @@ File: Images/Sugeno_25_square_charge.png Graphic file (type png)
 
 <use Images/Sugeno_25_square_charge.png>
 Package pdftex.def Info: Images/Sugeno_25_square_charge.png used on input line 
-478.
+483.
 (pdftex.def)             Requested size: 208.22954pt x 128.50607pt.
 
 
@@ -1330,7 +1330,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Sugeno_25_square_actuator_charge.png Graphic file (type png)
  <use Images/Sugeno_25_square_actuator_charge.png>
 Package pdftex.def Info: Images/Sugeno_25_square_actuator_charge.png used on in
-put line 484.
+put line 489.
 (pdftex.def)             Requested size: 207.32616pt x 128.73192pt.
 
 
@@ -1340,7 +1340,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Sugeno_25_sin.png Graphic file (type png)
 
 <use Images/Sugeno_25_sin.png>
-Package pdftex.def Info: Images/Sugeno_25_sin.png used on input line 492.
+Package pdftex.def Info: Images/Sugeno_25_sin.png used on input line 497.
 (pdftex.def)             Requested size: 207.552pt x 128.95776pt.
 
 
@@ -1350,8 +1350,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Sugeno_25_sin_actuator.png Graphic file (type png)
 
 <use Images/Sugeno_25_sin_actuator.png>
-Package pdftex.def Info: Images/Sugeno_25_sin_actuator.png used on input line 4
-98.
+Package pdftex.def Info: Images/Sugeno_25_sin_actuator.png used on input line 5
+03.
 (pdftex.def)             Requested size: 208.0037pt x 129.18361pt.
 
 
@@ -1361,7 +1361,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Images/Sugeno_25_sin_charge.png Graphic file (type png)
 
 <use Images/Sugeno_25_sin_charge.png>
-Package pdftex.def Info: Images/Sugeno_25_sin_charge.png used on input line 504
+Package pdftex.def Info: Images/Sugeno_25_sin_charge.png used on input line 509
 .
 (pdftex.def)             Requested size: 207.32616pt x 128.95776pt.
 
@@ -1373,17 +1373,17 @@ File: Images/Sugeno_25_sin_actuator_charge.png Graphic file (type png)
 
 <use Images/Sugeno_25_sin_actuator_charge.png>
 Package pdftex.def Info: Images/Sugeno_25_sin_actuator_charge.png used on input
- line 510.
+ line 515.
 (pdftex.def)             Requested size: 207.77785pt x 128.73192pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 514.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
 [23
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.30}) h
@@ -1391,103 +1391,103 @@ as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.31}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                      <./Images/Sugeno_9_sin.png> <./Images/Sugeno_9_sin_actuato
 r.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
  [24pdfTeX warning (ext4): destination with the same identifier (name{figure.32
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.33}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.34}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                      <./Images/Sugeno_9_sin_charge.png> <./Images/Sugeno_9_sin_
 actuator_charge.png> <./Images/Sugeno_25_square.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
  [25pdfTeX warning (ext4): destination with the same identifier (name{figure.35
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.36}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.37}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                      <./Images/Sugeno_25_square_actuator.png> <./Images/Sugeno_
 25_square_charge.png> <./Images/Sugeno_25_square_actuator_charge.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
  [26pdfTeX warning (ext4): destination with the same identifier (name{figure.38
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.39}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.40}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                      <./Images/Sugeno_25_sin.png> <./Images/Sugeno_25_sin_actua
 tor.png> <./Images/Sugeno_25_sin_charge.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language append on input line 514.
+(babel)             in language append on input line 519.
  [27pdfTeX warning (ext4): destination with the same identifier (name{figure.41
 }) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.514 \end{document}
+l.519 \end{document}
                      <./Images/Sugeno_25_sin_actuator_charge.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 514.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 519.
 
 (./Report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 514.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 514.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 519.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 519.
 Package rerunfilecheck Info: File `Report.out' has not changed.
 (rerunfilecheck)             Checksum: 440BB85C4388860CDD259E7BB74AE124;777.
  ) 
@@ -1509,7 +1509,7 @@ ec/ecbx1200.600pk> </home/joaquim/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx17
 28.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Report.pdf (27 pages, 2545798 bytes).
+Output written on Report.pdf (27 pages, 2546439 bytes).
 PDF statistics:
  612 PDF objects out of 1000 (max. 8388607)
  259 compressed objects within 3 object streams
