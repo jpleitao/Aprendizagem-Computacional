@@ -149,7 +149,7 @@ Desta forma, implementámos controladores com as seguintes características:
 
 \subsection{Perturbações}
 
-Numa primeira fase do trabalho, pretendemos estudar o desempenho dos diferentes controladores ao seguirem uma dada entrada, ignorando qualquer perturbação do sinal gerado. Posteriormente, surge com naturalidade o estudo do comportamento e desempenho dos mesmos controladores quando sujeitos a entradas de alguma forma adulteradas ou \emph{perturbadas}.
+Numa primeira fase do trabalho, pretendemos estudar o desempenho dos diferentes controladores ao seguirem uma dada entrada, ignorando qualquer perturbação das ações realizadas pelo controlador. Posteriormente, surge com naturalidade o estudo do comportamento e desempenho dos mesmos controladores quando limitados nas suas ações.
 
 Assim, introduzimos perturbações nos sinais de referência gerados, que podem atuar ao nível dos \emph{atuadores} e/ou da \emph{carga} do controlador, com o objetivo de verificarmos como é que cada controlador compensa essas perturbações.
 
@@ -163,6 +163,32 @@ Desta forma, no presente trabalho, incluímos os seguintes cenários relativos a
 \item Perturbações ao nível da carga
 \item Perturbações ao nível do atuador e da carga
 \end{itemize}
+
+Nas figuras seguintes apresentamos um exemplo da referência fornecida ao controlador, e a sua respetiva saída, com e sem perturbações:
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square.png}
+  \caption{Exemplo da referência fornecida ao controlador (amarelo) e respetiva saída (roxo) sem perturbação da referência}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square_atuator.png}
+  \caption{Exemplo da referência fornecida ao controlador (amarelo) e respetiva saída (roxo) com perturbação do atuador}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square_charge.png}
+  \caption{Exemplo da referência fornecida ao controlador (amarelo) e respetiva saída (roxo) com perturbação da carga}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+      \includegraphics[scale=0.3]{Images/Mamdani_9_square_atuator_charge.png}
+  \caption{Exemplo da referência fornecida ao controlador (amarelo) e respetiva saída (roxo) com perturbação do atuador e da carga}
+\end{figure}
 
 
 \subsection{Implementação}
@@ -189,7 +215,7 @@ No que respeita à implementação dos modelos existe um aspeto relevante que, d
 
 Uma vez que não possuímos nenhum método analítico para determinar os fatores de escala que nos permitem obter os melhores resultados, a determinação dos fatores de escala a considerar foi realizada por \emph{tentativa-erro}, até encontrarmos um par de valores que nos permitissem obter resultados aceitáveis (ou o mais próximo disso possível) nos diferentes cenários considerados.
 
-Após alguns testes, optámos por utilizar um fator de escala de $0.1$ à entrada do controlador, e um fator de escala de $10$ à saída do controlador. No entanto, acreditamos ser possível a utilização de outros fatores de escala que nos permitam obter melhores resultados.
+Após alguns testes, optámos por utilizar um fator de escala de $0.5$ à entrada do controlador, e um fator de escala de $2$ à saída do controlador. No entanto, acreditamos ser possível a utilização de outros fatores de escala que nos permitam obter melhores resultados.
 
 \subsubsection{run.m}
 
@@ -217,9 +243,7 @@ Uma vez finda a execução do sistema, podemos consultar o seu desempenho consul
 
 \section{Testes da Aplicação}
 
-Para podermos comparar o desempenho dos diferentes controladores implementados, nas situações consideradas, realizámos alguns testes à aplicação, que apresentamos de seguida.
-
-\textbf{METER AQUI IMAGENS COM OS TESTES REALIZADOS E OS RESULTADOS -- Eventualmente meter isto no final desta secção e exportamos os resultados do excel para o pdf e pronto!}
+Para podermos comparar o desempenho dos diferentes controladores implementados, nas situações consideradas, realizámos alguns testes à aplicação, que apresentamos no final da presente secção.
 
 Para cada um dos controladores implementados testámos o seu desempenho para diferentes números de regras, referências e perturbações, mantendo todos os outros fatores iguais (nomeadamente os fatores de escala). Assim, testámos as seguintes configurações, para cada controlador:
 
@@ -230,14 +254,14 @@ Para cada um dos controladores implementados testámos o seu desempenho para dif
 \item Considerar a existência de perturbações a nível do atuador
 \item Considerar a existência de perturbações a nível da carga
 \item Considerar a existência de perturbações a nível do atuador e da carga
-\item Utilizar como fator de escala à entrada do controlador o valor $0.1$, e o valor $10$ à saída do controlador
+\item Utilizar como fator de escala à entrada do controlador o valor $0.5$, e o valor $2$ à saída do controlador
 \end{itemize}
+
+\includepdf[pages={1-3}]{Images/Resultados_Novos.pdf}
 
 \pagebreak
 
 \section{Conclusões}
-
-\textbf{REFAZER ESTA PARTE MAS MANTER A CENA DE MOSTRAR QUE AS REGRAS ESTAO A FUNCIONAR BEM!!!!}
 
 Após uma análise crítica dos resultados obtidos existem alguns pontos que consideramos importantes salientar.
 
@@ -245,13 +269,13 @@ Em primeiro lugar, tal como previmos no início deste documento, verificamos que
 
 Tal como podemos constatar nas duas figuras que se seguem, os desajustes entre a saída obtida no controlador e a referência em questão são mais notórios em momentos de ocorrência de variações bruscas na referência (como é o caso da onda quadrada).
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
       \includegraphics[scale=0.3]{Images/Mamdani_9_square.png}
   \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
       \includegraphics[scale=0.3]{Images/Mamdani_9_sin.png}
   \caption{Saída obtida (a roxo) e esperada (a amarelo), utilizando a onda quadrada como referência e um controlador \emph{Mamdani} de $9$ regras}
@@ -269,13 +293,15 @@ De qualquer das formas, mesmo para referências quadradas, verificámos uma corr
 
 Nesta situação a saída do controlador começa por ser inferior ao valor da sua referência, constituindo, portanto, um erro positivo. Uma vez que o valor da saída se está a aproximar da referência, concluímos que a sua variação é negativa (pois o erro está a diminuir, fruto da aproximação da saída à referência).
 
-Assim, pela aplicação das regras apresentadas, o controlador não necessita de \emph{"travar"} nem \emph{"acelerar"} a saída, mantendo esta com a mesma tendência, caminhando no sentido de diminuição do erro, ou seja, no sentido da referência que pretendemos seguir.
+Assim, pela aplicação das regras apresentadas, o controlador não necessita de \emph{"travar"} nem \emph{"acelerar"} a saída, mantendo esta com a mesma tendência, caminhando no sentido de diminuição do erro, ou seja, da referência que pretendemos seguir.
 
 De facto, tal situação é verificada, uma vez que o valor da saída do controlador aumenta, chegando até a igualar a referência. Nesse momento, estamos perante uma situação de erro nulo, e a sua variação é negativa (analisando os instantes imediatamente anteriores a esta situação verificamos que o erro se encontra a diminuir, o que corresponde a uma variação negativa). Assim, por aplicação das regras estudadas, o controlador deveria, nesta situação, \emph{"travar"} a saída.
 
 Efetivamente, tal ação é realizada, mas os seus efeitos não são sentidos no imediato, uma vez que a saída do controlador continua a aumentar, afastando-se do valor da referência, até que começa a diminuir, voltando a ir ao encontro da referência que se pretende seguir.
 
-Para além destes factos, constatámos ainda, à semelhança do que previmos anteriormente neste documento, que ao aumentarmos o número de regras do controlador, este iria ter um melhor desempenho. De facto, verificámos uma melhoria significativa desse desempenho, quer utilizando como referência a onda quadrada, quer utilizando a senoide, sendo esta percentualmente mais elevada nas situações em que a referência utilizada é a onda senoide, ou seja, o seno.
+Para além destes factos, constatámos ainda, à semelhança do que previmos anteriormente neste documento, que ao aumentarmos o número de regras do controlador, este iria ter um melhor desempenho.
+
+De facto, verificámos uma melhoria significativa desse desempenho, quer utilizando como referência a onda quadrada, quer utilizando a senoide, sendo que com esta última as melhorias são mais significativas.
 
 Tal como referimos anteriormente, este resultado é esperado, uma que com um maior número de regras os ajustes realizados pelo controlador podem ser mais suaves e adaptados a cada situação em particular, resultando num melhor desempenho do mesmo.
 
@@ -285,12 +311,15 @@ De facto, este resultado também era por nós previsto, uma vez que ao considera
 
 Gostaríamos também de referir que, de uma forma geral, os controladores do tipo \emph{Sugeno} apresentaram melhores resultados do que os \emph{Mamdani}, no entanto, estes últimos apresentam maior tolerância à presença de perturbações no atuador e na carga, uma vez que nessas situações obtiveram reduções relativas do desempenho inferiores às presenciadas pelos controladores do tipo \emph{Sugeno}.
 
-Tendo em conta os resultados apresentamos, concluímos que, ao utilizarmos a onda senoide como referência, aliada a um controlador do tipo \emph{Sugeno} com $25$ regras, e sem considerar nenhuma perturbação da referência, conseguimos seguir da melhor forma a referência fornecida ao controlador. Esta é, portanto, a configuração que apresentou melhores resultados nos testes realizados.
+Mais ainda, nos controladores \emph{Mamdani} que fazem uso do método de desfuzificação \emph{centróide} obtivemos melhores resultados, do que nos que utilizaram o método \emph{medmax}.
 
-De facto, analisando os testes realizados temos consciência de que seria necessário ter testado um maior número de situações, nomeadamente variando o método de desfuzificação do controlador, os operadores de conjunção/disjunção dos antecedentes, implicação e agregação das saídas.
+Já para os controladores \emph{Sugeno}, o método de desfuzificação \emph{sum} aparenta produzir melhores resultados do que o método \emph{med}, embora a sua diferença seja bastante escassa.
 
-Testando os diferentes modelos apresentados com controladores onde fossem variadas estas propriedades permitia-nos obter resultados mais conclusivos na comparação dos controladores testados. Dessa forma poderíamos até obter uma configuração que, com alguma confiança, nos permitisse concluir ser a melhor para a situação em estudo.
+Esta situação também se verifica no que diz respeito à função de pertença: os resultados obtidos sugerem que os controladores que fazem uso da função \emph{trimf} possuem uma performance ligeiramente superior aos controladores que fazem uso da função \emph{gaussmf}.
 
-No entanto, como já foi anteriormente referido, não dispusemos de tempo suficiente para realizar todos os testes pretendidos, uma vez que cada teste demorou bastante tempo a ser executado nas nossas máquinas. Assim, foi-nos apenas possível realizar os testes indicados. Não obstante, este seria um aspeto que tencionaríamos melhorar em iterações futuras do trabalho.
+Assim, com base nos resultados obtidos e aqui apresentados, somos levados a concluir que, de uma forma geral, ao utilizarmos como referência a onda senoide, aliada a um controlador do tipo \emph{Sugeno} com $25$ regras, fazendo uso de um método de desfuzificação \emph{sum} e uma função de pertença \emph{trimf}, obteríamos a melhor performance.
+
+Efetivamente, esta é a configuração que obteve melhores resultados para os diferentes cenários testados (ausência e presença de perturbações).
+
 
 \end{document}

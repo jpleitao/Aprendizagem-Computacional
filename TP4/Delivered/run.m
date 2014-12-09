@@ -33,12 +33,13 @@ end
 %===========================================Get the defuzzification method of the controller==================================================
 defuzzification_method = 0;
 while ( (defuzzification_method ~= 1) && (defuzzification_method ~= 2) )
-if (controller_type == 1)
-	%Mamdani
-	defuzzification_method = input('Select the desired defuzzification method:\n1 - Centroid\n2 - Medmax\n');
-else
-	%Sugeno
-	defuzzification_method = input('Select the desired defuzzification method:\n1 - Med\n2 - Sum\n');
+	if (controller_type == 1)
+		%Mamdani
+		defuzzification_method = input('Select the desired defuzzification method:\n1 - Centroid\n2 - Medmax\n');
+	else
+		%Sugeno
+		defuzzification_method = input('Select the desired defuzzification method:\n1 - Med\n2 - Sum\n');
+	end
 end
 
 %=================================================Get the Perturbation Type===================================================================
